@@ -251,10 +251,19 @@ for f in assets/js/*.js assets/js/diapositives/*.js; do node --check "$f"; done
 node eines/prova-pptx.mjs
 node eines/prova-pptx.mjs assets/js/diapositives/tema1.js
 
+# Sintaxi de TOTS els blocs Java del material (necessita java-parser)
+npm install            # instal·la java-parser i jsdom (només per a les proves)
+node eines/prova-sintaxi-java.mjs
+node eines/prova-sintaxi-java.mjs 7 8     # només els temes indicats
+
 # Comprovació de les pàgines (opcional, necessita jsdom)
-npm install jsdom      # només per a les proves
 node eines/prova-pagines.mjs
 ```
+
+Els blocs que **no són Java** (diagrames, plans en text, altres llenguatges) es
+marquen amb `noExecuta: true` al fitxer de contingut; els errors provocats a
+propòsit, amb `mal: true`. Així la comprovació de sintaxi pot exigir que tots
+els blocs Java restants siguen correctes.
 
 **Manteniment habitual:** l'any, el nom de l'autor o el centre es canvien
 només en `assets/js/dades-curs.js` (camp `autoria`); la resta de pàgines els

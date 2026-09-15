@@ -53,7 +53,7 @@ casa i en un pendrive.
 | 6 | Classes i objectes | 3 h |
 | 7 | Construcció d'un programa complet | 3 h |
 | 8 | Programació en l'era de la IA | 3 h |
-| 9 | Innovacions i futur de la programació | 3 h |
+| 9 | Cap a on va la programació? | 3 h |
 
 Cada tema és una pàgina web amb **11 apartats** (introducció, objectius, teoria,
 exemples, programació guiada, mini exercicis, «Fes el programa», reptes, errors
@@ -91,9 +91,28 @@ docs/                   GUIA-DOCENT.md i ARQUITECTURA-WEB.md
 
 ## Estat del material
 
-El projecte es construïx **tema a tema**. La infraestructura (disseny, motor de
-pàgines, impressió, PowerPoint i plantilles) ja està feta; els temes s'afigen
-damunt d'eixa base i es publiquen a l'índex quan estan complets.
+**Els deu temes estan publicats** (Tema 0 i sessions 1 a 9): pàgina web,
+diapositives, manual per a imprimir i autoavaluació de cada un. L'índex i els
+menús es construïxen automàticament a partir de `assets/js/dades-curs.js`.
+
+## Comprovacions (per al professorat)
+
+Les pàgines no necessiten Node ni cap dependència: s'obrin directament. Estes
+comprovacions són ferramentes de control de qualitat del repositori:
+
+```bash
+npm install                          # java-parser + jsdom (només per a proves)
+npm run genera -- 9                  # genera temes/tema9.html i les diapositives
+npm run prova:sintaxi                # comprova la sintaxi de tots els blocs Java
+npm run prova:pagines                # comprova les 11 seccions de cada tema (jsdom)
+npm run prova:pptx                   # comprova el generador de PowerPoint
+npm run prova:java -- 9              # executa els programes amb un JDK (opcional)
+```
+
+Cada tema viu com a **dades** en `eines/contingut/temaN.js`; el generador
+`eines/genera-temes.mjs` produïx la pàgina i les diapositives, i valida les
+regles de contingut (11 apartats, 9 preguntes d'autoavaluació, 4-8 mini
+exercicis, 3-5 exercicis, etc.).
 
 ---
 

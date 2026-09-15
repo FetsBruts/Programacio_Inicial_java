@@ -212,26 +212,33 @@ gran, codi gran i preguntes per llançar a classe.
 
 ---
 
-## 11. Com afegir un tema nou (per al professorat)
+## 11. Com modificar o afegir un tema (per al professorat)
 
-1. **Copia la plantilla:** `eines/plantilla-tema.html` → `temes/temaN.html`.
-   Les rutes relatives ja funcionen perquè els dos fitxers estan a la mateixa
-   profunditat.
-2. **Canvia les dades de capçalera:** `<title>`, la descripció, el
-   `<body data-tema="N">`, el hero i la portada d'impressió.
-3. **Escriu el contingut** dels 11 apartats. Reaprofita els blocs d'exemple
-   (concepte, codi, consola, predicció, exercici, repte, error habitual…).
-4. **Publica'l** a `assets/js/dades-curs.js`: posa la ruta en `fitxer` i canvia
-   `estat` a `'publicat'` en el tema corresponent. L'índex i el menú lateral
-   s'actualitzen sols.
-5. **Crea les diapositives:** copia `assets/js/diapositives/_PLANTILLA.js` com
-   `assets/js/diapositives/temaN.js`, completa-la i descomenta l'etiqueta
-   `<script>` al final de la pàgina del tema.
-6. **Comprova-ho:**
-   - `node --check assets/js/diapositives/temaN.js`
-   - `node eines/prova-pptx.mjs assets/js/diapositives/temaN.js`
-   - Obrir la pàgina i vore-La > **Imprimir PDF** (previsualització).
-7. **Repàs final** amb la llista de comprovació de davall.
+**El contingut no es toca mai a `temes/temaN.html`**: eixe fitxer es genera.
+Cada tema s'escriu una sola volta, com a dades, en `eines/contingut/temaN.js`.
+
+1. **Edita el contingut** a `eines/contingut/temaN.js` (text, exemples,
+   exercicis, errors, resum i diapositives). L'esquema dels blocs està
+   documentat al capdamunt del mateix fitxer i a `docs/ARQUITECTURA-WEB.md`.
+2. **Genera la pàgina i les diapositives:**
+   `node eines/genera-temes.mjs N` → escriu `temes/temaN.html` i
+   `assets/js/diapositives/temaN.js`. El generador **valida** el contingut
+   (11 apartats, 3-6 objectius, 4-8 mini exercicis, 3-5 exercicis principals,
+   almenys un repte, 3 errors, exactament 9 preguntes d'autoavaluació,
+   5-10 idees de resum, diapositives presents).
+3. **Publica'l** a `assets/js/dades-curs.js`: posa la ruta en `fitxer` i canvia
+   `estat` a `'publicat'`. L'índex, el mapa i el menú lateral s'actualitzen
+   sols.
+4. **Comprova-ho:**
+   - `npm run prova:sintaxi` — cap bloc Java amb errors de sintaxi.
+   - `npm run prova:pagines` — les 11 seccions i els botons de cada tema.
+   - `npm run prova:pptx -- assets/js/diapositives/temaN.js`.
+   - Obrir la pàgina i vore-LA > **Imprimir PDF** (previsualització).
+5. **Repàs final** amb la llista de comprovació de davall.
+
+> Hi ha una via alternativa sense generador: `eines/plantilla-tema.html` es pot
+> copiar a `temes/` i editar a mà. Només es recomana per a proves ràpides,
+> perquè llavors el tema no passa pels controls automàtics de contingut.
 
 ### Llista de comprovació abans de publicar un tema
 
@@ -243,7 +250,8 @@ gran, codi gran i preguntes per llançar a classe.
 - [ ] Els exemples són pròxims (jocs, notes, música, esports, diners, IA…).
 - [ ] Hi ha 4-8 mini exercicis i 3-5 exercicis principals amb solució.
 - [ ] Hi ha reptes **sense** botó de solució.
-- [ ] Hi ha 9 preguntes d'autoavaluació amb explicació de la resposta.
+- [ ] Hi ha 9 preguntes d'autoavaluació (3 fàcils, 3 intermèdies, 3 de pensar) amb explicació de la resposta.
+- [ ] `npm run prova:sintaxi` dona verd: cap bloc Java amb errors de sintaxi.
 - [ ] Els errors habituals inclouen el codi que falla i el codi correcte.
 - [ ] El llenguatge és natural i en valencià, sense perdre rigor.
 - [ ] S'imprimeix bé: sense talls estranys i amb el codi llegible.
