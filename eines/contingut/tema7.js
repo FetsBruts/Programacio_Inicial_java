@@ -629,7 +629,7 @@ No hi ha cap producte que es diga Impressora`
         jugadors[1].punts = 95;
 
         System.out.println("Amb Ana (120) i Bruno (95): total " + totalPunts(jugadors)
-                + " i millor \\" + millorJugador(jugadors) + "\\".");
+                + " i millor " + '"' + millorJugador(jugadors) + '"' + ".");
     }`,
             sortida: 'Amb Ana (120) i Bruno (95): total 215 i millor "Ana amb 120 punts".'
           } },
