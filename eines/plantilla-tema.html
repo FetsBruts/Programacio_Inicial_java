@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<!--
+  ============================================================================
+  PLANTILLA OFICIAL D'UN TEMA  ·  Interna, no es publica
+  ============================================================================
+  Material creat per Agustín Gil · IES La Vereda 2026 · CC BY-NC 4.0
+
+  COM S'USA
+    1. Copia este fitxer a  temes/temaN.html   (les rutes ja encaixen: ací i
+       allà la profunditat és la mateixa, ../assets/).
+    2. Canvia el <title>, la descripció, el <body data-tema="N"> i el hero.
+    3. Substitueix els blocs d'exemple pel contingut real del tema.
+    4. Afig la data del tema a  assets/js/dades-curs.js  (camp fitxer).
+    5. Crea  assets/js/diapositives/temaN.js  amb window.DIAPOSITIVES_TEMA.
+    6. Esborra este comentari i la banda de "PLANTILLA" del principi del body.
+
+  ELS 11 APARTATS OBLIGATORIS (ids que usa el menú i la impressió)
+    01 introducció · 02 objectius · 03 teoria · 04 exemples · 05 guiada
+    06 mini exercicis · 07 fes-el-programa · 08 reptes · 09 errors
+    10 resum · 11 autoavaluacio
+  ============================================================================
+--><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema N · Títol del tema | Introducció a la Programació amb Java</title>
+<meta name="description" content="Tema N del curs: resum d'una línia del que aprendrem en esta sessió de 3 hores.">
+<meta name="author" content="Agustín Gil · IES La Vereda 2026">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/tema.css">
+<link rel="stylesheet" href="../assets/css/print.css">
+</head>
+
+<body data-tema="1">
+
+<!-- ========================= BANDA DE PLANTILLA (esborrar) ========================= -->
+<div class="no-imprimible" style="background:#F97316;color:#fff;font:600 .9rem/1.5 system-ui,sans-serif;text-align:center;padding:.5rem 1rem">
+  PLANTILLA INTERNA · no és un tema publicat · servix per crear temes/temaN.html
+</div>
+
+<!-- ============================ PORTADA D'IMPRESSIÓ ============================ -->
+<div class="portada-impressio només-impressio" id="portada-impressio">
+  <p class="portada-impressio__curs" data-camp="assignatura">Optativa SMX · Introducció a la Programació</p>
+  <h1 data-camp="tema">Tema N · Títol del tema</h1>
+  <p class="portada-impressio__resum" data-camp="subtitol">Subtítol del tema.</p>
+  <div class="portada-impressio__meta">
+    <p data-camp="autor">Material creat per Agustín Gil · IES La Vereda 2026</p>
+    <p>Llicència <span data-camp="llicencia">CC BY-NC 4.0</span> · <a data-camp="enllac" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">creativecommons.org/licenses/by-nc/4.0</a></p>
+    <p>Data d'impressió: <span data-camp="data"></span></p>
+    <p class="text-suau">Manual d'estudi: teoria, exemples, programació guiada i resum. Els exercicis i els reptes es treballen a la web; les tres primeres preguntes d'autoavaluació inclouen la solució.</p>
+  </div>
+</div>
+
+<!-- ================================== CAPÇALERA ================================== -->
+<header class="capcalera">
+  <div class="contenidor capcalera__interior" style="max-width:1400px">
+    <a class="capcalera__marca" href="../index.html">
+      <span class="capcalera__logo" aria-hidden="true">{}</span>
+      <span class="capcalera__text">
+        <span class="capcalera__curs">Optativa SMX · Programació amb Java</span>
+        <span class="capcalera__tema">Tema N · Títol del tema</span>
+      </span>
+    </a>
+    <div class="capcalera__accions">
+      <button class="boto boto--ciano boto--petit" type="button" data-imprimir>🖨 <span class="text-llarg">Imprimir</span> PDF</button>
+      <button class="boto boto--taronja boto--petit" type="button" data-pptx>📊 <span class="text-llarg">Crear</span> PowerPoint</button>
+      <a class="boto boto--fantasma boto--petit" href="../index.html">Índex del curs</a>
+      <button class="boto-icona" type="button" data-menu-toggle aria-expanded="false" aria-label="Obrir el menú del tema">☰</button>
+    </div>
+  </div>
+  <div class="contenidor capcalera__meta" style="max-width:1400px">
+    <span>✍ Material creat per <strong>Agustín Gil</strong> - IES La Vereda 2026</span>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-NC 4.0</a>
+    <span class="text-suau">Tema N de 10 · 3 hores de classe</span>
+  </div>
+  <div class="barra-progres" aria-hidden="true"><span></span></div>
+</header>
+
+<div class="overlay-menu" aria-hidden="true"></div>
+
+<div class="disposicio">
+
+  <!-- ============================== MENÚ LATERAL ============================== -->
+  <aside class="menu-lateral" id="menu-lateral" aria-label="Navegació del tema">
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">En este tema</p>
+      <nav class="indice-intern" id="indice-intern" aria-label="Índex del tema">
+        <!-- Generat automàticament per plantilla-tema.js a partir de <section data-nav> -->
+      </nav>
+    </div>
+
+    <div class="menu-lateral__bloc" id="progres-exercicis" hidden>
+      <p class="menu-lateral__titol">El teu progrés</p>
+      <div class="barra-avaluacio"><span style="width:0"></span></div>
+      <p class="text-suau" id="progres-exercicis-text" style="font-size:.82rem;margin:0"></p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Temes del curs</p>
+      <nav class="llista-temes-mini" id="llista-temes-mini" aria-label="Temes del curs">
+        <!-- Generat automàticament per plantilla-tema.js -->
+      </nav>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Accions</p>
+      <div class="pila" style="gap:.5rem">
+        <button class="boto boto--primari boto--ampla boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button>
+        <button class="boto boto--taronja boto--ampla boto--petit" type="button" data-pptx>📊 Crear PowerPoint</button>
+      </div>
+      <p class="text-suau" style="font-size:.78rem;margin:.6rem 0 0">
+        El PDF inclou la teoria i el resum. La presentació és per explicar a classe.
+      </p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Autoria</p>
+      <p class="text-suau" style="font-size:.8rem;margin:0">
+        <strong>Agustín Gil</strong><br>IES La Vereda · 2026<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+      </p>
+    </div>
+  </aside>
+
+  <!-- ================================= CONTINGUT ================================= -->
+  <main class="contingut">
+
+    <!-- ---------------------------------- HERO ---------------------------------- -->
+    <div class="hero-tema">
+      <span class="hero-tema__etiqueta">Tema N · Sessió de 3 hores</span>
+      <h1>Títol del tema</h1>
+      <p class="hero-tema__entradeta">Una frase que explique, en llenguatge d'alumnat de 16 anys, què farem i per a què servix.</p>
+      <div class="hero-tema__meta">
+        <span class="pastilla">⏱ 3 hores</span>
+        <span class="pastilla">📍 Fase 1 · Pensament de programador</span>
+        <span class="pastilla">🧩 Necessites: Tema anterior</span>
+        <span class="pastilla">⌨️ 60-75 min programant</span>
+      </div>
+    </div>
+
+    <!-- ============================ 01 · INTRODUCCIÓ ============================ -->
+    <section class="seccio" id="introduccio" data-nav="01 · Introducció" style="padding-top:0">
+      <h2>Una situació per començar</h2>
+      <div class="situacio revela">
+        <span class="situacio__emoji" aria-hidden="true">🎮</span>
+        <div>
+          <p><strong>Imagina't que…</strong> (acíd una situació pròxima: un videojoc, una nota, una
+          contrasenya, un preu, una llista de música…). Acaba amb una pregunta que només es pot
+          resoldre amb el concepte del tema.</p>
+          <p class="text-suau">«I si l'usuari escriu una altra cosa?» «I si volem guardar 30 notes en compte de 3?»</p>
+        </div>
+      </div>
+
+      <div class="plan-sessio revela" style="margin-top:var(--esp-5)">
+        <div class="plan-sessio__bloc"><span class="plan-sessio__temps">30-45 min</span><span class="plan-sessio__nom">Explicació i demos</span></div>
+        <div class="plan-sessio__bloc"><span class="plan-sessio__temps">60-75 min</span><span class="plan-sessio__nom">Programació guiada</span></div>
+        <div class="plan-sessio__bloc"><span class="plan-sessio__temps">60-75 min</span><span class="plan-sessio__nom">Exercicis</span></div>
+        <div class="plan-sessio__bloc"><span class="plan-sessio__temps">15-30 min</span><span class="plan-sessio__nom">Repàs i repte</span></div>
+      </div>
+
+      <div class="prerequisits">
+        <strong>Abans de començar has de poder fer això:</strong>
+        <ul>
+          <li>Crear i executar un programa senzill (Tema anterior).</li>
+          <li>Mostrar informació per pantalla amb <code>System.out.println()</code>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ 02 · QUÈ APRENDREM ============================ -->
+    <section class="seccio" id="objectius" data-nav="02 · Què aprendrem?">
+      <h2>Què aprendrem en este tema?</h2>
+      <p class="entradeta">Entre 3 i 6 objectius, escrits amb paraules que l'alumnat entenga.</p>
+      <ul class="llista-objectius revela">
+        <li><span class="num">1</span><span>Objectiu 1: què sabràs fer al final de la sessió.</span></li>
+        <li><span class="num">2</span><span>Objectiu 2.</span></li>
+        <li><span class="num">3</span><span>Objectiu 3.</span></li>
+      </ul>
+    </section>
+
+    <!-- =============================== 03 · TEORIA =============================== -->
+    <section class="seccio" id="teoria" data-nav="03 · Teoria">
+      <h2>Teoria, poc a poc</h2>
+      <p class="entradeta">Regla d'or: <strong>una idea → un exemple</strong>. Mai dos paràgrafs seguits sense codi o esquema.</p>
+
+      <!-- Patró: concepte (idea + exemple + eixida) -->
+      <article class="concepte revela">
+        <div class="concepte__idea">
+          <p>💡 Idea clau del bloc, en una frase.</p>
+        </div>
+        <p>Explicació curta, amb llenguatge pròxim. «Mira què passa ací…», «Ara li pegarem una volta…»</p>
+
+        <pre class="codi" data-titol="NomDelFitxer.java" data-etiqueta="EXEMPLE"><code>int punts = 0;              // comença el joc
+punts = punts + 10;         // guanyem 10 punts
+System.out.println(punts);  // mostrem el resultat</code></pre>
+
+        <div class="consola">
+          <span class="consola__titol">Eixida per pantalla</span>
+          <pre>10</pre>
+        </div>
+
+        <div class="nota nota--tip">
+          <span class="nota__icona" aria-hidden="true">💡</span>
+          <div><p>Consell útil o truc que estalvia errors.</p></div>
+        </div>
+
+        <div class="nota-notecnica nota">
+          <span class="nota__icona" aria-hidden="true">🔧</span>
+          <div><p><strong>De moment no necessitem entendre esta part.</strong> <code>public static void main(String[] args)</code> és la carcassa que Java necessita per arrancar; ja arribarem més avant.</p></div>
+        </div>
+      </article>
+
+      <!-- Patró: taula resum de tipus / operadors / sintaxi -->
+      <div class="taula-embolcall">
+        <table class="taula">
+          <thead><tr><th>Element</th><th>Què fa</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><code>int</code></td><td>Nombres enters</td><td><code>int edat = 16;</code></td></tr>
+            <tr><td><code>double</code></td><td>Nombres amb decimals</td><td><code>double nota = 7.5;</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- =========================== 04 · EXEMPLES EXPLICATS =========================== -->
+    <section class="seccio seccio--suau" id="exemples" data-nav="04 · Exemples">
+      <h2>Exemples explicats pas a pas</h2>
+      <p class="entradeta">Cada exemple: què volem aconseguir → el codi comentat → què apareix per pantalla → per què funciona.</p>
+
+      <article class="concepte revela">
+        <h3>Exemple 1 · Un títol clar que diga què fem</h3>
+        <p><strong>Què volem?</strong> Descripció del problema en una línia.</p>
+        <pre class="codi" data-titol="Exemple1.java" data-etiqueta="EXEMPLE EXPLICAT"><code>// Cada línia fa una cosa i va comentada
+int vida = 100;
+vida = vida - 30;                 // rebem un colp
+System.out.println("Vida: " + vida);</code></pre>
+        <div class="consola"><span class="consola__titol">Eixida per pantalla</span><pre>Vida: 70</pre></div>
+        <p class="text-suau">Per què funciona: explicació de dos línies, centrada en el concepte del tema.</p>
+      </article>
+
+      <!-- Patró: predicció (pensar ABANS d'executar) -->
+      <div class="prediccio revela">
+        <h3>Què apareixerà per pantalla?</h3>
+        <pre class="codi" data-titol="Prediccio.java" data-etiqueta="PENSA PRIMER"><code>int a = 5;
+int b = 2;
+System.out.println(a / b);</code></pre>
+        <button class="boto boto--solucio" type="button" data-solucio="sol-prediccio" data-text-mostrar="Mostrar què apareix" data-text-ocultar="Amagar">Mostrar què apareix</button>
+        <div class="solucio" id="sol-prediccio" hidden>
+          <span class="solucio__etiqueta">Resposta</span>
+          <div class="consola"><span class="consola__titol">Eixida real</span><pre>2</pre></div>
+          <p class="solucio__perque">Per què: quan dividim dos enters, Java guarda un enter. El 0,5 es perd. Ací és on comença a tindre gràcia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== 05 · PROGRAMACIÓ GUIADA =========================== -->
+    <section class="seccio" id="guiada" data-nav="05 · Programació guiada">
+      <h2>Programació guiada: ho fem junts</h2>
+      <p class="entradeta">
+        Construïm el programa pas a pas. <strong>No mostres el codi final d'un colp</strong>:
+        pensa en veu alta, pregunta i prova cada pas abans de passar al següent.
+      </p>
+
+      <div class="pas revela">
+        <span class="pas__num">1</span>
+        <div class="pas__cos">
+          <h3>Entendre què ens demanen</h3>
+          <p>Què ha de fer el programa? Quines dades necessita? Què ha de mostrar?</p>
+          <div class="pregunta-classe"><p>Quina informació hem de guardar per poder resoldre-ho?</p></div>
+          <pre class="codi" data-titol="Pas 1 · Estructura del fitxer" data-etiqueta="PAS 1"><code>public class ElMeuPrograma {
+    public static void main(String[] args) {
+        // de moment ací no hi ha res: ho construirem pas a pas
+    }
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="pas revela">
+        <span class="pas__num">2</span>
+        <div class="pas__cos">
+          <h3>Afegim la primera part</h3>
+          <p>Una cosa per pas. Provem, mirem l'eixida i continuem.</p>
+          <div class="pregunta-classe"><p>I si l'usuari posa un valor estrany? Què passaria?</p></div>
+          <pre class="codi" data-titol="Pas 2 · Primera part" data-etiqueta="PAS 2"><code>int notes = 3;
+System.out.println("Anem a calcular la mitjana de " + notes + " notes.");</code></pre>
+          <div class="consola"><span class="consola__titol">Eixida per pantalla</span><pre>Anem a calcular la mitjana de 3 notes.</pre></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 06 · MINI EXERCICIS ============================= -->
+    <section class="seccio seccio--suau" id="mini-exercicis" data-nav="06 · Mini exercicis">
+      <h2>Mini exercicis</h2>
+      <p class="entradeta">De 4 a 8 activitats molt curtes. Un minut o dos cada una: es poden fer a classe mateix.</p>
+
+      <div class="llista-mini">
+        <article class="exercici exercici--mini revela">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">Títol curt de l'activitat</h3>
+            <span class="pastilla">1 min</span>
+          </div>
+          <p>Enunciat d'una o dos línies.</p>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="mini1">Mostrar solució</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini1"> Fet</label>
+          </div>
+          <div class="solucio" id="mini1" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <pre class="codi" data-titol="MiniExercici1.java"><code>System.out.println("Hola!");</code></pre>
+            <p class="solucio__perque">Per què: explicació d'una línia.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 07 · FES EL PROGRAMA (exercicis) ========================= -->
+    <section class="seccio" id="fes-el-programa" data-nav="07 · Fes el programa">
+      <h2>Fes el programa</h2>
+      <p class="entradeta">
+        De 3 a 5 exercicis, de menor a major dificultat. Primer es pensa, després s'escriu i
+        finalment es prova. La solució és per <strong>comparar</strong>, no per copiar.
+      </p>
+
+      <article class="exercici revela" id="exercici-1">
+        <div class="exercici__cap">
+          <span class="exercici__num">1</span>
+          <h3 class="exercici__titol">Títol de l'exercici</h3>
+          <span class="pastilla pastilla--verd">Fàcil</span>
+          <span class="pastilla">15 min</span>
+        </div>
+        <p class="exercici__enunciat">Enunciat clar: què ha de fer el programa, quines dades guarda i què ha de mostrar.</p>
+        <p><strong>Exemple de funcionament:</strong></p>
+        <div class="consola consola--entrada"><span class="consola__titol">Què ha de passar</span><pre>Entra: 8
+Ix:     La nota és un notable</pre></div>
+        <div class="exercici__accions">
+          <button class="boto boto--solucio" type="button" data-solucio="ex1">Mostrar solució</button>
+          <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista1">Vore una pista</button>
+          <label class="marca-fet"><input type="checkbox" data-fet="ex1"> Fet</label>
+        </div>
+        <div class="pista" id="pista1" hidden>
+          <p><strong>Pista:</strong> una ajuda que no resol l'exercici (quina estructura fer servir, quantes variables calen…).</p>
+        </div>
+        <div class="solucio" id="ex1" hidden>
+          <span class="solucio__etiqueta">Solució proposada</span>
+          <pre class="codi" data-titol="Exercici1.java" data-etiqueta="SOLUCIÓ"><code>// Solució completa, comentada i amb una variant al final
+int nota = 8;
+System.out.println("La nota és " + nota);</code></pre>
+          <p class="solucio__perque"><strong>Per què es fa aixina:</strong> justificació breu. També pot incloure una alternativa vàlida («també funcionaria amb…»).</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================================ 08 · REPTES ================================ -->
+    <section class="seccio seccio--suau" id="reptes" data-nav="08 · Reptes">
+      <h2>Reptes (sense solució)</h2>
+      <div class="nota nota--avis">
+        <span class="nota__icona" aria-hidden="true">🧠</span>
+        <div><p>Els reptes <strong>no tenen botó de solució</strong>, a propòsit. L'objectiu és pensar, provar, equivocar-se i tornar-ho a intentar. Es poden resoldre de moltes maneres diferents: totes les solucions que funcionen són bones.</p></div>
+      </div>
+
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 1</span>
+          <h3 class="repte__titol">Títol del repte</h3>
+        </div>
+        <p>Enunciat obert. Ha de poder resoldre's amb el que s'ha après fins ara, però exigint pensar una miqueta més.</p>
+        <p><strong>Ampliacions opcionals:</strong></p>
+        <ul class="llista-punts">
+          <li>Què passa si…?</li>
+          <li>Com ho faries perquè també…?</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ============================ 09 · ERRORS HABITUALS ============================ -->
+    <section class="seccio" id="errors" data-nav="09 · Errors habituals">
+      <h2>Errors habituals</h2>
+      <p class="entradeta">Els errors que apareixen segur. Saber llegir-los és mitat del treball.</p>
+
+      <article class="error-habitual revela">
+        <div class="error-habitual__cap">
+          <span class="error-habitual__etiqueta">Error 1</span>
+          <h3 class="exercici__titol" style="margin:0">Nom de l'error en poques paraules</h3>
+        </div>
+        <div class="error-habitual__cos">
+          <div>
+            <span class="etiqueta-error">Codi que falla</span>
+            <pre class="codi codi--error" data-titol="Mal.java"><code>int edat = "16";</code></pre>
+            <p class="missatge-error">error: incompatible types: String cannot be converted to int</p>
+          </div>
+          <div>
+            <dl>
+              <dt>Què ha passat</dt>
+              <dd>Explicació curta i clara.</dd>
+              <dt>Per què</dt>
+              <dd>La raó real, no només «perquè sí».</dd>
+              <dt>Com detectar-ho</dt>
+              <dd>Com llegir el missatge del compilador o què mirar.</dd>
+              <dt>Com corregir-ho</dt>
+              <dd>La solució, amb el codi correcte.</dd>
+            </dl>
+            <span class="etiqueta-correcte">Codi correcte</span>
+            <pre class="codi" data-titol="Be.java"><code>int edat = 16;</code></pre>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============================= 10 · RESUM VISUAL ============================= -->
+    <section class="seccio seccio--suau" id="resum" data-nav="10 · Resum visual">
+      <h2>Resum visual</h2>
+      <p class="entradeta">Les idees que has de recordar. Si pots explicar estes targetes amb les teues paraules, el tema està apamat.</p>
+      <div class="resum-visual revela">
+        <div class="resum-visual__item"><p><strong>Idea 1.</strong> En una frase.</p></div>
+        <div class="resum-visual__item"><p><strong>Idea 2.</strong> En una frase.</p></div>
+        <div class="resum-visual__item"><p><strong>Idea 3.</strong> En una frase.</p></div>
+        <div class="resum-visual__item"><p><strong>Idea 4.</strong> En una frase.</p></div>
+        <div class="resum-visual__item"><p><strong>Idea 5.</strong> En una frase.</p></div>
+      </div>
+    </section>
+
+    <!-- ============================ 11 · AUTOAVALUACIÓ ============================ -->
+    <section class="seccio" id="autoavaluacio" data-nav="11 · Autoavaluació">
+      <h2>Autoavaluació</h2>
+      <p class="entradeta">
+        Nou preguntes per comprovar si ho tens clar. No estan ordenades per dificultat:
+        respon-les totes i mira la solució només després d'haver pensat la resposta.
+        <strong>Les tres primeres apareixeran en el PDF d'estudi amb la solució.</strong>
+      </p>
+
+      <ol class="llista-autoavaluacio">
+        <li>
+          <p class="enunciat">Pregunta 1 (senzilla): concepte bàsic del tema.</p>
+          <ul class="opcions">
+            <li>a) Opció incorrecta</li>
+            <li>b) Opció correcta</li>
+            <li>c) Opció incorrecta</li>
+          </ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av1">Mostrar solució</button>
+          <div class="solucio" id="av1" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta correcta: <strong>b)</strong></p>
+            <p class="solucio__perque">Per què: explicació breu, centrada en la idea clau.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Pregunta 2 (senzilla).</p>
+          <button class="boto boto--solucio" type="button" data-solucio="av2">Mostrar solució</button>
+          <div class="solucio" id="av2" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta esperada: <strong>…</strong></p>
+            <p class="solucio__perque">Per què: …</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Pregunta 3 (senzilla, lligada a un exemple de codi).</p>
+          <pre class="codi" data-titol="Pregunta.java"><code>int x = 3;
+x = x + 1;</code></pre>
+          <button class="boto boto--solucio" type="button" data-solucio="av3">Mostrar solució</button>
+          <div class="solucio" id="av3" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>…</strong></p>
+            <p class="solucio__perque">Per què: …</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Pregunta 4 (intermèdia).</p>
+          <button class="boto boto--solucio" type="button" data-solucio="av4">Mostrar solució</button>
+          <div class="solucio" id="av4" hidden>
+            <span class="solucio__etiqueta">Solució</span><p>Resposta: <strong>…</strong></p>
+            <p class="solucio__perque">Per què: …</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Pregunta 5 (intermèdia).</p>
+          <button class="boto boto--solucio" type="button" data-solucio="av5">Mostrar solució</button>
+          <div class="solucio" id="av5" hidden>
+            <span class="solucio__etiqueta">Solució</span><p>Resposta: <strong>…</strong></p>
+            <p class="solucio__perque">Per què: …</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Pregunta 6 (intermèdia, amb codi per analitzar).</p>
+          <button class="boto boto--solucio" type="button" data-solucio="av6">Mostrar solució</button>
+          <div class="solucio" id="av6" hidden>
+            <span class="solucio__etiqueta">Solució</span><p>Resposta: <strong>…</strong></p>
+            <p class="solucio__perque">Per què: …</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Pregunta 7 (per pensar).</p>
+          <button class="boto boto--solucio" type="button" data-solucio="av7">Mostrar solució</button>
+          <div class="solucio" id="av7" hidden>
+            <span class="solucio__etiqueta">Solució</span><p>Resposta: <strong>…</strong></p>
+            <p class="solucio__perque">Per què: …</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Pregunta 8 (per pensar: trobar l'error).</p>
+          <button class="boto boto--solucio" type="button" data-solucio="av8">Mostrar solució</button>
+          <div class="solucio" id="av8" hidden>
+            <span class="solucio__etiqueta">Solució</span><p>Resposta: <strong>…</strong></p>
+            <p class="solucio__perque">Per què: …</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Pregunta 9 (per pensar: aplicar-ho a un cas nou).</p>
+          <button class="boto boto--solucio" type="button" data-solucio="av9">Mostrar solució</button>
+          <div class="solucio" id="av9" hidden>
+            <span class="solucio__etiqueta">Solució</span><p>Resposta: <strong>…</strong></p>
+            <p class="solucio__perque">Per què: …</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ========================= NAVEGACIÓ ENTRE TEMES ========================= -->
+    <nav class="navegacio-temes no-imprimible" id="navegacio-temes" aria-label="Navegació entre temes">
+      <!-- Generada automàticament per plantilla-tema.js -->
+    </nav>
+
+  </main>
+</div>
+
+<!-- ====================================== PEU ====================================== -->
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__graella">
+      <div>
+        <h4>Introducció a la Programació amb Java</h4>
+        <p>Optativa SMX · Sistemes Microinformàtics i Xarxes</p>
+        <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+      </div>
+      <div>
+        <h4>En este tema</h4>
+        <ul class="llista-netejada">
+          <li><a href="#teoria">Teoria</a></li>
+          <li><a href="#exemples">Exemples explicats</a></li>
+          <li><a href="#guiada">Programació guiada</a></li>
+          <li><a href="#resum">Resum visual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Llicència</h4>
+        <p>Material lliure per a ús educatiu.<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons BY-NC 4.0</a></p>
+      </div>
+    </div>
+    <div class="peu__base">
+      <span>© 2026 Agustín Gil · IES La Vereda</span>
+      <a class="llicencia" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">
+        <span class="llicencia__icones" aria-hidden="true"><span>CC</span><span>BY</span><span>NC</span></span>
+        Creative Commons Reconeixement-NoComercial 4.0 Internacional
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Peu fix que apareix en cada pàgina del PDF -->
+<div class="peu-impressio" aria-hidden="true">
+  <span>Introducció a la Programació amb Java · Optativa SMX · Material creat per Agustín Gil - IES La Vereda 2026 · CC BY-NC 4.0</span>
+  <span class="peu-impressio__dreta">Tema N</span>
+</div>
+
+<button class="boto boto--primari tornar-dalt no-imprimible" id="tornar-dalt" type="button" aria-label="Tornar a dalt">↑</button>
+
+<!-- ==================================== SCRIPTS ==================================== -->
+<script src="../assets/js/resaltat.js"></script>
+<script src="../assets/js/dades-curs.js"></script>
+<script src="../assets/js/plantilla-tema.js"></script>
+<script src="../assets/js/pptx.js"></script>
+<!-- Diapositives del tema (crear el fitxer quan es desenvolupe el tema):
+<script src="../assets/js/diapositives/temaN.js"></script>
+-->
+</body>
+</html>

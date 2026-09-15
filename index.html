@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introducció a la Programació amb Java · Optativa SMX · IES La Vereda</title>
+<meta name="description" content="Estructura completa del curs Optativa SMX — Introducció a la Programació amb Java: 10 sessions, metodologia, materials, avaluació i mapa de temes.">
+<meta name="author" content="Agustín Gil · IES La Vereda 2026">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/curs.css">
+<link rel="stylesheet" href="assets/css/print.css">
+</head>
+<body>
+
+<!-- ============================ PORTADA D'IMPRESSIÓ ============================ -->
+<div class="portada-impressio només-impressio" id="portada-impressio">
+  <p class="portada-impressio__curs">Optativa SMX · Introducció a la Programació</p>
+  <h1>Introducció a la Programació amb Java</h1>
+  <p class="portada-impressio__resum">Programa complet del curs: fonaments de programació, metodologia de les sessions de 3 hores, materials, activitats interactives i criteris d'avaluació. Optativa de Sistemes Microinformàtics i Xarxes per a alumnat de 16 anys sense experiència prèvia en programació.</p>
+  <div class="portada-impressio__meta">
+    <p data-camp="autor">Material creat per Agustín Gil · IES La Vereda 2026</p>
+    <p>Llicència Creative Commons BY-NC 4.0 · <span id="portada-llicencia">https://creativecommons.org/licenses/by-nc/4.0/deed.ca</span></p>
+    <p>Data d'impressió: <span data-camp="data"></span></p>
+  </div>
+</div>
+
+<!-- ================================== CAPÇALERA ================================== -->
+<header class="capcalera">
+  <div class="contenidor capcalera__interior">
+    <a class="capcalera__marca" href="index.html">
+      <span class="capcalera__logo" aria-hidden="true">{}</span>
+      <span class="capcalera__text">
+        <span class="capcalera__curs">Optativa SMX</span>
+        <span class="capcalera__tema">Introducció a la Programació amb Java</span>
+      </span>
+    </a>
+    <div class="capcalera__accions">
+      <a class="boto boto--fantasma boto--petit" href="#mapa">Mapa del curs</a>
+      <a class="boto boto--fantasma boto--petit" href="#recursos">Recursos</a>
+      <button class="boto boto--ciano boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button>
+    </div>
+  </div>
+  <div class="contenidor capcalera__meta">
+    <span>✍ Material creat per <strong>Agustín Gil</strong> - IES La Vereda 2026</span>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-NC 4.0</a>
+  </div>
+  <div class="barra-progres" aria-hidden="true"><span></span></div>
+</header>
+
+<main>
+
+  <!-- =================================== PORTADA =================================== -->
+  <section class="portada">
+    <div class="contenidor portada__graella">
+      <div>
+        <span class="portada__etiqueta">Optativa SMX · Curs 2026 · Java</span>
+        <h1>Introducció a la Programació amb Java</h1>
+        <p class="portada__entradeta">
+          Un curs per a qui no ha programat mai res. Comencem preguntant-nos
+          <strong>què significa programar</strong> i acabem construint els nostres propis
+          programes: variables, decisions, bucles, dades, mètodes i objectes.
+          Sense presses i sense màgia.
+        </p>
+        <div class="portada__accions">
+          <a class="boto boto--ciano boto--gran" href="#mapa">🗺 Vore el mapa del curs</a>
+          <a class="boto boto--clar boto--gran" href="#sessions">⏱ Com és una sessió</a>
+          <button class="boto boto--fantasma boto--gran" type="button" data-imprimir>🖨 Imprimir el programa</button>
+        </div>
+        <div class="portada__dades">
+          <div class="portada__dada"><strong>10</strong><span>sessions (Tema 0 + 9)</span></div>
+          <div class="portada__dada"><strong>27 h</strong><span>de classe aproximades</span></div>
+          <div class="portada__dada"><strong>0</strong><span>coneixements previs necessaris</span></div>
+          <div class="portada__dada"><strong>100%</strong><span>pràctic: sempre programant</span></div>
+        </div>
+      </div>
+      <div class="portada__imatge">
+        <img src="assets/img/idea-al-programa.svg" width="720" height="560" alt="Esquema: una idea es convertix en passos, els passos en codi Java, el codi es prova i el programa funciona.">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= PRINCIPIS ================================= -->
+  <section class="seccio" id="filosofia">
+    <div class="contenidor">
+      <span class="etiqueta-seccio">01 · Com entenem este curs</span>
+      <h2>La nostra manera d'aprendre a programar</h2>
+      <p class="entradeta">
+        L'objectiu no és «saber molta sintaxi de Java». L'objectiu és que al final del curs
+        pugues pensar: <em>«sé agafar un problema, dividir-lo en passos i convertir-lo en un programa»</em>.
+        Java és l'eina amb què aprendrem a fer-ho.
+      </p>
+
+      <div class="principis revela">
+        <article class="principi">
+          <span class="principi__emoji" aria-hidden="true">🐢</span>
+          <h3>Anem a poc a poc, però de veritat</h3>
+          <p>És millor dominar una variable que haver vist deu coses per damunt. Cada tema es queda ben apamat abans de passar al següent.</p>
+        </article>
+        <article class="principi">
+          <span class="principi__emoji" aria-hidden="true">🧠</span>
+          <h3>Pensar abans d'escriure codi</h3>
+          <p>Cada tema treballa la pregunta clau: què he de guardar?, quina condició s'ha de complir?, quantes vegades s'ha de repetir?</p>
+        </article>
+        <article class="principi">
+          <span class="principi__emoji" aria-hidden="true">🎮</span>
+          <h3>Exemples de la nostra vida</h3>
+          <p>Videojocs, notes, xarxes socials, música, esports, botigues, contrasenyes o diners. Res de problemes abstractes d'empresa els primers dies.</p>
+        </article>
+        <article class="principi">
+          <span class="principi__emoji" aria-hidden="true">⌨️</span>
+          <h3>Es programa des del primer dia</h3>
+          <p>Teoria curta, exemple, i mans al teclat. Al final de cada sessió hi ha un repte per pensar i codi escrit per tu.</p>
+        </article>
+        <article class="principi">
+          <span class="principi__emoji" aria-hidden="true">🐞</span>
+          <h3>Els errors són part del treball</h3>
+          <p>Hi ha una secció d'«errors habituals» en cada tema: què ha passat, per què, com detectar-ho i com corregir-ho. Un error és informació, no un fracàs.</p>
+        </article>
+        <article class="principi">
+          <span class="principi__emoji" aria-hidden="true">🤖</span>
+          <h3>La IA ajuda, però no substitueix</h3>
+          <p>Aprendrem a utilitzar la IA com un assistent: explicar errors, generar proves, millorar codi… sempre que entengues què fa el programa.</p>
+        </article>
+      </div>
+
+      <div class="nota nota--tip">
+        <span class="nota__icona" aria-hidden="true">💡</span>
+        <div>
+          <p><strong>Quan NO introduïm coses.</strong> Els primers temes no porten arrays, ni mètodes, ni objectes, ni estructures avançades. Si apareix alguna part tècnica inevitable (per exemple <code>public static void main(String[] args)</code>), a classe direm: <em>«açò de moment és la carcassa que necessita Java per arrancar; ja ho entendrem més avant»</em>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= SESSIONS ================================= -->
+  <section class="seccio seccio--suau" id="sessions">
+    <div class="contenidor">
+      <span class="etiqueta-seccio">02 · La sessió de 3 hores</span>
+      <h2>Com distribuïm una sessió</h2>
+      <p class="entradeta">
+        Tres hores donen per a molt, però no per a tres hores de teoria. Esta és la distribució
+        orientativa que fem servir: explica, veure, provar, programar i repassar.
+      </p>
+
+      <div class="plan-temporal revela">
+        <div class="plan-temporal__bloc">
+          <span class="plan-temporal__temps">30-45 min</span>
+          <p class="plan-temporal__nom">Explicació i demostracions</p>
+          <p>Partim d'una situació real, expliquem una idea i veiem exemples al projector. Cada idea va acompanyada d'un exemple executat davant de la classe.</p>
+        </div>
+        <div class="plan-temporal__bloc">
+          <span class="plan-temporal__temps">60-75 min</span>
+          <p class="plan-temporal__nom">Programació guiada</p>
+          <p>Construïm un programa entre tots, pas a pas. El codi NO es dona acabat: es va pensant en veu alta, provant, trencant-lo i arreglant-lo.</p>
+        </div>
+        <div class="plan-temporal__bloc">
+          <span class="plan-temporal__temps">60-75 min</span>
+          <p class="plan-temporal__nom">Exercicis pràctics</p>
+          <p>Exercicis curts i exercicis principals, de menor a major dificultat. Les solucions permeten comparar i corregir el codi propi.</p>
+        </div>
+        <div class="plan-temporal__bloc">
+          <span class="plan-temporal__temps">15-30 min</span>
+          <p class="plan-temporal__nom">Repàs i repte final</p>
+          <p>Resum visual, autoavaluació i el repte obert. Tanquem la sessió recordant les 5 preguntes que mai podem oblidar.</p>
+        </div>
+      </div>
+
+      <div class="graella graella--2" style="margin-top:var(--esp-5)">
+        <div class="targeta">
+          <h3>Es pot adaptar</h3>
+          <p>Esta distribució és orientativa. Alguns temes necessiten més temps de proves i errors
+          (bucles, arrays, objectes) i uns altres necessiten més explicació (mètodes, construcció completa).</p>
+          <p class="text-suau"><strong>Regla pràctica:</strong> si al final de la sessió la majoria no ha provat codi propi, el ritme va massa ràpid.</p>
+        </div>
+        <div class="targeta">
+          <h3>Cada tema tindrà sempre els mateixos 11 apartats</h3>
+          <ol class="llista-punts" style="margin:0">
+            <li>Introducció: una situació que done sentit al tema.</li>
+            <li>Què aprendrem? Entre 3 i 6 objectius.</li>
+            <li>Teoria progressiva (una idea → un exemple).</li>
+            <li>Exemples explicats pas a pas.</li>
+            <li>Programació guiada amb el professor.</li>
+            <li>Mini exercicis (4-8, molt curts).</li>
+            <li>Exercicis principals (3-5, de menys a més dificultat).</li>
+            <li>Repte final obert.</li>
+            <li>Errors habituals i com corregir-los.</li>
+            <li>Resum visual (5-10 idees clau).</li>
+            <li>Autoavaluació de 9 preguntes.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= MAPA DEL CURS ================================= -->
+  <section class="seccio" id="mapa">
+    <div class="contenidor">
+      <span class="etiqueta-seccio">03 · El recorregut</span>
+      <h2>Mapa del curs: tema a tema</h2>
+      <p class="entradeta">
+        Un Tema 0 d'introducció i nou temes de tres hores cadascun. L'orde està pensat perquè
+        cada concepte nou es recolze en els anteriors: ningú no es troba un objecte abans de
+        saber què és un mètode.
+      </p>
+
+      <div class="llista-temes" id="mapa-temes">
+        <!-- Les targetes dels temes es generen automàticament des de assets/js/dades-curs.js -->
+      </div>
+
+      <div class="nota nota--avis">
+        <span class="nota__icona" aria-hidden="true">⚠️</span>
+        <div>
+          <p><strong>Els temes es publiquen d'un en un.</strong> Cada tema s'afegirà a este mapa
+          quan el seu material complet estiga llest (pàgina web, exercicis, solucions, autoavaluació
+          i presentació de classe). Les targetes que posen «En preparació» encara no tenen pàgina.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= PROGRESSIÓ ================================= -->
+  <section class="seccio seccio--suau" id="progressio">
+    <div class="contenidor">
+      <span class="etiqueta-seccio">04 · Per què este orde</span>
+      <h2>La progressió: primer pensament, després estructures</h2>
+      <p class="entradeta">
+        Fins a la sessió 5 pràcticament construirem «pensament de programador»: guardar dades,
+        decidir, repetir, treballar amb moltes dades i dividir el programa en parts.
+        La programació orientada a objectes arriba en la sessió 6, quan ja tenim eines per entendre-la.
+        Les dos últimes sessions connecten tot això amb la programació real de 2026.
+      </p>
+
+      <div class="ruta">
+        <article class="ruta__fase ruta__fase--pensament revela">
+          <div class="ruta__cap">
+            <h3>Fase 1 · Pensament de programador</h3>
+            <p>Temes 0 a 5 · Classes 1 a 6 · Aquí aprenem a pensar</p>
+          </div>
+          <div class="ruta__passos">
+            <div class="ruta__pas"><strong>Tema 0</strong><span>Què és programar? Primer contacte i «Hola món!».</span></div>
+            <div class="ruta__pas"><strong>Tema 1</strong><span>Variables: guardar informació.</span></div>
+            <div class="ruta__pas"><strong>Tema 2</strong><span>Decisions: if, else, condicions.</span></div>
+            <div class="ruta__pas"><strong>Tema 3</strong><span>Bucles: mentre i repetir.</span></div>
+            <div class="ruta__pas"><strong>Tema 4</strong><span>Arrays: moltes dades juntes.</span></div>
+            <div class="ruta__pas"><strong>Tema 5</strong><span>Mètodes: dividir el problema.</span></div>
+          </div>
+        </article>
+
+        <article class="ruta__fase ruta__fase--construir revela">
+          <div class="ruta__cap">
+            <h3>Fase 2 · Construir amb objectes</h3>
+            <p>Temes 6 i 7 · Classes 7 i 8 · Aquí aprenem a organitzar</p>
+          </div>
+          <div class="ruta__passos">
+            <div class="ruta__pas"><strong>Tema 6</strong><span>Classes i objectes: el nostre Jugador.</span></div>
+            <div class="ruta__pas"><strong>Tema 7</strong><span>Un programa complet que creix pas a pas.</span></div>
+          </div>
+        </article>
+
+        <article class="ruta__fase ruta__fase--futur revela">
+          <div class="ruta__cap">
+            <h3>Fase 3 · Programació real</h3>
+            <p>Temes 8 i 9 · Classes 9 i 10 · Aquí connectem amb el món</p>
+          </div>
+          <div class="ruta__passos">
+            <div class="ruta__pas"><strong>Tema 8</strong><span>Programar amb IA: assistent, no substitut.</span></div>
+            <div class="ruta__pas"><strong>Tema 9</strong><span>Cap a on va la programació? Mini projecte final.</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="graella graella--2" style="margin-top:var(--esp-6)">
+        <div class="targeta">
+          <h3>Què NO fem en cada moment</h3>
+          <ul class="llista-punts">
+            <li>Tema 1: encara no hi ha arrays, ni mètodes, ni objectes.</li>
+            <li>Tema 3: bucles senzills; res d'estructures complicades.</li>
+            <li>Tema 4: arrays i <code>String</code> útil; res d'herència ni col·leccions avançades.</li>
+            <li>Abans del Tema 6: cap classe pròpia ni objecte creat per nosaltres.</li>
+          </ul>
+        </div>
+        <div class="targeta">
+          <h3>Què sí que fem cada dia</h3>
+          <ul class="llista-punts">
+            <li>Llegir el codi en veu alta i explicar què fa cada línia.</li>
+            <li>Predir què apareixerà per pantalla ABANS d'executar.</li>
+            <li>Provocar errors a propòsit per vore què passa.</li>
+            <li>Escriure codi propi, encara que siga amb ajuda.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= METODOLOGIA ================================= -->
+  <section class="seccio" id="metodologia">
+    <div class="contenidor">
+      <span class="etiqueta-seccio">05 · Com s'utilitza</span>
+      <h2>Metodologia i materials</h2>
+      <p class="entradeta">
+        Mateix contingut, tres usos distints: l'alumnat estudia i pràctica a la web,
+        el professorat projecta les diapositives i repartix el manual en PDF.
+      </p>
+
+      <div class="pestanyes" role="tablist" aria-label="Com utilitzar el material">
+        <button class="pestanya" role="tab" aria-selected="true" data-pestanya="panell-alumnat" id="pestanya-alumnat">🧑‍💻 Per a l'alumnat</button>
+        <button class="pestanya" role="tab" aria-selected="false" data-pestanya="panell-professorat" id="pestanya-professorat">🧑‍🏫 Per al professorat</button>
+        <button class="pestanya" role="tab" aria-selected="false" data-pestanya="panell-casa" id="pestanya-casa">🏠 Per estudiar a casa</button>
+        <button class="pestanya" role="tab" aria-selected="false" data-pestanya="panell-entorn" id="pestanya-entorn">🛠 Materials i entorn</button>
+      </div>
+
+      <div class="panel-pestanya" id="panell-alumnat" role="tabpanel">
+        <h3>La pàgina del tema és la teua llibreta</h3>
+        <ul class="llista-punts">
+          <li><strong>Mostrar solució:</strong> escriu primer el teu codi i després compara'l. La solució explicada és el millor moment per aprendre.</li>
+          <li><strong>Fes el programa:</strong> exercicis curts i exercicis principals, amb solució. Van de menor a major dificultat, en l'orde que toca.</li>
+          <li><strong>Reptes:</strong> no tenen botó de solució, a propòsit. Ací has de pensar, equivocar-te i tornar a provar.</li>
+          <li><strong>Autoavaluació:</strong> nou preguntes al final del tema. Les tres primeres són les que apareguen en el PDF d'estudi.</li>
+          <li><strong>Errors habituals:</strong> llix-los sempre. La meitat del treball de programar és detectar què ha fallat.</li>
+          <li><strong>Marca d'exercicis fets:</strong> el quadradet de cada exercici es guarda al teu navegador perquè sàpigues per on vas.</li>
+        </ul>
+      </div>
+
+      <div class="panel-pestanya" id="panell-professorat" role="tabpanel" hidden>
+        <h3>Tres formats per al mateix tema</h3>
+        <ul class="llista-punts">
+          <li><strong>Pàgina web (per estudiar):</strong> contingut complet, teoria, exemples comentats, solucions i autoavaluació. Es projecta o es compartix perquè l'alumnat repasse a casa.</li>
+          <li><strong>PowerPoint (per explicar):</strong> el botó «Crear PowerPoint» genera una presentació amb lletra gran, poc text, codi gran i esquemes. No és la web copiada: està pensada per projectar i preguntar.</li>
+          <li><strong>PDF (manual docent):</strong> el botó «Imprimir PDF» produïx un manual de teoria, exemples, programació guiada i les tres primeres preguntes d'autoavaluació amb la solució. Els exercicis ixen sense solució per a repartir a classe.</li>
+        </ul>
+        <p><strong>Suggeriment d'ús a l'aula:</strong> projecta el PowerPoint en la part d'explicació, passa a l'editor per a la programació guiada i acabem amb la pàgina web projectada per fer l'autoavaluació tots junts.</p>
+        <p class="text-suau">Temps recomanat: 30-45 min d'explicació amb diapositives, 60-75 min de codi guiat, 60-75 min d'exercicis i 15-30 min de repàs i repte.</p>
+      </div>
+
+      <div class="panel-pestanya" id="panell-casa" role="tabpanel" hidden>
+        <h3>Com estudiar programació a casa (30 minuts ben aprofitats)</h3>
+        <ol class="llista-punts">
+          <li><strong>5 min · Resum visual.</strong> Llix les idees clau del tema i intenta explicar-les en veu alta.</li>
+          <li><strong>10 min · Reescriu el codi de la programació guiada</strong> sense mirar. Després compara'l línia a línia amb el de la web.</li>
+          <li><strong>10 min · Fes dos mini exercicis</strong> que no acabares i, si ix bé, intenta un exercici principal.</li>
+          <li><strong>5 min · Autoavaluació.</strong> Contesta les preguntes mentalment i obri la solució només per comprovar.</li>
+        </ol>
+        <div class="nota nota--exit">
+          <span class="nota__icona" aria-hidden="true">✅</span>
+          <div><p><strong>Consell de programador:</strong> val més reescriure cinc línies enteses que copiar cinquanta que no saps què fan. Si no pots explicar el codi, no el controles.</p></div>
+        </div>
+      </div>
+
+      <div class="panel-pestanya" id="panell-entorn" role="tabpanel" hidden>
+        <h3>Què necessitem per treballar</h3>
+        <div class="graella graella--2">
+          <div>
+            <h4>El llenguatge</h4>
+            <ul class="llista-punts">
+              <li><strong>JDK de Java 21 LTS</strong> (inclou el compilador <code>javac</code> i la máquina virtual <code>java</code>).</li>
+              <li>Es pot instal·lar del paquet oficial o del repositori del centre.</li>
+            </ul>
+            <h4>L'editor</h4>
+            <ul class="llista-punts">
+              <li><strong>Visual Studio Code</strong> amb l'extensió <em>Extension Pack for Java</em> (lleuger i visual).</li>
+              <li><strong>IntelliJ IDEA Community</strong> (molt còmode per a projectes).</li>
+              <li>Cap dels dos és obligatori: qualsevol editor de text pla servix per als primers temes.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Sense instal·lar res</h4>
+            <ul class="llista-punts">
+              <li>Compiladors en línia per als primers dies: <a href="https://www.jdoodle.com/online-java-compiler" target="_blank" rel="noopener">JDoodle</a>, <a href="https://onecompiler.com/java" target="_blank" rel="noopener">OneCompiler</a> o <a href="https://replit.com/languages/java" target="_blank" rel="noopener">Replit</a>.</li>
+              <li>Perfecte per al Tema 0 i per provar idees ràpides.</li>
+            </ul>
+            <h4>Provar-ho per línia de comandaments</h4>
+            <pre class="codi" data-titol="Terminal · del fitxer al programa" data-etiqueta="ORDRE"><code>javac HolaMon.java   // compila: crea HolaMon.class
+java HolaMon         // executa el programa</code></pre>
+          </div>
+        </div>
+        <div class="nota nota--info">
+          <span class="nota__icona" aria-hidden="true">📁</span>
+          <div><p><strong>Convenció de fitxers:</strong> cada tema tindrà la seua carpeta (<code>tema1/</code>, <code>tema2/</code>…) i cada exercici un fitxer amb un nom clar (<code>Exercici3Notes.java</code>). El nom del fitxer ha de coincidir amb el nom de la classe pública.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= AVALUACIÓ ================================= -->
+  <section class="seccio seccio--suau" id="avaluacio">
+    <div class="contenidor">
+      <span class="etiqueta-seccio">06 · Avaluació</span>
+      <h2>Què s'avalua i com</h2>
+      <p class="entradeta">
+        No s'avalua memoritzar sintaxi. S'avalua si eres capaç de resoldre problemes senzills,
+        escriure codi que funcione, trobar els errors i explicar què has fet.
+      </p>
+
+      <div class="bloc-avaluacio revela">
+        <div class="targeta">
+          <div class="fila" style="justify-content:space-between">
+            <h3 style="margin:0">Pràctica de classe</h3><span class="pastilla pastilla--blau">35%</span>
+          </div>
+          <div class="barra-avaluacio" style="margin-top:var(--esp-3)"><span style="width:35%"></span></div>
+          <p>Exercicis curts i exercicis fets a l'aula, funcionant i ben explicats. Es pot corregir i millorar.</p>
+        </div>
+        <div class="targeta">
+          <div class="fila" style="justify-content:space-between">
+            <h3 style="margin:0">Projectes de tema</h3><span class="pastilla pastilla--verd">30%</span>
+          </div>
+          <div class="barra-avaluacio" style="margin-top:var(--esp-3)"><span style="width:30%"></span></div>
+          <p>El repte final de cada tema, sobretot a partir del Tema 4. Interessa el procés: dividir el problema, provar i millorar.</p>
+        </div>
+        <div class="targeta">
+          <div class="fila" style="justify-content:space-between">
+            <h3 style="margin:0">Autoavaluació i actitud</h3><span class="pastilla pastilla--taronja">15%</span>
+          </div>
+          <div class="barra-avaluacio" style="margin-top:var(--esp-3)"><span style="width:15%"></span></div>
+          <p>Preguntes d'autoavaluació, participació, ajudar els companys, provar coses noves i no tindre por d'equivocar-se.</p>
+        </div>
+        <div class="targeta">
+          <div class="fila" style="justify-content:space-between">
+            <h3 style="margin:0">Prova pràctica final</h3><span class="pastilla pastilla--roig">20%</span>
+          </div>
+          <div class="barra-avaluacio" style="margin-top:var(--esp-3)"><span style="width:20%"></span></div>
+          <p>Un programa senzill fet a l'ordinador, amb els apunts oberts si cal. Val més un codi simple que funcione, ben comentat i explicat.</p>
+        </div>
+      </div>
+
+      <div class="graella graella--2" style="margin-top:var(--esp-5)">
+        <div class="targeta">
+          <h3>Indicadors que mirem en cada exercici</h3>
+          <ul class="llista-punts">
+            <li>El programa <strong>funciona</strong> i fa el que demanàvem.</li>
+            <li>El codi s'entén: noms clars, comentaris útils, orde lògic.</li>
+            <li>Sap <strong>explicar</strong> què fa cada part i per què l'ha escrita aixina.</li>
+            <li>Ha provat casos diferents (un valor típic, un valor límit, un valor estrany).</li>
+            <li>Quan hi ha un error, el sap <strong>llegir</strong> i corregir sense ajuda.</li>
+            <li>Si ha usat IA, pot justificar el codi i millorar-lo.</li>
+          </ul>
+        </div>
+        <div class="targeta">
+          <h3>Com qualificar el repte final</h3>
+          <table class="taula">
+            <thead><tr><th>Nivell</th><th>Què veiem</th></tr></thead>
+            <tbody>
+              <tr><td><span class="pastilla pastilla--verd">Excel·lent</span></td><td>Funciona, està dividit en passos, provat amb casos distints i ben explicat.</td></tr>
+              <tr><td><span class="pastilla pastilla--blau">Bé</span></td><td>Funciona en els casos principals; algun detall es pot millorar.</td></tr>
+              <tr><td><span class="pastilla pastilla--taronja">En procés</span></td><td>Funciona a mitges; cal més pràctica amb l'estructura del tema.</td></tr>
+              <tr><td><span class="pastilla pastilla--roig">A repassar</span></td><td>No funciona o no s'entén el codi: tornarem a fer la programació guiada junts.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= RECURSOS ================================= -->
+  <section class="seccio" id="recursos">
+    <div class="contenidor">
+      <span class="etiqueta-seccio">07 · Recursos</span>
+      <h2>Recursos que farem servir</h2>
+      <p class="entradeta">Tot el que cal per a les 10 sessions, amb alternatives gratuïtes per a casa.</p>
+
+      <div class="graella revela">
+        <article class="targeta targeta--interactiva">
+          <h3>☕ Java</h3>
+          <p class="text-suau">El llenguatge i la documentació oficial.</p>
+          <ul class="llista-punts">
+            <li><a href="https://dev.java/" target="_blank" rel="noopener">dev.java</a> · guies i tutorials oficials.</li>
+            <li><a href="https://docs.oracle.com/en/java/" target="_blank" rel="noopener">docs.oracle.com/en/java</a> · documentació.</li>
+            <li><a href="https://www.jdoodle.com/online-java-compiler" target="_blank" rel="noopener">JDoodle</a> · compilar sense instal·lar res.</li>
+          </ul>
+        </article>
+        <article class="targeta targeta--interactiva">
+          <h3>💻 Editors</h3>
+          <p class="text-suau">Per escriure codi còmodament.</p>
+          <ul class="llista-punts">
+            <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> + <em>Extension Pack for Java</em>.</li>
+            <li><a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="noopener">IntelliJ IDEA Community</a>.</li>
+            <li><a href="https://bluej.org/" target="_blank" rel="noopener">BlueJ</a> · bon amic per als primers temes.</li>
+          </ul>
+        </article>
+        <article class="targeta targeta--interactiva">
+          <h3>🧠 Assistents d'IA</h3>
+          <p class="text-suau">S'utilitzen a partir del Tema 8, sempre revisant el codi.</p>
+          <ul class="llista-punts">
+            <li>Un xat d'IA generalista per a explicacions i errors.</li>
+            <li>L'assistent del propi editor, si està disponible al centre.</li>
+            <li><strong>Regla del curs:</strong> si no l'entens, no el lliures.</li>
+          </ul>
+        </article>
+        <article class="targeta targeta--interactiva">
+          <h3>🗂 Com fer el seguiment</h3>
+          <p class="text-suau">Cada tema tindrà la seua carpeta de treball.</p>
+          <ul class="llista-punts">
+            <li><code>tema1/Variables.java</code>, <code>tema1/Exercici2.java</code>…</li>
+            <li>Codi comentat: què fa i per què ho fa aixina.</li>
+            <li>Guarda sempre la versió que funciona abans de provar coses noves.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= ESTAT DEL MATERIAL ================================= -->
+  <section class="seccio seccio--suau" id="estat">
+    <div class="contenidor">
+      <span class="etiqueta-seccio">08 · Seguiment</span>
+      <h2>Estat del material del curs</h2>
+      <p class="entradeta">
+        Cada tema es publica complet (pàgina web, exercicis amb solució, autoavaluació,
+        PDF i PowerPoint). Ací pots vore què està llest i què falta.
+      </p>
+
+      <div class="taula-embolcall">
+        <table class="taula" id="taula-estat">
+          <thead>
+            <tr>
+              <th>Tema</th>
+              <th>Pàgina web</th>
+              <th>Solucions</th>
+              <th>Autoavaluació</th>
+              <th>PowerPoint</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Generada automàticament des de assets/js/dades-curs.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota nota--info">
+        <span class="nota__icona" aria-hidden="true">📌</span>
+        <div>
+          <p>Llevant de l'estructura, este repositori conté el <strong>motor comú</strong>:
+          full d'estil, plantilla de tema, generador de PowerPoint, manual imprimible i la
+          guia didàctica per al professorat. Els temes s'afegixen damunt d'esta base,
+          un a un, per orde.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= LLICÈNCIA ================================= -->
+  <section class="seccio seccio--fosca" id="llicencia">
+    <div class="contenidor">
+      <span class="etiqueta-seccio">09 · Autoria i llicència</span>
+      <h2>Material lliure per a ús educatiu</h2>
+      <div class="graella graella--2">
+        <div>
+          <p class="text-suau">
+            Este material l'ha creat el professorat de l'IES La Vereda per a l'optativa
+            <em>Introducció a la Programació</em> de Sistemes Microinformàtics i Xarxes.
+          </p>
+          <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+          <p>
+            Llicència <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional (CC BY-NC 4.0)</a>.
+          </p>
+        </div>
+        <div class="targeta">
+          <h3>Pots…</h3>
+          <ul class="llista-punts">
+            <li>✅ Copiar, adaptar i traduir el material.</li>
+            <li>✅ Utilitzar-lo a classe i compartir-lo amb l'alumnat.</li>
+            <li>✅ Modificar els exemples i adaptar-los al teu centre.</li>
+          </ul>
+          <h3 style="margin-top:var(--esp-4)">Amb dos condicions</h3>
+          <ul class="llista-punts">
+            <li>↩️ <strong>Reconeixement:</strong> cita l'autoria (Agustín Gil · IES La Vereda) i enllaça la llicència.</li>
+            <li>🚫 <strong>No comercial:</strong> no es pot vendre ni usar amb finalitat comercial.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====================================== PEU ====================================== -->
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__graella">
+      <div>
+        <h4>Introducció a la Programació amb Java</h4>
+        <p>Optativa SMX · Cicle Formatiu de Grau Mitjà · Sistemes Microinformàtics i Xarxes</p>
+        <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+      </div>
+      <div class="enllacos">
+        <h4>El curs</h4>
+        <ul class="llista-netejada">
+          <li><a href="#filosofia">Filosofia del curs</a></li>
+          <li><a href="#sessions">La sessió de 3 hores</a></li>
+          <li><a href="#mapa">Mapa dels temes</a></li>
+          <li><a href="#avaluacio">Avaluació</a></li>
+        </ul>
+      </div>
+      <div class="enllacos">
+        <h4>Útil</h4>
+        <ul class="llista-netejada">
+          <li><a href="#recursos">Recursos i entorn</a></li>
+          <li><a href="#estat">Estat del material</a></li>
+          <li><a href="#metodologia">Com estudiar a casa</a></li>
+          <li><button class="boto boto--fantasma boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="peu__base">
+      <span>© 2026 Agustín Gil · IES La Vereda</span>
+      <a class="llicencia" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">
+        <span class="llicencia__icones" aria-hidden="true"><span>CC</span><span>BY</span><span>NC</span></span>
+        Creative Commons Reconeixement-NoComercial 4.0 Internacional
+      </a>
+    </div>
+  </div>
+</footer>
+
+<button class="boto boto--primari tornar-dalt" id="tornar-dalt" type="button" aria-label="Tornar a dalt">↑</button>
+
+<script src="assets/js/resaltat.js"></script>
+<script src="assets/js/dades-curs.js"></script>
+<script src="assets/js/portada.js"></script>
+</body>
+</html>

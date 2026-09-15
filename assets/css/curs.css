@@ -1,0 +1,347 @@
+/* ==========================================================================
+   PÀGINA ÍNDEX DEL CURS (portada, mapa, metodologia i avaluació)
+   Material creat per Agustín Gil · IES La Vereda 2026 · CC BY-NC 4.0
+   Depén de: base.css
+   ========================================================================== */
+
+/* --------------------------------------------------------- 1. PORTADA */
+.portada {
+  position: relative;
+  overflow: hidden;
+  color: #eaf1fb;
+  background:
+    radial-gradient(1100px 520px at 8% -15%, rgba(6, 182, 212, 0.32), transparent 62%),
+    radial-gradient(900px 480px at 95% 8%, rgba(249, 115, 22, 0.26), transparent 60%),
+    linear-gradient(155deg, var(--blau-800) 0%, var(--blau-950) 70%);
+  padding-block: clamp(2.5rem, 1.5rem + 6vw, 5.5rem);
+}
+.portada h1 { color: var(--blanc); }
+.portada__graella {
+  display: grid;
+  gap: var(--esp-7);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+}
+.portada__etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ciano-200);
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  border-radius: var(--radi-pill);
+  padding: 0.35rem 0.9rem;
+  margin-bottom: var(--esp-5);
+}
+.portada__entradeta {
+  font-size: clamp(1.05rem, 0.98rem + 0.6vw, 1.35rem);
+  color: #cfe0f7;
+  max-width: 60ch;
+}
+.portada__accions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-3);
+  margin-top: var(--esp-5);
+}
+.portada__dades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-4) var(--esp-6);
+  margin-top: var(--esp-6);
+  padding-top: var(--esp-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+.portada__dada strong {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 780;
+  color: var(--blanc);
+  line-height: 1.1;
+}
+.portada__dada span { font-size: 0.82rem; color: #a9c4e8; letter-spacing: 0.04em; }
+
+.portada__imatge {
+  border-radius: var(--radi-gran);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: var(--ombra-forta);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ------------------------------------------------------- 2. FILOSOFIA */
+.principis {
+  display: grid;
+  gap: var(--esp-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+.principi {
+  background: var(--blanc);
+  border: 1px solid var(--vora);
+  border-radius: var(--radi-gran);
+  padding: var(--esp-5);
+  box-shadow: var(--ombra-suau);
+}
+.principi__emoji { font-size: 1.8rem; display: block; margin-bottom: var(--esp-3); }
+.principi h3 { font-size: 1.1rem; margin-bottom: var(--esp-2); }
+.principi p { font-size: 0.96rem; color: var(--text-suau); margin: 0; }
+
+/* ---------------------------------------------- 3. MAPA DEL CURS */
+.llista-temes {
+  display: grid;
+  gap: var(--esp-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+  counter-reset: tema;
+}
+.targeta-tema {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--blanc);
+  border: 1px solid var(--vora);
+  border-radius: var(--radi-gran);
+  padding: var(--esp-5);
+  box-shadow: var(--ombra-suau);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transicio), box-shadow var(--transicio),
+    border-color var(--transicio);
+}
+a.targeta-tema:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ombra);
+  border-color: var(--blau-300);
+  color: inherit;
+}
+.targeta-tema__cap {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-3);
+  margin-bottom: var(--esp-3);
+}
+.targeta-tema__num {
+  font-family: var(--font-codi);
+  font-weight: 750;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--blau-700);
+  background: var(--blau-100);
+  border: 1px solid #c7d8fb;
+  border-radius: var(--radi-pill);
+  padding: 0.2rem 0.65rem;
+}
+.targeta-tema__emoji { font-size: 1.5rem; margin-left: auto; }
+.targeta-tema__titol { font-size: 1.15rem; margin: 0 0 var(--esp-2); }
+.targeta-tema__desc { font-size: 0.95rem; color: var(--text-suau); margin-bottom: var(--esp-4); }
+.targeta-tema__blocs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+  margin-bottom: var(--esp-4);
+}
+.targeta-tema__blocs .pastilla { font-size: 0.76rem; }
+.targeta-tema__peu {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-3);
+  justify-content: space-between;
+  border-top: 1px solid var(--vora);
+  padding-top: var(--esp-3);
+  font-size: 0.85rem;
+  color: var(--text-suau);
+}
+.targeta-tema--proper { background: var(--paper); }
+.targeta-tema--proper .targeta-tema__num {
+  background: var(--paper-2);
+  color: var(--text-suau);
+  border-color: var(--vora);
+}
+.targeta-tema--destacat {
+  border-color: var(--ciano-200);
+  background: linear-gradient(160deg, #ecfeff, #ffffff 55%);
+}
+
+/* ------------------------------------------- 4. ESTRUCTURA DE SESSIÓ */
+.plan-temporal {
+  display: grid;
+  gap: var(--esp-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+.plan-temporal__bloc {
+  background: var(--blanc);
+  border: 1px solid var(--vora);
+  border-radius: var(--radi);
+  padding: var(--esp-5);
+  box-shadow: var(--ombra-suau);
+  border-top: 5px solid var(--ciano-500);
+}
+.plan-temporal__bloc:nth-child(2) { border-top-color: var(--blau-600); }
+.plan-temporal__bloc:nth-child(3) { border-top-color: var(--taronja-500); }
+.plan-temporal__bloc:nth-child(4) { border-top-color: var(--verd-500); }
+.plan-temporal__temps {
+  font-family: var(--font-codi);
+  font-size: 1.1rem;
+  font-weight: 750;
+  color: var(--blau-700);
+  display: block;
+  margin-bottom: var(--esp-2);
+}
+.plan-temporal__nom { font-weight: 700; margin-bottom: var(--esp-2); }
+.plan-temporal__bloc p { font-size: 0.92rem; color: var(--text-suau); margin: 0; }
+
+/* ------------------------------------------------ 5. COM USAR EL MATERIAL */
+.pestanyes {
+  display: flex;
+  gap: var(--esp-2);
+  margin-bottom: var(--esp-5);
+  flex-wrap: wrap;
+}
+.pestanya {
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 650;
+  border: 1px solid var(--vora);
+  background: var(--blanc);
+  color: var(--text-suau);
+  border-radius: var(--radi-pill);
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  transition: all var(--transicio);
+}
+.pestanya[aria-selected="true"] {
+  background: var(--blau-700);
+  border-color: var(--blau-700);
+  color: var(--blanc);
+}
+.panel-pestanya[hidden] { display: none; }
+.panel-pestanya {
+  background: var(--blanc);
+  border: 1px solid var(--vora);
+  border-radius: var(--radi-gran);
+  padding: var(--esp-6);
+  box-shadow: var(--ombra-suau);
+  animation: apareix 280ms ease both;
+}
+.panel-pestanya > :last-child { margin-bottom: 0; }
+
+/* ------------------------------------------------------- 6. AVALUACIÓ */
+.bloc-avaluacio {
+  display: grid;
+  gap: var(--esp-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+.barra-avaluacio {
+  height: 10px;
+  border-radius: var(--radi-pill);
+  background: var(--paper-2);
+  overflow: hidden;
+  margin-bottom: var(--esp-2);
+}
+.barra-avaluacio span {
+  display: block;
+  height: 100%;
+  border-radius: var(--radi-pill);
+  background: linear-gradient(90deg, var(--blau-600), var(--ciano-500));
+}
+
+/* --------------------------------------------------- 7. RESPONSIVE */
+@media (max-width: 980px) {
+  .portada__graella { grid-template-columns: minmax(0, 1fr); }
+  .portada__imatge { order: -1; }
+}
+
+@media print {
+  .portada {
+    background: none !important;
+    color: #10151f !important;
+    padding-block: 0;
+  }
+  .portada h1,
+  .portada__dada strong { color: #0a1f4a !important; }
+  .portada__entradeta,
+  .portada__dada span { color: #3d4757 !important; }
+  .portada__etiqueta {
+    color: #0891b2 !important;
+    background: #e8fbff !important;
+  }
+  .portada__imatge { display: none !important; }
+  .targeta-tema { break-inside: avoid; }
+  .pestanyes,
+  .portada__accions { display: none !important; }
+  .panel-pestanya { border: 0; padding: 0; box-shadow: none; }
+}
+
+/* ------------------------------------------ 8. RUTA DE PROGRÉS DEL CURS */
+.ruta { display: grid; gap: var(--esp-6); }
+
+.ruta__fase {
+  border: 1px solid var(--vora);
+  border-radius: var(--radi-gran);
+  background: var(--blanc);
+  padding: var(--esp-5);
+  box-shadow: var(--ombra-suau);
+}
+.ruta__fase--pensament { border-top: 5px solid var(--ciano-500); }
+.ruta__fase--construir { border-top: 5px solid var(--taronja-500); }
+.ruta__fase--futur { border-top: 5px solid var(--blau-600); }
+
+.ruta__cap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--esp-3);
+  margin-bottom: var(--esp-4);
+}
+.ruta__cap h3 { margin: 0; font-size: 1.15rem; }
+.ruta__cap p { margin: 0; font-size: 0.92rem; color: var(--text-suau); }
+
+.ruta__passos {
+  position: relative;
+  display: grid;
+  gap: var(--esp-3);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 165px), 1fr));
+}
+.ruta__passos::before {
+  content: "";
+  position: absolute;
+  top: -0.55rem;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ciano-200), var(--vora));
+}
+.ruta__pas {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--vora);
+  border-radius: var(--radi);
+  padding: var(--esp-4);
+  font-size: 0.92rem;
+  transition: transform var(--transicio), border-color var(--transicio);
+}
+.ruta__pas:hover { transform: translateY(-3px); border-color: var(--blau-300); }
+.ruta__pas::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -0.75rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--ciano-500);
+  transform: translateX(-50%);
+}
+.ruta__fase--construir .ruta__pas::before { background: var(--taronja-500); }
+.ruta__fase--futur .ruta__pas::before { background: var(--blau-600); }
+.ruta__pas strong { display: block; color: var(--blau-700); }
+.ruta__pas span { color: var(--text-suau); font-size: 0.86rem; }
+
+@media (max-width: 720px) {
+  .ruta__passos::before,
+  .ruta__pas::before { display: none; }
+}

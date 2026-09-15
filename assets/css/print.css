@@ -1,0 +1,328 @@
+/* ==========================================================================
+   Introducció a la Programació amb Java — ESTILS D'IMPRESSIÓ (PDF)
+   Material creat per Agustín Gil · IES La Vereda 2026 · CC BY-NC 4.0
+
+   Objectiu: que el PDF parega un manual docent professional.
+
+   QUÈ S'IMPRIMIX (per defecte)
+     · Portada d'impressió del tema.
+     · Introducció, objectius, teoria i exemples comentats.
+     · Programació guiada.
+     · Errors habituals (decisió didàctica: és útil tindre'ls al manual).
+     · Resum visual.
+     · Només les 3 PRIMERES preguntes de l'autoavaluació, AMB la solució.
+
+   QUÈ S'OCULTA
+     · Preguntes 4 a 9 de l'autoavaluació.
+     · "Fes el programa" i "Reptes".
+     · Botons, controls interactius, menú, barres i navegació.
+   ========================================================================== */
+
+@page {
+  margin: 1cm;
+  size: auto;
+}
+
+@media print {
+  /* ------------------------------------------------ 1. VARIABLES DE PAPER */
+  :root {
+    --mida-text: 11.5pt;
+    --mida-h1: 22pt;
+    --mida-h2: 17pt;
+    --mida-h3: 13.5pt;
+    --mida-h4: 12pt;
+    --mida-petita: 9.5pt;
+    --mida-codi: 9.5pt;
+    --interlineat: 1.5;
+    --fons: #ffffff;
+    --fons-suau: #ffffff;
+    --text: #10151f;
+    --text-suau: #3d4757;
+    --vora: #c9d2e0;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #10151f !important;
+    font-size: var(--mida-text);
+  }
+
+  .contenidor,
+  .contenidor--estret {
+    max-width: none !important;
+    padding-inline: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* ------------------------------------------- 2. QUÈ NO S'HA D'IMPRIMIR */
+  .no-imprimible,
+  .menu-lateral,
+  .capcalera,
+  .barra-progres,
+  .navegacio-temes,
+  .tornar-dalt,
+  .boto,
+  button,
+  .boto-copiar,
+  .bloc-codi__punts,
+  .peu .enllacos,
+  .busca,
+  #fes-el-programa,
+  #reptes,
+  .acordio__titol::after {
+    display: none !important;
+  }
+
+  /* Els acordions s'obrin en imprimir: volem vore el contingut */
+  .acordio { display: block !important; break-inside: avoid; }
+  .acordio__cos { display: block !important; padding-top: 0; }
+
+  /* En el programa del curs, totes les pestanyes de «metodologia» s'imprimixen */
+  .panel-pestanya[hidden] { display: block !important; }
+
+  /* ------------------------------------------------ 3. PORTADA DE MANUAL */
+  .només-impressio { display: block !important; }
+
+  .portada-impressio {
+    border: 2px solid #0a1f4a;
+    border-radius: 6px;
+    padding: 18pt 16pt;
+    margin-bottom: 16pt;
+    page-break-after: always;
+  }
+  .portada-impressio__curs {
+    font-size: 9.5pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #0891b2;
+    font-weight: 700;
+    margin: 0 0 6pt;
+  }
+  .portada-impressio h1 {
+    font-size: 26pt;
+    margin: 0 0 8pt;
+    color: #0a1f4a;
+  }
+  .portada-impressio__resum {
+    font-size: 12pt;
+    color: #3d4757;
+    max-width: 100%;
+  }
+  .portada-impressio__meta {
+    margin-top: 14pt;
+    padding-top: 10pt;
+    border-top: 1px solid #c9d2e0;
+    font-size: 10pt;
+    color: #3d4757;
+  }
+
+  /* -------------------------------------------------- 4. TIPOGRAFIA */
+  h1, h2, h3, h4 { color: #0a1f4a !important; }
+  h1 { font-size: var(--mida-h1); }
+  h2 {
+    font-size: var(--mida-h2);
+    margin-top: 14pt;
+    padding-bottom: 4pt;
+    border-bottom: 1.5pt solid #0a1f4a;
+  }
+  h3 { font-size: var(--mida-h3); margin-top: 10pt; }
+  h4 { font-size: var(--mida-h4); }
+
+  .seccio {
+    padding-block: 6pt 2pt;
+    border-top: 0 !important;
+    break-before: auto;
+  }
+  .seccio--fosca {
+    background: none !important;
+    color: #10151f !important;
+  }
+  .seccio--fosca h2,
+  .seccio--fosca h3,
+  .seccio--fosca h4 { color: #0a1f4a !important; }
+  .seccio--fosca .entradeta,
+  .seccio--fosca .text-suau { color: #3d4757 !important; }
+
+  .etiqueta-seccio {
+    color: #0891b2 !important;
+    background: #e8fbff !important;
+    border: 1px solid #a5f3fc !important;
+    padding: 2pt 7pt !important;
+    font-size: 8.5pt !important;
+    margin-bottom: 4pt !important;
+  }
+
+  a { color: #0a1f4a !important; text-decoration: none; }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #5a6678;
+    word-break: break-all;
+  }
+
+  /* --------------------------------------- 5. EVITAR SALTS ABSURDS */
+  h1, h2, h3, h4 { break-after: avoid-page; page-break-after: avoid; }
+
+  p, li, dd, dt { orphans: 3; widows: 3; }
+
+  pre.codi,
+  .bloc-codi,
+  .consola,
+  table.taula,
+  figure.figura,
+  .targeta,
+  .nota,
+  .solucio,
+  .pregunta-classe,
+  .error-habitual,
+  .exercici,
+  .pas {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Els blocs de codi no s'han de tallar mai per la meitat */
+  .bloc-codi + .bloc-codi { margin-top: 6pt; }
+
+  /* ---------------------------------------- 6. CODI LLEGIBLE EN PAPER */
+  pre.codi,
+  .bloc-codi {
+    background: #f4f7fd !important;
+    color: #10151f !important;
+    border: 1pt solid #b9c6da !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+  }
+  pre.codi { padding: 7pt 9pt !important; font-size: 9.5pt !important; line-height: 1.45 !important; }
+  .bloc-codi > pre.codi { border: 0 !important; background: transparent !important; }
+  pre.codi code { white-space: pre-wrap !important; word-break: break-word; }
+  .bloc-codi__cap {
+    background: #e7eefb !important;
+    border-bottom: 1pt solid #b9c6da !important;
+    padding: 3pt 8pt !important;
+  }
+  .bloc-codi__titol { color: #0a1f4a !important; font-size: 9pt !important; }
+  .bloc-codi__etiqueta { color: #0a1f4a !important; border-color: #9fb4d4 !important; }
+  .boto-copiar { display: none !important; }
+
+  /* Sintaxi amb colors que es lligiguen bé sobre paper blanc */
+  .tok-comentari { color: #4a5568 !important; }
+  .tok-paraula { color: #a21caf !important; }
+  .tok-tipus { color: #0e7490 !important; }
+  .tok-cadena { color: #b45309 !important; }
+  .tok-numero { color: #c2410c !important; }
+  .tok-funcio { color: #047857 !important; }
+  .tok-simbol { color: #1f2937 !important; }
+  .tok-anotacio { color: #6d28d9 !important; }
+
+  .consola {
+    background: #f4f7fd !important;
+    color: #065f46 !important;
+    border: 1pt solid #b9c6da !important;
+  }
+  .consola__titol { color: #0e7490 !important; }
+
+  /* ----------------------------------------------- 7. AUTOAVALUACIÓ */
+  /* Només les 3 primeres preguntes, i amb la solució a la vista */
+  .llista-autoavaluacio { padding-left: 16pt; }
+  .llista-autoavaluacio > li:nth-child(n + 4) { display: none !important; }
+  .llista-autoavaluacio > li:nth-child(-n + 3) .solucio,
+  .llista-autoavaluacio > li:nth-child(-n + 3) .solucio[hidden] {
+    display: block !important;
+    margin-top: 5pt;
+    padding: 6pt 9pt;
+    background: #f0fdf9 !important;
+    border: 1pt solid #9ee6c8 !important;
+    border-left: 3pt solid #10b981 !important;
+  }
+
+  /* Els reptes i els exercicis de programació no van al manual */
+  .llista-autoavaluacio > li { break-inside: avoid; margin-bottom: 8pt; }
+
+  /* ---------------------------------------------- 8. TARGETES I GRAELLES */
+  .targeta {
+    box-shadow: none !important;
+    border: 1pt solid #c9d2e0 !important;
+    border-radius: 4px !important;
+    padding: 8pt 10pt !important;
+    background: #ffffff !important;
+    break-inside: avoid;
+  }
+  .targeta h3 { font-size: 11pt !important; }
+  .seccio--fosca .targeta { background: #ffffff !important; }
+
+  .graella { display: block !important; }
+  .graella > * { margin-bottom: 6pt; }
+  .graella--4 { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 6pt !important; }
+  .graella--2 { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 6pt !important; }
+
+  .llista-objectius { display: block !important; }
+  .llista-objectius li {
+    box-shadow: none !important;
+    border: 1pt solid #c9d2e0 !important;
+    padding: 5pt 8pt !important;
+    margin-bottom: 4pt;
+    break-inside: avoid;
+  }
+  .llista-objectius .num {
+    border: 1pt solid #a5f3fc !important;
+    background: #e8fbff !important;
+    color: #0e7490 !important;
+  }
+
+  /* Esquemes i imatges: mai deformats */
+  figure.figura img,
+  figure.figura svg,
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    box-shadow: none !important;
+  }
+
+  /* --------------------------------------------------- 9. TAULES */
+  table.taula { font-size: 9.5pt; }
+  table.taula thead th {
+    background: #0a1f4a !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  table.taula tbody tr:nth-child(even) { background: #f2f6fc !important; }
+
+  /* ------------------------------------------- 10. PEU DE PÀGINA FIX */
+  /* Chrome i Edge repetixen els elements fixos a cada pàgina impresa */
+  .peu-impressio {
+    display: block !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 7.5pt;
+    color: #5a6678;
+    border-top: 0.5pt solid #c9d2e0;
+    padding-top: 2pt;
+    margin: 0;
+    background: #ffffff;
+  }
+  .peu-impressio__dreta { float: right; }
+
+  /* Nota d'estructura tècnica: manté el color suau en paper */
+  .nota {
+    break-inside: avoid;
+    border: 1pt solid #c9d2e0 !important;
+    border-left: 3pt solid #0e7490 !important;
+    background: #f7fbff !important;
+    padding: 6pt 9pt !important;
+  }
+  .nota__icona { display: none !important; }
+
+  /* Caixes de "Què apareixerà per pantalla?" → es mostren amb la resposta */
+  .prediccio { border: 1pt dashed #c9d2e0 !important; background: #ffffff !important; break-inside: avoid; }
+
+  /* La marca de progrés d'exercicis no té sentit en paper */
+  .marca-fet { display: none !important; }
+}
+
+/* Si el navegador suporta mides de pàgina, el tema clar ja és òptim.
+   Per a impressores A4 vertical, les amplàries grans s'ajusten soles. */

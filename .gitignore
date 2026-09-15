@@ -1,0 +1,16 @@
+# Fitxers i carpetes que NO han d'anar al repositori
+# (generats en proves o instal·lats localment)
+
+# Presentacions generades per les proves
+tmp/
+*.pptx
+
+# Node (només per a les proves opcionals de eines/)
+node_modules/
+package-lock.json
+
+# Sistema operatiu i editors
+.DS_Store
+Thumbs.db
+*.swp
+*~
