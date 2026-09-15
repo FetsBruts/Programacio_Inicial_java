@@ -144,7 +144,7 @@ window.CURS = {
     },
     {
       n: 8,
-      fitxer: null,
+      fitxer: 'temes/tema8.html',
       titol: 'Programar en l\'era de la IA',
       subtitol: 'La IA com a assistent, no com a substitut',
       emoji: '🤖',
@@ -153,7 +153,7 @@ window.CURS = {
       desc: 'Utilitzar la IA per generar, explicar, depurar i millorar codi… sabent sempre què fa el programa i per què.',
       continguts: ['Prompts útils', 'Explicar errors', 'Generar tests', 'Refactoritzar', 'Detectar errors de la IA'],
       prereq: 'Temes 1 a 7: cal entendre el codi per poder revisar-lo.',
-      estat: 'en-preparacio'
+      estat: 'publicat'
     },
     {
       n: 9,

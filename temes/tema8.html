@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 8 · Programació en l'era de la IA | Introducció a la Programació amb Java</title>
+<meta name="description" content="La IA escriu codi molt de pressa; el programador decidix, comprova i respon">
+<meta name="author" content="Agustín Gil · IES La Vereda 2026">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/tema.css">
+<link rel="stylesheet" href="../assets/css/print.css">
+<!-- PÀGINA GENERADA amb eines/genera-temes.mjs — edita eines/contingut/tema8.js i torna a generar-la -->
+</head>
+
+<body data-tema="8">
+
+<!-- ============================ PORTADA D'IMPRESSIÓ ============================ -->
+<div class="portada-impressio només-impressio" id="portada-impressio">
+  <p class="portada-impressio__curs" data-camp="assignatura">Optativa SMX · Introducció a la Programació</p>
+  <h1 data-camp="tema">Tema 8 · Programació en l'era de la IA</h1>
+  <p class="portada-impressio__resum" data-camp="subtitol">La IA escriu codi molt de pressa; el programador decidix, comprova i respon</p>
+  <div class="portada-impressio__meta">
+    <p data-camp="autor">Material creat per Agustín Gil - IES La Vereda 2026</p>
+    <p>Llicència <span data-camp="llicencia">CC BY-NC 4.0</span> · <a data-camp="enllac" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">creativecommons.org/licenses/by-nc/4.0</a></p>
+    <p>Data d'impressió: <span data-camp="data"></span></p>
+    <p class="text-suau">Manual d'estudi: introducció, objectius, teoria, exemples explicats, programació guiada, errors habituals i resum. Les tres primeres preguntes d'autoavaluació inclouen la solució; els exercicis i els reptes es treballen en la versió web.</p>
+  </div>
+</div>
+
+<!-- ================================== CAPÇALERA ================================== -->
+<header class="capcalera">
+  <div class="contenidor capcalera__interior" style="max-width:1400px">
+    <a class="capcalera__marca" href="../index.html">
+      <span class="capcalera__logo" aria-hidden="true">{}</span>
+      <span class="capcalera__text">
+        <span class="capcalera__curs">Optativa SMX · Programació amb Java</span>
+        <span class="capcalera__tema">Tema 8 · Programació en l'era de la IA</span>
+      </span>
+    </a>
+    <div class="capcalera__accions">
+      <button class="boto boto--ciano boto--petit" type="button" data-imprimir>🖨 <span class="text-llarg">Imprimir</span> PDF</button>
+      <button class="boto boto--taronja boto--petit" type="button" data-pptx>📊 <span class="text-llarg">Crear</span> PowerPoint</button>
+      <a class="boto boto--fantasma boto--petit" href="../index.html">Índex del curs</a>
+      <button class="boto-icona" type="button" data-menu-toggle aria-expanded="false" aria-label="Obrir el menú del tema">☰</button>
+    </div>
+  </div>
+  <div class="contenidor capcalera__meta" style="max-width:1400px">
+    <span>✍ Material creat per Agustín Gil - IES La Vereda 2026</span>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-NC 4.0</a>
+    <span class="text-suau">Tema 8 de 10 · 3 hores de classe</span>
+  </div>
+  <div class="barra-progres" aria-hidden="true"><span></span></div>
+</header>
+
+<div class="overlay-menu" aria-hidden="true"></div>
+
+<div class="disposicio">
+
+  <!-- ============================== MENÚ LATERAL ============================== -->
+  <aside class="menu-lateral" id="menu-lateral" aria-label="Navegació del tema">
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">En este tema</p>
+      <nav class="indice-intern" id="indice-intern" aria-label="Índex del tema"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc" id="progres-exercicis" hidden>
+      <p class="menu-lateral__titol">El teu progrés</p>
+      <div class="barra-avaluacio"><span style="width:0"></span></div>
+      <p class="text-suau" id="progres-exercicis-text" style="font-size:.82rem;margin:0"></p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Temes del curs</p>
+      <nav class="llista-temes-mini" id="llista-temes-mini" aria-label="Temes del curs"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Accions</p>
+      <div class="pila" style="gap:.5rem">
+        <button class="boto boto--primari boto--ampla boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button>
+        <button class="boto boto--taronja boto--ampla boto--petit" type="button" data-pptx>📊 Crear PowerPoint</button>
+      </div>
+      <p class="text-suau" style="font-size:.78rem;margin:.6rem 0 0">
+        El PDF inclou la teoria i el resum. La presentació és per explicar a classe.
+      </p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Autoria</p>
+      <p class="text-suau" style="font-size:.8rem;margin:0">
+        <strong>Agustín Gil</strong><br>IES La Vereda · 2026<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+      </p>
+    </div>
+  </aside>
+
+  <!-- ================================= CONTINGUT ================================= -->
+  <main class="contingut">
+
+    <div class="hero-tema">
+      <span class="hero-tema__etiqueta">Tema 8 · Sessió de 3 hores</span>
+      <h1>Programació en l'era de la IA</h1>
+      <p class="hero-tema__entradeta">Hui els assistents d'intel·ligència artificial escriuen codi en segons. Això no et lleva faena: te'n dona una altra, i més important. El que et diferencia d'algú que només copia és saber <strong>què demanar, què comprovar i com arreglar-ho</strong> quan falla.</p>
+      <div class="hero-tema__meta">
+        <span class="pastilla">⏱ 3 hores</span>
+        <span class="pastilla">🤝 Fase 3 · Treballar amb ferramentes</span>
+        <span class="pastilla">🧩 Necessites: Temes 0 a 7</span>
+        <span class="pastilla">❓ La pregunta clau: i si el codi que t'han donat està mal?</span>
+      </div>
+    </div>
+
+    <!-- ============================ 01 · INTRODUCCIÓ ============================ -->
+    <section class="seccio" id="introduccio" data-nav="01 · Introducció" style="padding-top:0">
+      <h2>Una situació per començar</h2>
+      <div class="situacio revela">
+        <span class="situacio__emoji" aria-hidden="true">🤖</span>
+        <div>
+<p>Última hora del treball de classe. Li demanes a un assistent d'IA: <em>«fes-me un programa en Java que calcule la nota mitjana de tres notes i diga si aprova»</em>. En dos segons tens això:</p>
+          <pre class="codi" data-titol="MitjanaIA.java" data-etiqueta="CODI GENERAT PER IA"><code>public class MitjanaIA {
+              public static void main(String[] args) {
+                  int n1 = 6;
+                  int n2 = 7;
+                  int n3 = 6;
+
+                  int mitjana = (n1 + n2 + n3) / 3;
+                  System.out.println("Mitjana: " + mitjana);
+
+                  if (mitjana &gt;= 5) {
+                      System.out.println("Aprovat");
+                  } else {
+                      System.out.println("Suspès");
+                  }
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Mitjana: 6
+          Aprovat</pre>
+                    </div>
+          <p>El programa funciona i la nota pareix bona. Però prova de canviar les notes per decimals: <code>int n1 = 6.5;</code> <strong>no compila</strong> (un <code>int</code> no pot guardar decimals). I si les deixes en enters, fixa't en el detall: la mitjana de <code>6</code>, <code>7</code> i <code>6</code> dona <strong>6</strong> quan hauria de donar <strong>6,33</strong>.</p>
+          <p>Això és el més important d'este tema: <strong>la IA ha escrit un codi que compila, que s'executa i que dona un resultat que pareix correcte</strong>. I tot i així està malament per a la meitat dels casos.</p>
+          <p>La IA no és el problema: és una ferramenta boníssima. El problema és usar-la <strong>sense comprovar-la</strong>. Hui aprenem a treballar amb IA com ho fa un programador de veritat: tu pilotant, ella ajudant.</p>
+          <div class="nota nota--important">
+                      <span class="nota__icona" aria-hidden="true">⛔</span>
+                      <div><p>La regla del tema, d'una vegada: <strong>si no saps explicar el codi que t'han donat, no el pots usar</strong>. El codi que no entens no es pot arreglar quan falle, i algun dia fallarà.</p></div>
+                    </div>
+        </div>
+      </div>
+
+      <div class="plan-sessio revela" style="margin-top:var(--esp-5)">
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">30-45 min</span>
+            <span class="plan-sessio__nom">Explicació i demos</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Programació guiada</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Exercicis</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">15-30 min</span>
+            <span class="plan-sessio__nom">Repàs, repte i autoavaluació</span>
+          </div>
+      </div>
+
+      <div class="prerequisits">
+        <strong>Abans de començar has de poder fer això:</strong>
+        <ul>
+          <li>Tot el curs: variables, decisions, bucles, arrays, mètodes i objectes (Temes 1 a 6).</li>
+          <li>Saber construir un programa per etapes (Tema 7).</li>
+          <li>Saber executar un programa i llegir el missatge d'error.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ 02 · QUÈ APRENDREM ============================ -->
+    <section class="seccio" id="objectius" data-nav="02 · Què aprendrem?">
+      <h2>Què aprendrem en este tema?</h2>
+      <p class="entradeta">En acabar esta sessió has de saber fer estes coses:</p>
+      <ul class="llista-objectius revela">
+        <li><span class="num">1</span><span>Explicar què és un <strong>assistent d'IA per a codi</strong> i què pot fer i què no.</span></li>
+        <li><span class="num">2</span><span>Escriure un <strong>bon prompt</strong>: problema, dades, restriccions i què vols que t'explique.</span></li>
+        <li><span class="num">3</span><span><strong>Llegir i comprovar</strong> codi que no has escrit tu, línia a línia i amb valors concrets.</span></li>
+        <li><span class="num">4</span><span>Detectar els <strong>errors típics</strong> del codi generat: divisió de enters, <code>null</code>, límits del bucle, mètodes que no existixen.</span></li>
+        <li><span class="num">5</span><span>Provar un programa amb <strong>cas normal, cas límit i cas dolent</strong> abans de donar-lo per acabat.</span></li>
+        <li><span class="num">6</span><span>Usar la IA <strong>amb responsabilitat</strong>: dades personals, honestedat acadèmica i codi que pugues explicar.</span></li>
+      </ul>
+    </section>
+
+    <!-- =============================== 03 · TEORIA =============================== -->
+    <section class="seccio" id="teoria" data-nav="03 · Teoria">
+      <h2>Teoria, poc a poc</h2>
+      <p class="entradeta">Hui no hi ha sintaxi nova: hi ha manera de treballar. Una idea → un exemple.</p>
+<h3>1. Què és (i què no és) un assistent d'IA de codi</h3>
+        <p>Un <strong>assistent d'IA de codi</strong> és un programa que ha llegit quantitats enormes de codi i text, i que <strong>prediu</strong> quina és la resposta més probable a allò que li demanes. Te'l pots trobar integrat dins de l'editor o en una pàgina web de conversa.</p>
+        <p>Quan li escrius <em>«escriu un bucle que sume un array»</em>, no ha entès res: ha calculat quina combinació de paraules ve normalment darrere d'eixes. I com que ha vist moltíssim codi, quasi sempre encerta la forma. Però <strong>no comprova res</strong>: no sap si el teu array pot estar buit, ni si les dades són decimals.</p>
+        <div class="graella">
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">✅</span> Solia encertar</h3>
+                      <p>Estructures típiques (bucles, condicions), explicar un error, comentar codi, generar casos de prova.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">⚠️</span> Hem de comprovar</h3>
+                      <p>Qualsevol cosa que depenga de les teues dades, de les regles del teu problema o del teu fitxer.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">❌</span> No deu decidir</h3>
+                      <p>Què ha de fer el programa, què és correcte i què no, ni si una entrega està bé.</p>
+                    </article>
+                  </div>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Quan la IA inventa alguna cosa que no existix, es diu <strong>al·lucinació</strong>. En codi passa molt: et pot dir que existix un mètode <code>notes.mitjana()</code> o <code>text.reverse()</code> que <strong>Java no té</strong>. Si el provares, el programa ni tan sols compilaria.</p></div>
+                  </div>
+        <h3>2. Els errors que comet més sovint</h3>
+        <p>Estos són els errors que veuràs repetits en codi generat. No cal memoritzar-los: cal tindre'ls a mà per a <strong>buscar-los sempre</strong>.</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Error típic</th><th>Què passa</th><th>Com el detectes</th></tr></thead>
+                      <tbody>
+                        <tr><td>Divisió de enters</td><td><code>(a + b) / 2</code> amb <code>int</code> perd els decimals</td><td>Prova amb notes decimals: 6.5 i 7.0</td></tr>
+                        <tr><td>Mètode inventat</td><td>Et diu <code>array.suma()</code> i no existix</td><td>No compila: llegix el missatge d'error</td></tr>
+                        <tr><td>Ignora el cas buit</td><td>Dividix per <code>valors.length</code> quan val 0</td><td>Prova amb un array sense elements</td></tr>
+                        <tr><td>Compta malament</td><td>Recorre fins a <code>&lt;= length</code> i es passa</td><td>Prova amb 1 sol element i mira si esclata</td></tr>
+                        <tr><td>No comprova <code>null</code></td><td>Toca una casella buida d'un array d'objectes</td><td>Prova amb un array a mig omplir</td></tr>
+                        <tr><td>Compara <code>String</code> amb <code>==</code></td><td>Compara direccions, no contingut</td><td>Prova dos textos iguals escrits de distintes maneres</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p>Este últim és el pitjor: el programa compila, s'executa i <strong>donant valors distints dona el resultat equivocat sense avisar</strong>. Per això sempre es prova amb casos preparats, no només «mira, funciona».</p></div>
+                  </div>
+        <h3>3. Com es demana bé: el prompt</h3>
+        <p>Un <strong>prompt</strong> és el text que li escrius. Un prompt curt i vague dona codi genèric; un prompt amb context dona codi que pots usar. Compara:</p>
+        <pre class="codi" data-titol="Prompts.txt" data-etiqueta="DOS PROMPTS, DOS RESULTATS"><code>✗ FLUIX
+        "Fes-me un programa en Java de notes."
+
+        (Quines notes? Quantes? Què ha de calcular? Amb quines dades?
+         La resposta serà un programa genèric que no és el teu.)
+
+        ✓ COMPLET
+        "Escriu un mètode en Java que reba un array de notes decimals (double[])
+         i torne la mitjana. Vull que:
+          - funcione també amb un array buit (torna 0),
+          - use un bucle for,
+          - no imprimisca res per pantalla.
+         Després explica'm línia a línia què fa i digues-me
+         amb quines dades hauria de provar-lo."</code></pre>
+        <p>Tot prompt que val la pena té <strong>quatre parts</strong>: què hi ha (context i dades), què ha de fer (les regles del teu problema), què no pot fer (restriccions) i què vols que t'explique.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Si no saps explicar què ha de fer el programa, la IA tampoc no ho sabrà. <strong>El prompt és el pla del Tema 7 escrit en valencià</strong>.</p></div>
+                  </div>
+        <h3>4. Com es lligen (i es comproven) codi aliè</h3>
+        <p>Quan reps codi que no has escrit, no el llisges «per damunt»: el <strong>traces</strong>. Es tracta d'agafar paper, triar valors concrets i anar apuntant què val cada variable en cada volta del bucle.</p>
+        <pre class="codi" data-titol="Traça.java" data-etiqueta="COM ES FA UNA TRAÇA"><code>Codi (generat):              Traça amb el valor 9:
+
+        int doble(int n) {           doble(9):
+            return n * 2;                 → torna 18
+        }
+
+        String etiqueta(int n) {     etiqueta(9):
+            if (n &gt;= 5) {                 → 9 &gt;= 5 és cert
+                return "Aprovat";         → torna "Aprovat"
+            }
+            return "Suspès";
+        }</code></pre>
+        <p>I sempre estes <strong>tres proves</strong>, que són el mínim professional:</p>
+        <div class="graella">
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">1️⃣</span> Cas normal</h3>
+                      <p>Dades típiques: les notes de la classe, la llista del mòbil amb 10 cançons.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">2️⃣</span> Cas límit</h3>
+                      <p>Zero elements, un sol element, el valor més gran o més xicotet possible (0, negatiu, llista buida).</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">3️⃣</span> Cas dolent</h3>
+                      <p>L'usuari escriu text on esperaves un número, o deixa una casella buida.</p>
+                    </article>
+                  </div>
+        <div class="nota nota--exit">
+                    <span class="nota__icona" aria-hidden="true">✅</span>
+                    <div><p>Un programa que passa les <strong>tres proves</strong> val més que un programa que «al professor li va funcionar una vegada». Les proves són l'argument que et protegix.</p></div>
+                  </div>
+        <h3>5. Com ser el pilot (i no el copilot)</h3>
+        <p>El flux de treball que et recomanem és este, i sempre amb tu al centre:</p>
+        <div class="graella">
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">🧠</span> 1. Pensa el pla</h3>
+                      <p>Què ha de fer, quines parts tindrà, quines dades. Tu, no la IA.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">✍️</span> 2. Escriu-ho tu</h3>
+                      <p>Intenta-ho primer. Encara que no acabe d'eixir, ja saps què et falta.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">🔄</span> 3. Passa-ho a la IA</h3>
+                      <p>Problema, restriccions i què vols que t'explique. Un fragment cada vegada.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">🧪</span> 4. Prova-ho tu</h3>
+                      <p>Casos normals, límits i dades dolentes. Tu decidixes si val.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">🔧</span> 5. Arregla i entén</h3>
+                      <p>No pegues codi que no entens: pregunta «per què?» fins que ho sàpigues explicar.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">🧼</span> 6. Fes-ho teu</h3>
+                      <p>Noms i missatges del teu estil, comentaris amb les teues paraules.</p>
+                    </article>
+                  </div>
+        <div class="pregunta-classe"><p>Si la IA t'ha escrit el 80 % del codi però tu has decidit el pla, l'has provat i l'has arreglat… de qui és el programa? Qui el defensa si no funciona?</p></div>
+        <h3>6. Responsabilitat: privacitat, honestedat i licències</h3>
+        <p>Treballar amb IA té límits que no són tècnics sinó de responsabilitat. Estes tres preguntes resolguen quasi tot:</p>
+        <ul class="llista-punts">
+                    <li><strong>Puc enviar esta informació?</strong> Dades personals de companys, contrasenyes, textos interns del centre o codi privat: no. El que escrius en un xat pot quedar en servidors aliens.</li>
+                    <li><strong>Puc entregar-ho així?</strong> Si el treball demana que el faces tu, entregar codi d'un xat és com copiar d'un company. Si l'has usat, <strong>digues-ho</strong> i explica què vas demanar i què vas comprovar.</li>
+                    <li><strong>Puc usar este codi lliurement?</strong> El codi generat pot assemblar-se a codi aliè amb llicència. Per a treball de classe sol ser acceptable amb la cita; per a un producte, no ho doneu mai per suposat.</li>
+                  </ul>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>I una altra que és tècnica: <strong>no instal·les llibreries ni executes orde que no entens</strong> només perquè t'ho haja dit una IA. Si una ferramenta no l'autentiques, no l'executes.</p></div>
+                  </div>
+        <h3>7. Quan NO usar la IA si estàs aprenent</h3>
+        <p>Ara mateix estàs aprenent a programar. Este és el criteri perquè la ferramenta t'ajude en compte de deixar-te arrere:</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>❌ Et faça malbé</th><th>✅ Et faça millor</th></tr></thead>
+                      <tbody>
+                        <tr><td>Demanar la solució completa abans d'intentar-ho</td><td>Demanar que t'explique un error que ja t'has mirat</td></tr>
+                        <tr><td>Pegar codi sense llegir-lo</td><td>Demanar casos de prova, i executar-los tu</td></tr>
+                        <tr><td>Demanar «arregla-m'ho» i no mirar què ha canviat</td><td>Demanar dues maneres de fer el mateix, i triar-ne una</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Regla pràctica per a classe: <strong>primer 10 minuts tu sol</strong>. Després, si continues encallat, pots preguntar. Eixos 10 minuts són els que fan que aprengues a programar i no a demanar.</p></div>
+                  </div>
+    </section>
+
+    <!-- =========================== 04 · EXEMPLES EXPLICATS =========================== -->
+    <section class="seccio seccio--suau" id="exemples" data-nav="04 · Exemples">
+      <h2>Exemples explicats pas a pas</h2>
+      <p class="entradeta">Tres casos reals de codi generat amb IA. En tots el mateix procediment: llija, executar, traçar, provar i arreglar.</p>
+<h3>Exemple 1 · La mitjana que ment</h3>
+        <p><strong>El prompt que s'ha escrit:</strong> <em>«Fes un mètode en Java que calcule la mitjana de tres notes amb decimals i diga si aprova.»</em></p>
+        <pre class="codi codi--error" data-titol="Mitjana1.java" data-etiqueta="COD I GENERAT (AMB ERROR)"><code>public class Mitjana1 {
+
+            public static void main(String[] args) {
+                double n1 = 6.5;
+                double n2 = 7.0;
+                double n3 = 6.0;
+
+                int mitjana = (n1 + n2 + n3) / 3;
+                System.out.println("Mitjana: " + mitjana);
+                System.out.println(mitjana &gt;= 5 ? "Aprovat" : "Suspès");
+            }
+        }</code></pre>
+                  <p class="missatge-error">Mitjana1.java:7: error: incompatible types: possible lossy conversion from double to int</p>
+        <p><strong>Primera passa, sempre: compilar.</strong> El programa ni tan sols arranca: el resultat de sumar decimals és <code>double</code> i no es pot desar en un <code>int</code>. La IA ha seguit la idea «la nota és un número» però no ha mirat que les dades són decimals.</p>
+        <p><strong>Arreglat:</strong> el tipus de <code>mitjana</code> ha de ser <code>double</code>, i la divisió ha de ser entre decimals. Ací hi ha el detall que enganya: <code>(6.5 + 7.0 + 6.0) / 3</code> funciona, però si algú escriu <code>/ 3.0</code> tampoc passa res… i en canvi <code>(n1 + n2 + n3) / (double) 3</code> deixa claríssim el que vols.</p>
+        <pre class="codi" data-titol="Mitjana2.java" data-etiqueta="ARREGLAT I PROVAT"><code>public class Mitjana2 {
+
+            public static double mitjana(double a, double b, double c) {
+                return (a + b + c) / 3.0;
+            }
+
+            public static void main(String[] args) {
+                double m = mitjana(6.5, 7.0, 6.0);
+                System.out.println("Mitjana: " + m);
+                System.out.println(m &gt;= 5 ? "Aprovat" : "Suspès");
+
+                // proves ràpides de límits
+                System.out.println(mitjana(0, 0, 0));      // tot zeros
+                System.out.println(mitjana(5, 5, 5));      // just aprovat
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Mitjana: 6.5
+        Aprovat
+        0.0
+        5.0</pre>
+                  </div>
+        <p><strong>Què hem après:</strong> el tipus de les dades és el primer que s'ha de comprovar en codi generat. La IA sovint escriu el programa d'un cas ideal i oblida el tipus real de les teues dades.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Truc per a la mitjana: si els enters els has de convertir a decimals, multiplica la suma per <code>1.0</code> o dividix per <code>3.0</code>. Escriure el decimal et fa recordar que el resultat és decimal.</p></div>
+                  </div>
+        <h3>Exemple 2 · El programa que esclata amb una casella buida</h3>
+        <p><strong>El prompt:</strong> <em>«Fes un programa que guarde 5 cançons en un array i mostre les que duren més de 200 segons.»</em></p>
+        <pre class="codi" data-titol="Cançons.java" data-etiqueta="COD I GENERAT (FUNCIONA SI ESTÀ PLE)"><code>public class Cancons {
+
+            public static void main(String[] args) {
+                String[] titols = {"Alba", "Nit", "Mar", null, null};
+                int[] durades = {210, 180, 240, 0, 0};
+
+                for (int i = 0; i &lt; titols.length; i++) {
+                    if (durades[i] &gt; 200) {
+                        System.out.println(titols[i] + " (" + durades[i] + " s)");
+                    }
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Alba (210 s)
+        Mar (240 s)</pre>
+                  </div>
+        <p>Fixa't: <strong>funciona!</strong> Mostra les cançons llargues i no dona cap error. El problema apareix quan canviem les dades per un cas real: si la casella 4 tinguera duració 300 i el títol encara no estiguera posat, veuríem <code>null (300 s)</code>. I si en compte de <code>null</code> hi haguera un índex… pitjor.</p>
+        <p>A més, el codi <strong>no està preparat per a un array buit ni per a una llista variable</strong>: les dades estan escrites a dins del <code>main</code>, no arriben per paràmetre. El programa de la IA és una foto fixa, no una ferramenta.</p>
+        <pre class="codi" data-titol="CanconsBo.java" data-etiqueta="ARREGLAT AMB MÈTODES I PROVES"><code>public class CanconsBo {
+
+            public static void mostrarLlargues(String[] titols, int[] durades, int minim) {
+                if (titols.length != durades.length) {
+                    System.out.println("Dades mal formades: falten durades.");
+                    return;
+                }
+                for (int i = 0; i &lt; titols.length; i++) {
+                    if (titols[i] != null &amp;&amp; durades[i] &gt; minim) {
+                        System.out.println(titols[i] + " (" + durades[i] + " s)");
+                    }
+                }
+            }
+
+            public static void main(String[] args) {
+                String[] titols = {"Alba", "Nit", "Mar", null, "Sol"};
+                int[] durades = {210, 180, 240, 0, 300};
+
+                mostrarLlargues(titols, durades, 200);
+
+                // cas límit: cap cançó
+                mostrarLlargues(new String[0], new int[0], 200);
+                System.out.println("Fi del programa.");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Alba (210 s)
+        Mar (240 s)
+        Sol (300 s)
+        Fi del programa.</pre>
+                  </div>
+        <p><strong>Què hem après:</strong> «funciona» només vol dir «funciona amb les dades que li he posat». Un programa professional comprova les dades que rep i té en compte les caselles buides.</p>
+        <h3>Exemple 3 · El bucle que no acaba mai</h3>
+        <p><strong>El prompt:</strong> <em>«Fes un bucle en Java que vaja demanant notes fins que l'usuari escriga -1.»</em></p>
+        <pre class="codi codi--error" data-titol="BucleInfinite.java" data-etiqueta="COD I GENERAT (ESBALLA)"><code>public static void main(String[] args) {
+            Scanner teclat = new Scanner(System.in);
+            double suma = 0;
+            int comptador = 0;
+
+            System.out.print("Nota (-1 per acabar): ");
+            double nota = teclat.nextDouble();
+
+            while (nota != -1) {
+                suma = suma + nota;
+                comptador++;
+            }
+
+            System.out.println("Mitjana: " + (suma / comptador));
+        }</code></pre>
+                  <p class="missatge-error">El programa es queda dins del bucle per sempre. Cal aturar-lo amb el botó roig de l'editor.</p>
+        <p><strong>Com es detecta sense executar-lo?</strong> Traçant: si <code>nota</code> val 6.5 la primera volta, el bucle fa <code>suma = 6.5</code> i torna a comprovar. Com que <strong><code>nota</code> no canvia mai dins del bucle</strong>, la condició sempre és certa. El codi generat ha oblidat el detall que fa funcionar el patró: tornar a demanar la dada.</p>
+        <pre class="codi" data-titol="BucleBo.java" data-etiqueta="ARREGLAT I PROVAT"><code>import java.util.Scanner;
+
+        public class BucleBo {
+
+            public static void main(String[] args) {
+                Scanner teclat = new Scanner(System.in);
+                double suma = 0;
+                int comptador = 0;
+
+                System.out.print("Nota (-1 per acabar): ");
+                double nota = teclat.nextDouble();
+
+                while (nota != -1) {
+                    suma = suma + nota;
+                    comptador++;
+
+                    System.out.print("Nota (-1 per acabar): ");
+                    nota = teclat.nextDouble();
+                }
+
+                if (comptador == 0) {
+                    System.out.println("No has posat cap nota.");
+                } else {
+                    System.out.println("Mitjana: " + (suma / comptador));
+                }
+            }
+        }</code></pre>
+                  <div class="consola consola--entrada">
+                    <span class="consola__titol">Què ha de passar</span>
+                    <pre>Mitjana: 6.75</pre>
+                  </div>
+        <p><strong>Què hem après:</strong> en programació, un bucle necessita que <strong>alguna cosa canvie dins</strong> perquè puga acabar. Quan la IA et done un bucle, primera pregunta: <em>què canvia ací?</em> I segona: <em>i si no hi ha cap dada?</em></p>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>Este és l'error que més temps fa perdre a classe, perquè el programa no dona cap missatge: simplement es queda pensant. Si et passa, <strong>mira la condició i mira si la seua variable canvia dins del bucle</strong>.</p></div>
+                  </div>
+    </section>
+
+    <!-- =========================== 05 · PROGRAMACIÓ GUIADA =========================== -->
+    <section class="seccio" id="guiada" data-nav="05 · Programació guiada">
+      <h2>Programació guiada: el jutge de la IA</h2>
+      <p class="entradeta">Ens han regalat un mètode «generat per IA» i volem saber si de veritat funciona. Construirem un <strong>programa de proves</strong>: un joc de dades amb el resultat esperat i un avís quan el resultat real no coincidix. Cada pas s'executa abans de passar al següent.</p>
+      <div class="pas revela">
+        <span class="pas__num">1</span>
+        <div class="pas__cos">
+          <h3>Pas 1 · El codi que hem de jutjar</h3>
+<p>Este mètode ens l'ha donat un assistent. L'hem d'avaluar <strong>sense tocar-lo</strong>: si el canviem abans de provar-lo, ja no sabrem si era rovellat o si l'hem trencat nosaltres.</p>
+          <pre class="codi" data-titol="Estadistica.java" data-etiqueta="COD I A JUTJAR"><code>public class Estadistica {
+
+              public static double mitjana(int[] valors) {
+                  int suma = 0;
+                  for (int i = 0; i &lt; valors.length; i++) {
+                      suma = suma + valors[i];
+                  }
+                  return suma / valors.length;
+              }
+          }</code></pre>
+          <div class="pregunta-classe"><p>Sense executar-lo: què creus que tornarà <code>mitjana({6, 7, 6})</code>? I <code>mitjana({})</code>? Apunta la resposta.</p></div>
+          <div class="nota nota--tip">
+                      <span class="nota__icona" aria-hidden="true">💡</span>
+                      <div><p>Fixar-nos en el tipus de retorn (<code>double</code>) i en el tipus de dins (<code>int suma</code>, <code>int[] valors</code>) ja ens dona la pista del que passarà.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">2</span>
+        <div class="pas__cos">
+          <h3>Pas 2 · El pla del programa de proves</h3>
+<p>Un <strong>programa de proves</strong> no comprova «si funciona»: comprova <strong>cada cas</strong> per separat i ens diu una cosa per cas. El nostre pla:</p>
+          <pre class="codi" data-titol="PlaProves.txt" data-etiqueta="EL PLA"><code>1. Un mètode comprovar(nom, obtingut, esperat) → mostra ✔ o ✗
+          2. Prova 1: cas normal        mitjana({6, 7, 6})        esperat 6.33
+          3. Prova 2: un sol element    mitjana({8})              esperat 8.0
+          4. Prova 3: cas límit         mitjana({})               esperat 0.0
+          5. Un resum final amb quants casos han passat
+          6. (Després del veredicte) arreglar el mètode i tornar a passar les proves</code></pre>
+          <p>Este patró (dades → resultat esperat → comparar) és el que fan les ferramentes professionals de proves. Ara el fem a mà, amb el que ja sabem, perquè <strong>entenguem què és el que estem comprovant</strong>.</p>
+          <div class="nota nota--info">
+                      <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                      <div><p>Per comparar decimals cal una mica de marge: <code>6.333333</code> i <code>6.33</code> no són el mateix número exacte. Ho resoldrem amb una ajuda que no necessites entendre encara: si la diferència és menuda, els donarem per iguals. Ja arribarà el moment d'entendre este detall; de moment, funciona igual.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">3</span>
+        <div class="pas__cos">
+          <h3>Pas 3 · L'esquelet de les proves</h3>
+<p>Escrivim el mètode de comprovació i el <code>main</code> amb les crides, però <strong>encara sense el mètode jutjat</strong>. Així veiem l'estructura i comprovem que tot compila.</p>
+          <pre class="codi" data-titol="Jutge.java" data-etiqueta="PAS 3 · ESQUELET"><code>public class Jutge {
+
+              static int passades = 0;
+              static int fallades = 0;
+
+              public static void comprovar(String nom, double obtingut, double esperat) {
+                  if (Math.abs(obtingut - esperat) &lt; 0.01) {
+                      passades++;
+                      System.out.println("✔ " + nom + " -&gt; " + obtingut);
+                  } else {
+                      fallades++;
+                      System.out.println("✗ " + nom + " -&gt; esperàvem " + esperat + " i ha donat " + obtingut);
+                  }
+              }
+
+              public static void main(String[] args) {
+                  System.out.println("Proves de mitjana()");
+                  // ací aniran les crides (pas 5)
+                  System.out.println("Passades: " + passades + "  Fallades: " + fallades);
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Proves de mitjana()
+          Passades: 0  Fallades: 0</pre>
+                    </div>
+          <div class="nota nota--tip">
+                      <span class="nota__icona" aria-hidden="true">💡</span>
+                      <div><p>Fixat que <code>comprovar</code> no decidix res «a ull»: o el marge és menut o no ho és. Les proves han de ser clares i sempre les mateixes, com una balança.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">4</span>
+        <div class="pas__cos">
+          <h3>Pas 4 · Provem el mètode amb casos normals</h3>
+<p>Ara sí: afegim el mètode <code>mitjana</code> tal com ens l'han donat, sense tocar-li ni una lletra, i escrivim la primera prova.</p>
+          <pre class="codi" data-titol="Jutge.java" data-etiqueta="PAS 4 · PRIMERA PROVA"><code>    public static double mitjana(int[] valors) {
+                  int suma = 0;
+                  for (int i = 0; i &lt; valors.length; i++) {
+                      suma = suma + valors[i];
+                  }
+                  return suma / valors.length;
+              }
+
+              public static void main(String[] args) {
+                  int[] notes = {6, 7, 6};                          // cas normal
+                  comprovar("mitjana de 6, 7 i 6", mitjana(notes), 6.33);
+
+                  System.out.println("Passades: " + passades + "  Fallades: " + fallades);
+              }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>✗ mitjana de 6, 7 i 6 -&gt; esperàvem 6.33 i ha donat 6.0
+          Passades: 0  Fallades: 1</pre>
+                    </div>
+          <p><strong>Primera troballa.</strong> El programa de proves ha fallat i ens ho ha dit amb el número exacte. La IA no ens hauria avisat d'això: el seu codi compila i dona un número. Ara sabem <strong>on</strong> buscar: <code>suma</code> i <code>valors.length</code> són <code>int</code>, així que la divisió es fa entre enters i es perd la part decimal.</p>
+          <div class="pregunta-classe"><p>Quin és el mínim canvi possible per arreglar-ho? Es pot fer canviant una sola paraula?</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">5</span>
+        <div class="pas__cos">
+          <h3>Pas 5 · Arreglem i tornem a provar (i afegim els límits)</h3>
+<p>Canviem el tipus de la suma a <code>double</code> — una sola paraula — i aprofitem per afegir els casos límit. <strong>Un canvi i una execució</strong>, com al Tema 7.</p>
+          <pre class="codi" data-titol="Jutge.java" data-etiqueta="PAS 5 · ARREGLAT + CASOS LÍMIT"><code>    public static double mitjana(int[] valors) {
+                  double suma = 0;                                    // ← només este canvi
+                  for (int i = 0; i &lt; valors.length; i++) {
+                      suma = suma + valors[i];
+                  }
+                  return suma / valors.length;
+              }
+
+              public static void main(String[] args) {
+                  comprovar("mitjana de 6, 7 i 6",   mitjana(new int[]{6, 7, 6}),      6.33);
+                  comprovar("mitjana d'un sol valor", mitjana(new int[]{8}),          8.0);
+                  comprovar("mitjana amb un negatiu", mitjana(new int[]{-4, 4}),      0.0);
+
+                  System.out.println("Passades: " + passades + "  Fallades: " + fallades);
+              }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>✔ mitjana de 6, 7 i 6 -&gt; 6.333333333333333
+          ✔ mitjana d'un sol valor -&gt; 8.0
+          ✔ mitjana amb un negatiu -&gt; 0.0
+          Passades: 3  Fallades: 0</pre>
+                    </div>
+          <p>Tres de tres. Però encara falta el cas que ens va ensenyar l'Exemple 2: <strong>l'array buit</strong>.</p>
+          <pre class="codi codi--error" data-titol="Jutge.java" data-etiqueta="PAS 5b · EL CAS LÍMIT QUE FALTAVA"><code>    public static void main(String[] args) {
+                  int[] buit = {};
+                  comprovar("mitjana sense dades", mitjana(buit), 0.0);
+
+                  System.out.println("Passades: " + passades + "  Fallades: " + fallades);
+              }</code></pre>
+                    <p class="missatge-error">Exception in thread &quot;main&quot; java.lang.ArithmeticException: / by zero</p>
+          <p><code>valors.length</code> val 0 i el programa intenta dividir per zero. <strong>Els casos límit no són teories: són el que passa un dia normal a classe, quan ningú encara ha posat notes.</strong></p>
+          <pre class="codi" data-titol="Jutge.java" data-etiqueta="PAS 5c · DECISIÓ DEL PROGRAMADOR"><code>    public static double mitjana(int[] valors) {
+                  if (valors == null || valors.length == 0) {
+                      return 0;                 // sense dades no hi ha mitjana: decidim que val 0
+                  }
+                  double suma = 0;
+                  for (int i = 0; i &lt; valors.length; i++) {
+                      suma = suma + valors[i];
+                  }
+                  return suma / valors.length;
+              }</code></pre>
+          <div class="nota nota--important">
+                      <span class="nota__icona" aria-hidden="true">⛔</span>
+                      <div><p>Fixat en el detall: la IA no haurà decidit mai «què fem si no hi ha dades». <strong>Eixa decisió és del programador</strong>: tornar 0, tornar -1 o mostrar un avís. La ferramenta no coneix les regles del teu problema.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">6</span>
+        <div class="pas__cos">
+          <h3>Pas 6 · Demanar a la IA com un professional</h3>
+<p>Ara que hem trobat l'error nosaltres, sí que té sentit usar l'assistent. Fixa't en la diferència entre estos dos prompts:</p>
+          <pre class="codi" data-titol="Prompts2.txt" data-etiqueta="PREGUNTAR BÉ"><code>✗ "Arregla'm això."
+
+          ✓ "Tinc este mètode en Java:
+             double mitjana(int[] valors) → retorna suma / valors.length
+             amb double suma = 0.
+             M'ha passat una ArithmeticException: / by zero quan l'array estava buit.
+             Ja ho he arreglat tornant 0 si no hi ha dades.
+             Explica'm: (1) per què passava, (2) quines altres decisions
+             podria prendre en eixe cas i quines conseqüències tindria cada una.
+             No em dones codi nou."
+             </code></pre>
+          <p>Amb eixe prompt no estàs demanant que et faça la faena: estàs demanant <strong>que t'explique una decisió que ja has pres</strong>. Eixes converses són les que et fan millor programador, perquè t'obliguen a formular bé el problema.</p>
+          <div class="pregunta-classe"><p>Quin prompt li faries perquè t'ajudara a trobar <strong>nous casos límit</strong> que no has pensat? Què hauries de comprovar després de llegir la seua resposta?</p></div>
+          <div class="nota nota--exit">
+                      <span class="nota__icona" aria-hidden="true">✅</span>
+                      <div><p>Regla de la sessió: <strong>la IA proposa, les proves decidixen</strong>. Si el resultat no passa les proves, la resposta no val, per molt bé que estiga escrita.</p></div>
+                    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 06 · MINI EXERCICIS ============================= -->
+    <section class="seccio seccio--suau" id="mini-exercicis" data-nav="06 · Mini exercicis">
+      <h2>Mini exercicis</h2>
+      <p class="entradeta">Activitats curtes per agafar el costum de dubtar del codi. Dos o tres minuts cada una.</p>
+      <div class="llista-mini">
+        <article class="exercici exercici--mini" id="mini8-1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">El prompt fluix</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat"><strong>Sense escriure codi:</strong> un company ha escrit este prompt: <em>«fes-me un programa de notes en Java»</em>. Escriu-ne la versió completa amb les quatre parts (context i dades, què ha de fer, què no pot fer, què vols que t'explique).</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini8-1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini8-1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini8-1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini8-1" hidden><p><strong>Pista:</strong> Pensa primer: què necessita la IA per saber que estàs treballant amb un curs inicial de Java?</p></div>
+          <div class="solucio" id="sol-mini8-1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Prompt.txt" data-etiqueta="SOLUCIÓ"><code>Context: sóc alumne de SMX i estic fent un programa en Java amb arrays.
+Dades: un array de double amb les notes de 6 alumnes.
+
+Què ha de fer: un mètode que torne la mitjana i un altre que torne
+quants han aprovat (nota &gt;= 5).
+
+Restriccions: res de codi nou de llibreries; només el que s'ensenya
+en un curs inicial (bucles, condicions, arrays); el mètode no ha
+d'imprimir res per pantalla.
+
+Vull saber: per què has escrit cada línia i amb quines dades hauria
+de provar-ho perquè fallara si està malament.</code></pre>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Les quatre parts són les que convertixen una petició vaga en una petició útil: sense context i sense restriccions, la resposta sempre serà genèrica.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini8-2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">Caça l'error del primer colp</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Este codi l'ha generat una IA. <strong>Quin error té</strong> i amb quines dades es veu?</div>
+          <pre class="codi" data-titol="Preu.java" data-etiqueta="CODI"><code>public class Preu {
+    public static void main(String[] args) {
+        int preu = 1999;   // 19,99 € en cèntims
+        int quantitat = 7;
+        System.out.println("Total: " + preu * quantitat / 100 + " €");
+    }
+}</code></pre>
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>undefined</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Total: 139 €</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini8-2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini8-2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini8-2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini8-2" hidden><p><strong>Pista:</strong> Fes el càlcul a mà amb paper: quants cèntims són 7 vegades 19,99 €?</p></div>
+          <div class="solucio" id="sol-mini8-2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Preu.java" data-etiqueta="SOLUCIÓ"><code>// El resultat correcte és 139,93 €, però els càlculs amb int
+// perden els decimals:
+//   preu * quantitat = 1999 * 7 = 13993 (cèntims)
+//   13993 / 100 = 139   ← es perd el ,93
+
+public class Preu {
+    public static void main(String[] args) {
+        int preuCentims = 1999;
+        int quantitat = 7;
+
+        double euros = preuCentims * quantitat / 100.0;
+        System.out.println("Total: " + euros + " €");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Total: 139.93 €</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> És el mateix error de la divisió de enters de tot el tema: es detecta provant amb un cas on la divisió no és exacta. I sempre, sempre, amb un cas on no siga exacta.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini8-3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">Mètode inventat</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">2 min</span>
+          </div>
+          <div class="exercici__enunciat">La IA t'ha dit: <em>«usa <code>text.reverse()</code> per a girar el text»</em>. <strong>Per què no funciona en Java</strong> i què faries tu per a girar un <code>String</code>?</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini8-3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini8-3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini8-3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini8-3" hidden><p><strong>Pista:</strong> Compila-ho encara que no t'ho cregues: l'error de «cannot find symbol» és la prova.</p></div>
+          <div class="solucio" id="sol-mini8-3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Girar.java" data-etiqueta="SOLUCIÓ"><code>public class Girar {
+
+    public static String girar(String text) {
+        String resultat = "";
+        for (int i = text.length() - 1; i &gt;= 0; i--) {
+            resultat = resultat + text.charAt(i);
+        }
+        return resultat;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(girar("hola"));
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>aloh</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> En Java, <code>String</code> no té cap mètode <code>reverse()</code>: això és una al·lucinació de la IA (existix en altres llenguatges). Es detecta compilant: el missatge diu «cannot find symbol». El remei sempre és el mateix: fer-ho amb el que sí sabem (un bucle i <code>charAt</code>).</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini8-4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">La traça</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes la <strong>traça</strong> (paper i llapis) d'este codi generat i digues què mostra per pantalla. Després canvia l'array per <code>{1, 2}</code> i torna a fer-la.</div>
+          <pre class="codi" data-titol="Comptador.java" data-etiqueta="CODI"><code>public class Comptador {
+    public static void main(String[] args) {
+        int[] valors = {3, 1, 4};
+        int comptador = 1;
+
+        for (int i = 0; i &lt;= valors.length; i++) {
+            comptador = comptador * 2;
+        }
+        System.out.println("Comptador: " + comptador);
+    }
+}</code></pre>
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>valors = {3, 1, 4}</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Comptador: 16</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini8-4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini8-4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini8-4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini8-4" hidden><p><strong>Pista:</strong> Compta les voltes a mà i no et refies de la intuïció: apunta el valor de <code>comptador</code> en cada volta.</p></div>
+          <div class="solucio" id="sol-mini8-4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Comptador.java" data-etiqueta="SOLUCIÓ"><code>// Amb {3, 1, 4} → length = 3 → el bucle fa 4 voltes (i = 0, 1, 2, 3):
+//   1 → 2 → 4 → 8 → 16      → mostra "Comptador: 16"
+// Amb {1, 2} → length = 2 → 3 voltes: 1 → 2 → 4 → 8  → mostra 8
+//
+// El codi NO esclata perquè no usa valors[i], però compta una volta
+// de més: el senyal és el &lt;= en compte de &lt;. Amb un array buit
+// faria una volta igualment.
+
+public class ComptadorBo {
+    public static void main(String[] args) {
+        int[] valors = {3, 1, 4};
+        int comptador = 1;
+
+        for (int i = 0; i &lt; valors.length; i++) {
+            comptador = comptador * 2;
+        }
+        System.out.println("Comptador: " + comptador);   // 8
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Comptador: 8</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El límit del bucle és un dels errors més comuns del codi generat. Amb <code>&lt;=</code> es fa una volta de més: es detecta provant amb arrays de 0, 1 i 2 elements.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini8-5">
+          <div class="exercici__cap">
+            <span class="exercici__num">5</span>
+            <h3 class="exercici__titol">Tres proves per a un mètode</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Tens un mètode <code>double mitjana(int[] valors)</code> fet per una IA. Escriu <strong>tres crides de prova</strong>: una normal, una límit i una dolenta. Digues què hauria de passar en cada cas.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini8-5">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini8-5">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini8-5"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini8-5" hidden><p><strong>Pista:</strong> Pregunta't: quina dada faria esclatar este mètode si l'hagueres escrit amb pressa?</p></div>
+          <div class="solucio" id="sol-mini8-5" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Proves.java" data-etiqueta="SOLUCIÓ"><code>// 1) NORMAL: valors reals de classe
+comprovar("normal", mitjana(new int[]{6, 7, 6}), 6.33);
+
+// 2) LÍMIT: el cas que sempre obliden
+comprovar("buit", mitjana(new int[]{}), 0.0);        // o el que decidim
+comprovar("un sol element", mitjana(new int[]{10}), 10.0);
+
+// 3) DOLENT: dades fora de l'esperat
+comprovar("negatius", mitjana(new int[]{-5, 5}), 0.0);
+// i, si el mètode rebera text de l'usuari, provar-hi "hola"</code></pre>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Cada tipus de prova busca una família d'errors distinta: el cas normal comprova que fa el que ha de fer, el límit comprova que aguanta, i el dolent comprova que no es trenca amb el que no s'espera.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini8-6">
+          <div class="exercici__cap">
+            <span class="exercici__num">6</span>
+            <h3 class="exercici__titol">La resposta que no val</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">5 min</span>
+          </div>
+          <div class="exercici__enunciat">Li pregunten a un assistent d'IA: <em>«el meu programa de notes diu que tots aprovem, és correcte?»</em> i respon: <em>«Sí, si el programa diu que tots aprovem és que les notes són de 5 o més.»</em> Explica <strong>per què eixa resposta no val res</strong> i què hauries de comprovar tu.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini8-6">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini8-6">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini8-6"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini8-6" hidden><p><strong>Pista:</strong> Pregunta't sempre el mateix: què hauria de vore la IA per poder assegurar-ho?</p></div>
+          <div class="solucio" id="sol-mini8-6" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Analisi.txt" data-etiqueta="SOLUCIÓ"><code>La resposta no val perquè la IA no ha vist les notes ni el codi:
+només ha repetit la idea "si el programa ho diu, serà veritat".
+
+Què cal comprovar:
+1. D'on ixen les notes: les llig de l'usuari o les inventa el codi?
+2. Compara amb &gt;= 5 o amb &gt; 5? (un 5 just ha d'aprovar)
+3. I si la nota és 4.9? I si l'usuari no ha escrit res?
+4. Quantes notes ha lligit de veritat? (comptador)
+
+La conclusió és del programa, no de la IA: sense vore eixes
+comprovacions, la resposta és una opinió.</code></pre>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> La IA no pot validar el teu resultat: només el pot comentar. La validació es fa amb proves, amb traça i mirant les dades reals.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 07 · FES EL PROGRAMA ========================= -->
+    <section class="seccio" id="fes-el-programa" data-nav="07 · Fes el programa">
+      <h2>Fes el programa</h2>
+      <p class="entradeta">Quatre faenes de programador. En totes el mateix orde: <strong>llegir, compilar, traçar, provar amb límits i arreglar</strong>. Escriu tu la resposta abans de mirar la solució.</p>
+      <article class="exercici" id="ex8-1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">Auditoria d'un programa generat</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Este programa el va generar una IA i pareix que funciona: <strong>executa'l amb la llista de baix i mira què dona de veritat</strong> (no et refies del que diu el text). Troba <strong>tres problemes</strong> —un d'ordre de recorregut, un de tipus de dades i un de cas límit—, explica'ls i arregla'ls. Després prova'l amb: (a) la llista de l'exemple, (b) una llista buida, (c) una llista amb un sol element i (d) una llista amb tots els preus negatius.</div>
+          <pre class="codi" data-titol="Compra.java" data-etiqueta="CODI"><code>public class Compra {
+
+    public static void main(String[] args) {
+        double[] preus = {2.50, 1.80, 3.00, 4.20};
+
+        double total = 0;
+        double mesCar = 0;
+
+        for (int i = 1; i &lt; preus.length; i++) {
+            total = total + preus[i];
+            if (preus[i] &gt; mesCar) {
+                mesCar = preus[i];
+            }
+        }
+
+        System.out.println("Total: " + total);
+        System.out.println("Mitjana: " + total / preus.length);
+        System.out.println("Més car: " + mesCar);
+    }
+}</code></pre>
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>preus = {2.50, 1.80, 3.00, 4.20}</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Total: 11.5
+Mitjana: 2.875
+Més car: 4.2</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex8-1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex8-1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex8-1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex8-1" hidden><p><strong>Pista:</strong> Compara el total que dona el codi amb el que tu calcularies a mà abans de tocar res.</p></div>
+          <div class="solucio" id="sol-ex8-1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="CompraBo.java" data-etiqueta="SOLUCIÓ"><code>public class CompraBo {
+
+    public static double total(double[] preus) {
+        double suma = 0;
+        for (int i = 0; i &lt; preus.length; i++) {
+            suma = suma + preus[i];
+        }
+        return suma;
+    }
+
+    public static double mitjana(double[] preus) {
+        if (preus.length == 0) {
+            return 0;
+        }
+        return total(preus) / preus.length;
+    }
+
+    public static double mesCar(double[] preus) {
+        if (preus.length == 0) {
+            return 0;
+        }
+        double maxim = preus[0];                 // mai començar amb 0 fix
+        for (int i = 1; i &lt; preus.length; i++) {
+            if (preus[i] &gt; maxim) {
+                maxim = preus[i];
+            }
+        }
+        return maxim;
+    }
+
+    public static void main(String[] args) {
+        double[] preus = {2.50, 1.80, 3.00, 4.20};
+
+        System.out.println("Total: " + total(preus));
+        System.out.println("Mitjana: " + mitjana(preus));
+        System.out.println("Més car: " + mesCar(preus));
+
+        // proves de límits
+        System.out.println("Sense dades: " + total(new double[0]) + " / " + mitjana(new double[0]));
+        System.out.println("Tot negatiu: " + mesCar(new double[]{-3.5, -1.2}));
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Total: 11.5
+Mitjana: 2.875
+Més car: 4.2
+Sense dades: 0.0 / 0.0
+Tot negatiu: -1.2</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Els tres problemes: (1) el bucle comença en <code>i = 1</code> i es menja el primer preu; (2) no contempla la llista buida (divisió per zero); (3) <code>mesCar</code> comença en 0, així que amb preus negatius diria que el més car és 0. A més, tot està dins del <code>main</code>: costaria provar-ho per parts.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex8-2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">El jutge dels noms</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">25 min</span>
+          </div>
+          <div class="exercici__enunciat">Un assistent d'IA t'ha donat este mètode que diu si un nom d'usuari és vàlid (entre 3 i 10 caràcters i <strong>sense espais</strong>). Escriu <strong>les proves primer</strong> (normal, límit i dolent), executa-les i descobrix el problema. Després arregla el mètode amb el que ja saps i torna a provar.</div>
+          <pre class="codi" data-titol="NomsUsuari.java" data-etiqueta="CODI"><code>public class NomsUsuari {
+
+    public static boolean esValid(String nom) {
+        if (nom.length() &gt;= 3 &amp;&amp; nom.length() &lt;= 10) {
+            return true;
+        }
+        if (nom.indexOf(" ") == -1) {
+            return true;
+        }
+        return false;
+    }
+}</code></pre>
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>esValid(&quot;ana_99&quot;)
+esValid(&quot;a b&quot;)
+esValid(&quot;&quot;)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>true
+true      ← ací està el problema: hauria de ser false
+false</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex8-2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex8-2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex8-2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex8-2" hidden><p><strong>Pista:</strong> Escriu la llista de casos i el resultat esperat en paper <strong>abans</strong> d'executar: així el descobriment no és casualitat.</p></div>
+          <div class="solucio" id="sol-ex8-2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="NomsUsuariBo.java" data-etiqueta="SOLUCIÓ"><code>public class NomsUsuariBo {
+
+    public static boolean esValid(String nom) {
+        if (nom == null) {
+            return false;
+        }
+        if (nom.length() &lt; 3 || nom.length() &gt; 10) {
+            return false;
+        }
+        if (nom.indexOf(" ") != -1) {
+            return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("ana_99  -&gt; " + esValid("ana_99"));   // true
+        System.out.println("abc     -&gt; " + esValid("abc"));      // true (límit)
+        System.out.println("ab      -&gt; " + esValid("ab"));       // false (límit)
+        System.out.println("a b     -&gt; " + esValid("a b"));      // false (espai)
+        System.out.println("12345678901 -&gt; " + esValid("12345678901")); // false
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>ana_99  -&gt; true
+abc     -&gt; true
+ab      -&gt; false
+a b     -&gt; false
+12345678901 -&gt; false</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El codi original té <strong>dos if independents</strong> que no es parlen entre ells: «ab» és massa curt però s'aprova per la segona condició (no té espais), i «a b» té un espai però s'aprova per la primera (la llargària està dins del rang). Les regles han de ser <strong>exigides totes juntes</strong>, com en la versió arreglada. També faltava comprovar <code>null</code>.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex8-3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">Escriure tu primer, comparar després</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">25 min</span>
+          </div>
+          <div class="exercici__enunciat"><strong>Primer, tu sol (10 min):</strong> escriu un programa que demane 5 temperatures i mostre la mitjana, la més alta i quants dies han gelat (per davall de 0). <strong>Després (10 min):</strong> demana-li-ho a un assistent d'IA amb un prompt complet i compara les dos versions. Apunta: què ha fet millor la teua, què ha fet millor la seua i què copiaries d'ella.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>4.5  0.0  -2.0  3.5  -0.5</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Mitjana: 1.1
+Més alta: 4.5
+Dies gelats: 2</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex8-3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex8-3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex8-3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex8-3" hidden><p><strong>Pista:</strong> Al prompt, no oblides les regles del teu problema: «gelat vol dir per davall de 0, i 0 no compta».</p></div>
+          <div class="solucio" id="sol-ex8-3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Temperatures.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Temperatures {
+
+    public static double mitjana(double[] temps) {
+        double suma = 0;
+        for (int i = 0; i &lt; temps.length; i++) {
+            suma = suma + temps[i];
+        }
+        return suma / temps.length;
+    }
+
+    public static double mesAlta(double[] temps) {
+        double maxima = temps[0];
+        for (int i = 1; i &lt; temps.length; i++) {
+            if (temps[i] &gt; maxima) {
+                maxima = temps[i];
+            }
+        }
+        return maxima;
+    }
+
+    public static int diesGelats(double[] temps) {
+        int comptador = 0;
+        for (int i = 0; i &lt; temps.length; i++) {
+            if (temps[i] &lt; 0) {
+                comptador++;
+            }
+        }
+        return comptador;
+    }
+
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+        double[] temps = new double[5];
+
+        for (int i = 0; i &lt; temps.length; i++) {
+            System.out.print("Temperatura dia " + (i + 1) + ": ");
+            temps[i] = teclat.nextDouble();
+        }
+
+        System.out.println("Mitjana: " + mitjana(temps));
+        System.out.println("Més alta: " + mesAlta(temps));
+        System.out.println("Dies gelats: " + diesGelats(temps));
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Mitjana: 1.1
+Més alta: 4.5
+Dies gelats: 2</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> No hi ha una única solució bona: el valor de l'exercici està en la comparació. En general la IA escriurà un codi més curt i polit, i tu detectaràs millor els límits (dies gelats amb 0, mitjana amb enters, etc.) perquè tu has decidit les regles.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex8-4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">Fitxa de responsabilitat</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat"><strong>Sense codi nou.</strong> Prepara una fitxa d'una pàgina per a qualsevol treball en què faces servir IA. Ha de respondre a estes set preguntes, amb exemples concrets del treball d'este tema: (1) quin prompt exacte vas escriure; (2) què et va donar; (3) què vas haver de canviar i per què; (4) com ho vas comprovar; (5) quines dades <strong>no</strong> vas enviar mai; (6) què no entenies i com ho vas resoldre; (7) si el professor et preguntara «explica'm esta línia», sabries fer-ho?</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex8-4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex8-4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex8-4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex8-4" hidden><p><strong>Pista:</strong> La pregunta 7 és la que decidix si el treball es pot entregar: si la resposta és «no», cal tornar arrere, no amagar-ho.</p></div>
+          <div class="solucio" id="sol-ex8-4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="FitxaIA.txt" data-etiqueta="SOLUCIÓ"><code>FITXA D'ÚS DE IA — Treball: ....................................
+
+1. Prompt exacte (copiat, sense retocar)
+   → "Escriu un mètode en Java que reba double[] i torne la mitjana,
+      sense imprimir res i tornant 0 si l'array està buit."
+
+2. Què em va donar
+   → Un mètode correcte però amb suma int (perdia decimals).
+
+3. Què vaig canviar i per què
+   → int suma → double suma. Ho vaig detectar amb la prova 6,7,6
+     (donava 6.0 en compte de 6.33).
+
+4. Com ho vaig comprovar
+   → Jutge amb 4 casos: normal, un element, negatiu i array buit.
+
+5. Dades que NO vaig enviar
+   → Noms de companys, notes reals de la classe, cap contrasenya.
+
+6. Què no entenia i com ho vaig resoldre
+   → Math.abs(...) &lt; 0.01. Ho vaig preguntar i ho vaig provar
+     amb dos números quasi iguals.
+
+7. Puc explicar cada línia?  SÍ / NO
+   → Si hi ha cap NO, esborre eixa part i la torne a escriure.</code></pre>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> La fitxa és la manera honesta de treballar amb IA: deixa constància de què has demanat, què has comprovat i què has après. Si no pots omplir-la amb sinceritat, probablement has entregat faena que no és teua.</p>
+          </div>
+        </article>
+    </section>
+
+    <!-- ================================ 08 · REPTES ================================ -->
+    <section class="seccio seccio--suau" id="reptes" data-nav="08 · Reptes">
+      <h2>Reptes (sense solució)</h2>
+      <div class="nota nota--avis">
+        <span class="nota__icona" aria-hidden="true">🧠</span>
+        <div><p>Els reptes <strong>no tenen botó de solució</strong>, a propòsit. L'objectiu és pensar, provar, equivocar-se i tornar-ho a intentar. Es poden resoldre de moltes maneres diferents: totes les solucions que funcionen són bones.</p></div>
+      </div>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 1</span>
+          <h3 class="repte__titol">El jutge de la classe</h3>
+        </div>
+<p>Fes un programa <strong>Jutge.java</strong> que comprove un mètode d'un company. El procediment:</p>
+        <ul class="llista-punts">
+                    <li>Intercanvia amb un company un dels programes del Tema 7 (una classe amb dos o tres mètodes).</li>
+                    <li>Escriu <strong>les proves abans</strong> de mirar el codi: per a cada mètode, un cas normal, un cas límit i un cas dolent, amb el resultat que tu esperes.</li>
+                    <li>Executa les proves amb el codi del company. Apunta cada ✗ amb el número obtingut i l'esperat.</li>
+                    <li><strong>No li arregles el codi.</strong> Escriu-li un informe de tres línies: què falla, amb quines dades i què hauria de passar.</li>
+                    <li>Passa-li l'informe i que ho arregle. Quan t'ho torne, torna a passar el jutge.</li>
+                    <li>Al final: quants errors ha detectat el jutge que a ull no es veien?</li>
+                  </ul>
+        <p><strong>Entrega:</strong> el fitxer de proves, l'informe i el codi final del company amb un comentari seu dient si li va ser útil.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Fes que el jutge compte les proves passades i les fallades i al final recorde la que va fallar.</li>
+          <li>Afig proves per als mètodes que treballen amb <code>String</code> (comparar amb <code>equals</code>, comprovar <code>null</code>).</li>
+          <li>Fes un rànquing de rigor: quin equip de la classe ha trobat l'error més difícil?</li>
+        </ul>
+      </article>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 2</span>
+          <h3 class="repte__titol">El prompt perfecte (i la seua traïció)</h3>
+        </div>
+<p>La faena: aconseguir que una IA t'escriga un programa <strong>correcte de veritat</strong> i demostrar que ho és. Has de documentar tot el procés.</p>
+        <ul class="llista-punts">
+                    <li>Tria un programa menut però amb trampa: gestor de notes, comptador de paraules d'un text, control d'un torneig, mitjana de temperatures amb dies gelats…</li>
+                    <li>Escriu el prompt amb les quatre parts: context i dades, què ha de fer, restriccions i què vols que t'explique.</li>
+                    <li>Escriu <strong>les proves abans</strong> d'executar la resposta de la IA (mínim 4: normal, dos límits i un cas dolent).</li>
+                    <li>Executa, troba <strong>almenys un problema</strong> i arregla'l tu. Si la resposta és perfecta, busca millor: canvia un tipus, afig un cas extrem, complica les dades.</li>
+                    <li>Fes una segona volta del prompt incloent el que has après: quina diferència hi ha entre el primer prompt i el definitiu?</li>
+                  </ul>
+        <p><strong>Entrega:</strong> els dos prompts (el fluix i el bo), les proves, el problema trobat amb el seu número («esperava 6.33 i donava 6.0»), com l'has arreglat i una conclusió de tres línies: <em>què fa bé la IA, què no i què has hagut de fer tu</em>.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Demana-li a la IA <strong>dos mètodes distints</strong> per al mateix problema i compara'ls amb les proves: quin és més curtós, quin més segur?</li>
+          <li>Deman-li a la IA que t'escrivisca ella les proves. Comprova si les proves que proposa detectarien el seu propi error. (Sorpresa habitual: no.)</li>
+          <li>Presenta-ho a classe en 3 minuts: el moment «la IA m'ha enganyat» és el més instructiu de tots.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ============================ 09 · ERRORS HABITUALS ============================ -->
+    <section class="seccio" id="errors" data-nav="09 · Errors habituals">
+      <h2>Errors habituals</h2>
+      <p class="entradeta">Els errors d'este tema no són de sintaxi: són de criteri. Són els que convertixen una ferramenta potent en un mal company de feina.</p>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 1</span>
+            <h3 class="exercici__titol" style="margin:0">Pegar codi sense provar-lo</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Confiat.java" data-etiqueta="CODI"><code>// Prompt: "fes un programa que diga si dos textos són iguals"
+// Resposta copiada tal qual:
+
+public static void main(String[] args) {
+    String a = "Hola";
+    String b = "Hola";
+
+    if (a == b) {
+        System.out.println("Iguals");
+    } else {
+        System.out.println("Distints");
+    }
+}</code></pre>
+          <p class="missatge-error">Mostra «Iguals» … però amb dos textos que vinguen del teclat mostrarà «Distints».</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Entregar la primera resposta de la IA sense executar-la amb dades reals.</dd>
+                <dt>Per què</dt><dd>El codi generat està pensat per a un cas ideal. Amb <code>String</code>, <code>==</code> compara direccions de memòria: amb literals funciona per casualitat i amb text llegit per teclat falla.</dd>
+                <dt>Com detectar-ho</dt><dd>Prova sempre amb dades que vinguen de fora del programa (teclat, fitxer, array omplit per codi): eixes són les que destapen els errors amagats.</dd>
+                <dt>Com corregir-ho</dt><dd>Executar amb 2-3 casos reals <strong>abans</strong> de donar el codi per bo i canviar <code>==</code> per <code>.equals()</code> en text.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Comparat.java" data-etiqueta="CODI"><code>public static void main(String[] args) {
+    String a = "Hola";
+    String b = "Hola";
+
+    if (a.equals(b)) {
+        System.out.println("Iguals");
+    } else {
+        System.out.println("Distints");
+    }
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 2</span>
+            <h3 class="exercici__titol" style="margin:0">No entendre el codi que entres</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Copiat.java" data-etiqueta="CODI"><code>public static double mitjana(int[] v) {
+    long s = 0;
+    for (int x : v) s += x;
+    return v.length == 0 ? 0 : (double) s / v.length;
+}
+// …i a l'examen no saps explicar què és 'long', ni 'x', ni '?'.</code></pre>
+          <p class="missatge-error">El programa funciona; el que falla és l'alumne: no ho pot defensar ni arreglar.</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Entregar codi que no saps explicar línia a línia.</dd>
+                <dt>Per què</dt><dd>Quan el codi falle amb les dades d'un company o del professor, no sabràs ni per on començar. I si demà canvia una regla, no podràs adaptar-lo.</dd>
+                <dt>Com detectar-ho</dt><dd>Agafa un paper i explica cada línia en veu alta com si fora a classe. Si t'encalles en qualcuna, eixa línia no és teua.</dd>
+                <dt>Com corregir-ho</dt><dd>O l'entens, o la reescrius amb el que sí que saps (bucle <code>for</code>, <code>if</code>, tipos bàsics). Millor un codi més senzill que pugues defensar.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Teu.java" data-etiqueta="CODI"><code>public static double mitjana(int[] valors) {
+    if (valors.length == 0) {
+        return 0;
+    }
+    double suma = 0;
+    for (int i = 0; i &lt; valors.length; i++) {
+        suma = suma + valors[i];
+    }
+    return suma / valors.length;
+}
+
+// Sense atalls: es pot explicar línia a línia en veu alta.</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 3</span>
+            <h3 class="exercici__titol" style="margin:0">Demanar-ho tot a la IA abans d'intentar-ho</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="RutinaDePreguntar.txt" data-etiqueta="CODI"><code>Alumne: "fes-me l'exercici 3"
+IA: (programa complet)
+Alumne: (copia, l'entrega, no aprén res)
+
+I a la tercera setmana: "no sé fer un bucle sol".</code></pre>
+          <p class="missatge-error">És l'error que més es nota al cap d'un mes, no el mateix dia.</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Convertir la ferramenta en una màquina d'entregar deures.</dd>
+                <dt>Per què</dt><dd>Programar s'aprén intentant-ho i equivocant-se. Si sempre t'ho donen fet, la part del cervell que detecta errors no es construïx mai.</dd>
+                <dt>Com detectar-ho</dt><dd>Si entre el prompt i el codi que entregues han passat menys de deu minuts i no has escrit ni una línia tu, mal senyal.</dd>
+                <dt>Com corregir-ho</dt><dd>Primer deu minuts emprovar-ho sol (encara que isca mal). Després, demanar que t'explique o que t'ajude a trobar l'error, no que te'l resolga.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="RutinaQueFunciona.txt" data-etiqueta="CODI"><code>1. Llegix l'enunciat i escriu el pla (parts i dades).        ← 5 min
+2. Intenta el primer mètode tu.                             ← 10 min
+3. Si no ix: prompt amb el que has fet i què t'esperaves.
+   "Açò és el que he escrit i dóna este error. Què estic
+    confonent? No em dones la solució, guia'm."
+4. Arregla-ho tu, executant cada canvi.                     ← 10 min
+5. Quan funcione: intenta explicar-ho a un company.</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 4</span>
+            <h3 class="exercici__titol" style="margin:0">Enviar informació que no és teua</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="PromptRisc.txt" data-etiqueta="CODI"><code>"Açò és la llista de notes i els DNI de la meua classe:
+ 49283721X Ana 8,5   50119283Y Bruno 6,0   ...
+
+ Fes-me un Excel amb les notes mitjanes de cada alumne."</code></pre>
+          <p class="missatge-error">Dades personals de menors enviades a un servidor extern que no controlem.</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Posar dades personals, contrasenyes o informació interna del centre en un xat públic.</dd>
+                <dt>Per què</dt><dd>Estàs donant informació que no és teua a un sistema que pot guardar-la, reutilitzar-la o vore-la altres persones. La responsabilitat legal és teua, no del xat.</dd>
+                <dt>Com detectar-ho</dt><dd>Regla del semàfor: nom, cognom, DNI, telèfon, correu, notes reals, contrasenyes o codi privat → <strong>roig</strong>: no s'envia mai.</dd>
+                <dt>Com corregir-ho</dt><dd>Substituïx les dades per invents: «alumne1 amb 8.5, alumne2 amb 6.0». El programa funcionarà igual i ningú haurà cedit res.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="PromptSegur.txt" data-etiqueta="CODI"><code>"Tinc una llista de noms inventats i notes (alumne1 8.5,
+ alumne2 6.0, alumne3 4.5). Escriu-me el codi en Java
+ per calcular la mitjana i quants aproven, suposant que
+ les dades les tindré jo en un array."
+
+→ Cap dada real ix del centre.</code></pre>
+            </div>
+          </div>
+        </article>
+    </section>
+
+    <!-- ============================= 10 · RESUM VISUAL ============================= -->
+    <section class="seccio seccio--suau" id="resum" data-nav="10 · Resum visual">
+      <h2>Resum visual</h2>
+      <p class="entradeta">La IA no et lleva la faena de programar: et canvia la faena. Estes són les idees que has de recordar.</p>
+      <div class="resum-visual revela">
+        <div class="resum-visual__item"><p>Un <strong>assistent d'IA</strong> prediu codi a partir de text: encerta molt de sovint i <strong>comprova res</strong> del teu problema.</p></div>
+        <div class="resum-visual__item"><p>Pot fer molt de profit: estructures, explicar errors, comentar codi, generar casos de prova.</p></div>
+        <div class="resum-visual__item"><p>Els seus errors típics: <strong>divisió de enters</strong>, mètodes <strong>inventats</strong>, <code>null</code> oblidat, límit del bucle amb <code>&lt;=</code>, <code>==</code> amb <code>String</code>.</p></div>
+        <div class="resum-visual__item"><p>Un <strong>bon prompt</strong> té quatre parts: context i dades, què ha de fer, restriccions i què vols que t'explique.</p></div>
+        <div class="resum-visual__item"><p>El <strong>prompt és el pla</strong> del Tema 7 escrit en valencià: si no saps explicar què ha de fer el programa, la IA tampoc no ho sabrà.</p></div>
+        <div class="resum-visual__item"><p>El codi aliè es llija fent <strong>traces</strong> amb paper: valors concrets i què val cada variable en cada volta.</p></div>
+        <div class="resum-visual__item"><p>Sempre les <strong>tres proves</strong>: cas normal, cas límit (buit, 0, negatiu) i cas dolent.</p></div>
+        <div class="resum-visual__item"><p><strong>La IA proposa, les proves decidixen</strong>: una resposta que no passa les proves no val, per bé que estiga escrita.</p></div>
+        <div class="resum-visual__item"><p>Tu eres el <strong>pilot</strong>: decideixes el pla, arregles i entens. Ella és el copilot.</p></div>
+        <div class="resum-visual__item"><p>Amb IA hi ha <strong>regles que no són tècniques</strong>: no enviar dades personals, dir quan has usat IA i no entregar codi que no saps explicar.</p></div>
+      </div>
+    </section>
+
+    <!-- ============================ 11 · AUTOAVALUACIÓ ============================ -->
+    <section class="seccio" id="autoavaluacio" data-nav="11 · Autoavaluació">
+      <h2>Autoavaluació</h2>
+      <p class="entradeta">Nou preguntes per comprovar si saps treballar amb IA sense deixar de ser programador. Contesta-les totes abans de vore les solucions.</p>
+      <ol class="llista-autoavaluacio">
+        <li>
+          <p class="enunciat">Què fa exactament un assistent d'IA de codi quan li demanes un programa?</p>
+
+          <ul class="opcions"><li>a) Comprova si el programa funcionarà amb les teues dades i t'avisa dels errors.</li><li>b) Prediu quin text és més probable que seguisca al teu prompt, basant-se en molt de codi que ha llegit.</li><li>c) Consulta una base de dades de programes correctes i copia el que més s'assembla.</li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av1">Mostrar solució</button>
+          <div class="solucio" id="av1" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) Prediu la resposta més probable a partir del text que li escrius.</strong></p>
+            <p class="solucio__perque">No comprova res i no coneix el teu problema: només sap quina combinació de codi sol aparéixer en una situació com la que li has descrit.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què és una <strong>al·lucinació</strong> en codi generat per IA?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av2">Mostrar solució</button>
+          <div class="solucio" id="av2" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Que s'invente alguna cosa que no existix: un mètode, una llibreria o un paràmetre. Per exemple <code>text.reverse()</code>: això existix en altres llenguatges, però <strong>Java no el té</strong>.</strong></p>
+            <p class="solucio__perque">Es detecta compilant: el missatge d'error «cannot find symbol» és la prova que eixa part no existeix.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quines són les quatre parts d'un prompt que val la pena?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av3">Mostrar solució</button>
+          <div class="solucio" id="av3" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><strong>Context i dades</strong> (què tinc), <strong>què ha de fer</strong> (les regles del problema), <strong>restriccions</strong> (què no pot usar ni fer) i <strong>què vull que m'explique</strong> (explicació i proves).</strong></p>
+            <p class="solucio__perque">Sense context la resposta és genèrica; sense restriccions pot usar coses que no hem après; sense explicació no aprenem res.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Este codi l'ha generat una IA. Què mostrarà per pantalla i què hauria de mostrar?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>public static void main(String[] args) {
+    int total = 7;
+    int persones = 2;
+    System.out.println("Toca a " + total / persones + " unitats");
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av4">Mostrar solució</button>
+          <div class="solucio" id="av4" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Mostra <code>Toca a 3 unitats</code>, però el correcte amb decimals és <code>3.5</code>.</strong></p>
+            <p class="solucio__perque">La divisió entre <code>int</code> dona un <code>int</code>: es perd la part decimal sense cap avís. Es detecta provant amb un cas que no siga exacte.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Escriu les <strong>tres proves</strong> que li faries al mètode <code>double mitjana(double[] notes)</code> i digues què busques en cada una.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av5">Mostrar solució</button>
+          <div class="solucio" id="av5" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><strong>Normal:</strong> notes reals de classe → comprova que fa el càlcul (6, 7, 6 → 6.33). <strong>Límit:</strong> array buit, un sol element, tot zeros → comprova que no esclata (no pot dividir per zero). <strong>Dolent:</strong> notes negatives o valors estranys → comprova que no dona resultats absurds.</strong></p>
+            <p class="solucio__perque">Cada família de proves busca un tipus d'error distint: el càlcul, els límits i les dades que ningú esperava.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Un company diu: «si la IA m'ho ha donat, i la IA ha llegit milions de programes, estarà bé». Què li contestaries?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av6">Mostrar solució</button>
+          <div class="solucio" id="av6" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Que la IA no ha vist <strong>les seues dades ni les seues regles</strong>: ha vist molt de codi en general. El seu codi compila quasi sempre, però pot estar malament per al problema concret (tipus de dades, límits, regles del centre…). La prova és executar-lo amb els casos preparats.</strong></p>
+            <p class="solucio__perque">La diferència entre «codi plausible» i «codi correcte» la decidixen les proves, no l'autoritat de qui l'ha escrit.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quines dades <strong>no</strong> has d'enviar mai a un xat d'IA i què fas si les necessites per explicar el problema?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av7">Mostrar solució</button>
+          <div class="solucio" id="av7" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>No s'envien noms, cognoms, DNI, telèfons, correus, notes reals, contrasenyes ni codi privat. Si cal explicar-ho, es <strong>substituïxen per invents</strong> («alumne1», «usuari A», «producte X») que mantinguen l'estructura del problema.</strong></p>
+            <p class="solucio__perque">La responsabilitat legal i ètica de les dades és teua. Un prompt no és un lloc segur per a informació personal de terceres persones.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Per a què està <strong>especialment bé</strong> usar la IA mentre aprens a programar, i per a què no?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av8">Mostrar solució</button>
+          <div class="solucio" id="av8" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Bé: explicar un missatge d'error que ja has llegit, proposar casos de prova, comentar codi, mostrar dues maneres de fer el mateix. Mal: donar-te la solució d'un exercici abans d'intentar-lo, o entregar codi que no saps explicar.</strong></p>
+            <p class="solucio__perque">La ferramenta ajuda quan amplia què entens, i fa mal quan substituïx el teu intent: eixe intent és justament el que t'ensenya.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">La IA t'ha escrit el 80 % d'un programa, però tu has decidit el pla, has trobat l'error, l'has arreglat i el pots explicar. Què diries si et pregunten «de qui és este programa»? I si l'hagueres copiat sense entendre'l?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av9">Mostrar solució</button>
+          <div class="solucio" id="av9" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>En el primer cas és <strong>teu</strong> (amb una nota honesta de com l'has fet). En el segon no és teu ni és un treball acadèmic vàlid: has entregat alguna cosa que no pots defensar ni arreglar quan falle.</strong></p>
+            <p class="solucio__perque">El criteri no és quantes línies has escrit, sinó qui decidix, qui comprova i qui respon del resultat.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <nav class="navegacio-temes no-imprimible" id="navegacio-temes" aria-label="Navegació entre temes"></nav>
+
+  </main>
+</div>
+
+<!-- ====================================== PEU ====================================== -->
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__graella">
+      <div>
+        <h4>Introducció a la Programació amb Java</h4>
+        <p>Optativa SMX · Sistemes Microinformàtics i Xarxes</p>
+        <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+      </div>
+      <div>
+        <h4>En este tema</h4>
+        <ul class="llista-netejada">
+          <li><a href="#teoria">Teoria</a></li>
+          <li><a href="#exemples">Exemples explicats</a></li>
+          <li><a href="#guiada">Programació guiada</a></li>
+          <li><a href="#resum">Resum visual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Llicència</h4>
+        <p>Material lliure per a ús educatiu.<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a></p>
+      </div>
+    </div>
+    <div class="peu__base">
+      <span>© 2026 Agustín Gil · IES La Vereda</span>
+      <a class="llicencia" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">
+        <span class="llicencia__icones" aria-hidden="true"><span>CC</span><span>BY</span><span>NC</span></span>
+        Creative Commons Reconeixement-NoComercial 4.0 Internacional
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Peu fix que apareix en cada pàgina del PDF -->
+<div class="peu-impressio" aria-hidden="true">
+  <span>Introducció a la Programació amb Java · Optativa SMX · Material creat per Agustín Gil - IES La Vereda 2026 · CC BY-NC 4.0</span>
+  <span class="peu-impressio__dreta">Tema 8</span>
+</div>
+
+<button class="boto boto--primari tornar-dalt no-imprimible" id="tornar-dalt" type="button" aria-label="Tornar a dalt">↑</button>
+
+<script src="../assets/js/resaltat.js"></script>
+<script src="../assets/js/dades-curs.js"></script>
+<script src="../assets/js/diapositives/tema8.js"></script>
+<script src="../assets/js/plantilla-tema.js"></script>
+<script src="../assets/js/pptx.js"></script>
+</body>
+</html>
