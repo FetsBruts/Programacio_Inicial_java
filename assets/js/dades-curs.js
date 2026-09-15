@@ -92,7 +92,7 @@ window.CURS = {
     },
     {
       n: 4,
-      fitxer: null,
+      fitxer: 'temes/tema4.html',
       titol: 'Treballar amb moltes dades',
       subtitol: 'Quan una variable ja no ens arriba',
       emoji: '🗂️',
@@ -101,11 +101,11 @@ window.CURS = {
       desc: 'Arrays, índexs, recórrer dades amb bucles, buscar, comptar, sumar i traure màxims i mínims.',
       continguts: ['Crear arrays', 'Índexs', 'Recórrer amb for', 'Sumar i comptar', 'Màxim i mínim'],
       prereq: 'Tema 3: bucles.',
-      estat: 'en-preparacio'
+      estat: 'publicat'
     },
     {
       n: 5,
-      fitxer: null,
+      fitxer: 'temes/tema5.html',
       titol: 'Dividir un programa en parts',
       subtitol: 'Mètodes: problemes xicotets, solucions clares',
       emoji: '🧩',
@@ -114,11 +114,11 @@ window.CURS = {
       desc: 'Crear mètodes, passar paràmetres, retornar valors i descompondre un problema gran en funcions xicotetes.',
       continguts: ['Què és un mètode', 'Paràmetres', 'return', 'void', 'Reutilització'],
       prereq: 'Temes 1 a 4. És el pas previ obligatori abans dels objectes.',
-      estat: 'en-preparacio'
+      estat: 'publicat'
     },
     {
       n: 6,
-      fitxer: null,
+      fitxer: 'temes/tema6.html',
       titol: 'Objectes i classes',
       subtitol: 'El nostre primer Jugador amb vida, punts i accions',
       emoji: '🎮',
@@ -127,7 +127,7 @@ window.CURS = {
       desc: 'Què és una classe i què és un objecte, atributs, mètodes, constructors i diversos objectes de la mateixa classe.',
       continguts: ['Classe i objecte', 'Atributs', 'Mètodes de la classe', 'Constructors', 'Diversos objectes'],
       prereq: 'Temes 1 a 5, especialment mètodes. No s\'introduïx abans.',
-      estat: 'en-preparacio'
+      estat: 'publicat'
     },
     {
       n: 7,

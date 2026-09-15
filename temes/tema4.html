@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 4 · Arrays: guardar moltes dades | Introducció a la Programació amb Java</title>
+<meta name="description" content="Una fila de caselles numerades per a totes les notes, punts o temperatures">
+<meta name="author" content="Agustín Gil · IES La Vereda 2026">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/tema.css">
+<link rel="stylesheet" href="../assets/css/print.css">
+<!-- PÀGINA GENERADA amb eines/genera-temes.mjs — edita eines/contingut/tema4.js i torna a generar-la -->
+</head>
+
+<body data-tema="4">
+
+<!-- ============================ PORTADA D'IMPRESSIÓ ============================ -->
+<div class="portada-impressio només-impressio" id="portada-impressio">
+  <p class="portada-impressio__curs" data-camp="assignatura">Optativa SMX · Introducció a la Programació</p>
+  <h1 data-camp="tema">Tema 4 · Arrays: guardar moltes dades</h1>
+  <p class="portada-impressio__resum" data-camp="subtitol">Una fila de caselles numerades per a totes les notes, punts o temperatures</p>
+  <div class="portada-impressio__meta">
+    <p data-camp="autor">Material creat per Agustín Gil - IES La Vereda 2026</p>
+    <p>Llicència <span data-camp="llicencia">CC BY-NC 4.0</span> · <a data-camp="enllac" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">creativecommons.org/licenses/by-nc/4.0</a></p>
+    <p>Data d'impressió: <span data-camp="data"></span></p>
+    <p class="text-suau">Manual d'estudi: introducció, objectius, teoria, exemples explicats, programació guiada, errors habituals i resum. Les tres primeres preguntes d'autoavaluació inclouen la solució; els exercicis i els reptes es treballen en la versió web.</p>
+  </div>
+</div>
+
+<!-- ================================== CAPÇALERA ================================== -->
+<header class="capcalera">
+  <div class="contenidor capcalera__interior" style="max-width:1400px">
+    <a class="capcalera__marca" href="../index.html">
+      <span class="capcalera__logo" aria-hidden="true">{}</span>
+      <span class="capcalera__text">
+        <span class="capcalera__curs">Optativa SMX · Programació amb Java</span>
+        <span class="capcalera__tema">Tema 4 · Arrays: guardar moltes dades</span>
+      </span>
+    </a>
+    <div class="capcalera__accions">
+      <button class="boto boto--ciano boto--petit" type="button" data-imprimir>🖨 <span class="text-llarg">Imprimir</span> PDF</button>
+      <button class="boto boto--taronja boto--petit" type="button" data-pptx>📊 <span class="text-llarg">Crear</span> PowerPoint</button>
+      <a class="boto boto--fantasma boto--petit" href="../index.html">Índex del curs</a>
+      <button class="boto-icona" type="button" data-menu-toggle aria-expanded="false" aria-label="Obrir el menú del tema">☰</button>
+    </div>
+  </div>
+  <div class="contenidor capcalera__meta" style="max-width:1400px">
+    <span>✍ Material creat per Agustín Gil - IES La Vereda 2026</span>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-NC 4.0</a>
+    <span class="text-suau">Tema 4 de 10 · 3 hores de classe</span>
+  </div>
+  <div class="barra-progres" aria-hidden="true"><span></span></div>
+</header>
+
+<div class="overlay-menu" aria-hidden="true"></div>
+
+<div class="disposicio">
+
+  <!-- ============================== MENÚ LATERAL ============================== -->
+  <aside class="menu-lateral" id="menu-lateral" aria-label="Navegació del tema">
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">En este tema</p>
+      <nav class="indice-intern" id="indice-intern" aria-label="Índex del tema"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc" id="progres-exercicis" hidden>
+      <p class="menu-lateral__titol">El teu progrés</p>
+      <div class="barra-avaluacio"><span style="width:0"></span></div>
+      <p class="text-suau" id="progres-exercicis-text" style="font-size:.82rem;margin:0"></p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Temes del curs</p>
+      <nav class="llista-temes-mini" id="llista-temes-mini" aria-label="Temes del curs"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Accions</p>
+      <div class="pila" style="gap:.5rem">
+        <button class="boto boto--primari boto--ampla boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button>
+        <button class="boto boto--taronja boto--ampla boto--petit" type="button" data-pptx>📊 Crear PowerPoint</button>
+      </div>
+      <p class="text-suau" style="font-size:.78rem;margin:.6rem 0 0">
+        El PDF inclou la teoria i el resum. La presentació és per explicar a classe.
+      </p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Autoria</p>
+      <p class="text-suau" style="font-size:.8rem;margin:0">
+        <strong>Agustín Gil</strong><br>IES La Vereda · 2026<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+      </p>
+    </div>
+  </aside>
+
+  <!-- ================================= CONTINGUT ================================= -->
+  <main class="contingut">
+
+    <div class="hero-tema">
+      <span class="hero-tema__etiqueta">Tema 4 · Sessió de 3 hores</span>
+      <h1>Arrays: guardar moltes dades</h1>
+      <p class="hero-tema__entradeta">Trenta notes de classe no poden ser trenta variables. Un array és una fila de caselles numerades que es recorre amb un bucle: juntes, les dos idees del tema anterior i d'este es convertixen en una màquina de fer comptes.</p>
+      <div class="hero-tema__meta">
+        <span class="pastilla">⏱ 3 hores</span>
+        <span class="pastilla">📦 Fase 1 · Pensament de programador</span>
+        <span class="pastilla">🧩 Necessites: Temes 0 a 3</span>
+        <span class="pastilla">❓ La pregunta clau: quina és la posició de cada dada?</span>
+      </div>
+    </div>
+
+    <!-- ============================ 01 · INTRODUCCIÓ ============================ -->
+    <section class="seccio" id="introduccio" data-nav="01 · Introducció" style="padding-top:0">
+      <h2>Una situació per començar</h2>
+      <div class="situacio revela">
+        <span class="situacio__emoji" aria-hidden="true">📋</span>
+        <div>
+<p>Volem un programa que demane les notes de sis companys i després diga la mitjana, la més alta, la més baixa i quantes persones han aprovat.</p>
+          <p>Amb el que sabem fins ara podríem fer-ho, però mira com queda:</p>
+          <pre class="codi" data-titol="SisNotes.java" data-etiqueta="SENSE ARRAYS"><code>double nota1 = 6.5;
+          double nota2 = 4.0;
+          double nota3 = 8.5;
+          double nota4 = 5.0;
+          double nota5 = 7.5;
+          double nota6 = 3.5;
+
+          // per a cada càlcul, una línia:
+          double suma = nota1 + nota2 + nota3 + nota4 + nota5 + nota6;
+          double mitjana = suma / 6;
+          // i per al màxim i el mínim... quina faena!</code></pre>
+          <p>I si foren <strong>30</strong> companys? I si foren 300? Este codi no s'aguanta. El problema és que cada dada necessita el seu propi nom, i nosaltres no podem inventar-se'n tants.</p>
+          <p>La solució és guardar totes les dades en <strong>una sola variable amb moltes caselles</strong>: un <strong>array</strong>. Cada casella té un número (la seua <strong>posició</strong>) i el bucle recorre totes les caselles una darrere l'altra.</p>
+        </div>
+      </div>
+
+      <div class="plan-sessio revela" style="margin-top:var(--esp-5)">
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">30-40 min</span>
+            <span class="plan-sessio__nom">Explicació i demos</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Programació guiada</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Exercicis</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">15-30 min</span>
+            <span class="plan-sessio__nom">Repàs i repte</span>
+          </div>
+      </div>
+
+      <div class="prerequisits">
+        <strong>Abans de començar has de poder fer això:</strong>
+        <ul>
+          <li>Fer bucles amb <code>while</code> i <code>for</code> (Tema 3).</li>
+          <li>Comparar valors i prendre decisions amb <code>if</code> (Tema 2).</li>
+          <li>Les variables i els tipus de dades (Tema 1).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ 02 · QUÈ APRENDREM ============================ -->
+    <section class="seccio" id="objectius" data-nav="02 · Què aprendrem?">
+      <h2>Què aprendrem en este tema?</h2>
+      <p class="entradeta">En acabar esta sessió has de saber fer estes coses:</p>
+      <ul class="llista-objectius revela">
+        <li><span class="num">1</span><span>Crear un array i saber quantes caselles té.</span></li>
+        <li><span class="num">2</span><span>Guardar i llegir dades en una posició concreta.</span></li>
+        <li><span class="num">3</span><span>Recórrer un array amb un <code>for</code> de la primera a l'última casella.</span></li>
+        <li><span class="num">4</span><span>Calcular sumes, mitjanes, màxims i mínims d'un array.</span></li>
+        <li><span class="num">5</span><span>Comptar i buscar valors dins d'un array.</span></li>
+        <li><span class="num">6</span><span>Fer servir els mètodes útils dels textos (<code>length</code>, <code>charAt</code>, <code>equals</code>…).</span></li>
+      </ul>
+    </section>
+
+    <!-- =============================== 03 · TEORIA =============================== -->
+    <section class="seccio" id="teoria" data-nav="03 · Teoria">
+      <h2>Teoria, poc a poc</h2>
+      <p class="entradeta">Una idea → un exemple. I una pregunta que no para: quina casella estic tocant ara?</p>
+<h3>1. Una fila de caselles</h3>
+        <p>Un <strong>array</strong> (<code>vector</code>, en català) és una variable que guarda <strong>molts valors del mateix tipus</strong>, un darrere l'altre, i cada valor té un número de posició.</p>
+        <p>Pensa-ho com els calaixos d'una taula: el calaix 0, el calaix 1, el calaix 2… Es crea així:</p>
+        <pre class="codi" data-titol="CrearArray.java" data-etiqueta="CREAR"><code>int[] notes = new int[5];   // un array de 5 enters
+
+        System.out.println("Té " + notes.length + " caselles");
+
+        notes[0] = 7;      // guardem
+        System.out.println(notes[0]);   // llegim
+        System.out.println(notes[3]);   // encara no l'hem tocat: val 0</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Té 5 caselles
+        7
+        0</pre>
+                  </div>
+        <p>Tres coses importants:</p>
+        <ol class="llista-punts">
+                    <li>El tipus va amb claudàtors: <code>int[]</code> significa «array d'enters».</li>
+                    <li><code>new int[5]</code> <strong>crea</strong> l'array amb 5 caselles.</li>
+                    <li>Les caselles d'un array de números comencen sempre amb el valor <strong>0</strong>. No estan buides: valen 0.</li>
+                  </ol>
+        <pre class="codi" data-titol="Dibuix.java" data-etiqueta="COM ES VEURIA"><code>int[] notes = new int[5];
+
+        //  índex:    0    1    2    3    4
+        //  valor:    0    0    0    0    0
+        //           (5 caselles → índexs del 0 al 4)</code></pre>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p><strong>La primera casella és la 0 i l'última és <code>length - 1</code>.</strong> Si l'array té 5 caselles, els índexs són 0, 1, 2, 3 i 4. El 5 no existix! És l'error més típic d'este tema.</p></div>
+                  </div>
+        <h3>2. Guardar amb la manera curta</h3>
+        <p>Si ja sabem els valors des del principi, no cal crear l'array buit: es pot escriure directament entre claus.</p>
+        <pre class="codi" data-titol="ManeraCurta.java" data-etiqueta="VALORS INICIALS"><code>int[] punts = {120, 95, 180, 60, 145};
+        String[] noms = {"Ana", "Bruno", "Carla"};
+
+        System.out.println(punts[2]);       // 180
+        System.out.println(noms[0]);        // Ana
+        System.out.println(punts.length);   // 5</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>180
+        Ana
+        5</pre>
+                  </div>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Les dos maneres són igual de correctes. Si els valors els posa l'usuari, fem <code>new int[quants]</code>; si els escrivim nosaltres al codi, podem fer servir les claus.</p></div>
+                  </div>
+        <h3>3. Recórrer un array amb un for</h3>
+        <p>Ací està la màgia: un array i un bucle encaixen perfectament. El comptador del bucle es convertix en l'<strong>índex</strong> de la casella.</p>
+        <pre class="codi" data-titol="Recorrer.java" data-etiqueta="RECÓRRER"><code>public class Recorrer {
+            public static void main(String[] args) {
+                int[] punts = {120, 95, 180, 60, 145};
+
+                for (int i = 0; i &lt; punts.length; i++) {
+                    System.out.println("Jugador " + (i + 1) + ": " + punts[i] + " punts");
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Jugador 1: 120 punts
+        Jugador 2: 95 punts
+        Jugador 3: 180 punts
+        Jugador 4: 60 punts
+        Jugador 5: 145 punts</pre>
+                  </div>
+        <p>Llig-lo en veu alta: <em>«per a i des de 0 mentres i siga menut que la quantitat de caselles, augmenta i»</em>. Dins s'accedix a <code>punts[i]</code>, que va canviant de casella a cada volta.</p>
+        <p>I per què posem <code>i + 1</code> en el missatge? Perquè l'índex 0 és el <strong>primer</strong> jugador, i als humans ens agrada comptar des de l'1. El programa compta des de 0, la pantalla des d'1.</p>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>La condició del bucle és <strong><code>i &lt; array.length</code></strong> (menut, <strong>sense</strong> l'igual). Si escrius <code>i &lt;= array.length</code>, quan <code>i</code> arribe a 5 buscaràs la casella 5 d'un array de 5 caselles i el programa fallarà.</p></div>
+                  </div>
+        <h3>4. La manera curta de recórrer: for-each</h3>
+        <p>Quan volem <strong>tots</strong> els valors i no ens importa la posició, hi ha una manera més curta. Es diu <em>for-each</em> i es llig «per a cada».</p>
+        <pre class="codi" data-titol="ForEach.java" data-etiqueta="FOR-EACH"><code>public class ForEach {
+            public static void main(String[] args) {
+                String[] noms = {"Ana", "Bruno", "Carla"};
+
+                // per a cada text (que direm nom) de la llista noms:
+                for (String nom : noms) {
+                    System.out.println(nom);
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Ana
+        Bruno
+        Carla</pre>
+                  </div>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Si…</th><th>Fem servir</th></tr></thead>
+                      <tbody>
+                        <tr><td>Necessite la posició (índex)</td><td><code>for (int i = 0; i &lt; a.length; i++)</code></td></tr>
+                        <tr><td>Només vull els valors</td><td><code>for (int valor : a)</code></td></tr>
+                        <tr><td>Vull omplir l'array des del teclat</td><td><code>for</code> amb índex, perquè cal assignar a <code>a[i]</code></td></tr>
+                        <tr><td>Vull modificar les caselles</td><td><code>for</code> amb índex</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>El <em>for-each</em> només servix per a <strong>llegir</strong>. Amb ell no es pot guardar res en l'array, perquè no tenim el número de la casella.</p></div>
+                  </div>
+        <h3>5. Omplir un array des del teclat</h3>
+        <p>El patró clàssic: el bucle demana una dada i la guarda directament en la casella.</p>
+        <pre class="codi" data-titol="Omplir.java" data-etiqueta="SCANNER + ARRAY"><code>import java.util.Scanner;
+
+        public class Omplir {
+            public static void main(String[] args) {
+                Scanner teclat = new Scanner(System.in);
+                double[] notes = new double[5];
+
+                for (int i = 0; i &lt; notes.length; i++) {
+                    System.out.print("Nota " + (i + 1) + ": ");
+                    notes[i] = teclat.nextDouble();
+                }
+
+                double suma = 0;
+                for (int i = 0; i &lt; notes.length; i++) {
+                    suma = suma + notes[i];
+                }
+
+                System.out.println("Mitjana: " + (suma / notes.length));
+            }
+        }</code></pre>
+                  <div class="consola consola--entrada">
+                    <span class="consola__titol">Què ha de passar</span>
+                    <pre>Nota 1: 6
+        Nota 2: 7
+        Nota 3: 6
+        Nota 4: 9
+        Nota 5: 8
+        Mitjana: 7.2</pre>
+                  </div>
+        <p>Fixa't que hi ha <strong>dos bucles</strong>: un per a omplir i un altre per a calcular. Es podrien juntar, però separats es lligen millor i és el que fan quasi tots els programes de veritat.</p>
+        <h3>6. Màxim i mínim: el mètode de l'aspirant</h3>
+        <p>Volem saber el valor més gran d'un array. La idea: <strong>el primer element és el campió</strong>, i després cada altre valor li intenta prendre el títol.</p>
+        <pre class="codi" data-titol="MaxIMin.java" data-etiqueta="MÀXIM I MÍNIM"><code>public class MaxIMin {
+            public static void main(String[] args) {
+                int[] punts = {120, 95, 180, 60, 145};
+
+                int maxim = punts[0];
+                int minim = punts[0];
+
+                for (int i = 1; i &lt; punts.length; i++) {
+                    if (punts[i] &gt; maxim) {
+                        maxim = punts[i];
+                    }
+                    if (punts[i] &lt; minim) {
+                        minim = punts[i];
+                    }
+                }
+
+                System.out.println("La millor partida: " + maxim + " punts");
+                System.out.println("La pitjor partida: " + minim + " punts");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>La millor partida: 180 punts
+        La pitjor partida: 60 punts</pre>
+                  </div>
+        <p>Dos detalls que fan que funcione:</p>
+        <ol class="llista-punts">
+                    <li>El campió comença sent la <strong>primera</strong> casella (<code>punts[0]</code>), no 0 ni un número inventat.</li>
+                    <li>El bucle comença en <code>i = 1</code>, perquè la casella 0 ja l'hem mirada en inicialitzar.</li>
+                  </ol>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p>Si inicialitzes el màxim a 0 i tots els valors de l'array foren negatius (per exemple temperatures d'un congelador), el programa diria que el màxim és 0, i seria mentida. Per això comencem sempre amb <code>array[0]</code>.</p></div>
+                  </div>
+        <h3>7. Buscar un valor dins de l'array</h3>
+        <p>Buscar costa el mateix: recórrer i preguntar. Quan el trobem, guardem la posició i podem parar amb <code>break</code>.</p>
+        <pre class="codi" data-titol="Buscar.java" data-etiqueta="BUSCAR"><code>public class Buscar {
+            public static void main(String[] args) {
+                String[] noms = {"Ana", "Bruno", "Carla", "Dani"};
+                String buscat = "Carla";
+
+                boolean trobat = false;
+
+                for (int i = 0; i &lt; noms.length; i++) {
+                    if (noms[i].equals(buscat)) {
+                        System.out.println("Trobat a la posició " + i);
+                        trobat = true;
+                        break;
+                    }
+                }
+
+                if (!trobat) {
+                    System.out.println("No està a la llista");
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Trobat a la posició 2</pre>
+                  </div>
+        <p>El patró de la <strong>variable bandera</strong>: comença <code>false</code>, es posa <code>true</code> quan trobem el que busquem. Al final, mirem la bandera per saber què ha passat.</p>
+        <h3>8. El text també és una fila de caràcters</h3>
+        <p>Un <code>String</code> es comporta molt paregut a un array: cada posició és una <strong>lletra</strong> (un <code>char</code>). Per a treballar amb textos, hi ha unes quantes ferramentes que has de conéixer.</p>
+        <pre class="codi" data-titol="Ferramentes.java" data-etiqueta="MÈTODES DE STRING"><code>public class Ferramentes {
+            public static void main(String[] args) {
+                String text = "Programar en Java";
+
+                System.out.println(text.length());            // quantes lletres? (amb parèntesis!)
+                System.out.println(text.charAt(0));           // la lletra de la posició 0
+                System.out.println(text.toUpperCase());       // tot en majúscules
+                System.out.println(text.toLowerCase());       // tot en minúscules
+                System.out.println(text.substring(0, 9));     // un tros: de la 0 a la 9 (la 9 no entra)
+                System.out.println(text.contains("Java"));    // conté este tros?
+                System.out.println(text.indexOf("Java"));     // en quina posició està?
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>17
+        P
+        PROGRAMAR EN JAVA
+        programar en java
+        Programar
+        true
+        13</pre>
+                  </div>
+        <p>La llista de les més útils, per a tindre-la a mà:</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>S'escriu</th><th>Fa</th><th>Exemple</th></tr></thead>
+                      <tbody>
+                        <tr><td><code>text.length()</code></td><td>quantes lletres té (<strong>amb</strong> parèntesis)</td><td><code>&quot;Hola&quot;.length()</code> → 4</td></tr>
+                        <tr><td><code>text.charAt(2)</code></td><td>la lletra de la posició 2</td><td><code>&quot;Hola&quot;.charAt(2)</code> → <code>l</code></td></tr>
+                        <tr><td><code>text.equals(altre)</code></td><td>si diuen exactament el mateix</td><td><code>&quot;Hola&quot;.equals(&quot;hola&quot;)</code> → <code>false</code></td></tr>
+                        <tr><td><code>text.equalsIgnoreCase(altre)</code></td><td>sense importar majúscules</td><td><code>&quot;Hola&quot;.equalsIgnoreCase(&quot;hola&quot;)</code> → <code>true</code></td></tr>
+                        <tr><td><code>text.substring(a, b)</code></td><td>el tros de la posició <code>a</code> a la <code>b</code> (sense incloure <code>b</code>)</td><td><code>&quot;Hola&quot;.substring(1, 3)</code> → <code>ol</code></td></tr>
+                        <tr><td><code>text.toUpperCase()</code></td><td>tot en majúscules</td><td><code>&quot;Hola&quot;.toUpperCase()</code> → <code>HOLA</code></td></tr>
+                        <tr><td><code>text.contains(&quot;ol&quot;)</code></td><td>si conté este tros</td><td><code>&quot;Hola&quot;.contains(&quot;ol&quot;)</code> → <code>true</code></td></tr>
+                        <tr><td><code>text.indexOf(&quot;l&quot;)</code></td><td>la posició on està</td><td><code>&quot;Hola&quot;.indexOf(&quot;l&quot;)</code> → 2</td></tr>
+                        <tr><td><code>text.trim()</code></td><td>lleva espais del principi i del final</td><td><code>&quot; Hola &quot;.trim()</code> → <code>Hola</code></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p><strong><code>length</code> en un array, <code>length()</code> en un text.</strong> Són parents però no són iguals: l'array guarda el seu número de caselles en una propietat sense parèntesis, i el text t'ho diu amb un mètode amb parèntesis. Confondre-ho dona un error de compilació.</p></div>
+                  </div>
+        <h3>9. Veure un array sencer d'una vegada</h3>
+        <p>Si intentes mostrar un array sencer, apareix una cosa rara. Prova-ho:</p>
+        <pre class="codi" data-titol="Raro.java" data-etiqueta="OJO AMB AÇÒ"><code>int[] punts = {120, 95, 180};
+        System.out.println(punts);      // què és eixe text estrany?</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>[I@1b6d3586</pre>
+                  </div>
+        <p>Eixe <code>[I@1b6d3586</code> no són els teus números: és la «matrícula» de l'array en la memòria. Per a vore el contingut hi ha una ferramenta de Java que fa la faena:</p>
+        <pre class="codi" data-titol="AmbArrays.java" data-etiqueta="ARRAYS.TOSTRING"><code>import java.util.Arrays;
+
+        public class AmbArrays {
+            public static void main(String[] args) {
+                int[] punts = {120, 95, 180};
+                System.out.println(Arrays.toString(punts));
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>[120, 95, 180]</pre>
+                  </div>
+        <div class="nota nota--nomes-ensenyament">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p><code>Arrays.toString(...)</code> és una utilíssima de Java. <strong>De moment no necessitem entendre aquesta part</strong> (<code>import</code>, <code>java.util</code>, els punts…); ja arribarem a ella més avant. Per ara, copia-la tal qual quan vulgues vore un array sencer en una prova.</p></div>
+                  </div>
+    </section>
+
+    <!-- =========================== 04 · EXEMPLES EXPLICATS =========================== -->
+    <section class="seccio seccio--suau" id="exemples" data-nav="04 · Exemples">
+      <h2>Exemples explicats pas a pas</h2>
+      <p class="entradeta">Cada exemple: què volem aconseguir, el codi, què apareix per pantalla i per què funciona.</p>
+<h3>Exemple 1 · Les temperatures de la setmana</h3>
+        <p><strong>Què volem?</strong> Les temperatures dels 7 dies, la mitjana i si ha fet fred o calor.</p>
+        <pre class="codi" data-titol="Temperatures.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Temperatures {
+            public static void main(String[] args) {
+                double[] temp = {21.5, 23.0, 19.5, 25.0, 27.5, 24.0, 22.5};
+
+                double suma = 0;
+                for (int i = 0; i &lt; temp.length; i++) {
+                    suma = suma + temp[i];
+                    System.out.println("Dia " + (i + 1) + ": " + temp[i] + " graus");
+                }
+
+                double mitjana = suma / temp.length;
+                System.out.println("Temperatura mitjana: " + mitjana + " graus");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Dia 1: 21.5 graus
+        Dia 2: 23.0 graus
+        Dia 3: 19.5 graus
+        Dia 4: 25.0 graus
+        Dia 5: 27.5 graus
+        Dia 6: 24.0 graus
+        Dia 7: 22.5 graus
+        Temperatura mitjana: 23.285714285714285 graus</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> el bucle recorre les set caselles. Dins fem <strong>dos treballs alhora</strong>: sumar a l'acumulador i mostrar el dia, perquè el bucle només passa una vegada per davall.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Eixe <code>23.285714285714285</code> es llig fatal. Mès avant aprendrem a arredonir-ho, però tu ja pots deixar-ho bonic: <code>Math.round(mitjana * 100) / 100.0</code> el deixa amb dos decimals. Prova-ho!</p></div>
+                  </div>
+        <h3>Exemple 2 · Quants han superat la mitjana?</h3>
+        <p><strong>Què volem?</strong> Saber quants alumnes estan per damunt de la mitjana de la classe. Cal recórrer l'array dues vegades: primer per a calcular la mitjana, després per a comptar.</p>
+        <pre class="codi" data-titol="PerDamunt.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class PerDamunt {
+            public static void main(String[] args) {
+                double[] notes = {5.5, 8.0, 4.5, 9.0, 6.5, 3.0, 7.0};
+
+                double suma = 0;
+                for (int i = 0; i &lt; notes.length; i++) {
+                    suma = suma + notes[i];
+                }
+                double mitjana = suma / notes.length;
+
+                int perDamunt = 0;
+                for (int i = 0; i &lt; notes.length; i++) {
+                    if (notes[i] &gt; mitjana) {
+                        perDamunt++;
+                    }
+                }
+
+                System.out.println("Mitjana de la classe: " + mitjana);
+                System.out.println("Per damunt de la mitjana: " + perDamunt + " alumnes");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Mitjana de la classe: 6.214285714285714
+        Per damunt de la mitjana: 4 alumnes</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> hi ha <strong>dos recorreguts</strong>. El primer només acumula (no podem comparar amb la mitjana abans de conéixer-la). El segon compara cada nota amb eixa mitjana i les compta.</p>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Alguna cosa més gran que 6,21 és 8, 9, 6.5 i 7: quatre alumnes. Comprovem que el programa diu el mateix... i sí, diu 4. <strong>Comprovar a mà el que ha de donar el programa</strong> és el que separa un programador d'algú que escriu codi i espera que passe.</p></div>
+                  </div>
+        <h3>Exemple 3 · Comptar vocals d'una paraula</h3>
+        <p><strong>Què volem?</strong> Dir quantes vocals té una paraula. Un text és una fila de lletres, així que es recorre igual que un array.</p>
+        <pre class="codi" data-titol="Vocals.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Vocals {
+            public static void main(String[] args) {
+                String paraula = "videoconsola";
+                int vocals = 0;
+
+                for (int i = 0; i &lt; paraula.length(); i++) {
+                    char lletra = paraula.charAt(i);
+
+                    if (lletra == 'a' || lletra == 'e' || lletra == 'i' || lletra == 'o' || lletra == 'u') {
+                        vocals++;
+                    }
+                }
+
+                System.out.println("La paraula " + paraula + " té " + vocals + " vocals.");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>La paraula videoconsola té 6 vocals.</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> anàlisi de <code>videoconsola</code> → v-<strong>i</strong>-d-<strong>e-o</strong>-c-<strong>o</strong>-n-s-<strong>o</strong>-l-<strong>a</strong> = 6 vocals. Cada lletra es compara amb les cinc vocals. Com que <code>char</code> es compara amb <code>==</code> (és un caràcter simple, no un text), ací sí podem fer servir <code>==</code>.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Les lletres simples (tipus <code>char</code>) es comparen amb <code>==</code> i van <strong>entre cometes simples</strong>: <code>'a'</code>. Els textos van entre cometes dobles i es comparen amb <code>equals</code>. Una cometa, un caràcter; dos cometes, un text.</p></div>
+                  </div>
+        <h3>Exemple 4 · Quantes vegades apareix cada nota</h3>
+        <p><strong>Què volem?</strong> Comptar quantes vegades apareix un valor dins d'un array. Recorreguem l'array sencer i comptem les coincidències, sense parar.</p>
+        <pre class="codi" data-titol="Repeticions.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Repeticions {
+            public static void main(String[] args) {
+                int[] daus = {3, 5, 3, 1, 3, 6, 5};
+                int buscat = 3;
+                int vegades = 0;
+
+                for (int i = 0; i &lt; daus.length; i++) {
+                    if (daus[i] == buscat) {
+                        vegades++;
+                    }
+                }
+
+                System.out.println("El " + buscat + " ha eixit " + vegades + " vegades.");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>El 3 ha eixit 3 vegades.</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> ací <strong>no</strong> hi ha <code>break</code>, perquè volem comptar-les totes. En l'exemple de buscar un nom sí que en tenia, perquè només ens interessava el primer que apareixia. La pregunta és sempre: <em>«quan tinga el resultat, he de seguir mirant?»</em></p>
+        <h3>Quantes voltes fa i què suma?</h3>
+        <p>Llig el codi amb atenció i pensa el resultat abans d'executar-lo.</p>
+        <div class="prediccio">
+                    <h3>Pensa abans d'executar</h3>
+                    <pre class="codi" data-titol="Suma.java" data-etiqueta="PENSA PRIMER"><code>int[] numeros = {4, 8, 15, 16};
+        int suma = 0;
+
+        for (int i = 1; i &lt; numeros.length; i++) {
+            suma = suma + numeros[i];
+        }
+
+        System.out.println(suma);</code></pre>
+                    <button class="boto boto--solucio" type="button" data-solucio="pred-index" data-text-mostrar="Mostrar què apareix" data-text-ocultar="Amagar">Mostrar què apareix</button>
+                    <div class="solucio" id="pred-index" hidden>
+                      <span class="solucio__etiqueta">Resposta</span>
+                      <div class="consola"><span class="consola__titol">Eixida real</span><pre>39</pre></div>
+                      <p class="solucio__perque"><strong>Per què:</strong> El bucle comença en <code>i = 1</code>, no en 0! Per tant no suma el 4. Els valors sumats són 8 + 15 + 16 = 39. És el mateix patró que hem fet servir per al màxim i el mínim, on el primer element es mira fora del bucle.</p>
+                    </div>
+                  </div>
+    </section>
+
+    <!-- =========================== 05 · PROGRAMACIÓ GUIADA =========================== -->
+    <section class="seccio" id="guiada" data-nav="05 · Programació guiada">
+      <h2>Programació guiada: ho fem junts</h2>
+      <p class="entradeta">Farem el rànquing d'un torneig de videojocs: cinc jugadors, els seus punts, el total, el millor, el pitjor i qui està per damunt de la mitjana.</p>
+      <div class="pas revela">
+        <span class="pas__num">1</span>
+        <div class="pas__cos">
+          <h3>El problema i les dades</h3>
+<p>Tenim 5 jugadors amb estos punts: <strong>120, 95, 180, 60 i 145</strong>. Volem vore el rànquing, el total, la mitjana, el millor i el pitjor, i quants jugadors superen la mitjana.</p>
+          <div class="pregunta-classe"><p>Quantes caselles necessita l'array i quin serà l'índex de l'última?</p></div>
+          <p>Cinc caselles → índexs del <strong>0 al 4</strong>. I com que no hi ha noms de jugadors, els direm <em>Jugador 1</em> … <em>Jugador 5</em> sumant 1 a l'índex.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">2</span>
+        <div class="pas__cos">
+          <h3>Primer: mostrar el rànquing</h3>
+<p>Com sempre, comencem pel més simple: crear l'array i mostrar-lo numerat.</p>
+          <pre class="codi" data-titol="Ranking.java" data-etiqueta="PAS 2"><code>public class Ranking {
+              public static void main(String[] args) {
+                  int[] punts = {120, 95, 180, 60, 145};
+
+                  for (int i = 0; i &lt; punts.length; i++) {
+                      System.out.println("Jugador " + (i + 1) + ": " + punts[i] + " punts");
+                  }
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Jugador 1: 120 punts
+          Jugador 2: 95 punts
+          Jugador 3: 180 punts
+          Jugador 4: 60 punts
+          Jugador 5: 145 punts</pre>
+                    </div>
+          <div class="nota nota--tip">
+                      <span class="nota__icona" aria-hidden="true">💡</span>
+                      <div><p>Prova de canviar <code>i &lt; punts.length</code> per <code>i &lt;= punts.length</code> i executa-ho. Veuràs l'error més típic dels arrays. Després torna-ho a deixar bé.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">3</span>
+        <div class="pas__cos">
+          <h3>Total i mitjana</h3>
+<p>Ara afegim un acumulador. Podem calcular-ho tot en el <strong>mateix bucle</strong> de mostrar, però ho fem en un de nou per vore-ho clar.</p>
+          <pre class="codi" data-titol="Ranking.java" data-etiqueta="PAS 3"><code>public class Ranking {
+              public static void main(String[] args) {
+                  int[] punts = {120, 95, 180, 60, 145};
+
+                  for (int i = 0; i &lt; punts.length; i++) {
+                      System.out.println("Jugador " + (i + 1) + ": " + punts[i] + " punts");
+                  }
+
+                  int total = 0;
+                  for (int i = 0; i &lt; punts.length; i++) {
+                      total = total + punts[i];
+                  }
+
+                  System.out.println("Total del torneig: " + total + " punts");
+                  System.out.println("Mitjana per jugador: " + (total / (double) punts.length) + " punts");
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Jugador 1: 120 punts
+          Jugador 2: 95 punts
+          Jugador 3: 180 punts
+          Jugador 4: 60 punts
+          Jugador 5: 145 punts
+          Total del torneig: 600 punts
+          Mitjana per jugador: 120.0 punts</pre>
+                    </div>
+          <p>La divisió porta <code>(double)</code> davant: convertix la quantitat de jugadors en un número decimal perquè la mitjana no perda els decimals.</p>
+          <div class="nota nota--només-ensenyament">
+                      <span class="nota__icona" aria-hidden="true">💡</span>
+                      <div><p><code>.length</code> és un <code>int</code>. Si dividim <code>int / int</code>, Java dona un <code>int</code> (i perdríem els decimals). El <code>(double)</code> convertix el valor a decimal. <strong>De moment no cal entendre aquesta part a fons</strong>; queda't amb la idea: <em>quan dividisques, assegura't que un dels dos costats és decimal</em>.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">4</span>
+        <div class="pas__cos">
+          <h3>El millor i el pitjor</h3>
+<p>Apliquem el mètode de l'aspirant: el primer jugador és el campió provisional i tots els altres li intenten prendre el títol.</p>
+          <pre class="codi" data-titol="Ranking.java" data-etiqueta="PAS 4"><code>public class Ranking {
+              public static void main(String[] args) {
+                  int[] punts = {120, 95, 180, 60, 145};
+
+                  int maxim = punts[0];
+                  int minim = punts[0];
+
+                  for (int i = 1; i &lt; punts.length; i++) {
+                      if (punts[i] &gt; maxim) {
+                          maxim = punts[i];
+                      }
+                      if (punts[i] &lt; minim) {
+                          minim = punts[i];
+                      }
+                  }
+
+                  System.out.println("Millor jugador: " + maxim + " punts");
+                  System.out.println("Pitjor jugador: " + minim + " punts");
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Millor jugador: 180 punts
+          Pitjor jugador: 60 punts</pre>
+                    </div>
+          <div class="pregunta-classe"><p>Per què el bucle comença en 1 i no en 0?</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">5</span>
+        <div class="pas__cos">
+          <h3>Quants jugadors superen la mitjana</h3>
+<p>Este és el càlcul de dos passades: primer la mitjana (ja el tenim) i després un bucle que compta.</p>
+          <pre class="codi" data-titol="Ranking.java" data-etiqueta="PAS 5"><code>public class Ranking {
+              public static void main(String[] args) {
+                  int[] punts = {120, 95, 180, 60, 145};
+
+                  int total = 0;
+                  for (int i = 0; i &lt; punts.length; i++) {
+                      total = total + punts[i];
+                  }
+                  double mitjana = total / (double) punts.length;
+
+                  int perDamunt = 0;
+                  for (int i = 0; i &lt; punts.length; i++) {
+                      if (punts[i] &gt; mitjana) {
+                          perDamunt++;
+                      }
+                  }
+
+                  System.out.println("Mitjana: " + mitjana + " punts");
+                  System.out.println("Per damunt de la mitjana: " + perDamunt + " jugadors");
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Mitjana: 120.0 punts
+          Per damunt de la mitjana: 2 jugadors</pre>
+                    </div>
+          <p>Comprovem-ho a mà: per damunt de 120 estan 180 i 145 → <strong>2 jugadors</strong>. Quadra.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">6</span>
+        <div class="pas__cos">
+          <h3>Ara amb dades que escriu l'usuari</h3>
+<p>El mateix programa, però amb els punts llegits pel teclat. Este és el patró que faràs servir centenars de vegades: <strong>omplir un array amb un bucle i després recórrer-lo</strong>.</p>
+          <pre class="codi" data-titol="Ranking.java" data-etiqueta="PAS 6"><code>import java.util.Scanner;
+
+          public class Ranking {
+              public static void main(String[] args) {
+                  Scanner teclat = new Scanner(System.in);
+                  int[] punts = new int[5];
+
+                  for (int i = 0; i &lt; punts.length; i++) {
+                      System.out.print("Punts del jugador " + (i + 1) + ": ");
+                      punts[i] = teclat.nextInt();
+                  }
+
+                  int total = 0;
+                  for (int i = 0; i &lt; punts.length; i++) {
+                      total = total + punts[i];
+                  }
+
+                  System.out.println("Total del torneig: " + total + " punts");
+                  System.out.println("Mitjana per jugador: " + (total / (double) punts.length) + " punts");
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>Punts del jugador 1: 120
+          Punts del jugador 2: 95
+          Punts del jugador 3: 180
+          Punts del jugador 4: 60
+          Punts del jugador 5: 145
+          Total del torneig: 600 punts
+          Mitjana per jugador: 120.0 punts</pre>
+                    </div>
+          <div class="taula-embolcall">
+                      <table class="taula">
+                        <thead><tr><th>Què provem</th><th>Què ha de passar</th></tr></thead>
+                        <tbody>
+                          <tr><td>Els cinc mateixos punts</td><td>Total 600 i mitjana 120</td></tr>
+                          <tr><td>Tots els punts iguals (100)</td><td>Mitjana 100 i màxim = mínim</td></tr>
+                          <tr><td>Un jugador amb 0 punts</td><td>Ha de funcionar: el 0 és un valor com qualsevol altre</td></tr>
+                          <tr><td>Punts negatius</td><td>El màxim pot ser 0 o negatiu: per això el campió comença en <code>punts[0]</code></td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+          <p>I les millores que pots fer tu: que tot el rànquing es mostre al final en orde d'entrada, que diga quants jugadors han quedat per davall de la mitjana, i que el programa demane primer quants jugadors hi haurà.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 06 · MINI EXERCICIS ============================= -->
+    <section class="seccio seccio--suau" id="mini-exercicis" data-nav="06 · Mini exercicis">
+      <h2>Mini exercicis</h2>
+      <p class="entradeta">Activitats molt curtes. Totes es poden fer amb una desena de línies.</p>
+      <div class="llista-mini">
+        <article class="exercici exercici--mini" id="mini1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">Primera i última casella</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Crea un array de 4 temperatures i mostra la primera i l'última fent servir <code>length</code>.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>La primera: 18.5
+L'última: 24.0</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini1">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini1"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="PrimeriUltima.java" data-etiqueta="SOLUCIÓ"><code>public class PrimeriUltima {
+    public static void main(String[] args) {
+        double[] temp = {18.5, 21.0, 19.5, 24.0};
+
+        System.out.println("La primera: " + temp[0]);
+        System.out.println("L'última: " + temp[temp.length - 1]);
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>La primera: 18.5
+L'última: 24.0</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> L'última casella <strong>no</strong> és <code>temp[temp.length]</code> (eixa no existix), sinó <code>temp[temp.length - 1]</code>: si hi ha 4 caselles, l'última és la 3.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">La llista numerada</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Guarda 4 noms en un array i mostra'ls numerats de l'1 al 4.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>1. Ana
+2. Bruno
+3. Carla
+4. Dani</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini2">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini2"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Llista.java" data-etiqueta="SOLUCIÓ"><code>public class Llista {
+    public static void main(String[] args) {
+        String[] noms = {"Ana", "Bruno", "Carla", "Dani"};
+
+        for (int i = 0; i &lt; noms.length; i++) {
+            System.out.println((i + 1) + ". " + noms[i]);
+        }
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>1. Ana
+2. Bruno
+3. Carla
+4. Dani</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> L'índex comença en 0, però per a mostrar-lo a les persones sumem 1. Eixa diferència entre «el número de la casella» i «el número que veu l'usuari» és constant en programació.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">Suma i mitjana</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">5 min</span>
+          </div>
+          <div class="exercici__enunciat">Amb l'array <code>{4, 7, 9, 6, 8}</code>, mostra el total i la mitjana.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Total: 34
+Mitjana: 6.8</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini3">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini3"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="SumaMitjana.java" data-etiqueta="SOLUCIÓ"><code>public class SumaMitjana {
+    public static void main(String[] args) {
+        int[] notes = {4, 7, 9, 6, 8};
+
+        int total = 0;
+        for (int i = 0; i &lt; notes.length; i++) {
+            total = total + notes[i];
+        }
+
+        System.out.println("Total: " + total);
+        System.out.println("Mitjana: " + (total / (double) notes.length));
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Total: 34
+Mitjana: 6.8</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> L'acumulador es crea abans del bucle i s'actualitza dins. La divisió porta <code>(double)</code> perquè la mitjana tinga decimals: 34 / 5 = 6.8.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">El número més gran</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">5 min</span>
+          </div>
+          <div class="exercici__enunciat">Troba i mostra el número més gran de l'array <code>{23, 8, 45, 12, 30}</code>.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>El més gran és 45</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini4">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini4"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="MesGran.java" data-etiqueta="SOLUCIÓ"><code>public class MesGran {
+    public static void main(String[] args) {
+        int[] numeros = {23, 8, 45, 12, 30};
+
+        int maxim = numeros[0];
+        for (int i = 1; i &lt; numeros.length; i++) {
+            if (numeros[i] &gt; maxim) {
+                maxim = numeros[i];
+            }
+        }
+
+        System.out.println("El més gran és " + maxim);
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>El més gran és 45</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El campió provisional és el primer element i el bucle comença en 1. Comparar-lo amb si mateix no canvia res, però començar en 0 sí que funciona; la diferència és que estalviem una comparació inútil.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini5">
+          <div class="exercici__cap">
+            <span class="exercici__num">5</span>
+            <h3 class="exercici__titol">Comptar els parells</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">5 min</span>
+          </div>
+          <div class="exercici__enunciat">Compta quants números parells hi ha en l'array <code>{5, 8, 12, 7, 20, 3}</code>.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Hi ha 3 números parells</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini5">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini5"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini5" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="ComptaParells.java" data-etiqueta="SOLUCIÓ"><code>public class ComptaParells {
+    public static void main(String[] args) {
+        int[] numeros = {5, 8, 12, 7, 20, 3};
+        int parells = 0;
+
+        for (int i = 0; i &lt; numeros.length; i++) {
+            if (numeros[i] % 2 == 0) {
+                parells++;
+            }
+        }
+
+        System.out.println("Hi ha " + parells + " números parells");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Hi ha 3 números parells</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Parells: 8, 12 i 20. El comptador <code>parells</code> s'incrementa només quan el residu (<code>%</code>) és 0. Fixa't que no fem <code>break</code>: volem comptar-los tots.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini6">
+          <div class="exercici__cap">
+            <span class="exercici__num">6</span>
+            <h3 class="exercici__titol">Troba l'error</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">5 min</span>
+          </div>
+          <div class="exercici__enunciat">Este programa hauria de sumar les 4 notes i no funciona. Copia'l, executa'l, llig el missatge i arregla'l.</div>
+          <pre class="codi codi--error" data-titol="Trencat.java" data-etiqueta="QUÈ FALLA?"><code>int[] notes = {5, 6, 7, 8};
+int suma = 0;
+
+for (int i = 0; i &lt;= notes.length; i++) {
+    suma = suma + notes[i];
+}
+System.out.println(suma);</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini6">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini6">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini6"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini6" hidden><p><strong>Pista:</strong> Quants índexs té un array de 4 caselles? Fins a quin número pot arribar <code>i</code>?</p></div>
+          <div class="solucio" id="sol-mini6" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Arreglat.java" data-etiqueta="SOLUCIÓ"><code>int[] notes = {5, 6, 7, 8};
+int suma = 0;
+
+for (int i = 0; i &lt; notes.length; i++) {
+    suma = suma + notes[i];
+}
+System.out.println(suma);</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>26</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Amb <code>i &lt;= notes.length</code>, quan <code>i</code> val 4 (igual que la quantitat de caselles) el programa busca la casella 4, que no existix, i llancça <code>ArrayIndexOutOfBoundsException</code>. La condició correcta és <code>i &lt; notes.length</code>.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini7">
+          <div class="exercici__cap">
+            <span class="exercici__num">7</span>
+            <h3 class="exercici__titol">El millor temps de la cursa</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">10 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana 4 temps d'una cursa (en segons) i mostra el millor temps i la mitjana.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Temps 1: 12.5
+Temps 2: 11.8
+Temps 3: 13.2
+Temps 4: 12.0</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Millor temps: 11.8 segons
+Mitjana: 12.375 segons</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini7">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini7"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini7" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Cursa.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Cursa {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+        double[] temps = new double[4];
+
+        for (int i = 0; i &lt; temps.length; i++) {
+            System.out.print("Temps " + (i + 1) + ": ");
+            temps[i] = teclat.nextDouble();
+        }
+
+        double millor = temps[0];
+        double suma = 0;
+        for (int i = 0; i &lt; temps.length; i++) {
+            if (temps[i] &lt; millor) {
+                millor = temps[i];
+            }
+            suma = suma + temps[i];
+        }
+
+        System.out.println("Millor temps: " + millor + " segons");
+        System.out.println("Mitjana: " + (suma / temps.length) + " segons");
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Temps 1: 12.5
+Temps 2: 11.8
+Temps 3: 13.2
+Temps 4: 12.0
+Millor temps: 11.8 segons
+Mitjana: 12.375 segons</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Atenció: en una cursa el <strong>millor</strong> temps és el més <strong>menut</strong>, així que la comparació és <code>&lt;</code>. Ací hem fet la cerca del mínim. I com que el bucle aprofita per a sumar, hem fet les dos coses en un sol recorregut.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 07 · FES EL PROGRAMA ========================= -->
+    <section class="seccio" id="fes-el-programa" data-nav="07 · Fes el programa">
+      <h2>Fes el programa</h2>
+      <p class="entradeta">Quatre exercicis complets. Pensa primer: quantes caselles? quin recorregut?</p>
+      <article class="exercici" id="ex1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">Les notes de la classe</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana 6 notes i mostra: totes les notes numerades, la mitjana, la nota més alta, la més baixa i quantes persones han aprovat (5 o més).</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Nota 1: 6
+Nota 2: 7
+Nota 3: 3
+Nota 4: 9
+Nota 5: 5
+Nota 6: 8</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Mitjana: 6.333333333333333
+Més alta: 9.0
+Més baixa: 3.0
+Aprovats: 5</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex1" hidden><p><strong>Pista:</strong> Pots fer-ho tot en un sol bucle si crees les variables abans. Les notes de 5 o més s'aproven: <code>&gt;= 5</code>.</p></div>
+          <div class="solucio" id="sol-ex1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="NotesClasse.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class NotesClasse {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+        double[] notes = new double[6];
+
+        for (int i = 0; i &lt; notes.length; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            notes[i] = teclat.nextDouble();
+        }
+
+        double suma = 0;
+        double maxima = notes[0];
+        double minima = notes[0];
+        int aprovats = 0;
+
+        for (int i = 0; i &lt; notes.length; i++) {
+            suma = suma + notes[i];
+
+            if (notes[i] &gt; maxima) {
+                maxima = notes[i];
+            }
+            if (notes[i] &lt; minima) {
+                minima = notes[i];
+            }
+            if (notes[i] &gt;= 5) {
+                aprovats++;
+            }
+        }
+
+        System.out.println("Mitjana: " + (suma / notes.length));
+        System.out.println("Més alta: " + maxima);
+        System.out.println("Més baixa: " + minima);
+        System.out.println("Aprovats: " + aprovats);
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Nota 1: 6
+Nota 2: 7
+Nota 3: 3
+Nota 4: 9
+Nota 5: 5
+Nota 6: 8
+Mitjana: 6.333333333333333
+Més alta: 9.0
+Més baixa: 3.0
+Aprovats: 5</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Un sol bucle pot fer quatre faenes alhora: sumar, buscar el màxim, buscar el mínim i comptar aprovats. El màxim i el mínim comencen en <code>notes[0]</code> i el bucle els actualitza quan toca.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">Buscar un nom</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Guarda 6 noms en un array. Demana un nom a l'usuari i digues si està a la llista i en quina posició (comptant des de l'1, com faria una persona). Si hi ha més d'una coincidència, mostra totes les posicions.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Nom a buscar: Carla</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Carla està a la posició 3.</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex2" hidden><p><strong>Pista:</strong> Sense <code>break</code> perquè poden haver-hi repetits. La variable <code>trobat</code> es posa a <code>true</code> dins del <code>if</code>.</p></div>
+          <div class="solucio" id="sol-ex2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="BuscarNom.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class BuscarNom {
+    public static void main(String[] args) {
+        String[] noms = {"Ana", "Bruno", "Carla", "Dani", "Eva", "Carla"};
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Nom a buscar: ");
+        String buscat = teclat.next();
+
+        boolean trobat = false;
+
+        for (int i = 0; i &lt; noms.length; i++) {
+            if (noms[i].equalsIgnoreCase(buscat)) {
+                System.out.println(buscat + " està a la posició " + (i + 1) + ".");
+                trobat = true;
+            }
+        }
+
+        if (!trobat) {
+            System.out.println(buscat + " no està a la llista.");
+        }
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Nom a buscar: Carla
+Carla està a la posició 3.
+Carla està a la posició 6.</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Com que volem <strong>totes</strong> les posicions, no hi ha <code>break</code>. La variable bandera <code>trobat</code> servix per a saber, al final, si no hem mostrat res. I <code>equalsIgnoreCase</code> fa que no importen les majúscules: «CARLA» també es trobaria.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">Analitzador de paraules</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">25 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana una paraula i mostra: quantes lletres té, la primera, l'última, quants caràcters en majúscula tindria i quantes vocals té.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Escriu una paraula: musculacio</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Lletres: 10
+Primera: m
+Última: o
+En majúscules: MUSCULACIO
+Vocals: 5</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex3" hidden><p><strong>Pista:</strong> Per a la primera lletra, <code>charAt(0)</code>; per a l'última, <code>charAt(paraula.length() - 1)</code>. Per a les vocals, un bucle amb un <code>if</code>.</p></div>
+          <div class="solucio" id="sol-ex3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Analitzador.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Analitzador {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Escriu una paraula: ");
+        String paraula = teclat.next();
+
+        int vocals = 0;
+        for (int i = 0; i &lt; paraula.length(); i++) {
+            char lletra = Character.toLowerCase(paraula.charAt(i));
+
+            if (lletra == 'a' || lletra == 'e' || lletra == 'i' || lletra == 'o' || lletra == 'u') {
+                vocals++;
+            }
+        }
+
+        System.out.println("Lletres: " + paraula.length());
+        System.out.println("Primera: " + paraula.charAt(0));
+        System.out.println("Última: " + paraula.charAt(paraula.length() - 1));
+        System.out.println("En majúscules: " + paraula.toUpperCase());
+        System.out.println("Vocals: " + vocals);
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Escriu una paraula: musculacio
+Lletres: 10
+Primera: m
+Última: o
+En majúscules: MUSCULACIO
+Vocals: 5</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Un text es recorre igual que un array: <code>charAt(i)</code> per a cada posició. L'última lletra és <code>length() - 1</code>. Com que <code>musculacio</code> no té accents, cada lletra és una posició.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">La travessa de set dies</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">30 min</span>
+          </div>
+          <div class="exercici__enunciat">Guarda les temperatures de 7 dies (una per dia) en un array, i els noms dels dies en un altre array. Després mostra: la llista amb el dia i la temperatura, la mitjana, els dies que han estat per damunt de la mitjana i el dia més càlid i el més fred amb el seu nom.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Dilluns: 21
+Dimarts: 19.5
+Dimecres: 24
+Dijous: 26.5
+Divendres: 23
+Dissabte: 18
+Diumenge: 20</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Mitjana: 21.714285714285715
+Per damunt de la mitjana: 3 dies
+Més càlid: Dijous amb 26.5
+Més fred: Dissabte amb 18.0</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex4" hidden><p><strong>Pista:</strong> En compte de guardar el màxim, guarda la <strong>posició</strong> del màxim (<code>indexCalor = i</code>) i després consulta els dos arrays amb eixa posició.</p></div>
+          <div class="solucio" id="sol-ex4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Travessa.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Travessa {
+    public static void main(String[] args) {
+        String[] dies = {"Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"};
+        double[] temp = new double[7];
+        Scanner teclat = new Scanner(System.in);
+
+        for (int i = 0; i &lt; dies.length; i++) {
+            System.out.print(dies[i] + ": ");
+            temp[i] = teclat.nextDouble();
+        }
+
+        double suma = 0;
+        int indexCalor = 0;
+        int indexFred = 0;
+
+        for (int i = 0; i &lt; temp.length; i++) {
+            suma = suma + temp[i];
+
+            if (temp[i] &gt; temp[indexCalor]) {
+                indexCalor = i;
+            }
+            if (temp[i] &lt; temp[indexFred]) {
+                indexFred = i;
+            }
+        }
+
+        double mitjana = suma / temp.length;
+        System.out.println("Mitjana: " + mitjana);
+
+        int perDamunt = 0;
+        for (int i = 0; i &lt; temp.length; i++) {
+            if (temp[i] &gt; mitjana) {
+                perDamunt++;
+            }
+        }
+        System.out.println("Per damunt de la mitjana: " + perDamunt + " dies");
+
+        System.out.println("Més càlid: " + dies[indexCalor] + " amb " + temp[indexCalor]);
+        System.out.println("Més fred: " + dies[indexFred] + " amb " + temp[indexFred]);
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Dilluns: 21
+Dimarts: 19.5
+Dimecres: 24
+Dijous: 26.5
+Divendres: 23
+Dissabte: 18
+Diumenge: 20
+Mitjana: 21.714285714285715
+Per damunt de la mitjana: 3 dies
+Més càlid: Dijous amb 26.5
+Més fred: Dissabte amb 18.0</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> La clau és guardar <strong>la posició</strong>, no el valor: <code>indexCalor</code> i <code>indexFred</code> són índexs, i així podem traure el nom del dia de l'altre array. Eixa parella d'arrays que es corresponen («arrays paral·lels») es fa servir moltíssim.</p>
+          </div>
+        </article>
+    </section>
+
+    <!-- ================================ 08 · REPTES ================================ -->
+    <section class="seccio seccio--suau" id="reptes" data-nav="08 · Reptes">
+      <h2>Reptes (sense solució)</h2>
+      <div class="nota nota--avis">
+        <span class="nota__icona" aria-hidden="true">🧠</span>
+        <div><p>Els reptes <strong>no tenen botó de solució</strong>, a propòsit. L'objectiu és pensar, provar, equivocar-se i tornar-ho a intentar. Es poden resoldre de moltes maneres diferents: totes les solucions que funcionen són bones.</p></div>
+      </div>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 1</span>
+          <h3 class="repte__titol">La llista de la compra</h3>
+        </div>
+<p>Crea un array de 10 textos per als productes de la compra. El programa demana productes fins que l'usuari escriu <code>fi</code> o fins que s'ompliga l'array. Al final ha de mostrar la llista numerada i dir quants productes hi ha.</p>
+        <p>El repte és que <strong>no saps quants productes escriurà l'usuari</strong>: necessites una variable que compte quants n'has guardat, comprovar que no t'has passat de l'última casella i usar eixa variable com a condició del bucle.</p>
+        <p>Pregunta't: què ha de passar si l'usuari vol afegir un producte número 11? I si escriu directament <code>fi</code> sense res més?</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Comprovar que el producte no estiga ja a la llista abans d'afegir-lo.</li>
+          <li>Permetre esborrar un producte pel seu número (idea: desplaçar els següents una casella cap arrere).</li>
+          <li>Mostrar la llista en orde alfabètic... amb les ferramentes que encara no coneixem, no es pot. Guarda-ho per al Tema 6.</li>
+        </ul>
+      </article>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 2</span>
+          <h3 class="repte__titol">L'histograma dels daus</h3>
+        </div>
+<p>Guarda en un array les 12 tirades d'un dau i, després, compta quantes vegades ha eixit cada valor de l'1 al 6. El resultat ha de ser un <em>histograma</em>: per a cada valor, una línia amb tantes estrelletes com vegades ha eixit.</p>
+        <p>Exemple del que volem: <code>1: **</code> vol dir que l'1 ha eixit dos vegades. El truc és que les tirades d'un valor sempre estaran entre 1 i 6: si l'array de comptadors té 7 caselles, la tirada 3 es compta en <code>comptadors[3]</code> sense cap <code>if</code>.</p>
+        <p>Pensa primer com ompliries l'array de comptadors sense cap <code>if</code>, i després com faries les estrelletes (un bucle dins d'un altre).</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Que les tirades les genere el programa (per exemple, amb <code>(int) (Math.random() * 6) + 1</code>).</li>
+          <li>Mostrar el percentatge de cada valor amb un decimal.</li>
+          <li>Fer el dibuix amb barres de <code>#</code> de llargària proporcional al número de tirades.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ============================ 09 · ERRORS HABITUALS ============================ -->
+    <section class="seccio" id="errors" data-nav="09 · Errors habituals">
+      <h2>Errors habituals</h2>
+      <p class="entradeta">Els errors d'este tema són molt fàcils de detectar si saps què buscar: quasi tots parlen de posicions.</p>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 1</span>
+            <h3 class="exercici__titol" style="margin:0">Buscar una casella que no existix</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>int[] notes = new int[5];
+notes[0] = 7;
+System.out.println(notes[5]); // no existix!</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa compila bé, però en executar-lo es para i mostra un missatge llarg amb <code>ArrayIndexOutOfBoundsException</code>.</dd>
+                <dt>Per què</dt><dd>L'array té 5 caselles amb índexs del <strong>0 al 4</strong>. La casella 5 no existix, i Java no et deixa accedir a memòria que no és teua.</dd>
+                <dt>Com detectar-ho</dt><dd><code>Exception in thread &quot;main&quot; java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5</code>: el missatge diu ben clar quin índex havies demanat i quantes caselles hi ha.</dd>
+                <dt>Com corregir-ho</dt><dd>L'última casella d'un array és sempre <code>array.length - 1</code>. Si necessites un número fix, comprova que estiga dins del rang.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int[] notes = new int[5];
+notes[0] = 7;
+System.out.println(notes[4]); // l'última és length - 1</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 2</span>
+            <h3 class="exercici__titol" style="margin:0">Recórrer fins a length inclòs (i &lt;= length)</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>int[] notes = {5, 6, 7, 8};
+int suma = 0;
+
+for (int i = 0; i &lt;= notes.length; i++) {  // ERROR
+    suma = suma + notes[i];
+}</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa suma les quatre notes correctament… i després es para amb <code>ArrayIndexOutOfBoundsException: Index 4 out of bounds for length 4</code>.</dd>
+                <dt>Per què</dt><dd>Amb <code>&lt;=</code> el bucle fa una volta de més: <code>i</code> arriba a valdre el número de caselles, i eixa casella no existix.</dd>
+                <dt>Com detectar-ho</dt><dd>El programa funciona bé durant un moment i falla just al final. Si l'error apareix <em>després</em> d'un resultat correcte, quasi sempre és un <code>&lt;=</code> que hauria de ser <code>&lt;</code>.</dd>
+                <dt>Com corregir-ho</dt><dd>Per a recórrer arrays, la condició correcta és <strong><code>i &lt; array.length</code></strong>. Memoritza-ho com una fórmula.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int[] notes = {5, 6, 7, 8};
+int suma = 0;
+
+for (int i = 0; i &lt; notes.length; i++) {
+    suma = suma + notes[i];
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 3</span>
+            <h3 class="exercici__titol" style="margin:0">length amb parèntesis en un array</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>int[] notes = new int[5];
+int quants = notes.length();
+System.out.println(quants);</code></pre>
+          <p class="missatge-error">error: Cannot invoke length() on the array type int[]
+        int quants = notes.length();
+                      ^^^^^^^^^^^^^^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila.</dd>
+                <dt>Per què</dt><dd>En un array, <code>length</code> és una dada que ja porta dins (sense parèntesis). Els parèntesis són per als mètodes, i el text (<code>String</code>) sí que té un mètode <code>length()</code>.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge diu <code>Cannot invoke length() on the array type int[]</code>. També passa al revés: escriure <code>text.length</code> en un text dona <code>length cannot be resolved or is not a field</code>.</dd>
+                <dt>Com corregir-ho</dt><dd>Regla: <strong>array → <code>length</code></strong> (sense parèntesis); <strong>text → <code>length()</code></strong> (amb parèntesis).</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int[] notes = new int[5];
+int quants = notes.length;
+System.out.println(quants);</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 4</span>
+            <h3 class="exercici__titol" style="margin:0">Crear l'array sense new</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>int[] notes;
+notes[0] = 5;
+System.out.println(notes[0]);</code></pre>
+          <p class="missatge-error">error: The local variable notes may not have been initialized
+        notes[0] = 5;
+        ^^^^^
+(2 errors)</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila i assenyala la línia on guardem el valor.</dd>
+                <dt>Per què</dt><dd><code>int[] notes;</code> només diu «este nom serà un array d'enters», però <strong>no crea les caselles</strong>. Sense <code>new</code>, no hi ha res on guardar.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge parla de «may not have been initialized» (pot ser que no s'haja inicialitzat).</dd>
+                <dt>Com corregir-ho</dt><dd>Cal crear l'array: <code>int[] notes = new int[5];</code> (o omplir-lo directament amb <code>{...}</code>).</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int[] notes = new int[5];
+notes[0] = 5;
+System.out.println(notes[0]);</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 5</span>
+            <h3 class="exercici__titol" style="margin:0">Mostrar l'array sencer amb un println</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>int[] punts = {120, 95, 180};
+System.out.println(punts);</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>En compte dels números, apareix una cosa estranya com <code>[I@1b6d3586</code>.</dd>
+                <dt>Per què</dt><dd><code>println</code> no sap recórrer arrays: el que escriu és la «matrícula» interna de l'objecte. No és un error del programa, però no és el que volem.</dd>
+                <dt>Com detectar-ho</dt><dd>Eixida que comença per <code>[</code> i porta una <code>@</code> amb números i lletres. Si vas de pressa ni ho notes!</dd>
+                <dt>Com corregir-ho</dt><dd>O bé fas un bucle per a mostrar cada casella, o bé uses <code>System.out.println(Arrays.toString(array))</code> per a vore-ho tot d'una vegada.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>import java.util.Arrays;
+
+int[] punts = {120, 95, 180};
+System.out.println(Arrays.toString(punts)); // [120, 95, 180]</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 6</span>
+            <h3 class="exercici__titol" style="margin:0">Numerar els missatges amb l'índex directament</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>String[] noms = {"Ana", "Bruno", "Carla"};
+
+for (int i = 0; i &lt; noms.length; i++) {
+    System.out.println(i + " - " + noms[i]); // mostra «0 - Ana»
+}</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa funciona, però la llista comença en «0 - Ana» i als usuaris els pareix un error.</dd>
+                <dt>Per què</dt><dd>L'índex intern comença en 0, però les persones comptem des d'1. El programa no està mal: està mal explicat a l'usuari.</dd>
+                <dt>Com detectar-ho</dt><dd>Ho veus directament en l'eixida quan el primer element és el 0. És un error de <strong>presentació</strong>, no de càlcul.</dd>
+                <dt>Com corregir-ho</dt><dd>Suma 1 en el missatge: <code>(i + 1)</code>. I recorda't que <code>noms[i]</code> <strong>no</strong> canvia: la casella seguix sent la <code>i</code>.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>String[] noms = {"Ana", "Bruno", "Carla"};
+
+for (int i = 0; i &lt; noms.length; i++) {
+    System.out.println((i + 1) + " - " + noms[i]); // «1 - Ana»
+}</code></pre>
+            </div>
+          </div>
+        </article>
+    </section>
+
+    <!-- ============================= 10 · RESUM VISUAL ============================= -->
+    <section class="seccio seccio--suau" id="resum" data-nav="10 · Resum visual">
+      <h2>Resum visual</h2>
+      <p class="entradeta">Les idees que has d'endur-te d'este tema.</p>
+      <div class="resum-visual revela">
+        <div class="resum-visual__item"><p>Un <strong>array</strong> guarda molts valors del mateix tipus en caselles numerades.</p></div>
+        <div class="resum-visual__item"><p>Es crea amb <code>new</code>: <code>int[] notes = new int[5];</code> (5 caselles) o amb <code>{...}</code>.</p></div>
+        <div class="resum-visual__item"><p>Els índexs van del <strong>0</strong> fins a <strong><code>length - 1</code></strong>. El primer és el 0!</p></div>
+        <div class="resum-visual__item"><p>Es recorre amb un <code>for</code>: <code>for (int i = 0; i &lt; array.length; i++)</code>.</p></div>
+        <div class="resum-visual__item"><p>El <em>for-each</em> (<code>for (int x : array)</code>) servix per a llegir-ho tot sense índex.</p></div>
+        <div class="resum-visual__item"><p>Array i bucle junts: sumes, mitjanes, màxims, mínims, comptadors i cerques.</p></div>
+        <div class="resum-visual__item"><p>El màxim i el mínim comencen en <code>array[0]</code> i el bucle comença en 1.</p></div>
+        <div class="resum-visual__item"><p>Els textos també es recorren: <code>length()</code>, <code>charAt(i)</code>, <code>substring</code>, <code>equals</code>, <code>contains</code>.</p></div>
+        <div class="resum-visual__item"><p><code>array.length</code> <strong>sense</strong> parèntesis; <code>text.length()</code> <strong>amb</strong> parèntesis.</p></div>
+      </div>
+    </section>
+
+    <!-- ============================ 11 · AUTOAVALUACIÓ ============================ -->
+    <section class="seccio" id="autoavaluacio" data-nav="11 · Autoavaluació">
+      <h2>Autoavaluació</h2>
+      <p class="entradeta">Nou preguntes. Pensa-les abans de mirar la solució.</p>
+      <ol class="llista-autoavaluacio">
+        <li>
+          <p class="enunciat">Quantes caselles té <code>int[] notes = new int[6];</code> i quin és l'índex de l'última?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av1">Mostrar solució</button>
+          <div class="solucio" id="av1" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Té 6 caselles i l'última és l'índex 5.</strong></p>
+            <p class="solucio__perque">El número entre claudàtors és la quantitat de caselles. Com que els índexs comencen en 0, les caselles són 0, 1, 2, 3, 4 i 5: la última és <code>length - 1</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Amb quin índex s'accedix a la primera casella d'un array?</p>
+
+          <ul class="opcions"><li>Amb l'1</li><li>Amb el 0</li><li>Depén de com s'haja creat</li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av2">Mostrar solució</button>
+          <div class="solucio" id="av2" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) Amb el 0.</strong></p>
+            <p class="solucio__perque">En Java (i en quasi tots els llenguatges) la primera posició d'un array és la 0. Per això, per a mostrar la llista a persones, sumem 1 en el missatge.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què mostra este codi?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>int[] edats = {14, 15, 16};
+System.out.println(edats.length);
+System.out.println(edats[1]);</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av3">Mostrar solució</button>
+          <div class="solucio" id="av3" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Mostra <code>3</code> i <code>15</code>.</strong></p>
+            <p class="solucio__perque"><code>edats.length</code> és 3 (les tres caselles) i <code>edats[1]</code> és la <strong>segona</strong> casella, perquè la primera és la 0. Este segon detall és el que més costa al principi.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Com s'escriu correctament el bucle per recórrer un array de nom <code>notes</code>?</p>
+
+          <ul class="opcions"><li><code>for (int i = 0; i &lt;= notes.length; i++)</code></li><li><code>for (int i = 0; i &lt; notes.length; i++)</code></li><li><code>for (int i = 1; i &lt;= notes.length; i++)</code></li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av4">Mostrar solució</button>
+          <div class="solucio" id="av4" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) <code>for (int i = 0; i &lt; notes.length; i++)</code></strong></p>
+            <p class="solucio__perque">L'índex comença a 0 i ha d'arribar fins a <code>length - 1</code>: per això la condició és <code>&lt;</code> (menut), no <code>&lt;=</code>. La tercera opció es deixaria la primera casella i es passaria de la última.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Este codi falla en executar-se. Per què?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>int[] notes = {5, 6, 7, 8};
+int suma = 0;
+
+for (int i = 0; i &lt;= notes.length; i++) {
+    suma = suma + notes[i];
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av5">Mostrar solució</button>
+          <div class="solucio" id="av5" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè el bucle intenta llegir la casella 4, que no existix (l'array va de la 0 a la 3).</strong></p>
+            <p class="solucio__perque">Amb <code>&lt;=</code> el bucle fa una volta de més. Apareix <code>ArrayIndexOutOfBoundsException: Index 4 out of bounds for length 4</code>. La condició correcta és <code>i &lt; notes.length</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Per què el màxim d'un array s'inicialitza amb <code>array[0]</code> i no amb 0?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av6">Mostrar solució</button>
+          <div class="solucio" id="av6" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè si tots els valors de l'array foren negatius (per exemple temperatures sota zero), el 0 seria un resultat fals.</strong></p>
+            <p class="solucio__perque">El primer element sempre és un valor real de l'array, així que servix de campió provisional sempre. Començar amb 0 dona resultats incorrectes amb arrays de números negatius.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Escriu el codi que compta quantes notes d'un array <code>notes</code> estan aprovades (5 o més).</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av7">Mostrar solució</button>
+          <div class="solucio" id="av7" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>int aprovats = 0; for (int i = 0; i &lt; notes.length; i++) { if (notes[i] &gt;= 5) { aprovats++; } }</code></strong></p>
+            <p class="solucio__perque">El comptador es crea abans del bucle i s'incrementa només quan es complix la condició. Sense <code>break</code>: volem comptar-les totes.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Este codi compila? Per què?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>int[] notes = new int[5];
+int quants = notes.length();</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av8">Mostrar solució</button>
+          <div class="solucio" id="av8" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>No compila: en un array, <code>length</code> va <strong>sense</strong> parèntesis.</strong></p>
+            <p class="solucio__perque">El missatge és <code>Cannot invoke length() on the array type int[]</code>. Els parèntesis són per al <code>length()</code> del text (<code>String</code>). Array = <code>length</code>; text = <code>length()</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què fa <code>charAt(2)</code> sobre el text <code>&quot;Hola&quot;</code> i per què no es pot fer servir <code>==</code> per a comparar textos complets?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av9">Mostrar solució</button>
+          <div class="solucio" id="av9" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>charAt(2)</code> torna <code>l</code> (la tercera lletra, perquè es comença a comptar en 0). Els textos complets es comparen amb <code>equals</code> perquè amb <code>==</code> es compara si són el mateix objecte, no si diuen el mateix.</strong></p>
+            <p class="solucio__perque">Cada posició d'un text és un <code>char</code>, i els <code>char</code> sí que es comparen amb <code>==</code> perquè són lletres simples. Els <code>String</code> són objectes i necessiten <code>equals</code>.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <nav class="navegacio-temes no-imprimible" id="navegacio-temes" aria-label="Navegació entre temes"></nav>
+
+  </main>
+</div>
+
+<!-- ====================================== PEU ====================================== -->
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__graella">
+      <div>
+        <h4>Introducció a la Programació amb Java</h4>
+        <p>Optativa SMX · Sistemes Microinformàtics i Xarxes</p>
+        <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+      </div>
+      <div>
+        <h4>En este tema</h4>
+        <ul class="llista-netejada">
+          <li><a href="#teoria">Teoria</a></li>
+          <li><a href="#exemples">Exemples explicats</a></li>
+          <li><a href="#guiada">Programació guiada</a></li>
+          <li><a href="#resum">Resum visual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Llicència</h4>
+        <p>Material lliure per a ús educatiu.<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a></p>
+      </div>
+    </div>
+    <div class="peu__base">
+      <span>© 2026 Agustín Gil · IES La Vereda</span>
+      <a class="llicencia" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">
+        <span class="llicencia__icones" aria-hidden="true"><span>CC</span><span>BY</span><span>NC</span></span>
+        Creative Commons Reconeixement-NoComercial 4.0 Internacional
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Peu fix que apareix en cada pàgina del PDF -->
+<div class="peu-impressio" aria-hidden="true">
+  <span>Introducció a la Programació amb Java · Optativa SMX · Material creat per Agustín Gil - IES La Vereda 2026 · CC BY-NC 4.0</span>
+  <span class="peu-impressio__dreta">Tema 4</span>
+</div>
+
+<button class="boto boto--primari tornar-dalt no-imprimible" id="tornar-dalt" type="button" aria-label="Tornar a dalt">↑</button>
+
+<script src="../assets/js/resaltat.js"></script>
+<script src="../assets/js/dades-curs.js"></script>
+<script src="../assets/js/diapositives/tema4.js"></script>
+<script src="../assets/js/plantilla-tema.js"></script>
+<script src="../assets/js/pptx.js"></script>
+</body>
+</html>

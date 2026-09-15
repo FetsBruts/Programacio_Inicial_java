@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 5 · Mètodes: reutilitzar el codi | Introducció a la Programació amb Java</title>
+<meta name="description" content="Posar nom a un tros de programa i usar-lo les vegades que calga">
+<meta name="author" content="Agustín Gil · IES La Vereda 2026">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/tema.css">
+<link rel="stylesheet" href="../assets/css/print.css">
+<!-- PÀGINA GENERADA amb eines/genera-temes.mjs — edita eines/contingut/tema5.js i torna a generar-la -->
+</head>
+
+<body data-tema="5">
+
+<!-- ============================ PORTADA D'IMPRESSIÓ ============================ -->
+<div class="portada-impressio només-impressio" id="portada-impressio">
+  <p class="portada-impressio__curs" data-camp="assignatura">Optativa SMX · Introducció a la Programació</p>
+  <h1 data-camp="tema">Tema 5 · Mètodes: reutilitzar el codi</h1>
+  <p class="portada-impressio__resum" data-camp="subtitol">Posar nom a un tros de programa i usar-lo les vegades que calga</p>
+  <div class="portada-impressio__meta">
+    <p data-camp="autor">Material creat per Agustín Gil - IES La Vereda 2026</p>
+    <p>Llicència <span data-camp="llicencia">CC BY-NC 4.0</span> · <a data-camp="enllac" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">creativecommons.org/licenses/by-nc/4.0</a></p>
+    <p>Data d'impressió: <span data-camp="data"></span></p>
+    <p class="text-suau">Manual d'estudi: introducció, objectius, teoria, exemples explicats, programació guiada, errors habituals i resum. Les tres primeres preguntes d'autoavaluació inclouen la solució; els exercicis i els reptes es treballen en la versió web.</p>
+  </div>
+</div>
+
+<!-- ================================== CAPÇALERA ================================== -->
+<header class="capcalera">
+  <div class="contenidor capcalera__interior" style="max-width:1400px">
+    <a class="capcalera__marca" href="../index.html">
+      <span class="capcalera__logo" aria-hidden="true">{}</span>
+      <span class="capcalera__text">
+        <span class="capcalera__curs">Optativa SMX · Programació amb Java</span>
+        <span class="capcalera__tema">Tema 5 · Mètodes: reutilitzar el codi</span>
+      </span>
+    </a>
+    <div class="capcalera__accions">
+      <button class="boto boto--ciano boto--petit" type="button" data-imprimir>🖨 <span class="text-llarg">Imprimir</span> PDF</button>
+      <button class="boto boto--taronja boto--petit" type="button" data-pptx>📊 <span class="text-llarg">Crear</span> PowerPoint</button>
+      <a class="boto boto--fantasma boto--petit" href="../index.html">Índex del curs</a>
+      <button class="boto-icona" type="button" data-menu-toggle aria-expanded="false" aria-label="Obrir el menú del tema">☰</button>
+    </div>
+  </div>
+  <div class="contenidor capcalera__meta" style="max-width:1400px">
+    <span>✍ Material creat per Agustín Gil - IES La Vereda 2026</span>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-NC 4.0</a>
+    <span class="text-suau">Tema 5 de 10 · 3 hores de classe</span>
+  </div>
+  <div class="barra-progres" aria-hidden="true"><span></span></div>
+</header>
+
+<div class="overlay-menu" aria-hidden="true"></div>
+
+<div class="disposicio">
+
+  <!-- ============================== MENÚ LATERAL ============================== -->
+  <aside class="menu-lateral" id="menu-lateral" aria-label="Navegació del tema">
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">En este tema</p>
+      <nav class="indice-intern" id="indice-intern" aria-label="Índex del tema"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc" id="progres-exercicis" hidden>
+      <p class="menu-lateral__titol">El teu progrés</p>
+      <div class="barra-avaluacio"><span style="width:0"></span></div>
+      <p class="text-suau" id="progres-exercicis-text" style="font-size:.82rem;margin:0"></p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Temes del curs</p>
+      <nav class="llista-temes-mini" id="llista-temes-mini" aria-label="Temes del curs"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Accions</p>
+      <div class="pila" style="gap:.5rem">
+        <button class="boto boto--primari boto--ampla boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button>
+        <button class="boto boto--taronja boto--ampla boto--petit" type="button" data-pptx>📊 Crear PowerPoint</button>
+      </div>
+      <p class="text-suau" style="font-size:.78rem;margin:.6rem 0 0">
+        El PDF inclou la teoria i el resum. La presentació és per explicar a classe.
+      </p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Autoria</p>
+      <p class="text-suau" style="font-size:.8rem;margin:0">
+        <strong>Agustín Gil</strong><br>IES La Vereda · 2026<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+      </p>
+    </div>
+  </aside>
+
+  <!-- ================================= CONTINGUT ================================= -->
+  <main class="contingut">
+
+    <div class="hero-tema">
+      <span class="hero-tema__etiqueta">Tema 5 · Sessió de 3 hores</span>
+      <h1>Mètodes: reutilitzar el codi</h1>
+      <p class="hero-tema__entradeta">Fins ara el codi creix cap avall i cada programa és una sola llista de coses. Els mètodes ens deixen donar un nom als trossos de programa i construïr el programa com qui monta un joc de peces.</p>
+      <div class="hero-tema__meta">
+        <span class="pastilla">⏱ 3 hores</span>
+        <span class="pastilla">📦 Fase 2 · Estructurar el programa</span>
+        <span class="pastilla">🧩 Necessites: Temes 0 a 4</span>
+        <span class="pastilla">❓ La pregunta clau: quines peces té este problema?</span>
+      </div>
+    </div>
+
+    <!-- ============================ 01 · INTRODUCCIÓ ============================ -->
+    <section class="seccio" id="introduccio" data-nav="01 · Introducció" style="padding-top:0">
+      <h2>Una situació per començar</h2>
+      <div class="situacio revela">
+        <span class="situacio__emoji" aria-hidden="true">🧱</span>
+        <div>
+<p>En el tema anterior hem fet un programa que calcula la mitjana d'un array. Al tema 3 en vam fer un altre que calcula la mitjana de notes llegides pel teclat. I en el tema 2 un altre que diu la qualificació d'una nota.</p>
+          <p>Hi ha una cosa que no ens ha cridat l'atenció però que és un problema seriós: <strong>hem escrit el mateix codi una vegada i una altra</strong>. I quan el codi està repetit, qualsevol canvi cal fer-lo en tots els llocs… i sempre se n'oblida algun.</p>
+          <pre class="codi" data-titol="Repeticio.java" data-etiqueta="MATEIX CODI DOS VEGADES"><code>// a dins de main, per a les notes de classe:
+          double suma1 = 0;
+          for (int i = 0; i &lt; notes.length; i++) {
+              suma1 = suma1 + notes[i];
+          }
+          double mitjanaNotes = suma1 / notes.length;
+
+          // ...i un poc més avall, per als punts del joc:
+          double suma2 = 0;
+          for (int i = 0; i &lt; punts.length; i++) {
+              suma2 = suma2 + punts[i];
+          }
+          double mitjanaPunts = suma2 / punts.length;</code></pre>
+          <p>Són els mateixos càlculs amb noms diferents. I si ens equivocàvem en un? Hauríem d'arreglar-ho dos vegades.</p>
+          <p>La solució: <strong>guardar eixe tros de programa amb un nom</strong> i usar el nom cada vegada que el necessitem. Es diu <strong>mètode</strong> (o <em>funció</em>, en molts llenguatges). Ja els has estat usant tot el temps: <code>println</code>, <code>nextInt</code>, <code>length()</code>, <code>equals</code>… són mètodes que algú altre ha escrit per nosaltres!</p>
+        </div>
+      </div>
+
+      <div class="plan-sessio revela" style="margin-top:var(--esp-5)">
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">30-40 min</span>
+            <span class="plan-sessio__nom">Explicació i demos</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Programació guiada</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Exercicis</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">15-30 min</span>
+            <span class="plan-sessio__nom">Repàs i repte</span>
+          </div>
+      </div>
+
+      <div class="prerequisits">
+        <strong>Abans de començar has de poder fer això:</strong>
+        <ul>
+          <li>Arrays i bucles per a recórrer-los (Tema 4).</li>
+          <li>Condicions amb <code>if</code> i <code>else</code> (Tema 2).</li>
+          <li>Variables, tipus i operacions (Tema 1).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ 02 · QUÈ APRENDREM ============================ -->
+    <section class="seccio" id="objectius" data-nav="02 · Què aprendrem?">
+      <h2>Què aprendrem en este tema?</h2>
+      <p class="entradeta">En acabar esta sessió has de saber fer estes coses:</p>
+      <ul class="llista-objectius revela">
+        <li><span class="num">1</span><span>Escriure un mètode (<code>public static</code>) i cridar-lo les vegades que calga.</span></li>
+        <li><span class="num">2</span><span>Passar dades a un mètode amb <strong>paràmetres</strong>.</span></li>
+        <li><span class="num">3</span><span>Traure un resultat d'un mètode amb <strong><code>return</code></strong>.</span></li>
+        <li><span class="num">4</span><span>Diferenciar els mètodes <code>void</code> dels que tornen un valor.</span></li>
+        <li><span class="num">5</span><span>Passar arrays a un mètode i treballar amb ells.</span></li>
+        <li><span class="num">6</span><span>Dividir un problema gran en mètodes menuts i organitzar-ho des de <code>main</code>.</span></li>
+      </ul>
+    </section>
+
+    <!-- =============================== 03 · TEORIA =============================== -->
+    <section class="seccio" id="teoria" data-nav="03 · Teoria">
+      <h2>Teoria, poc a poc</h2>
+      <p class="entradeta">Una idea → un exemple. I una pregunta nova: quin nom li posaria a cada peça?</p>
+<h3>1. Un mètode és codi amb nom</h3>
+        <p>Un <strong>mètode</strong> és un tros de programa guardat amb un nom, que podem usar quan volem. Este mètode escriu un salud, i anomenem-lo des de <code>main</code> tres vegades:</p>
+        <pre class="codi" data-titol="Saluda.java" data-etiqueta="EL PRIMER MÈTODE"><code>public class Saluda {
+            public static void saluda() {
+                System.out.println("Hola! Soc un mètode.");
+            }
+
+            public static void main(String[] args) {
+                saluda();
+                saluda();
+                saluda();
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Hola! Soc un mètode.
+        Hola! Soc un mètode.
+        Hola! Soc un mètode.</pre>
+                  </div>
+        <p>Fixa't en les tres parts del mètode:</p>
+        <ol class="llista-punts">
+                    <li>El <strong>cap</strong>: <code>public static void saluda()</code>. Diu com es diu i què torna.</li>
+                    <li>El <strong>cos</strong>: tot el que va entre <code>{ }</code>. És el que fa.</li>
+                    <li>La <strong>crida</strong>: <code>saluda();</code> des de <code>main</code>. Ací és on s'executa.</li>
+                  </ol>
+        <div class="nota nota--només-ensenyament">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p><code>public static</code> són dos paraules que de moment escriguem <strong>sempre igual</strong>, tal qual, com una fórmula. <strong>Encara no cal entendre-les</strong>; al Tema 6 vorem què signifiquen i per què <code>main</code> també les porta.</p></div>
+                  </div>
+        <h3>2. Mètodes que necessiten dades: paràmetres</h3>
+        <p>El mètode anterior sempre diu el mateix. Perquè servisca per a qualsevol cosa, li passem <strong>les dades que necessita</strong> entre els parèntesis. Es diuen <strong>paràmetres</strong>.</p>
+        <pre class="codi" data-titol="SaludaAlgu.java" data-etiqueta="PARÀMETRES"><code>public class SaludaAlgu {
+            public static void saluda(String nom) {
+                System.out.println("Hola, " + nom + "!");
+            }
+
+            public static void main(String[] args) {
+                saluda("Ana");
+                saluda("Bruno");
+                saluda("Carla");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Hola, Ana!
+        Hola, Bruno!
+        Hola, Carla!</pre>
+                  </div>
+        <p><code>String nom</code> vol dir: «este mètode necessita un text i dins del mètode es dirà <code>nom</code>». El valor que li donem en cridar-lo (<code>&quot;Ana&quot;</code>) se'n diu <strong>argument</strong>.</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Parlant de…</th><th>On està</th><th>Exemple</th></tr></thead>
+                      <tbody>
+                        <tr><td>Paràmetre</td><td>En el cap del mètode</td><td><code>String nom</code></td></tr>
+                        <tr><td>Argument</td><td>En la crida</td><td><code>saluda(&quot;Ana&quot;)</code></td></tr>
+                        <tr><td>Variable local</td><td>Dins del cos del mètode</td><td><code>int suma = 0;</code></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Poden haver-hi diversos paràmetres, separats per comes i <strong>cadascun amb el seu tipus</strong>: <code>public static double mitjana(double a, double b)</code>. I es poden passar tants arguments com paràmetres tinga el mètode, ni un més ni un menys.</p></div>
+                  </div>
+        <h3>3. Mètodes que tornen un resultat: return</h3>
+        <p>Fins ara els nostres mètodes escriuen coses per pantalla. Però el més útil és que <strong>calculen i ens tornen el resultat</strong>, perquè nosaltres decidim què fem amb ell.</p>
+        <pre class="codi" data-titol="SumaMetode.java" data-etiqueta="RETURN"><code>public class SumaMetode {
+            public static int suma(int a, int b) {
+                return a + b;      // ací es torna el resultat
+            }
+
+            public static void main(String[] args) {
+                int resultat = suma(4, 7);
+                System.out.println("4 + 7 = " + resultat);
+
+                System.out.println("10 + 32 = " + suma(10, 32));
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>4 + 7 = 11
+        10 + 32 = 42</pre>
+                  </div>
+        <p>Tres idees clau d'este exemple:</p>
+        <ol class="llista-punts">
+                    <li>El cap canvia <code>void</code> per <strong><code>int</code></strong>: «este mètode torna un número enter».</li>
+                    <li><code>return</code> fa <strong>dos treballs</strong>: torna el valor i <strong>acaba el mètode allí mateix</strong>.</li>
+                    <li>El resultat es pot guardar en una variable o usar-lo directament dins d'una altra operació.</li>
+                  </ol>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>Si un mètode diu que torna un <code>int</code>, <strong>ha de tornar un <code>int</code> en tots els camins possibles</strong>. Vore's un <code>if</code> sense <code>else</code> dins d'un mètode que ha de tornar alguna cosa és el motiu de l'error «This method must return a result of type int».</p></div>
+                  </div>
+        <h3>4. void o amb retorn?</h3>
+        <p>La diferència és què volem d'eixe mètode: que <strong>faça</strong> alguna cosa (mostrar, dibuixar, guardar) o que ens <strong>done</strong> un valor.</p>
+        <pre class="codi" data-titol="Calculs.java" data-etiqueta="VOID vs RETURN"><code>public class Calculs {
+            public static void mostraMissatge(String text) {   // no torna res: void
+                System.out.println("&gt;&gt;&gt; " + text);
+            }
+
+            public static double mitjana(double a, double b) { // torna un double
+                return (a + b) / 2;
+            }
+
+            public static boolean esParell(int n) {            // torna un boolean
+                return n % 2 == 0;
+            }
+
+            public static void main(String[] args) {
+                mostraMissatge("Comencem");
+
+                System.out.println("Mitjana de 6 i 9: " + mitjana(6, 9));
+                System.out.println("El 7 és parell? " + esParell(7));
+
+                if (esParell(8)) {
+                    mostraMissatge("El 8 sí que és parell");
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>&gt;&gt;&gt; Comencem
+        Mitjana de 6 i 9: 7.5
+        El 7 és parell? false
+        &gt;&gt;&gt; El 8 sí que és parell</pre>
+                  </div>
+        <p>Un mètode que torna <code>boolean</code> és especialment útil dins d'un <code>if</code>: <code>if (esParell(8))</code> es llig com una frase en valencià. Això fa el codi molt més llegible.</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Tipus</th><th>Què fa</th><th>Exemple d'ús</th></tr></thead>
+                      <tbody>
+                        <tr><td><code>void</code></td><td>Fa faena i no torna res</td><td><code>mostraMissatge(&quot;Hola&quot;);</code></td></tr>
+                        <tr><td><code>int</code> / <code>double</code></td><td>Torna un número</td><td><code>int t = suma(2, 3);</code></td></tr>
+                        <tr><td><code>boolean</code></td><td>Torna vertader o fals</td><td><code>if (esParell(8))</code></td></tr>
+                        <tr><td><code>String</code></td><td>Torna un text</td><td><code>String n = nomComplet(&quot;Ana&quot;, &quot;Gil&quot;);</code></td></tr>
+                        <tr><td><code>int[]</code></td><td>Torna un array</td><td><code>double[] notes = llegirNotes(5);</code></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <h3>5. Cada variable viu dins del seu mètode</h3>
+        <p>Una variable creada dins d'un mètode <strong>només existix allí dins</strong>. Fora no es veu. Esta idea pareix una limitació i és justament el que fa els programes ordenats.</p>
+        <pre class="codi" data-titol="Ambit.java" data-etiqueta="ÀMBIT DE LES VARIABLES"><code>public class Ambit {
+            public static void calcula() {
+                int dins = 5;
+                System.out.println("Dins del mètode: " + dins);
+            }
+
+            public static void main(String[] args) {
+                calcula();
+
+                int dins = 99;
+                System.out.println("En main: " + dins);
+
+                // System.out.println(dinsDelMetode);  // això NO existix: donaria error
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Dins del mètode: 5
+        En main: 99</pre>
+                  </div>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>Per això <code>main</code> i <code>calcula</code> poden tindre dos variables amb el <strong>mateix nom</strong> sense cap problema: són dos móns separats. Si un mètode necessita una dada, se li passem per paràmetre o ens la torna amb <code>return</code>. Als dos móns només s'arriba per la porta (els paràmetres i el retorn).</p></div>
+                  </div>
+        <h3>6. Mètodes que treballen amb arrays</h3>
+        <p>Els arrays es passen als mètodes igual que qualsevol altra dada. Este és el gran estalvi: els càlculs de mitjana, màxim o mínim es fan una sola vegada i s'usen sempre.</p>
+        <pre class="codi" data-titol="AmbArray.java" data-etiqueta="ARRAY + MÈTODES"><code>public class AmbArray {
+            public static double mitjana(double[] valors) {
+                double suma = 0;
+                for (int i = 0; i &lt; valors.length; i++) {
+                    suma = suma + valors[i];
+                }
+                return suma / valors.length;
+            }
+
+            public static int maxim(int[] valors) {
+                int max = valors[0];
+                for (int i = 1; i &lt; valors.length; i++) {
+                    if (valors[i] &gt; max) {
+                        max = valors[i];
+                    }
+                }
+                return max;
+            }
+
+            public static void main(String[] args) {
+                double[] notes = {6, 7, 6, 9, 8};
+                int[] punts = {120, 95, 180, 60};
+
+                System.out.println("Mitjana: " + mitjana(notes));
+                System.out.println("Màxim: " + maxim(punts));
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Mitjana: 7.2
+        Màxim: 180</pre>
+                  </div>
+        <p>Dins del mètode, l'array es diu <code>valors</code>, i fora es diu <code>notes</code> o <code>punts</code>. El nom del paràmetre és cosa del mètode: qui el crida només ha de passar-li un array del tipus correcte.</p>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Fixat que <code>mitjana</code> i <code>maxim</code> no escriuen res per pantalla: <strong>només calculen</strong>. Això les fa reutilitzables: a un programa voldrem mostrar la mitjana, a un altre potser comprovar si aprova la classe.</p></div>
+                  </div>
+        <h3>7. Mètodes que criden altres mètodes</h3>
+        <p>Un mètode pot usar un altre mètode, i així es construïxen programes com qui monta peces.</p>
+        <pre class="codi" data-titol="Butlleti.java" data-etiqueta="MÈTODES QUE ES CRIDEN"><code>public class Butlleti {
+            public static void linia() {
+                System.out.println("----------------------");
+            }
+
+            public static void capcalera(String nom) {
+                linia();
+                System.out.println("BUTLLETÍ DE " + nom.toUpperCase());
+                linia();
+            }
+
+            public static void main(String[] args) {
+                capcalera("Ana");
+                System.out.println("Nota: 8.5");
+                linia();
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>----------------------
+        BUTLLETÍ DE ANA
+        ----------------------
+        Nota: 8.5
+        ----------------------</pre>
+                  </div>
+        <p><code>capcalera</code> usa <code>linia</code> dos vegades. Si un dia volem una línia més llarga, la canviem <strong>en un sol lloc</strong> i tots els butlletins queden bé. Eixe és el poder dels mètodes.</p>
+        <h3>8. Pensar el problema en peces</h3>
+        <p>La manera de treballar amb mètodes és pensar el problema en <strong>verbs</strong>: quins passos té i quin nom li donaria a cada pas. És el que es diu dissenyar de dalt a baix.</p>
+        <p>Exemple: «llegir 5 notes i mostrar un informe amb la mitjana, la nota més alta i la qualificació».</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Pas (què cal fer)</th><th>Nom del mètode</th><th>Què torna</th></tr></thead>
+                      <tbody>
+                        <tr><td>Demanar les notes pel teclat</td><td><code>llegirNotes(int quants)</code></td><td><code>double[]</code></td></tr>
+                        <tr><td>Calcular la mitjana</td><td><code>mitjana(double[] notes)</code></td><td><code>double</code></td></tr>
+                        <tr><td>Trobar la nota més alta</td><td><code>maxim(double[] notes)</code></td><td><code>double</code></td></tr>
+                        <tr><td>Convertir la nota en text</td><td><code>qualificacio(double nota)</code></td><td><code>String</code></td></tr>
+                        <tr><td>Escriure l'informe</td><td><code>mostraInforme(double[] notes)</code></td><td><code>void</code></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <p>I <code>main</code> queda reduït a l'esquelet del programa: llegir, mostrar. <strong>Cada peça es pot provar per separat</strong>, i si alguna cosa no funciona, ja saps on mirar.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Regla pràctica: si un tros de codi et costa d'explicar en una frase, probablement hauria de ser un mètode. I si li has de posar un comentari llarg per explicar-lo, <strong>segur</strong> que hauria de ser un mètode.</p></div>
+                  </div>
+    </section>
+
+    <!-- =========================== 04 · EXEMPLES EXPLICATS =========================== -->
+    <section class="seccio seccio--suau" id="exemples" data-nav="04 · Exemples">
+      <h2>Exemples explicats pas a pas</h2>
+      <p class="entradeta">Cada exemple: què volem aconseguir, el codi, què apareix per pantalla i per què funciona.</p>
+<h3>Exemple 1 · Conversor de temperatures</h3>
+        <p><strong>Què volem?</strong> Convertir graus Celsius a Fahrenheit i al revés. Si la conversió està dins d'un mètode amb nom, el programa principal queda claríssim.</p>
+        <pre class="codi" data-titol="Conversor.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Conversor {
+            public static double celsiusAFahrenheit(double celsius) {
+                return celsius * 9 / 5 + 32;
+            }
+
+            public static double fahrenheitACelsius(double fahrenheit) {
+                return (fahrenheit - 32) * 5 / 9;
+            }
+
+            public static void main(String[] args) {
+                System.out.println("0 graus C = " + celsiusAFahrenheit(0) + " F");
+                System.out.println("25 graus C = " + celsiusAFahrenheit(25) + " F");
+                System.out.println("100 graus C = " + celsiusAFahrenheit(100) + " F");
+                System.out.println("La febra (38 C) = " + celsiusAFahrenheit(38) + " F");
+                System.out.println("Tornem: " + fahrenheitACelsius(98.6) + " graus C");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>0 graus C = 32.0 F
+        25 graus C = 77.0 F
+        100 graus C = 212.0 F
+        La febra (38 C) = 100.4 F
+        Tornem: 37.0 graus C</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> la fórmula està escrita <strong>una sola vegada</strong> en el seu mètode. Si un dia la volem canviar (o hem escrit 9/5 al revés), hi ha un únic lloc on tocar.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Fixa't en la línia del <code>main</code>: es llig com si parlàrem. «La febra, 38 graus, quants F són?» → <code>celsiusAFahrenheit(38)</code>. Este és el senyal que els mètodes estan ben pensats.</p></div>
+                  </div>
+        <h3>Exemple 2 · La qualificació, ara amb mètode</h3>
+        <p><strong>Què volem?</strong> Convertir una nota numèrica en text (Insuficient, Suficient…). Ho fem dins d'un mètode que torna un <code>String</code>.</p>
+        <pre class="codi" data-titol="Qualificacio.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Qualificacio {
+            public static String qualificacio(double nota) {
+                if (nota &lt; 5) {
+                    return "Insuficient";
+                } else if (nota &lt; 6) {
+                    return "Suficient";
+                } else if (nota &lt; 7) {
+                    return "Bé";
+                } else if (nota &lt; 9) {
+                    return "Notable";
+                } else {
+                    return "Excel·lent";
+                }
+            }
+
+            public static void main(String[] args) {
+                System.out.println("4.5 → " + qualificacio(4.5));
+                System.out.println("5.5 → " + qualificacio(5.5));
+                System.out.println("6.5 → " + qualificacio(6.5));
+                System.out.println("8.0 → " + qualificacio(8.0));
+                System.out.println("9.5 → " + qualificacio(9.5));
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>4.5 → Insuficient
+        5.5 → Suficient
+        6.5 → Bé
+        8.0 → Notable
+        9.5 → Excel·lent</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> cada <code>return</code> acaba el mètode immediatament, així que no cal guardar la resposta en una variable. Com que hi ha un <code>else</code> final que sempre torna alguna cosa, el mètode <strong>sempre</strong> torna un text: no hi ha cap camí que acabe sense <code>return</code>.</p>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>Esta versió és millor que la del tema 2: ara la qualificació es pot usar per a <strong>qualsevol</strong> nota del programa, i la podem mostrar, guardar o comparar. Un mètode que torna un valor és una peça que es pot usar en qualsevol lloc.</p></div>
+                  </div>
+        <h3>Exemple 3 · Un gràfic de barres</h3>
+        <p><strong>Què volem?</strong> Mostrar un gràfic de les notes fet amb caràcters. Necessitem un mètode que faça una barra de la llargària que li diguem.</p>
+        <pre class="codi" data-titol="Grafic.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Grafic {
+            public static void barra(int estrelles) {
+                for (int i = 0; i &lt; estrelles; i++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+
+            public static void graficDeNotes(int[] notes) {
+                for (int i = 0; i &lt; notes.length; i++) {
+                    System.out.print("Alumne " + (i + 1) + ": ");
+                    barra(notes[i]);
+                }
+            }
+
+            public static void main(String[] args) {
+                int[] notes = {6, 9, 4, 8, 7};
+                graficDeNotes(notes);
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Alumne 1: ******
+        Alumne 2: *********
+        Alumne 3: ****
+        Alumne 4: ********
+        Alumne 5: *******</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> <code>barra</code> sap dibuixar una barra de la llargària que li demanem. <code>graficDeNotes</code> recorre l'array i crida <code>barra</code> una vegada per alumne, passant-li la seua nota. Les dos peces són independents: podríem usar <code>barra</code> en qualsevol altre programa.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p><code>System.out.print</code> (sense <code>ln</code>) escriu en la mateixa línia, i el <code>println()</code> buit del final de <code>barra</code> baixa de línia. La barra es fa amb un bucle <code>for</code> on el comptador no s'usa dins: només conta voltes.</p></div>
+                  </div>
+        <h3>Exemple 4 · Mètodes que comproven dades</h3>
+        <p><strong>Què volem?</strong> Que el programa no accepte notes impossibles. Un mètode que torna <code>boolean</code> és la ferramenta perfecta per a preguntar «açò és vàlid?».</p>
+        <pre class="codi" data-titol="Validacio.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Validacio {
+            public static boolean esNotaValida(double nota) {
+                return nota &gt;= 0 &amp;&amp; nota &lt;= 10;
+            }
+
+            public static boolean esAprovat(double nota) {
+                return nota &gt;= 5;
+            }
+
+            public static void main(String[] args) {
+                System.out.println("¿6.5 és vàlida? " + esNotaValida(6.5));
+                System.out.println("¿12 és vàlida? " + esNotaValida(12));
+                System.out.println("¿-3 és vàlida? " + esNotaValida(-3));
+                System.out.println("¿4.9 està aprovada? " + esAprovat(4.9));
+                System.out.println("¿5.0 està aprovada? " + esAprovat(5.0));
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>¿6.5 és vàlida? true
+        ¿12 és vàlida? false
+        ¿-3 és vàlida? false
+        ¿4.9 està aprovada? false
+        ¿5.0 està aprovada? true</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> un mètode que torna <code>boolean</code> és una <strong>pregunta</strong> amb nom. <code>esNotaValida(12)</code> es llig com una pregunta i tornaaa <code>false</code>. Amb estes preguntes fetes mètodes, el programa principal queda ple de frases que s'entenen.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Costum de bo programador: els mètodes que tornen <code>boolean</code> es diuen començant per <strong><code>es</code></strong> o <strong><code>te</code></strong>: <code>esParell</code>, <code>esAprovat</code>, <code>teCarnet</code>, <code>esNotaValida</code>. Qui llig el codi ja sap què torna.</p></div>
+                  </div>
+        <h3>Què torna este mètode?</h3>
+        <p>Llig el mètode amb atenció i pensa el resultat de les tres crides abans d'executar-lo.</p>
+        <div class="prediccio">
+                    <h3>Pensa abans d'executar</h3>
+                    <pre class="codi" data-titol="Misteri.java" data-etiqueta="PENSA PRIMER"><code>public class Misteri {
+            public static int misteri(int a, int b) {
+                if (a &gt; b) {
+                    return a;
+                }
+                return b;
+            }
+
+            public static void main(String[] args) {
+                System.out.println(misteri(3, 9));
+                System.out.println(misteri(7, 2));
+                System.out.println(misteri(5, 5));
+            }
+        }</code></pre>
+                    <button class="boto boto--solucio" type="button" data-solucio="pred-return" data-text-mostrar="Mostrar què apareix" data-text-ocultar="Amagar">Mostrar què apareix</button>
+                    <div class="solucio" id="pred-return" hidden>
+                      <span class="solucio__etiqueta">Resposta</span>
+                      <div class="consola"><span class="consola__titol">Eixida real</span><pre>9
+        7
+        5</pre></div>
+                      <p class="solucio__perque"><strong>Per què:</strong> El mètode torna el número més gran dels dos. Quan <code>a &gt; b</code> torna <code>a</code> i el mètode acaba allí mateix; si no, arriba al segon <code>return</code> i torna <code>b</code>. Amb 5 i 5 no es complix <code>a &gt; b</code> (5 no és més gran que 5), així que torna <code>b</code>, que val el mateix: 5.</p>
+                    </div>
+                  </div>
+    </section>
+
+    <!-- =========================== 05 · PROGRAMACIÓ GUIADA =========================== -->
+    <section class="seccio" id="guiada" data-nav="05 · Programació guiada">
+      <h2>Programació guiada: ho fem junts</h2>
+      <p class="entradeta">Farem un analitzador de notes dividit en mètodes: llegir, calcular, qualificar i mostrar. Cada peça, un mètode. I ho provarem peça a peça.</p>
+      <div class="pas revela">
+        <span class="pas__num">1</span>
+        <div class="pas__cos">
+          <h3>El problema i el seu esquelet</h3>
+<p>Volem un programa que demane 4 notes, mostre la mitjana, la nota més alta, els aprovats i la qualificació final.</p>
+          <p>Abans d'escriure res, pensem el programa en verbs i decidim què torna cada peça:</p>
+          <div class="taula-embolcall">
+                      <table class="taula">
+                        <thead><tr><th>Mètode</th><th>Què fa</th><th>Què torna</th></tr></thead>
+                        <tbody>
+                          <tr><td><code>llegirNotes(int quants)</code></td><td>demana les notes pel teclat</td><td><code>double[]</code></td></tr>
+                          <tr><td><code>mitjana(double[] notes)</code></td><td>calcula la mitjana</td><td><code>double</code></td></tr>
+                          <tr><td><code>maxim(double[] notes)</code></td><td>troba la nota més alta</td><td><code>double</code></td></tr>
+                          <tr><td><code>aprovats(double[] notes)</code></td><td>compta les notes de 5 o més</td><td><code>int</code></td></tr>
+                          <tr><td><code>qualificacio(double nota)</code></td><td>converteix la nota en text</td><td><code>String</code></td></tr>
+                          <tr><td><code>mostraInforme(double[] notes)</code></td><td>escriu l'informe</td><td><code>void</code></td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+          <div class="pregunta-classe"><p>Quin d'estos mètodes no necessita tornar res? Per què?</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">2</span>
+        <div class="pas__cos">
+          <h3>Primer mètode: llegir les notes</h3>
+<p>Comencem pel mètode que demana les dades. Torna un array, i eixa és una idea nova però molt còmoda: <strong>el mètode fabrica l'array i ens el dóna</strong>.</p>
+          <pre class="codi" data-titol="Analitzador.java" data-etiqueta="PAS 2"><code>import java.util.Scanner;
+
+          public class Analitzador {
+              public static double[] llegirNotes(int quants) {
+                  Scanner teclat = new Scanner(System.in);
+                  double[] notes = new double[quants];
+
+                  for (int i = 0; i &lt; notes.length; i++) {
+                      System.out.print("Nota " + (i + 1) + ": ");
+                      notes[i] = teclat.nextDouble();
+                  }
+
+                  return notes;
+              }
+
+              public static void main(String[] args) {
+                  double[] notes = llegirNotes(4);
+
+                  System.out.println("He guardat " + notes.length + " notes.");
+                  System.out.println("La primera és " + notes[0]);
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>Nota 1: 6
+          Nota 2: 7
+          Nota 3: 6
+          Nota 4: 9
+          He guardat 4 notes.
+          La primera és 6.0</pre>
+                    </div>
+          <p>El paràmetre <code>int quants</code> diu quantes notes volem. El <code>return notes;</code> torna l'array ja ple. En <code>main</code> ho guardem: <code>double[] notes = llegirNotes(4);</code>.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">3</span>
+        <div class="pas__cos">
+          <h3>Els càlculs, en mètodes separats</h3>
+<p>Ara els tres càlculs. Fixa't que són els del tema anterior, però ben empaquetats: es poden usar en qualsevol programa.</p>
+          <pre class="codi" data-titol="Analitzador.java" data-etiqueta="PAS 3"><code>public class Analitzador {
+              public static double mitjana(double[] notes) {
+                  double suma = 0;
+                  for (int i = 0; i &lt; notes.length; i++) {
+                      suma = suma + notes[i];
+                  }
+                  return suma / notes.length;
+              }
+
+              public static double maxim(double[] notes) {
+                  double max = notes[0];
+                  for (int i = 1; i &lt; notes.length; i++) {
+                      if (notes[i] &gt; max) {
+                          max = notes[i];
+                      }
+                  }
+                  return max;
+              }
+
+              public static int aprovats(double[] notes) {
+                  int quants = 0;
+                  for (int i = 0; i &lt; notes.length; i++) {
+                      if (notes[i] &gt;= 5) {
+                          quants++;
+                      }
+                  }
+                  return quants;
+              }
+
+              public static void main(String[] args) {
+                  double[] notes = {6, 7, 6, 9};
+
+                  System.out.println("Mitjana: " + mitjana(notes));
+                  System.out.println("Més alta: " + maxim(notes));
+                  System.out.println("Aprovats: " + aprovats(notes));
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Mitjana: 7.0
+          Més alta: 9.0
+          Aprovats: 4</pre>
+                    </div>
+          <div class="nota nota--tip">
+                      <span class="nota__icona" aria-hidden="true">💡</span>
+                      <div><p>Prova els mètodes <strong>per separat</strong>: canvia l'array del <code>main</code> per <code>{2, 3, 1, 4}</code> i comprova que la mitjana és 2.5, la més alta 4.0 i els aprovats 0. Provar peces menudes és quasi sempre més fàcil que provar el programa sencer.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">4</span>
+        <div class="pas__cos">
+          <h3>La qualificació, un mètode que torna text</h3>
+<p>Ara la peça que convertix la nota en text. Es pot provar tota sola amb notes de la frontera.</p>
+          <pre class="codi" data-titol="Analitzador.java" data-etiqueta="PAS 4"><code>public class Analitzador {
+              public static String qualificacio(double nota) {
+                  if (nota &lt; 5) {
+                      return "Insuficient";
+                  } else if (nota &lt; 6) {
+                      return "Suficient";
+                  } else if (nota &lt; 7) {
+                      return "Bé";
+                  } else if (nota &lt; 9) {
+                      return "Notable";
+                  } else {
+                      return "Excel·lent";
+                  }
+              }
+
+              public static void main(String[] args) {
+                  System.out.println("4.99 → " + qualificacio(4.99));
+                  System.out.println("5.00 → " + qualificacio(5.00));
+                  System.out.println("8.99 → " + qualificacio(8.99));
+                  System.out.println("9.00 → " + qualificacio(9.00));
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>4.99 → Insuficient
+          5.00 → Suficient
+          8.99 → Notable
+          9.00 → Excel·lent</pre>
+                    </div>
+          <p>El <code>else</code> final és el que fa que el mètode sempre torne un text. Si ens el deixàrem, Java diria: «This method must return a result of type String», perquè hi hauria un camí possible sense <code>return</code>.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">5</span>
+        <div class="pas__cos">
+          <h3>L'informe i el main de tres línies</h3>
+<p>Ja tenim totes les peces. Ara un mètode que les cride i fa l'informe, i un <code>main</code> que quede ben curt.</p>
+          <pre class="codi" data-titol="Analitzador.java" data-etiqueta="PAS 5"><code>import java.util.Scanner;
+
+          public class Analitzador {
+              public static double[] llegirNotes(int quants) {
+                  Scanner teclat = new Scanner(System.in);
+                  double[] notes = new double[quants];
+
+                  for (int i = 0; i &lt; notes.length; i++) {
+                      System.out.print("Nota " + (i + 1) + ": ");
+                      notes[i] = teclat.nextDouble();
+                  }
+                  return notes;
+              }
+
+              public static double mitjana(double[] notes) {
+                  double suma = 0;
+                  for (int i = 0; i &lt; notes.length; i++) {
+                      suma = suma + notes[i];
+                  }
+                  return suma / notes.length;
+              }
+
+              public static double maxim(double[] notes) {
+                  double max = notes[0];
+                  for (int i = 1; i &lt; notes.length; i++) {
+                      if (notes[i] &gt; max) {
+                          max = notes[i];
+                      }
+                  }
+                  return max;
+              }
+
+              public static int aprovats(double[] notes) {
+                  int quants = 0;
+                  for (int i = 0; i &lt; notes.length; i++) {
+                      if (notes[i] &gt;= 5) {
+                          quants++;
+                      }
+                  }
+                  return quants;
+              }
+
+              public static String qualificacio(double nota) {
+                  if (nota &lt; 5) {
+                      return "Insuficient";
+                  } else if (nota &lt; 6) {
+                      return "Suficient";
+                  } else if (nota &lt; 7) {
+                      return "Bé";
+                  } else if (nota &lt; 9) {
+                      return "Notable";
+                  } else {
+                      return "Excel·lent";
+                  }
+              }
+
+              public static void mostraInforme(double[] notes) {
+                  double mitjanaClasse = mitjana(notes);
+
+                  System.out.println("=== INFORME DE LA CLASSE ===");
+                  System.out.println("Nombre de notes: " + notes.length);
+                  System.out.println("Mitjana: " + mitjanaClasse);
+                  System.out.println("Nota més alta: " + maxim(notes));
+                  System.out.println("Aprovats: " + aprovats(notes) + " de " + notes.length);
+                  System.out.println("Qualificació mitjana: " + qualificacio(mitjanaClasse));
+                  System.out.println("============================");
+              }
+
+              public static void main(String[] args) {
+                  double[] notes = llegirNotes(4);
+                  mostraInforme(notes);
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>Nota 1: 6
+          Nota 2: 7
+          Nota 3: 6
+          Nota 4: 9
+          === INFORME DE LA CLASSE ===
+          Nombre de notes: 4
+          Mitjana: 7.0
+          Nota més alta: 9.0
+          Aprovats: 4 de 4
+          Qualificació mitjana: Notable
+          ============================</pre>
+                    </div>
+          <p><code>main</code> té <strong>dos línies</strong>. Tota la faena està dins de mètodes amb nom. Si un dia el programa va malament, podem provar cada peça per separat i trobar el problema en minuts.</p>
+          <div class="nota nota--tip">
+                      <span class="nota__icona" aria-hidden="true">💡</span>
+                      <div><p>Dins de <code>mostraInforme</code> hem guardat la mitjana en una variable perquè la usem dos vegades (mostrar-la i qualificar-la). Es podria cridar <code>mitjana(notes)</code> dos vegades, però llavors el programa tornaria a recórrer l'array sense necessitat.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">6</span>
+        <div class="pas__cos">
+          <h3>Proves, casos límit i millores</h3>
+<p>El programa funciona, però un bon programador el tortura una mica abans de donar-lo per acabat:</p>
+          <div class="taula-embolcall">
+                      <table class="taula">
+                        <thead><tr><th>Què provem</th><th>Què ha de passar</th></tr></thead>
+                        <tbody>
+                          <tr><td>Notes de la frontera (5, 7, 9)</td><td>Qualificacions: Suficient, Notable, Excel·lent</td></tr>
+                          <tr><td>Totes les notes iguals</td><td>Mitjana igual a eixa nota i aprovats = tots</td></tr>
+                          <tr><td>Una nota de 0</td><td>Vàlida: és un valor com qualsevol altre</td></tr>
+                          <tr><td>Una nota de 12</td><td>El programa no avisa: podríem afegir <code>esNotaValida</code></td></tr>
+                          <tr><td>Un text en compte d'un número</td><td><code>InputMismatchException</code> (tema 1)</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+          <p>I les millores que pots fer tu: un mètode <code>esNotaValida(double nota)</code> que rebutge notes fora del 0-10, un mètode <code>minim</code> per a la nota més baixa, quantes notes són suspeses, i que el programa demane quantes notes hi haurà abans de començar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 06 · MINI EXERCICIS ============================= -->
+    <section class="seccio seccio--suau" id="mini-exercicis" data-nav="06 · Mini exercicis">
+      <h2>Mini exercicis</h2>
+      <p class="entradeta">Activitats molt curtes, totes amb mètodes.</p>
+      <div class="llista-mini">
+        <article class="exercici exercici--mini" id="mini1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">El primer mètode</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Escriu un mètode <code>presentacio()</code> que escriga el teu nom i el curs, i crida'l dos vegades des de <code>main</code>.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini1">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini1"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Presentacio.java" data-etiqueta="SOLUCIÓ"><code>public class Presentacio {
+    public static void presentacio() {
+        System.out.println("Soc un alumne d'SMX");
+        System.out.println("I estic aprenent Java");
+    }
+
+    public static void main(String[] args) {
+        presentacio();
+        presentacio();
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Soc un alumne d'SMX
+I estic aprenent Java
+Soc un alumne d'SMX
+I estic aprenent Java</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El mètode no necessita cap dada i no torna res (<code>void</code>). El codi s'escriu una vegada i s'executa dos. Si volem canviar el missatge, es canvia en un sol lloc.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">Amb un paràmetre</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes un mètode <code>saluda(String nom)</code> que diga «Hola, X! Què tal?» i crida'l amb tres noms.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini2">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini2"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Saluda.java" data-etiqueta="SOLUCIÓ"><code>public class Saluda {
+    public static void saluda(String nom) {
+        System.out.println("Hola, " + nom + "! Què tal?");
+    }
+
+    public static void main(String[] args) {
+        saluda("Marta");
+        saluda("Iván");
+        saluda("Nerea");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Hola, Marta! Què tal?
+Hola, Iván! Què tal?
+Hola, Nerea! Què tal?</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> <code>String nom</code> és el paràmetre: la dada que el mètode necessita. En cada crida se li passa un argument diferent i el mateix codi funciona per a qualsevol nom.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">El quadrat d'un número</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Escriu un mètode <code>quadrat(int n)</code> que torne <code>n * n</code> i mostra el quadrat de 3, 7 i 12.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>El quadrat de 3 és 9
+El quadrat de 7 és 49
+El quadrat de 12 és 144</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini3">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini3"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Quadrat.java" data-etiqueta="SOLUCIÓ"><code>public class Quadrat {
+    public static int quadrat(int n) {
+        return n * n;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("El quadrat de 3 és " + quadrat(3));
+        System.out.println("El quadrat de 7 és " + quadrat(7));
+        System.out.println("El quadrat de 12 és " + quadrat(12));
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>El quadrat de 3 és 9
+El quadrat de 7 és 49
+El quadrat de 12 és 144</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Com que torna un <code>int</code>, el cap porta <code>int</code> en compte de <code>void</code>. El resultat es pot usar directament dins de la concatenació.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">Una pregunta amb nom</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Escriu un mètode <code>esMajor(int edat)</code> que torne si l'edat és de 18 anys o més, i usa'l dins d'un <code>if</code> per a dir si una persona pot conduir.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Amb 17 anys, no pot conduir.</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini4">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini4"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Major.java" data-etiqueta="SOLUCIÓ"><code>public class Major {
+    public static boolean esMajor(int edat) {
+        return edat &gt;= 18;
+    }
+
+    public static void main(String[] args) {
+        int edat = 17;
+
+        if (esMajor(edat)) {
+            System.out.println("Amb " + edat + " anys, pot conduir.");
+        } else {
+            System.out.println("Amb " + edat + " anys, no pot conduir.");
+        }
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Amb 17 anys, no pot conduir.</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El mètode torna un <code>boolean</code> perquè és una <strong>pregunta</strong>. Comparar l'edat està dins del mètode, i <code>main</code> només llig la pregunta: <code>if (esMajor(edat))</code>.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini5">
+          <div class="exercici__cap">
+            <span class="exercici__num">5</span>
+            <h3 class="exercici__titol">Mostrar un array</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">5 min</span>
+          </div>
+          <div class="exercici__enunciat">Escriu un mètode <code>mostraNoms(String[] noms)</code> que mostre tots els noms d'un array, cadascun en una línia.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini5">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini5"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini5" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="MostraNoms.java" data-etiqueta="SOLUCIÓ"><code>public class MostraNoms {
+    public static void mostraNoms(String[] noms) {
+        for (int i = 0; i &lt; noms.length; i++) {
+            System.out.println((i + 1) + ". " + noms[i]);
+        }
+    }
+
+    public static void main(String[] args) {
+        String[] grup = {"Ana", "Bruno", "Carla"};
+        mostraNoms(grup);
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>1. Ana
+2. Bruno
+3. Carla</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> És un mètode <code>void</code> perquè el seu treball és mostrar, no tornar un valor. El paràmetre és un array de textos, així que el bucle pot recórrer-lo amb <code>noms.length</code>.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini6">
+          <div class="exercici__cap">
+            <span class="exercici__num">6</span>
+            <h3 class="exercici__titol">Troba l'error: falta el return</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">5 min</span>
+          </div>
+          <div class="exercici__enunciat">Este mètode no compila. Copia'l, llig el missatge i arregla'l.</div>
+          <pre class="codi codi--error" data-titol="Trencat.java" data-etiqueta="QUÈ FALLA?"><code>public static int dobla(int n) {
+    System.out.println(n * 2);
+}</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini6">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini6">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini6"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini6" hidden><p><strong>Pista:</strong> El cap del mètode diu que torna un <code>int</code>. I el cos, què torna?</p></div>
+          <div class="solucio" id="sol-mini6" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Arreglat.java" data-etiqueta="SOLUCIÓ"><code>public class Dobla {
+    public static int dobla(int n) {
+        return n * 2;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("El doble de 5 és " + dobla(5));
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>El doble de 5 és 10</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Un mètode que diu <code>int</code> en el cap està obligat a tornar un <code>int</code> amb <code>return</code>. Escriure-ho amb <code>println</code> no servix: això mostra el valor en pantalla, però no el torna. Si el que volem és mostrar-lo, el mètode hauria de ser <code>void</code>.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini7">
+          <div class="exercici__cap">
+            <span class="exercici__num">7</span>
+            <h3 class="exercici__titol">Comptar vocals, ara com a mètode</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">10 min</span>
+          </div>
+          <div class="exercici__enunciat">Escriu un mètode <code>comptaVocals(String text)</code> que torne quantes vocals té el text, i usa'l per a comparar dues paraules.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>primavera té 4 vocals
+espardenya té 4 vocals</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini7">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini7"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini7" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="ComptaVocals.java" data-etiqueta="SOLUCIÓ"><code>public class ComptaVocals {
+    public static int comptaVocals(String text) {
+        int vocals = 0;
+
+        for (int i = 0; i &lt; text.length(); i++) {
+            char lletra = Character.toLowerCase(text.charAt(i));
+
+            if (lletra == 'a' || lletra == 'e' || lletra == 'i' || lletra == 'o' || lletra == 'u') {
+                vocals++;
+            }
+        }
+
+        return vocals;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("primavera té " + comptaVocals("primavera") + " vocals");
+        System.out.println("espardenya té " + comptaVocals("espardenya") + " vocals");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>primavera té 4 vocals
+espardenya té 4 vocals</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El bucle i el comptador estan dins del mètode, i el resultat ix amb <code>return</code>. Ara podem comptar les vocals de qualsevol text, tantes vegades com vullguem, sense tornar a escriure el bucle.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 07 · FES EL PROGRAMA ========================= -->
+    <section class="seccio" id="fes-el-programa" data-nav="07 · Fes el programa">
+      <h2>Fes el programa</h2>
+      <p class="entradeta">Quatre exercicis complets. Pensa sempre: quants mètodes necessite i què torna cadascun?</p>
+      <article class="exercici" id="ex1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">La calculadora</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes una calculadora amb quatre mètodes: <code>suma</code>, <code>resta</code>, <code>multiplica</code> i <code>divideix</code> (tots amb dos <code>double</code>). La divisió ha de tornar 0 si el segon número és 0, i el programa ho ha d'avisar.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Primer número: 10
+Segon número: 4</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Suma: 14.0
+Resta: 6.0
+Multiplicació: 40.0
+Divisió: 2.5</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex1" hidden><p><strong>Pista:</strong> Els quatre mètodes tenen la mateixa forma: dos <code>double</code> com a paràmetres i un <code>double</code> de retorn. El <code>if</code> del zero va dins de <code>divideix</code>.</p></div>
+          <div class="solucio" id="sol-ex1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Calculadora.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Calculadora {
+    public static double suma(double a, double b) {
+        return a + b;
+    }
+
+    public static double resta(double a, double b) {
+        return a - b;
+    }
+
+    public static double multiplica(double a, double b) {
+        return a * b;
+    }
+
+    public static double divideix(double a, double b) {
+        if (b == 0) {
+            return 0;
+        }
+        return a / b;
+    }
+
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Primer número: ");
+        double a = teclat.nextDouble();
+
+        System.out.print("Segon número: ");
+        double b = teclat.nextDouble();
+
+        System.out.println("Suma: " + suma(a, b));
+        System.out.println("Resta: " + resta(a, b));
+        System.out.println("Multiplicació: " + multiplica(a, b));
+
+        if (b == 0) {
+            System.out.println("No es pot dividir per zero.");
+        } else {
+            System.out.println("Divisió: " + divideix(a, b));
+        }
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Primer número: 10
+Segon número: 4
+Suma: 14.0
+Resta: 6.0
+Multiplicació: 40.0
+Divisió: 2.5</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Cada operació viu en el seu mètode, i <code>main</code> només demana les dades i mostra els resultats. <code>divideix</code> protegix la divisió per zero dins del mètode, i <code>main</code> ho avisa a l'usuari abans de cridar-la.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">El butlletí de notes</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">30 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana 5 notes i mostra un butlletí amb: cada nota amb la seua qualificació, la mitjana de la classe, la nota més alta i quants aprovats hi ha. Tot ha d'estar fet amb mètodes.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Nota 1: 6
+Nota 2: 4
+Nota 3: 9
+Nota 4: 7
+Nota 5: 5</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>=== BUTLLETÍ ===
+Nota 1: 6.0 → Bé
+Nota 2: 4.0 → Insuficient
+...
+Mitjana: 6.2
+Més alta: 9.0
+Aprovats: 4 de 5</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex2" hidden><p><strong>Pista:</strong> Fes primer els mètodes de càlcul (que pots provar amb un array escrit per tu) i al final el <code>main</code> que ho ajunta tot.</p></div>
+          <div class="solucio" id="sol-ex2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="ButlletiNotes.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class ButlletiNotes {
+    public static double[] llegirNotes(int quants) {
+        Scanner teclat = new Scanner(System.in);
+        double[] notes = new double[quants];
+
+        for (int i = 0; i &lt; notes.length; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            notes[i] = teclat.nextDouble();
+        }
+        return notes;
+    }
+
+    public static String qualificacio(double nota) {
+        if (nota &lt; 5) {
+            return "Insuficient";
+        } else if (nota &lt; 6) {
+            return "Suficient";
+        } else if (nota &lt; 7) {
+            return "Bé";
+        } else if (nota &lt; 9) {
+            return "Notable";
+        } else {
+            return "Excel·lent";
+        }
+    }
+
+    public static double mitjana(double[] notes) {
+        double suma = 0;
+        for (int i = 0; i &lt; notes.length; i++) {
+            suma = suma + notes[i];
+        }
+        return suma / notes.length;
+    }
+
+    public static double maxim(double[] notes) {
+        double max = notes[0];
+        for (int i = 1; i &lt; notes.length; i++) {
+            if (notes[i] &gt; max) {
+                max = notes[i];
+            }
+        }
+        return max;
+    }
+
+    public static int aprovats(double[] notes) {
+        int quants = 0;
+        for (int i = 0; i &lt; notes.length; i++) {
+            if (notes[i] &gt;= 5) {
+                quants++;
+            }
+        }
+        return quants;
+    }
+
+    public static void main(String[] args) {
+        double[] notes = llegirNotes(5);
+
+        System.out.println("=== BUTLLETÍ ===");
+        for (int i = 0; i &lt; notes.length; i++) {
+            System.out.println("Nota " + (i + 1) + ": " + notes[i] + " → " + qualificacio(notes[i]));
+        }
+
+        System.out.println("Mitjana: " + mitjana(notes));
+        System.out.println("Més alta: " + maxim(notes));
+        System.out.println("Aprovats: " + aprovats(notes) + " de " + notes.length);
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Nota 1: 6
+Nota 2: 4
+Nota 3: 9
+Nota 4: 7
+Nota 5: 5
+=== BUTLLETÍ ===
+Nota 1: 6.0 → Bé
+Nota 2: 4.0 → Insuficient
+Nota 3: 9.0 → Excel·lent
+Nota 4: 7.0 → Notable
+Nota 5: 5.0 → Suficient
+Mitjana: 6.2
+Més alta: 9.0
+Aprovats: 4 de 5</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Cada peça fa una cosa i la fa bé: llegir, qualificar, calcular, mostrar. En <code>main</code> es veu l'estructura del programa en poques línies. Fixa't que <code>qualificacio</code> s'usa dins del bucle per a cada nota.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">El gràfic de les notes</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">25 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana 6 notes (de 0 a 10) i dibuixa un gràfic de barres: una línia per alumne amb tantes estrelles com la seua nota (arredonida a l'enter més pròxim). Afig al final una línia de <code>=</code> de la llargària de la mitjana.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Nota 1: 6
+Nota 2: 9
+Nota 3: 4</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Alumne 1: ******
+Alumne 2: *********
+Alumne 3: ****
+Mitjana: =======</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex3" hidden><p><strong>Pista:</strong> Escriu primer <code>barra(int quantitat)</code> i prova-la amb 3 i amb 8. Després ja la pots usar per a cada alumne.</p></div>
+          <div class="solucio" id="sol-ex3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="GraficNotes.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class GraficNotes {
+    public static void barra(int quantitat) {
+        for (int i = 0; i &lt; quantitat; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+
+    public static double[] llegirNotes(int quants) {
+        Scanner teclat = new Scanner(System.in);
+        double[] notes = new double[quants];
+
+        for (int i = 0; i &lt; notes.length; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            notes[i] = teclat.nextDouble();
+        }
+        return notes;
+    }
+
+    public static double mitjana(double[] notes) {
+        double suma = 0;
+        for (int i = 0; i &lt; notes.length; i++) {
+            suma = suma + notes[i];
+        }
+        return suma / notes.length;
+    }
+
+    public static void main(String[] args) {
+        double[] notes = llegirNotes(6);
+
+        for (int i = 0; i &lt; notes.length; i++) {
+            System.out.print("Alumne " + (i + 1) + ": ");
+            barra((int) Math.round(notes[i]));
+        }
+
+        System.out.print("Mitjana: ");
+        barra((int) Math.round(mitjana(notes)));
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Nota 1: 6
+Nota 2: 9
+Nota 3: 4
+Nota 4: 8
+Nota 5: 7
+Nota 6: 5
+Alumne 1: ******
+Alumne 2: *********
+Alumne 3: ****
+Alumne 4: ********
+Alumne 5: *******
+Alumne 6: *****
+Mitjana: *******</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El mètode <code>barra</code> fa una sola cosa: dibuixar. <code>Math.round</code> arredoniXn el decimal a l'enter més pròxim i el <code>(int)</code> el convertix a enter perquè <code>barra</code> espera un <code>int</code>. Amb la mitjana (6.5) arredonim a 7 estrelles.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">Refactoritza el rànquing del Tema 4</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">30 min</span>
+          </div>
+          <div class="exercici__enunciat">Agafa el programa del rànquing del tema anterior (5 punts, total, mitjana, màxim, mínim i quants per damunt de la mitjana) i dividix-lo en mètodes. <code>main</code> no ha de tindre cap bucle ni cap càlcul: només crides a mètodes.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Punts del jugador 1: 120
+...
+Punts del jugador 5: 145</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Total: 600 punts
+Mitjana: 120.0
+Millor: 180 pitjor: 60
+Per damunt de la mitjana: 2</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex4" hidden><p><strong>Pista:</strong> Comença pels mètodes que ja coneixes (total, maxim, minim) copiant el codi del tema 4, i deixa el <code>main</code> per al final.</p></div>
+          <div class="solucio" id="sol-ex4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="RankingMetodes.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class RankingMetodes {
+    public static int[] llegirPunts(int quants) {
+        Scanner teclat = new Scanner(System.in);
+        int[] punts = new int[quants];
+
+        for (int i = 0; i &lt; punts.length; i++) {
+            System.out.print("Punts del jugador " + (i + 1) + ": ");
+            punts[i] = teclat.nextInt();
+        }
+        return punts;
+    }
+
+    public static int total(int[] valors) {
+        int suma = 0;
+        for (int i = 0; i &lt; valors.length; i++) {
+            suma = suma + valors[i];
+        }
+        return suma;
+    }
+
+    public static double mitjana(int[] valors) {
+        return total(valors) / (double) valors.length;
+    }
+
+    public static int maxim(int[] valors) {
+        int max = valors[0];
+        for (int i = 1; i &lt; valors.length; i++) {
+            if (valors[i] &gt; max) {
+                max = valors[i];
+            }
+        }
+        return max;
+    }
+
+    public static int minim(int[] valors) {
+        int min = valors[0];
+        for (int i = 1; i &lt; valors.length; i++) {
+            if (valors[i] &lt; min) {
+                min = valors[i];
+            }
+        }
+        return min;
+    }
+
+    public static int perDamuntDe(int[] valors, double llindar) {
+        int quants = 0;
+        for (int i = 0; i &lt; valors.length; i++) {
+            if (valors[i] &gt; llindar) {
+                quants++;
+            }
+        }
+        return quants;
+    }
+
+    public static void main(String[] args) {
+        int[] punts = llegirPunts(5);
+        double mitjanaPunts = mitjana(punts);
+
+        System.out.println("Total: " + total(punts) + " punts");
+        System.out.println("Mitjana: " + mitjanaPunts + " punts");
+        System.out.println("Millor: " + maxim(punts) + " punts i pitjor: " + minim(punts) + " punts");
+        System.out.println("Per damunt de la mitjana: " + perDamuntDe(punts, mitjanaPunts) + " jugadors");
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Punts del jugador 1: 120
+Punts del jugador 2: 95
+Punts del jugador 3: 180
+Punts del jugador 4: 60
+Punts del jugador 5: 145
+Total: 600 punts
+Mitjana: 120.0 punts
+Millor: 180 punts i pitjor: 60 punts
+Per damunt de la mitjana: 2 jugadors</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Cada càlcul té ara el seu nom i <code>main</code> es llig com un resum del programa. Fixa't que <code>mitjana</code> usa <code>total</code> dins (un mètode pot usar-ne un altre) i que <code>perDamuntDe</code> rep <strong>dos</strong> paràmetres: l'array i el llindar.</p>
+          </div>
+        </article>
+    </section>
+
+    <!-- ================================ 08 · REPTES ================================ -->
+    <section class="seccio seccio--suau" id="reptes" data-nav="08 · Reptes">
+      <h2>Reptes (sense solució)</h2>
+      <div class="nota nota--avis">
+        <span class="nota__icona" aria-hidden="true">🧠</span>
+        <div><p>Els reptes <strong>no tenen botó de solució</strong>, a propòsit. L'objectiu és pensar, provar, equivocar-se i tornar-ho a intentar. Es poden resoldre de moltes maneres diferents: totes les solucions que funcionen són bones.</p></div>
+      </div>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 1</span>
+          <h3 class="repte__titol">El joc de les endevinalles, amb mètodes</h3>
+        </div>
+<p>Fes el joc d'endevinar el número (Tema 3) dividit en mètodes: un que demane un número vàlid a l'usuari, un que done la pista («més gran» o «més menut»), un que comprove si s'ha encertat i un que mostre el resultat final amb els intents.</p>
+        <p>El repte és decidir <strong>què torna</strong> cada mètode: el que demana el número torna un <code>int</code>, el de la pista no torna res (<code>void</code>, només escriu), el de comprovar torna un <code>boolean</code>… Pensar les firmes abans d'escriure el codi és mitat de la faena.</p>
+        <p>Afig una dificultat: l'usuari pot triar entre 1 i 10 intents i el programa ha de demanar el nivell en un mètode a banda.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Que el número secret es genere sol amb <code>(int) (Math.random() * 100) + 1</code>.</li>
+          <li>Un mètode que torne la temperatura de l'intent: «calent» si la diferència és menuda, «fred» si és gran.</li>
+          <li>Comptar les partides guanyades i perdudes i mostrar un resum al final.</li>
+        </ul>
+      </article>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 2</span>
+          <h3 class="repte__titol">La biblioteca pròpia de ferramentes</h3>
+        </div>
+<p>Crea una classe <code>Ferramentes</code> amb mètodes que pugues reutilitzar en qualsevol programa. Com a mínim: <code>esParell(int n)</code>, <code>maxim(int[] valors)</code>, <code>minim(int[] valors)</code>, <code>mitjana(int[] valors)</code>, <code>comptaVocals(String text)</code>, <code>invertix(String text)</code> (que torne el text del revés) i <code>esPrimer(int n)</code>.</p>
+        <p>Després escriu un segon programa que use eixa biblioteca per a tres coses distintes. Eixe és l'objectiu real del tema: <strong>escriure una vegada i usar sempre</strong>.</p>
+        <p><code>esPrimer(int n)</code> és el més interessant: un número és primer si només es pot dividir per 1 i per si mateix. Pensa com ho comprovaries amb un bucle i una variable bandera… i compte amb l'1 i amb el 2, que són casos especials.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Afig <code>arredona(double valor, int decimals)</code>.</li>
+          <li>Afig <code>conte(int[] valors, int buscat)</code> que torne <code>boolean</code>.</li>
+          <li>Afig <code>posicioDe(String[] llista, String buscat)</code> que torne la posició o -1 si no està.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ============================ 09 · ERRORS HABITUALS ============================ -->
+    <section class="seccio" id="errors" data-nav="09 · Errors habituals">
+      <h2>Errors habituals</h2>
+      <p class="entradeta">Els errors d'este tema parlen quasi sempre de tres coses: els tipus, els parèntesis i el return.</p>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 1</span>
+            <h3 class="exercici__titol" style="margin:0">Oblidar el return en un mètode que ha de tornar un valor</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>public static int suma(int a, int b) {
+    System.out.println(a + b);
+}</code></pre>
+          <p class="missatge-error">error: This method must return a result of type int
+    public static int suma(int a, int b) {
+                  ^^^^^^^^^^^^^^^^^^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila.</dd>
+                <dt>Per què</dt><dd>El cap del mètode diu que torna un <code>int</code>, però el cos no torna res: només escriu per pantalla. <code>println</code> mostra el valor a la persona, però <strong>no el torna</strong> al programa.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge és clar: <code>This method must return a result of type int</code>. També apareix si el <code>return</code> està dins d'un <code>if</code> sense <code>else</code> i hi ha un camí que no torna res.</dd>
+                <dt>Com corregir-ho</dt><dd>Fes servir <code>return a + b;</code> si vols tornar el valor, o canvia el cap a <code>public static void</code> si el que vols és mostrar-lo. <strong>Les dos coses alhora no es poden</strong>: o es torna un valor o no es torna.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>public static int suma(int a, int b) {
+    return a + b;
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 2</span>
+            <h3 class="exercici__titol" style="margin:0">Passar arguments del tipus equivocat</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>public static int suma(int a, int b) {
+    return a + b;
+}
+
+public static void main(String[] args) {
+    int r = suma(2.5, 3.5);  // ERROR
+}</code></pre>
+          <p class="missatge-error">error: The method suma(int, int) in the type Mal is not applicable for the arguments (double, double)
+        int r = suma(2.5, 3.5);
+                ^^^^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila.</dd>
+                <dt>Per què</dt><dd>El mètode espera dos <code>int</code> i li passem dos <code>double</code>. Java no convertix un <code>double</code> a <code>int</code> automàticament perquè es perdrien decimals.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge diu «not applicable for the arguments» i mostra els tipus que has passat.</dd>
+                <dt>Com corregir-ho</dt><dd>Canvia els tipus del mètode perquè coincidisquen amb les dades (<code>double</code> en compte de <code>int</code>), o passa-li enters si el mètode és d'enters.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>public static double suma(double a, double b) {
+    return a + b;
+}
+
+public static void main(String[] args) {
+    double r = suma(2.5, 3.5);
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 3</span>
+            <h3 class="exercici__titol" style="margin:0">Cridar un mètode amb menys paràmetres dels que demana</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>public static void saluda(String nom) {
+    System.out.println("Hola, " + nom);
+}
+
+public static void main(String[] args) {
+    saluda();   // ERROR: falta el text
+}</code></pre>
+          <p class="missatge-error">error: The method saluda(String) in the type Mal is not applicable for the arguments ()
+        saluda();
+        ^^^^^^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila.</dd>
+                <dt>Per què</dt><dd>El mètode necessita un text per a funcionar. Sense ell, no sabria a qui saludar.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge mostra el mètode amb el seu paràmetre —<code>saluda(String)</code>— i els arguments que has passat —<code>()</code>, buit—.</dd>
+                <dt>Com corregir-ho</dt><dd>Passa-li tots els arguments que demana: <code>saluda(&quot;Ana&quot;)</code>. Els parèntesis de la crida han de portar tants valors com paràmetres tinga el cap del mètode.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>public static void saluda(String nom) {
+    System.out.println("Hola, " + nom);
+}
+
+public static void main(String[] args) {
+    saluda("Ana");
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 4</span>
+            <h3 class="exercici__titol" style="margin:0">Oblidar el static</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>public static void main(String[] args) {
+    saluda();   // ERROR
+}
+
+public void saluda() {
+    System.out.println("Hola");
+}</code></pre>
+          <p class="missatge-error">error: Cannot make a static reference to the non-static method saluda() from the type Mal
+        saluda();
+        ^^^^^^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila i assenyala la crida.</dd>
+                <dt>Per què</dt><dd><code>main</code> és un mètode especial: pot cridar directament els mètodes que també siguen estàtics. Als que no ho són, no pot arribar així.</dd>
+                <dt>Com detectar-ho</dt><dd>Missatge <code>Cannot make a static reference to the non-static method</code>.</dd>
+                <dt>Com corregir-ho</dt><dd>De moment, i fins al Tema 6, posa <code>static</code> en <strong>tots</strong> els mètodes de la classe. Al tema següent descobrirem què significa exactament.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>public static void main(String[] args) {
+    saluda();
+}
+
+public static void saluda() {
+    System.out.println("Hola");
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 5</span>
+            <h3 class="exercici__titol" style="margin:0">Definir un mètode dins d'un altre mètode</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>public static void main(String[] args) {
+    System.out.println("Hola");
+
+    public static void saluda() {   // ERROR
+        System.out.println("No es pot ficar ací");
+    }
+}</code></pre>
+          <p class="missatge-error">error: Syntax error on token &quot;saluda&quot;, AnnotationName expected after this token
+    public static void saluda() {
+                     ^^^^^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila i el missatge parla d'una «annotation» que no entenem.</dd>
+                <dt>Per què</dt><dd>En Java, els mètodes es definixen <strong>un darrere l'altre</strong>, tots dins de la classe, mai dins del cos d'un altre mètode.</dd>
+                <dt>Com detectar-ho</dt><dd>Missatge estrany al principi del mètode definit a dins. Si el missatge no té sentit, mira si et falta una clau <code>}</code> per a tancar el mètode anterior.</dd>
+                <dt>Com corregir-ho</dt><dd>Tanca el mètode amb <code>}</code> i definix el nou mètode fora, junt als altres, dins de la classe.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>public static void saluda() {
+    System.out.println("Hola desde saluda");
+}
+
+public static void main(String[] args) {
+    saluda();
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 6</span>
+            <h3 class="exercici__titol" style="margin:0">Esperar que un mètode void done un valor</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>public static void mostra(int n) {
+    System.out.println("Valor: " + n);
+}
+
+public static void main(String[] args) {
+    int x = mostra(5);   // ERROR: un void no torna res
+}</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila: no es pot guardar en una variable el resultat d'un mètode <code>void</code>.</dd>
+                <dt>Per què</dt><dd>Un <code>void</code> no torna res, així que no hi ha res per a guardar. El mètode ja ha fet la seua faena (escriure per pantalla).</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge parla de «void cannot be converted to int» o paregut, segons el cas.</dd>
+                <dt>Com corregir-ho</dt><dd>O bé crides el mètode sense guardar res (<code>mostra(5);</code>), o bé si vols el valor, canvia el mètode perquè <strong>torne</strong> el valor amb <code>return</code> i un tipus en el cap.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>public static void mostra(int n) {
+    System.out.println("Valor: " + n);
+}
+
+public static void main(String[] args) {
+    mostra(5);
+}</code></pre>
+            </div>
+          </div>
+        </article>
+    </section>
+
+    <!-- ============================= 10 · RESUM VISUAL ============================= -->
+    <section class="seccio seccio--suau" id="resum" data-nav="10 · Resum visual">
+      <h2>Resum visual</h2>
+      <p class="entradeta">Les idees que has d'endur-te d'este tema.</p>
+      <div class="resum-visual revela">
+        <div class="resum-visual__item"><p>Un <strong>mètode</strong> és un tros de programa amb nom que es pot cridar les voltes que calga.</p></div>
+        <div class="resum-visual__item"><p>El <strong>cap</strong> diu com es diu i què torna; el <strong>cos</strong> diu què fa.</p></div>
+        <div class="resum-visual__item"><p>Els <strong>paràmetres</strong> són les dades que el mètode necessita; els <strong>arguments</strong> són els valors que li passem.</p></div>
+        <div class="resum-visual__item"><p><code>void</code> = no torna res; qualsevol altre tipus = <strong><code>return</code></strong> que torna un valor d'eixe tipus.</p></div>
+        <div class="resum-visual__item"><p><code>return</code> torna el valor <strong>i acaba el mètode</strong> immediatament.</p></div>
+        <div class="resum-visual__item"><p>Si un mètode diu que torna alguna cosa, <strong>tots</strong> els camins han de tornar-la.</p></div>
+        <div class="resum-visual__item"><p>Les variables d'un mètode només existixen dins d'eixe mètode (àmbit).</p></div>
+        <div class="resum-visual__item"><p>Als mètodes es passen arrays com qualsevol altra dada, i es poden tornar arrays.</p></div>
+        <div class="resum-visual__item"><p>Un mètode pot cridar altres mètodes: el programa es construïx com un joc de peces.</p></div>
+        <div class="resum-visual__item"><p><code>main</code> hauria de ser l'esquelet: crides a mètodes amb noms que s'entenen.</p></div>
+      </div>
+    </section>
+
+    <!-- ============================ 11 · AUTOAVALUACIÓ ============================ -->
+    <section class="seccio" id="autoavaluacio" data-nav="11 · Autoavaluació">
+      <h2>Autoavaluació</h2>
+      <p class="entradeta">Nou preguntes. Pensa-les abans de mirar la solució.</p>
+      <ol class="llista-autoavaluacio">
+        <li>
+          <p class="enunciat">Què significa <code>void</code> en el cap d'un mètode?</p>
+
+          <ul class="opcions"><li>Que el mètode està buit i no fa res</li><li>Que el mètode no torna cap valor</li><li>Que el mètode no necessita paràmetres</li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av1">Mostrar solució</button>
+          <div class="solucio" id="av1" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) Que el mètode no torna cap valor.</strong></p>
+            <p class="solucio__perque">Un mètode <code>void</code> pot fer molta faena (escriure, dibuixar, guardar), però no torna res: no es pot guardar el seu resultat en una variable.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quantes vegades apareix per pantalla «Hola» amb este codi?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>public static void saluda() {
+    System.out.println("Hola");
+}
+
+public static void main(String[] args) {
+    saluda();
+    saluda();
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av2">Mostrar solució</button>
+          <div class="solucio" id="av2" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Dos vegades.</strong></p>
+            <p class="solucio__perque">El mètode es defineix una vegada i es crida dos. Escriure un mètode <strong>no</strong> l'executa: només el deixa preparat. S'executa en el moment de la crida.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quina diferència hi ha entre paràmetre i argument?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av3">Mostrar solució</button>
+          <div class="solucio" id="av3" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>El paràmetre està en el cap del mètode (<code>String nom</code>); l'argument és el valor que es passa en la crida (<code>saluda(&quot;Ana&quot;)</code>).</strong></p>
+            <p class="solucio__perque">El paràmetre és el nom que li donem a la dada dins del mètode; l'argument és la dada concreta de cada crida.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Este mètode no compila. Per què?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>public static int dobla(int n) {
+    System.out.println(n * 2);
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av4">Mostrar solució</button>
+          <div class="solucio" id="av4" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè diu que torna un <code>int</code>, però no té cap <code>return</code>.</strong></p>
+            <p class="solucio__perque"><code>println</code> mostra el valor en pantalla, però no el torna. El missatge del compilador és <code>This method must return a result of type int</code>. Si el que volem és mostrar, el mètode hauria de ser <code>void</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Escriu un mètode que torne el número més gran de dos enters.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av5">Mostrar solució</button>
+          <div class="solucio" id="av5" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>public static int maxim(int a, int b) { if (a &gt; b) { return a; } return b; }</code></strong></p>
+            <p class="solucio__perque">Cap dels dos camins es queda sense tornar res: si <code>a &gt; b</code> torna <code>a</code>, i si no, arriba al <code>return b</code>. Els dos <code>return</code> són vàlids perquè el mètode diu <code>int</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quina diferència hi ha entre <code>System.out.println(x);</code> i <code>return x;</code> dins d'un mètode?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av6">Mostrar solució</button>
+          <div class="solucio" id="av6" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>println</code> mostra el valor a la pantalla; <code>return</code> torna el valor al programa i acaba el mètode.</strong></p>
+            <p class="solucio__perque">Són dos móns distints: un és per a la persona que usa el programa, l'altre és perquè el programa puga seguir treballant amb eixe valor.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Este codi dona error. Per què?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>public static void main(String[] args) {
+    int resultat = mostra(5);
+}
+
+public static void mostra(int n) {
+    System.out.println("Valor: " + n);
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av7">Mostrar solució</button>
+          <div class="solucio" id="av7" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè <code>mostra</code> és <code>void</code> i no torna res, així que no es pot guardar en una variable.</strong></p>
+            <p class="solucio__perque">Si vols el valor per a treballar amb ell, el mètode ha de tornar-lo: <code>public static int mostra(int n) { return n; }</code>. Si només vols escriure'l, crida'l sense assignar: <code>mostra(5);</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Escriu un mètode que calcule la mitjana d'un array <code>double[] notes</code>.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av8">Mostrar solució</button>
+          <div class="solucio" id="av8" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>public static double mitjana(double[] notes) { double suma = 0; for (int i = 0; i &lt; notes.length; i++) { suma = suma + notes[i]; } return suma / notes.length; }</code></strong></p>
+            <p class="solucio__perque">El paràmetre és un array i el mètode torna un <code>double</code>. El bucle recorre l'array amb <code>notes.length</code> i el resultat ix amb <code>return</code>. Ara este càlcul es pot usar en qualsevol programa.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Per què és bona idea dividir un programa gran en mètodes? Dóna almenys dos motius.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av9">Mostrar solució</button>
+          <div class="solucio" id="av9" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè no repetim codi (si cal canviar alguna cosa, es canvia en un sol lloc) i perquè podem provar cada peça per separat i trobar els errors més fàcilment.</strong></p>
+            <p class="solucio__perque">A més, el programa es llig millor: <code>main</code> queda com un resum de passos amb noms que s'entenen. I els mètodes es poden reutilitzar en altres programes.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <nav class="navegacio-temes no-imprimible" id="navegacio-temes" aria-label="Navegació entre temes"></nav>
+
+  </main>
+</div>
+
+<!-- ====================================== PEU ====================================== -->
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__graella">
+      <div>
+        <h4>Introducció a la Programació amb Java</h4>
+        <p>Optativa SMX · Sistemes Microinformàtics i Xarxes</p>
+        <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+      </div>
+      <div>
+        <h4>En este tema</h4>
+        <ul class="llista-netejada">
+          <li><a href="#teoria">Teoria</a></li>
+          <li><a href="#exemples">Exemples explicats</a></li>
+          <li><a href="#guiada">Programació guiada</a></li>
+          <li><a href="#resum">Resum visual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Llicència</h4>
+        <p>Material lliure per a ús educatiu.<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a></p>
+      </div>
+    </div>
+    <div class="peu__base">
+      <span>© 2026 Agustín Gil · IES La Vereda</span>
+      <a class="llicencia" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">
+        <span class="llicencia__icones" aria-hidden="true"><span>CC</span><span>BY</span><span>NC</span></span>
+        Creative Commons Reconeixement-NoComercial 4.0 Internacional
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Peu fix que apareix en cada pàgina del PDF -->
+<div class="peu-impressio" aria-hidden="true">
+  <span>Introducció a la Programació amb Java · Optativa SMX · Material creat per Agustín Gil - IES La Vereda 2026 · CC BY-NC 4.0</span>
+  <span class="peu-impressio__dreta">Tema 5</span>
+</div>
+
+<button class="boto boto--primari tornar-dalt no-imprimible" id="tornar-dalt" type="button" aria-label="Tornar a dalt">↑</button>
+
+<script src="../assets/js/resaltat.js"></script>
+<script src="../assets/js/dades-curs.js"></script>
+<script src="../assets/js/diapositives/tema5.js"></script>
+<script src="../assets/js/plantilla-tema.js"></script>
+<script src="../assets/js/pptx.js"></script>
+</body>
+</html>

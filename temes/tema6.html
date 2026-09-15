@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 6 · Classes i objectes | Introducció a la Programació amb Java</title>
+<meta name="description" content="Dades i accions que viatgen juntes: el meu primer «jugador» de veritat">
+<meta name="author" content="Agustín Gil · IES La Vereda 2026">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/tema.css">
+<link rel="stylesheet" href="../assets/css/print.css">
+<!-- PÀGINA GENERADA amb eines/genera-temes.mjs — edita eines/contingut/tema6.js i torna a generar-la -->
+</head>
+
+<body data-tema="6">
+
+<!-- ============================ PORTADA D'IMPRESSIÓ ============================ -->
+<div class="portada-impressio només-impressio" id="portada-impressio">
+  <p class="portada-impressio__curs" data-camp="assignatura">Optativa SMX · Introducció a la Programació</p>
+  <h1 data-camp="tema">Tema 6 · Classes i objectes</h1>
+  <p class="portada-impressio__resum" data-camp="subtitol">Dades i accions que viatgen juntes: el meu primer «jugador» de veritat</p>
+  <div class="portada-impressio__meta">
+    <p data-camp="autor">Material creat per Agustín Gil - IES La Vereda 2026</p>
+    <p>Llicència <span data-camp="llicencia">CC BY-NC 4.0</span> · <a data-camp="enllac" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">creativecommons.org/licenses/by-nc/4.0</a></p>
+    <p>Data d'impressió: <span data-camp="data"></span></p>
+    <p class="text-suau">Manual d'estudi: introducció, objectius, teoria, exemples explicats, programació guiada, errors habituals i resum. Les tres primeres preguntes d'autoavaluació inclouen la solució; els exercicis i els reptes es treballen en la versió web.</p>
+  </div>
+</div>
+
+<!-- ================================== CAPÇALERA ================================== -->
+<header class="capcalera">
+  <div class="contenidor capcalera__interior" style="max-width:1400px">
+    <a class="capcalera__marca" href="../index.html">
+      <span class="capcalera__logo" aria-hidden="true">{}</span>
+      <span class="capcalera__text">
+        <span class="capcalera__curs">Optativa SMX · Programació amb Java</span>
+        <span class="capcalera__tema">Tema 6 · Classes i objectes</span>
+      </span>
+    </a>
+    <div class="capcalera__accions">
+      <button class="boto boto--ciano boto--petit" type="button" data-imprimir>🖨 <span class="text-llarg">Imprimir</span> PDF</button>
+      <button class="boto boto--taronja boto--petit" type="button" data-pptx>📊 <span class="text-llarg">Crear</span> PowerPoint</button>
+      <a class="boto boto--fantasma boto--petit" href="../index.html">Índex del curs</a>
+      <button class="boto-icona" type="button" data-menu-toggle aria-expanded="false" aria-label="Obrir el menú del tema">☰</button>
+    </div>
+  </div>
+  <div class="contenidor capcalera__meta" style="max-width:1400px">
+    <span>✍ Material creat per Agustín Gil - IES La Vereda 2026</span>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-NC 4.0</a>
+    <span class="text-suau">Tema 6 de 10 · 3 hores de classe (tema llarg: millor en dos dies)</span>
+  </div>
+  <div class="barra-progres" aria-hidden="true"><span></span></div>
+</header>
+
+<div class="overlay-menu" aria-hidden="true"></div>
+
+<div class="disposicio">
+
+  <!-- ============================== MENÚ LATERAL ============================== -->
+  <aside class="menu-lateral" id="menu-lateral" aria-label="Navegació del tema">
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">En este tema</p>
+      <nav class="indice-intern" id="indice-intern" aria-label="Índex del tema"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc" id="progres-exercicis" hidden>
+      <p class="menu-lateral__titol">El teu progrés</p>
+      <div class="barra-avaluacio"><span style="width:0"></span></div>
+      <p class="text-suau" id="progres-exercicis-text" style="font-size:.82rem;margin:0"></p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Temes del curs</p>
+      <nav class="llista-temes-mini" id="llista-temes-mini" aria-label="Temes del curs"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Accions</p>
+      <div class="pila" style="gap:.5rem">
+        <button class="boto boto--primari boto--ampla boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button>
+        <button class="boto boto--taronja boto--ampla boto--petit" type="button" data-pptx>📊 Crear PowerPoint</button>
+      </div>
+      <p class="text-suau" style="font-size:.78rem;margin:.6rem 0 0">
+        El PDF inclou la teoria i el resum. La presentació és per explicar a classe.
+      </p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Autoria</p>
+      <p class="text-suau" style="font-size:.8rem;margin:0">
+        <strong>Agustín Gil</strong><br>IES La Vereda · 2026<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+      </p>
+    </div>
+  </aside>
+
+  <!-- ================================= CONTINGUT ================================= -->
+  <main class="contingut">
+
+    <div class="hero-tema">
+      <span class="hero-tema__etiqueta">Tema 6 · Sessió de 3 hores</span>
+      <h1>Classes i objectes</h1>
+      <p class="hero-tema__entradeta">Fins ara teníem dades per un costat i mètodes per un altre. Una classe ho ajunta: un motlle per a crear coses (un jugador, un mòbil, un compte) que porten les seues dades i saben fer les seues accions.</p>
+      <div class="hero-tema__meta">
+        <span class="pastilla">⏱ 3 hores (o dos dies)</span>
+        <span class="pastilla">📦 Fase 2 · Estructurar el programa</span>
+        <span class="pastilla">🧩 Necessites: Temes 0 a 5</span>
+        <span class="pastilla">❓ La pregunta clau: de què està fet i què sap fer?</span>
+      </div>
+    </div>
+
+    <!-- ============================ 01 · INTRODUCCIÓ ============================ -->
+    <section class="seccio" id="introduccio" data-nav="01 · Introducció" style="padding-top:0">
+      <h2>Una situació per començar</h2>
+      <div class="situacio revela">
+        <span class="situacio__emoji" aria-hidden="true">🎮</span>
+        <div>
+<p>Volem fer un joc senzill amb tres jugadors. Amb el que sabem, cada jugador necessita les seues variables: <code>nom1</code>, <code>vida1</code>, <code>punts1</code>, <code>nom2</code>, <code>vida2</code>, <code>punts2</code>…</p>
+          <pre class="codi" data-titol="VariablesSoles.java" data-etiqueta="DADES SEPARADES"><code>String nom1 = "Ana";
+          int vida1 = 100;
+          int punts1 = 0;
+
+          String nom2 = "Bruno";
+          int vida2 = 80;
+          int punts2 = 150;
+
+          // i si volem curar el jugador 1? Caldrà una funció per cada u...
+          // i per a mostrar-lo? I per a pujar-lo de nivell?</code></pre>
+          <p>El problema no és escriure-ho: el problema és que les dades <strong>d'un mateix jugador estan escampades</strong> en variables distintes. Si un dia afegim un jugador 4, hem de canviar el programa en molts llocs.</p>
+          <p>A més, hi ha coses que <strong>van sempre juntes</strong>: la vida i la puntuació són de l'Ana, no del Bruno. Eixa unió és el que ens falta.</p>
+          <p>La solució és crear un <strong>motlle</strong>: una <strong>classe</strong> que diga «un jugador té un nom, una vida, una puntuació i un nivell, i sap atacar, curar-se i pujar de nivell». Després farem <strong>objectes</strong> concrets amb eixe motlle: l'Ana, el Bruno, la Carla. Cadascun amb les seues dades.</p>
+        </div>
+      </div>
+
+      <div class="plan-sessio revela" style="margin-top:var(--esp-5)">
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">30-40 min</span>
+            <span class="plan-sessio__nom">Explicació i demos</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Programació guiada</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Exercicis</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">15-30 min</span>
+            <span class="plan-sessio__nom">Repàs i repte</span>
+          </div>
+      </div>
+
+      <div class="prerequisits">
+        <strong>Abans de començar has de poder fer això:</strong>
+        <ul>
+          <li>Mètodes amb paràmetres i <code>return</code> (Tema 5).</li>
+          <li>Arrays per a guardar molts elements (Tema 4).</li>
+          <li>Bucles i condicions (Temes 2 i 3).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ 02 · QUÈ APRENDREM ============================ -->
+    <section class="seccio" id="objectius" data-nav="02 · Què aprendrem?">
+      <h2>Què aprendrem en este tema?</h2>
+      <p class="entradeta">En acabar esta sessió has de saber fer estes coses:</p>
+      <ul class="llista-objectius revela">
+        <li><span class="num">1</span><span>Explicar amb les teues paraules què és una classe i què és un objecte.</span></li>
+        <li><span class="num">2</span><span>Escriure una classe amb els seus <strong>atributs</strong>.</span></li>
+        <li><span class="num">3</span><span>Crear objectes amb <strong><code>new</code></strong> i accedir a les seues dades amb el punt.</span></li>
+        <li><span class="num">4</span><span>Escriure <strong>mètodes d'objecte</strong> que treballen amb les dades d'eixe objecte.</span></li>
+        <li><span class="num">5</span><span>Escriure un <strong>constructor</strong> per a donar els valors inicials.</span></li>
+        <li><span class="num">6</span><span>Guardar objectes dins d'un array i recórrer-los amb un bucle.</span></li>
+      </ul>
+    </section>
+
+    <!-- =============================== 03 · TEORIA =============================== -->
+    <section class="seccio" id="teoria" data-nav="03 · Teoria">
+      <h2>Teoria, poc a poc</h2>
+      <p class="entradeta">Una idea → un exemple. I sempre la mateixa pregunta: quines dades té, i què sap fer?</p>
+<h3>1. La classe és el motlle</h3>
+        <p>Una <strong>classe</strong> és la descripció d'una cosa: quines dades tindrà i què sabrà fer. No és la cosa: és el motlle per a fabricar-la.</p>
+        <pre class="codi" data-titol="Jugador.java" data-etiqueta="EL MOTLLE"><code>public class Jugador {
+            String nom;        // atributs: les dades que tindrà cada jugador
+            int vida;
+            int puntuacio;
+            int nivell;
+
+            // ...i més avall els mètodes: el que sap fer
+        }</code></pre>
+        <p>A dins de la classe, les variables es diuen <strong>atributs</strong>. Escriure la classe <strong>no crea cap jugador</strong>: només diu com seran.</p>
+        <p>Pensa-ho així: el motlle de fer galletes no és una galleta. Amb un motlle pots fer-ne trenta, i cadascuna tindrà la seua forma de xocolate.</p>
+        <pre class="codi" data-titol="Motlle.java" data-etiqueta="COM ES VEURIA"><code>    CLASSE (el motlle)              OBJECTES (coses fetes amb el motlle)
+           +---------------------+         +-------------------------------+
+           |  Jugador            |         |  ana        bruno      carla  |
+           |  ------------------ |         |  nom        nom        nom    |
+           |  nom:    String     |  ---&gt;   |  vida       vida       vida   |
+           |  vida:   int        |         |  puntuacio  puntuacio  puntuacio
+           |  puntuacio: int     |         |  nivell     nivell     nivell |
+           |  nivell: int        |         +-------------------------------+
+           |                     |          cadascun amb les SEUES dades
+           |  atacar()           |
+           |  curar(int)         |
+           |  pujarNivell()      |
+           +---------------------+</code></pre>
+        <h3>2. Crear un objecte amb new</h3>
+        <p>Per a crear un jugador de veritat es fa servir <code>new</code>. La variable <code>ana</code> guarda l'objecte, i s'arriba a les seues dades amb un <strong>punt</strong>.</p>
+        <pre class="codi" data-titol="Jugador.java" data-etiqueta="PRIMER OBJECTE"><code>public class Jugador {
+            String nom;
+            int vida;
+
+            public static void main(String[] args) {
+                Jugador ana = new Jugador();   // creem un jugador
+                ana.nom = "Ana";               // li posem les dades
+                ana.vida = 100;
+
+                Jugador bruno = new Jugador(); // i un altre, independent
+                bruno.nom = "Bruno";
+                bruno.vida = 80;
+
+                System.out.println(ana.nom + " té " + ana.vida + " de vida.");
+                System.out.println(bruno.nom + " té " + bruno.vida + " de vida.");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Ana té 100 de vida.
+        Bruno té 80 de vida.</pre>
+                  </div>
+        <p>Fixa't en la línia <code>Jugador ana = new Jugador();</code>. Es llig: «<code>ana</code> serà un <code>Jugador</code>, i el fabrique amb <code>new</code>». Després <code>ana.nom</code> és el nom d'<strong>este</strong> jugador, i <code>bruno.nom</code> el de l'altre: <strong>cada objecte té les seues pròpies dades</strong>.</p>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>Un dels avantatges grans d'este tema: si hui afegim la Carla, el codi no canvia gens. <code>Jugador carla = new Jugador();</code> i ja està. Amb variables soltes, afegir un jugador obligaria a tocar tot el programa.</p></div>
+                  </div>
+        <h3>3. Els mètodes de l'objecte (sense static!)</h3>
+        <p>Ací està la diferència més important amb el tema anterior: els mètodes d'una classe <strong>no porten <code>static</code></strong>, i per això poden treballar amb les dades de l'objecte que els crida.</p>
+        <pre class="codi" data-titol="Jugador.java" data-etiqueta="MÈTODES DE L'OBJECTE"><code>public class Jugador {
+            String nom;
+            int vida;
+            int puntuacio;
+
+            public void atacar() {
+                System.out.println(nom + " llança un atac!");
+                puntuacio = puntuacio + 10;      // este atribut és d'ESTE objecte
+            }
+
+            public void mostra() {
+                System.out.println(nom + " · vida: " + vida + " · punts: " + puntuacio);
+            }
+
+            public static void main(String[] args) {
+                Jugador ana = new Jugador();
+                ana.nom = "Ana";
+                ana.vida = 100;
+
+                ana.atacar();
+                ana.atacar();
+                ana.mostra();
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Ana llança un atac!
+        Ana llança un atac!
+        Ana · vida: 100 · punts: 20</pre>
+                  </div>
+        <p>Dins de <code>atacar()</code> escrivim <code>nom</code> i <code>puntuacio</code> sense posar <code>ana.</code> davant. Java sap que són els atributs <strong>de l'objecte que ha rebut la crida</strong>: si cridem <code>ana.atacar()</code>, són els de l'Ana; si cridem <code>bruno.atacar()</code>, els del Bruno.</p>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>Regla per a no confondre's mai més: <code>static</code> = «no necessite cap objecte» (com els mètodes del tema 5 i <code>main</code>); sense <code>static</code> = «soc un mètode d'un objecte concret i treballe amb les seues dades». Per això els mètodes del <code>Jugador</code> no porten <code>static</code>.</p></div>
+                  </div>
+        <h3>4. El constructor: donar els valors inicials</h3>
+        <p>Escriure quatre línies per a preparar cada jugador és incomodo. El <strong>constructor</strong> és un mètode especial que s'executa <strong>automàticament</strong> en crear l'objecte amb <code>new</code>, i servix per a deixar-lo a punt.</p>
+        <pre class="codi" data-titol="Jugador.java" data-etiqueta="CONSTRUCTOR"><code>public class Jugador {
+            String nom;
+            int vida;
+            int puntuacio;
+            int nivell;
+
+            public Jugador(String nom) {      // es diu igual que la classe i no té tipus de retorn
+                this.nom = nom;
+                this.vida = 100;
+                this.puntuacio = 0;
+                this.nivell = 1;
+            }
+
+            public void mostra() {
+                System.out.println(nom + " · vida: " + vida + " · punts: " + puntuacio + " · nivell: " + nivell);
+            }
+
+            public static void main(String[] args) {
+                Jugador ana = new Jugador("Ana");
+                Jugador bruno = new Jugador("Bruno");
+
+                ana.mostra();
+                bruno.mostra();
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Ana · vida: 100 · punts: 0 · nivell: 1
+        Bruno · vida: 100 · punts: 0 · nivell: 1</pre>
+                  </div>
+        <p>Tres detalls del constructor:</p>
+        <ol class="llista-punts">
+                    <li>El nom és <strong>exactament</strong> el de la classe: <code>Jugador</code>.</li>
+                    <li><strong>No porta tipus de retorn</strong>: ni <code>void</code>, ni <code>int</code>, ni res.</li>
+                    <li>S'executa sol quan fem <code>new Jugador(&quot;Ana&quot;)</code>: nosaltres no el cridem mai directament.</li>
+                  </ol>
+        <p>I què és això de <code>this.nom</code>? <code>this</code> vol dir «este objecte». Com que el paràmetre es diu igual que l'atribut, amb <code>this.nom</code> li diem a Java que guarde el valor en <strong>l'atribut</strong> del mateix objecte. Sense <code>this</code> estaria assignant el paràmetre a si mateix.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Si t'embolica, pots canviar el nom del paràmetre: <code>public Jugador(String nomNou) { nom = nomNou; }</code>. Funciona igual i no cal <code>this</code>. Molta gent ho fa així quan comença.</p></div>
+                  </div>
+        <h3>5. Fer que l'objecte faça coses útils</h3>
+        <p>Ara completem el jugador amb les accions del joc. Este és el motlle que farem servir en la resta del tema.</p>
+        <pre class="codi" data-titol="Jugador.java" data-etiqueta="MOTLLE COMPLET"><code>public class Jugador {
+            String nom;
+            int vida;
+            int puntuacio;
+            int nivell;
+
+            public Jugador(String nom) {
+                this.nom = nom;
+                this.vida = 100;
+                this.puntuacio = 0;
+                this.nivell = 1;
+            }
+
+            public void atacar() {
+                System.out.println(nom + " llança un atac!");
+                puntuacio = puntuacio + 10;
+            }
+
+            public void curar(int quantitat) {
+                vida = vida + quantitat;
+                if (vida &gt; 100) {
+                    vida = 100;
+                }
+                System.out.println(nom + " es cura " + quantitat + " punts. Vida: " + vida);
+            }
+
+            public void pujarNivell() {
+                nivell++;
+                puntuacio = puntuacio + 50;
+                System.out.println(nom + " ha pujat al nivell " + nivell + "!");
+            }
+
+            public void mostra() {
+                System.out.println(nom + " · nivell " + nivell + " · vida " + vida + " · punts " + puntuacio);
+            }
+
+            public static void main(String[] args) {
+                Jugador ana = new Jugador("Ana");
+
+                ana.atacar();
+                ana.atacar();
+                ana.curar(30);
+                ana.pujarNivell();
+                ana.mostra();
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Ana llança un atac!
+        Ana llança un atac!
+        Ana es cura 30 punts. Vida: 100
+        Ana ha pujat al nivell 2!
+        Ana · nivell 2 · vida 100 · punts 70</pre>
+                  </div>
+        <p>Comprovem el compte a mà: dos atacs són 20 punts, la curació deixa la vida a 100 (perquè ja en tenia 100 i el límit és 100), i pujar de nivell suma 50 punts: 20 + 50 = 70. <strong>El programa diu el mateix.</strong></p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Fixa't en el límit de la curació: <code>if (vida &gt; 100) { vida = 100; }</code>. Eixa protecció és dins del mètode, i així qualsevol programa que use el <code>Jugador</code> tindrà el límit sense haver de recordar-lo. <strong>Els objectes s'encarreguen de les seues regles.</strong></p></div>
+                  </div>
+        <h3>6. Cada objecte va a la seua</h3>
+        <p>Dos objectes de la mateixa classe compartixen el motlle, però <strong>no</strong> les dades. Este és el dibuix mental que has de tindre clar:</p>
+        <pre class="codi" data-titol="DosObjectes.java" data-etiqueta="DOS OBJECTES"><code>Jugador ana = new Jugador("Ana");
+        Jugador bruno = new Jugador("Bruno");
+
+        ana.atacar();
+
+        // ana:   nom="Ana"    vida=100  punts=10  nivell=1
+        // bruno: nom="Bruno"  vida=100  punts=0   nivell=1
+        //        els punts de l'Ana NO han canviat els del Bruno</code></pre>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p>Molta gent es pensa que <code>Jugador ana = new Jugador(&quot;Ana&quot;); Jugador copia = ana;</code> crea una còpia. <strong>No la crea</strong>: els dos noms apunten al mateix objecte, i si el canvies per un costat, el veus canviat per l'altre. Si vols dos objectes iguals, cal fer <code>new</code> dos vegades.</p></div>
+                  </div>
+        <h3>7. Un array d'objectes</h3>
+        <p>I ara ajuntem tot el que hem après: si un joc té molts jugadors, es guarden en un <strong>array d'objectes</strong> i es recorren amb un bucle.</p>
+        <pre class="codi" data-titol="Equip.java" data-etiqueta="ARRAY + OBJECTES"><code>public class Jugador {
+            String nom;
+            int vida;
+            int puntuacio;
+
+            public Jugador(String nom) {
+                this.nom = nom;
+                this.vida = 100;
+                this.puntuacio = 0;
+            }
+
+            public void atacar() {
+                puntuacio = puntuacio + 10;
+            }
+
+            public void mostra() {
+                System.out.println(nom + " (" + puntuacio + " punts)");
+            }
+
+            public static void main(String[] args) {
+                Jugador[] equip = new Jugador[3];
+
+                equip[0] = new Jugador("Ana");
+                equip[1] = new Jugador("Bruno");
+                equip[2] = new Jugador("Carla");
+
+                for (int i = 0; i &lt; equip.length; i++) {
+                    equip[i].atacar();
+                    equip[i].atacar();
+                    equip[i].mostra();
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Ana (20 punts)
+        Bruno (20 punts)
+        Carla (20 punts)</pre>
+                  </div>
+        <p>Cada casella de l'array guarda <strong>un objecte sencer</strong>, no un número. I per a cridar el seu mètode: <code>equip[i].atacar()</code>. Es llig de dins cap a fora: <code>equip[i]</code> és el jugador, i <code>.atacar()</code> el que li demanem.</p>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Com vam vore en el Tema 4, les caselles d'un array de números comencen valent 0. Les d'un <strong>array d'objectes</strong> comencen valent <code>null</code>, que vol dir «no hi ha cap objecte ací». Si intentes cridar un mètode d'una casella <code>null</code>, el programa s'atura amb <code>NullPointerException</code>. Per això sempre s'omplin abans de recórrer.</p></div>
+                  </div>
+        <h3>8. I l'encapsulació?</h3>
+        <p>Hem fet els atributs públics perquè siga senzill: qualsevol part del programa pot escriure <code>ana.vida = 10000;</code>. Un programa de veritat no ho permet: amaga les dades i obliga a passar pel mètode, que és qui coneix les regles.</p>
+        <pre class="codi" data-titol="MésEndavant.java" data-etiqueta="PER A MÉS ENDAVANT"><code>private int vida;      // ningú no pot tocar la vida des de fora
+
+        public int getVida() {
+            return vida;       // per a consultar-la
+        }
+
+        public void curar(int quantitat) {   // i per a modificar-la, amb les regles
+            ...
+        }</code></pre>
+        <div class="nota nota--només-ensenyament">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Estes paraules (<code>private</code>, <code>getVida()</code>) són la <strong>manera professional</strong> de fer-ho, i les vorem en el proper mòdul. <strong>Ací no les necessitem</strong>: amb els atributs públics n'hi ha prou per a entendre què és una classe. Però convé que sàpigues que existix, i que en els programes de veritat les dades solen estar protegides.</p></div>
+                  </div>
+    </section>
+
+    <!-- =========================== 04 · EXEMPLES EXPLICATS =========================== -->
+    <section class="seccio seccio--suau" id="exemples" data-nav="04 · Exemples">
+      <h2>Exemples explicats pas a pas</h2>
+      <p class="entradeta">Cada exemple: què volem aconseguir, el codi, què apareix per pantalla i per què funciona.</p>
+<h3>Exemple 1 · El mòbil i la seua bateria</h3>
+        <p><strong>Què volem?</strong> Modelar un mòbil: marca, bateria i les accions de carregar-lo i usar-lo. És un exemple que es veu de seguida a la pantalla.</p>
+        <pre class="codi" data-titol="Mobil.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Mobil {
+            String marca;
+            String model;
+            int bateria;
+            boolean engegat;
+
+            public Mobil(String marca, String model) {
+                this.marca = marca;
+                this.model = model;
+                this.bateria = 100;
+                this.engegat = false;
+            }
+
+            public void engegar() {
+                engegat = true;
+                System.out.println(marca + " " + model + " engegat.");
+            }
+
+            public void usar(int minuts) {
+                if (!engegat) {
+                    System.out.println("Primer cal engegar el mòbil!");
+                    return;
+                }
+
+                bateria = bateria - minuts;
+                if (bateria &lt; 0) {
+                    bateria = 0;
+                    System.out.println("El mòbil s'ha quedat sense bateria!");
+                } else {
+                    System.out.println("Usat " + minuts + " minuts. Bateria: " + bateria + "%");
+                }
+            }
+
+            public void carregar() {
+                bateria = 100;
+                System.out.println("Bateria al 100%.");
+            }
+
+            public static void main(String[] args) {
+                Mobil meu = new Mobil("Samsung", "Galaxy A55");
+
+                meu.engegar();
+                meu.usar(30);
+                meu.usar(80);
+                meu.carregar();
+                meu.usar(10);
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Samsung Galaxy A55 engegat.
+        Usat 30 minuts. Bateria: 70%
+        El mòbil s'ha quedat sense bateria!
+        Bateria al 100%.
+        Usat 10 minuts. Bateria: 90%</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> l'atribut <code>engegat</code> guarda l'estat del mòbil, i el mètode <code>usar</code> el consulta <strong>abans</strong> de fer res. Este és el patró que fa que els objectes siguen útils: les seues regles viuen dins dels seus mètodes.</p>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Hem usat <code>return;</code> sense valor per a eixir del mètode abans d'hora. En un mètode <code>void</code>, <code>return;</code> servix per a dir «ja està, ací acaba». Ho has vist en el tema anterior amb <code>break</code> dins d'un bucle: la mateixa idea.</p></div>
+                  </div>
+        <h3>Exemple 2 · El compte de la targeta</h3>
+        <p><strong>Què volem?</strong> Un compte amb titular i saldo, que permeta ingressar i traure diners, però <strong>sense poder-se quedar en negatiu</strong>.</p>
+        <pre class="codi" data-titol="Compte.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Compte {
+            String titular;
+            double saldo;
+
+            public Compte(String titular, double saldoInicial) {
+                this.titular = titular;
+                this.saldo = saldoInicial;
+            }
+
+            public void ingressar(double quantitat) {
+                saldo = saldo + quantitat;
+                System.out.println("Ingressats " + quantitat + " euros. Saldo: " + saldo);
+            }
+
+            public void retirar(double quantitat) {
+                if (quantitat &gt; saldo) {
+                    System.out.println("No hi ha prou diners! Saldo: " + saldo);
+                } else {
+                    saldo = saldo - quantitat;
+                    System.out.println("Retirats " + quantitat + " euros. Saldo: " + saldo);
+                }
+            }
+
+            public static void main(String[] args) {
+                Compte meu = new Compte("Ana", 50.0);
+
+                meu.ingressar(25.0);
+                meu.retirar(60.0);
+                meu.retirar(200.0);
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Ingressats 25.0 euros. Saldo: 75.0
+        Retirats 60.0 euros. Saldo: 15.0
+        No hi ha prou diners! Saldo: 15.0</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> la comprovació del saldo està <strong>dins</strong> del mètode <code>retirar</code>. Cap programa que use el <code>Compte</code> pot deixar-lo en negatiu, encara que s'equivoque, perquè la regla no està en el programa principal: està en el propi objecte.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Este és el sentit profund de la programació orientada a objectes: que cada cosa protegisca les seues regles. Si demà volem un altre tipus de compte (juvenil, estalvi), farem una altra classe amb les seues regles, i el programa principal no caldrà tocar-lo massa.</p></div>
+                  </div>
+        <h3>Exemple 3 · Un equip de jugadors</h3>
+        <p><strong>Què volem?</strong> Crear un equip de quatre jugadors i esbrinar qui té més punts. Es juntes tot: classe, array, bucle i decisió.</p>
+        <pre class="codi" data-titol="Equip.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Equip {
+            String nom;
+            int punts;
+
+            public Equip(String nom) {
+                this.nom = nom;
+                this.punts = 0;
+            }
+
+            public void sumarPunts(int quants) {
+                punts = punts + quants;
+            }
+
+            public static void main(String[] args) {
+                Equip[] equip = {
+                    new Equip("Ana"),
+                    new Equip("Bruno"),
+                    new Equip("Carla"),
+                    new Equip("Dani")
+                };
+
+                equip[0].sumarPunts(120);
+                equip[1].sumarPunts(95);
+                equip[2].sumarPunts(180);
+                equip[3].sumarPunts(60);
+
+                int maxim = equip[0].punts;
+                int indexMillor = 0;
+
+                for (int i = 1; i &lt; equip.length; i++) {
+                    if (equip[i].punts &gt; maxim) {
+                        maxim = equip[i].punts;
+                        indexMillor = i;
+                    }
+                }
+
+                for (int i = 0; i &lt; equip.length; i++) {
+                    System.out.println(equip[i].nom + ": " + equip[i].punts + " punts");
+                }
+                System.out.println("El millor és " + equip[indexMillor].nom + " amb " + maxim + " punts.");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Ana: 120 punts
+        Bruno: 95 punts
+        Carla: 180 punts
+        Dani: 60 punts
+        El millor és Carla amb 180 punts.</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> l'array guarda objectes i es recorre amb un <code>for</code>. Per a buscar el millor, guardem la <strong>posició</strong> (<code>indexMillor</code>) i així podem traure el nom de l'objecte guanyador. És el mateix patró de l'aspirant del Tema 4, però amb objectes.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>L'array d'objectes es pot crear de dos maneres: amb <code>new Equip[4]</code> i anar omplint caselles, o directament amb les claus i un <code>new</code> en cada lloc, com ací. Les dos són correctes; la segona està bé quan ja saps quants elements i quins són.</p></div>
+                  </div>
+        <h3>Exemple 4 · Un torn de combat</h3>
+        <p><strong>Què volem?</strong> Fer un torn de combat entre dos jugadors: un ataca i l'altre es cura. Fixa't en com els objectes recorden el seu estat.</p>
+        <pre class="codi" data-titol="Combat.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Combat {
+            String nom;
+            int vida;
+
+            public Combat(String nom, int vida) {
+                this.nom = nom;
+                this.vida = vida;
+            }
+
+            public void rebreDany(int dany) {
+                vida = vida - dany;
+                if (vida &lt; 0) {
+                    vida = 0;
+                }
+                System.out.println(nom + " rep " + dany + " de dany. Vida: " + vida);
+            }
+
+            public void curar(int quantitat) {
+                vida = vida + quantitat;
+                if (vida &gt; 100) {
+                    vida = 100;
+                }
+                System.out.println(nom + " es cura " + quantitat + ". Vida: " + vida);
+            }
+
+            public static void main(String[] args) {
+                Combat ana = new Combat("Ana", 100);
+                Combat bruno = new Combat("Bruno", 100);
+
+                ana.rebreDany(35);
+                bruno.rebreDany(60);
+                bruno.curar(40);
+                ana.rebreDany(80);
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Ana rep 35 de dany. Vida: 65
+        Bruno rep 60 de dany. Vida: 40
+        Bruno es cura 40. Vida: 80
+        Ana rep 80 de dany. Vida: 0</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> cada objecte guarda la seua vida, i les proteccions (no baixar de 0, no passar de 100) estan dins dels mètodes. El programa principal només diu què passa, no com es calcula.</p>
+        <h3>Quants punts té cadascú?</h3>
+        <p>Pensa què apareix per pantalla abans d'executar. És la prova de si entens què és un objecte.</p>
+        <div class="prediccio">
+                    <h3>Pensa abans d'executar</h3>
+                    <pre class="codi" data-titol="DosJugadors.java" data-etiqueta="PENSA PRIMER"><code>public class DosJugadors {
+            String nom;
+            int vida;
+
+            public DosJugadors(String nom, int vida) {
+                this.nom = nom;
+                this.vida = vida;
+            }
+
+            public void ferDany(int dany) {
+                vida = vida - dany;
+            }
+
+            public static void main(String[] args) {
+                DosJugadors ana = new DosJugadors("Ana", 100);
+                DosJugadors bruno = new DosJugadors("Bruno", 100);
+
+                ana.ferDany(30);
+
+                System.out.println("Ana: " + ana.vida);
+                System.out.println("Bruno: " + bruno.vida);
+            }
+        }</code></pre>
+                    <button class="boto boto--solucio" type="button" data-solucio="pred-objectes" data-text-mostrar="Mostrar què apareix" data-text-ocultar="Amagar">Mostrar què apareix</button>
+                    <div class="solucio" id="pred-objectes" hidden>
+                      <span class="solucio__etiqueta">Resposta</span>
+                      <div class="consola"><span class="consola__titol">Eixida real</span><pre>Ana: 70
+        Bruno: 100</pre></div>
+                      <p class="solucio__perque"><strong>Per què:</strong> La vida del Bruno no canvia perquè és un atribut <strong>seu</strong>. <code>vida</code> dins del mètode vol dir «la vida de l'objecte que ha rebut la crida», i la crida l'ha rebuda l'Ana. Si volguérem fer dany al Bruno, faríem <code>bruno.ferDany(...)</code>.</p>
+                    </div>
+                  </div>
+    </section>
+
+    <!-- =========================== 05 · PROGRAMACIÓ GUIADA =========================== -->
+    <section class="seccio" id="guiada" data-nav="05 · Programació guiada">
+      <h2>Programació guiada: ho fem junts</h2>
+      <p class="entradeta">Construirem el nostre joc: primer el motlle, després un objecte, després els mètodes, el constructor, i al final un equip sencer en un array.</p>
+      <div class="pas revela">
+        <span class="pas__num">1</span>
+        <div class="pas__cos">
+          <h3>El motlle del joc</h3>
+<p>Pensem què és un jugador per a nosaltres: <strong>nom</strong>, <strong>vida</strong>, <strong>puntuació</strong> i <strong>nivell</strong>. I què sap fer: <strong>atacar</strong>, <strong>curar-se</strong> i <strong>pujar de nivell</strong>.</p>
+          <div class="taula-embolcall">
+                      <table class="taula">
+                        <thead><tr><th>Què té (atributs)</th><th>Tipus</th><th>Valor inicial</th></tr></thead>
+                        <tbody>
+                          <tr><td><code>nom</code></td><td><code>String</code></td><td>el que li donem</td></tr>
+                          <tr><td><code>vida</code></td><td><code>int</code></td><td>100</td></tr>
+                          <tr><td><code>puntuacio</code></td><td><code>int</code></td><td>0</td></tr>
+                          <tr><td><code>nivell</code></td><td><code>int</code></td><td>1</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+          <div class="taula-embolcall">
+                      <table class="taula">
+                        <thead><tr><th>Què sap fer (mètodes)</th><th>Què fa</th></tr></thead>
+                        <tbody>
+                          <tr><td><code>atacar()</code></td><td>suma 10 punts</td></tr>
+                          <tr><td><code>curar(int quantitat)</code></td><td>recupera vida, com a màxim fins a 100</td></tr>
+                          <tr><td><code>pujarNivell()</code></td><td>puja de nivell i suma 50 punts</td></tr>
+                          <tr><td><code>mostra()</code></td><td>mostra l'estat del jugador</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+          <div class="pregunta-classe"><p>Per què <code>curar</code> necessita una dada i <code>atacar</code> no?</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">2</span>
+        <div class="pas__cos">
+          <h3>Un objecte amb les seues dades</h3>
+<p>Comença amb el motlle el més simple possible: només els atributs i <code>main</code>, on creem un jugador i li posem les dades.</p>
+          <pre class="codi" data-titol="Jugador.java" data-etiqueta="PAS 2"><code>public class Jugador {
+              String nom;
+              int vida;
+              int puntuacio;
+              int nivell;
+
+              public static void main(String[] args) {
+                  Jugador ana = new Jugador();
+
+                  ana.nom = "Ana";
+                  ana.vida = 100;
+                  ana.puntuacio = 0;
+                  ana.nivell = 1;
+
+                  System.out.println("Jugador: " + ana.nom);
+                  System.out.println("Vida: " + ana.vida);
+                  System.out.println("Nivell: " + ana.nivell);
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Jugador: Ana
+          Vida: 100
+          Nivell: 1</pre>
+                    </div>
+          <p>Compila i executa. Després canvia les dades del <code>main</code> i torna a executar: estàs creant objectes distints amb el mateix motlle.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">3</span>
+        <div class="pas__cos">
+          <h3>Els primers mètodes del jugador</h3>
+<p>Ara li donem al jugador la capacitat d'atacar i de mostrar el seu estat. <strong>Sense <code>static</code></strong>: este mètode pertany a un jugador concret.</p>
+          <pre class="codi" data-titol="Jugador.java" data-etiqueta="PAS 3"><code>public class Jugador {
+              String nom;
+              int vida;
+              int puntuacio;
+              int nivell;
+
+              public void atacar() {
+                  System.out.println(nom + " llança un atac!");
+                  puntuacio = puntuacio + 10;
+              }
+
+              public void mostra() {
+                  System.out.println("--- " + nom + " ---");
+                  System.out.println("Vida: " + vida);
+                  System.out.println("Puntuació: " + puntuacio);
+                  System.out.println("Nivell: " + nivell);
+              }
+
+              public static void main(String[] args) {
+                  Jugador ana = new Jugador();
+                  ana.nom = "Ana";
+                  ana.vida = 100;
+                  ana.puntuacio = 0;
+                  ana.nivell = 1;
+
+                  ana.atacar();
+                  ana.atacar();
+                  ana.atacar();
+                  ana.mostra();
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Ana llança un atac!
+          Ana llança un atac!
+          Ana llança un atac!
+          --- Ana ---
+          Vida: 100
+          Puntuació: 30
+          Nivell: 1</pre>
+                    </div>
+          <p>Tres atacs són 30 punts. Fixa't que dins de <code>atacar</code> no hem escrit <code>ana.puntuacio</code>: hem escrit <code>puntuacio</code>, i Java ja sap de qui és.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">4</span>
+        <div class="pas__cos">
+          <h3>Curar-se i pujar de nivell</h3>
+<p><code>curar</code> necessita saber quants punts de vida es recuperen, així que porta un paràmetre. I porta una protecció perquè la vida no puge de 100.</p>
+          <pre class="codi" data-titol="Jugador.java" data-etiqueta="PAS 4"><code>public class Jugador {
+              String nom;
+              int vida;
+              int puntuacio;
+              int nivell;
+
+              public void atacar() {
+                  System.out.println(nom + " llança un atac!");
+                  puntuacio = puntuacio + 10;
+              }
+
+              public void curar(int quantitat) {
+                  vida = vida + quantitat;
+                  if (vida &gt; 100) {
+                      vida = 100;
+                  }
+                  System.out.println(nom + " es cura " + quantitat + " punts. Vida: " + vida);
+              }
+
+              public void pujarNivell() {
+                  nivell++;
+                  puntuacio = puntuacio + 50;
+                  System.out.println(nom + " ha pujat al nivell " + nivell + "!");
+              }
+
+              public static void main(String[] args) {
+                  Jugador ana = new Jugador();
+                  ana.nom = "Ana";
+                  ana.vida = 60;
+                  ana.puntuacio = 0;
+                  ana.nivell = 1;
+
+                  ana.curar(25);
+                  ana.curar(50);
+                  ana.pujarNivell();
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Ana es cura 25 punts. Vida: 85
+          Ana es cura 50 punts. Vida: 100
+          Ana ha pujat al nivell 2!</pre>
+                    </div>
+          <div class="pregunta-classe"><p>Per què la segona curació deixa la vida a 100 i no a 135?</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">5</span>
+        <div class="pas__cos">
+          <h3>El constructor: menys línies i menys oblits</h3>
+<p>Escriure quatre línies cada vegada que creem un jugador és perillós: si un dia ens oblidem de posar la vida, el jugador tindrà 0 de vida i no ens n'adonarem.</p>
+          <p>El constructor ho resol: es diu igual que la classe, no té tipus de retorn i s'executa sol en fer <code>new</code>.</p>
+          <pre class="codi" data-titol="Jugador.java" data-etiqueta="PAS 5"><code>public class Jugador {
+              String nom;
+              int vida;
+              int puntuacio;
+              int nivell;
+
+              public Jugador(String nom) {
+                  this.nom = nom;
+                  this.vida = 100;
+                  this.puntuacio = 0;
+                  this.nivell = 1;
+              }
+
+              public void atacar() {
+                  puntuacio = puntuacio + 10;
+              }
+
+              public void mostra() {
+                  System.out.println(nom + " · nivell " + nivell + " · vida " + vida + " · punts " + puntuacio);
+              }
+
+              public static void main(String[] args) {
+                  Jugador ana = new Jugador("Ana");
+                  Jugador bruno = new Jugador("Bruno");
+
+                  ana.atacar();
+                  ana.mostra();
+                  bruno.mostra();
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Ana · nivell 1 · vida 100 · punts 10
+          Bruno · nivell 1 · vida 100 · punts 0</pre>
+                    </div>
+          <p>Mira les dos últimes línies: l'Ana té 10 punts i el Bruno 0. <strong>Cada objecte guarda les seues dades.</strong> El constructor ha deixat els dos iguals de vida i nivell, però després l'Ana ha atacat i això només ha canviat l'Ana.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">6</span>
+        <div class="pas__cos">
+          <h3>L'equip: un array de jugadors</h3>
+<p>Ara que tenim el motlle, afegir jugadors és trivial. Els guardem en un array i fem que tots ataquen amb un bucle.</p>
+          <pre class="codi" data-titol="Equip.java" data-etiqueta="PAS 6"><code>public class Equip {
+              String nom;
+              int punts;
+
+              public Equip(String nom) {
+                  this.nom = nom;
+                  this.punts = 0;
+              }
+
+              public void atacar() {
+                  punts = punts + 10;
+              }
+
+              public void mostra() {
+                  System.out.println(nom + ": " + punts + " punts");
+              }
+
+              public static void main(String[] args) {
+                  Equip[] equip = new Equip[3];
+
+                  equip[0] = new Equip("Ana");
+                  equip[1] = new Equip("Bruno");
+                  equip[2] = new Equip("Carla");
+
+                  System.out.println("Torn de combat!");
+                  for (int i = 0; i &lt; equip.length; i++) {
+                      equip[i].atacar();
+                      equip[i].atacar();
+                      equip[i].mostra();
+                  }
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Torn de combat!
+          Ana: 20 punts
+          Bruno: 20 punts
+          Carla: 20 punts</pre>
+                    </div>
+          <div class="nota nota--important">
+                      <span class="nota__icona" aria-hidden="true">⛔</span>
+                      <div><p>Recorda què guanyem: si demà volem 8 jugadors, només canviem el número de l'array i afegim els <code>new Equip(...)</code>. El bucle i els mètodes no es toquen. <strong>Este és el motiu pel qual existixen les classes.</strong></p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">7</span>
+        <div class="pas__cos">
+          <h3>Proves, casos límit i millores</h3>
+<p>Un programa amb objectes es prova provant els objectes:</p>
+          <div class="taula-embolcall">
+                      <table class="taula">
+                        <thead><tr><th>Què provem</th><th>Què ha de passar</th></tr></thead>
+                        <tbody>
+                          <tr><td>Crear dos jugadors i atacar només un</td><td>Només canvia la puntuació d'eixe</td></tr>
+                          <tr><td>Curar-se amb la vida plena</td><td>La vida no passa de 100</td></tr>
+                          <tr><td>Curar-se amb la vida a 0</td><td>Recupera vida correctament</td></tr>
+                          <tr><td>Accedir a una casella de l'array sense omplir</td><td><code>NullPointerException</code>: no hi ha objecte</td></tr>
+                          <tr><td>Imprimir l'objecte sencer</td><td>Ix <code>Equip@1b6d3586</code>: per això tenim <code>mostra()</code></td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+          <p>I les millores que pots fer tu: un mètode <code>rebreDany(int)</code> que baixe la vida, un mètode <code>estaViu()</code> que torne <code>boolean</code>, que l'atac faça un dany aleatori, i un mètode <code>guanyador(Equip altre)</code> que diga qui va guanyant.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 06 · MINI EXERCICIS ============================= -->
+    <section class="seccio seccio--suau" id="mini-exercicis" data-nav="06 · Mini exercicis">
+      <h2>Mini exercicis</h2>
+      <p class="entradeta">Activitats curtes per a agafar la mecànica: motlle, objecte, mètode i constructor.</p>
+      <div class="llista-mini">
+        <article class="exercici exercici--mini" id="mini1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">El cotxe</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">6 min</span>
+          </div>
+          <div class="exercici__enunciat">Crea una classe <code>Cotxe</code> amb els atributs <code>marca</code> (text) i <code>km</code> (enter). Crea dos cotxes, posa'ls-hi dades i mostra'ls.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Seat Ibiza amb 12000 km
+Toyota Corolla amb 45000 km</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini1">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini1"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Cotxe.java" data-etiqueta="SOLUCIÓ"><code>public class Cotxe {
+    String marca;
+    int km;
+
+    public static void main(String[] args) {
+        Cotxe primer = new Cotxe();
+        primer.marca = "Seat Ibiza";
+        primer.km = 12000;
+
+        Cotxe segon = new Cotxe();
+        segon.marca = "Toyota Corolla";
+        segon.km = 45000;
+
+        System.out.println(primer.marca + " amb " + primer.km + " km");
+        System.out.println(segon.marca + " amb " + segon.km + " km");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Seat Ibiza amb 12000 km
+Toyota Corolla amb 45000 km</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> La classe és el motlle (<code>Cotxe</code>), i <code>primer</code> i <code>segon</code> són dos objectes fets amb eixe motlle. Cadascun guarda la seua marca i els seus quilòmetres.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">Que el cotxe conduïsca</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">6 min</span>
+          </div>
+          <div class="exercici__enunciat">Afig a la classe anterior un mètode <code>conduir(int quants)</code> que sume quilòmetres a <code>km</code> i mostre els quilòmetres totals.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini2">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini2"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="CotxeConduit.java" data-etiqueta="SOLUCIÓ"><code>public class CotxeConduit {
+    String marca;
+    int km;
+
+    public void conduir(int quants) {
+        km = km + quants;
+        System.out.println(marca + " ha conduït " + quants + " km. Total: " + km + " km");
+    }
+
+    public static void main(String[] args) {
+        CotxeConduit cotxe = new CotxeConduit();
+        cotxe.marca = "Seat Ibiza";
+        cotxe.km = 12000;
+
+        cotxe.conduir(150);
+        cotxe.conduir(90);
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Seat Ibiza ha conduït 150 km. Total: 12150 km
+Seat Ibiza ha conduït 90 km. Total: 12240 km</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El mètode no porta <code>static</code> perquè ha de treballar amb els atributs de l'objecte. <code>km</code> dins del mètode és el del cotxe que ha rebut la crida, i el valor es guarda per al pròxim ús.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">Amb constructor</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">6 min</span>
+          </div>
+          <div class="exercici__enunciat">Reescriu la classe <code>Cotxe</code> perquè tinga un constructor <code>Cotxe(String marca, int km)</code> i crea'n dos amb una sola línia cadascun.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Seat Ibiza · 12000 km
+Toyota Corolla · 45000 km</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini3">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini3"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Cotxe2.java" data-etiqueta="SOLUCIÓ"><code>public class Cotxe2 {
+    String marca;
+    int km;
+
+    public Cotxe2(String marca, int km) {
+        this.marca = marca;
+        this.km = km;
+    }
+
+    public static void main(String[] args) {
+        Cotxe2 primer = new Cotxe2("Seat Ibiza", 12000);
+        Cotxe2 segon = new Cotxe2("Toyota Corolla", 45000);
+
+        System.out.println(primer.marca + " · " + primer.km + " km");
+        System.out.println(segon.marca + " · " + segon.km + " km");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Seat Ibiza · 12000 km
+Toyota Corolla · 45000 km</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El constructor s'executa sol en fer <code>new Cotxe2(...)</code>. <code>this.marca = marca</code> guarda en l'atribut del mateix objecte el valor que arriba pel paràmetre. I ara és impossible oblidar-se de posar les dades: Java no et deixa crear el cotxe sense elles.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">El mòbil que es queda sense bateria</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">8 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes una classe <code>Mobil</code> amb <code>marca</code> i <code>bateria</code> (comença a 100). Afig <code>usar(int minuts)</code> que baixe la bateria, però que no baixe de 0 i avise quan s'acaba.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Usat 30 minuts. Bateria: 70%
+Usat 90 minuts. Bateria: 0%
+El mòbil s'ha quedat sense bateria!</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini4">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini4"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Mobil.java" data-etiqueta="SOLUCIÓ"><code>public class Mobil {
+    String marca;
+    int bateria;
+
+    public Mobil(String marca) {
+        this.marca = marca;
+        this.bateria = 100;
+    }
+
+    public void usar(int minuts) {
+        bateria = bateria - minuts;
+
+        if (bateria &lt;= 0) {
+            bateria = 0;
+            System.out.println("Usat " + minuts + " minuts. Bateria: 0%");
+            System.out.println("El mòbil s'ha quedat sense bateria!");
+        } else {
+            System.out.println("Usat " + minuts + " minuts. Bateria: " + bateria + "%");
+        }
+    }
+
+    public static void main(String[] args) {
+        Mobil meu = new Mobil("Samsung");
+
+        meu.usar(30);
+        meu.usar(90);
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Usat 30 minuts. Bateria: 70%
+Usat 90 minuts. Bateria: 0%
+El mòbil s'ha quedat sense bateria!</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> La protecció està dins del mètode: primer es resta i després es comprova si ha baixat de 0. Així la bateria mai no serà negativa, i el missatge d'avís apareix només quan toca.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini5">
+          <div class="exercici__cap">
+            <span class="exercici__num">5</span>
+            <h3 class="exercici__titol">Troba l'error: l'objecte que no existix</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">6 min</span>
+          </div>
+          <div class="exercici__enunciat">Este programa no compila. Copia'l, llig el missatge i arregla'l.</div>
+          <pre class="codi codi--error" data-titol="Trencat.java" data-etiqueta="QUÈ FALLA?"><code>public class Cotxe {
+    String marca;
+    int km;
+
+    public void conduir(int quants) {
+        km = km + quants;
+    }
+
+    public static void main(String[] args) {
+        Cotxe cotxe;
+        cotxe.conduir(100);
+    }
+}</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini5">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini5">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini5"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini5" hidden><p><strong>Pista:</strong> Una variable de tipus classe no és cap objecte encara. Què li falta?</p></div>
+          <div class="solucio" id="sol-mini5" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Arreglat.java" data-etiqueta="SOLUCIÓ"><code>public class Cotxe {
+    String marca = "Seat";
+    int km = 0;
+
+    public void conduir(int quants) {
+        km = km + quants;
+    }
+
+    public static void main(String[] args) {
+        Cotxe cotxe = new Cotxe();
+        cotxe.conduir(100);
+
+        System.out.println(cotxe.marca + " ha fet " + cotxe.km + " km");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Seat ha fet 100 km</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> <code>Cotxe cotxe;</code> només diu «esta variable serà un cotxe», però no en crea cap. Sense <code>new Cotxe()</code> no hi ha objecte, i el compilador avisa: «The local variable cotxe may not have been initialized».</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini6">
+          <div class="exercici__cap">
+            <span class="exercici__num">6</span>
+            <h3 class="exercici__titol">Troba l'error: el constructor que no existix</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">6 min</span>
+          </div>
+          <div class="exercici__enunciat">Este programa tampoc no compila. Per què?</div>
+          <pre class="codi codi--error" data-titol="Trencat.java" data-etiqueta="QUÈ FALLA?"><code>public class Jugador {
+    String nom;
+    int vida;
+
+    public Jugador(String nom) {
+        this.nom = nom;
+        this.vida = 100;
+    }
+
+    public static void main(String[] args) {
+        Jugador ana = new Jugador();
+        System.out.println(ana.nom);
+    }
+}</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini6">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini6">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini6"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini6" hidden><p><strong>Pista:</strong> Quants paràmetres té el constructor? I quants n'hi ha a la crida amb new?</p></div>
+          <div class="solucio" id="sol-mini6" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Arreglat.java" data-etiqueta="SOLUCIÓ"><code>public class Jugador {
+    String nom;
+    int vida;
+
+    public Jugador(String nom) {
+        this.nom = nom;
+        this.vida = 100;
+    }
+
+    public static void main(String[] args) {
+        Jugador ana = new Jugador("Ana");
+        System.out.println("El jugador és " + ana.nom + " i té " + ana.vida + " de vida.");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>El jugador és Ana i té 100 de vida.</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> En el moment que escrivim un constructor amb paràmetres, Java ja no crea el constructor buit. Per això <code>new Jugador()</code> no existix i el missatge és «The constructor Jugador() is undefined». O li passem el nom, o escrivim també un constructor sense paràmetres.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini7">
+          <div class="exercici__cap">
+            <span class="exercici__num">7</span>
+            <h3 class="exercici__titol">Dos noms, un objecte?</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">8 min</span>
+          </div>
+          <div class="exercici__enunciat">Executa este programa i explica el resultat. Quantes caixes de dades hi ha de veritat?</div>
+          <pre class="codi" data-titol="DosNoms.java" data-etiqueta="CODI"><code>Jugador ana = new Jugador("Ana");
+Jugador altre = ana;
+
+altre.vida = 42;
+
+System.out.println("ana.vida = " + ana.vida);
+System.out.println("altre.vida = " + altre.vida);</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini7">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini7"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini7" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="DosNoms.java" data-etiqueta="SOLUCIÓ"><code>public class DosNoms {
+    String nom;
+    int vida;
+
+    public DosNoms(String nom) {
+        this.nom = nom;
+        this.vida = 100;
+    }
+
+    public static void main(String[] args) {
+        DosNoms ana = new DosNoms("Ana");
+        DosNoms altre = ana;          // ATENCIÓ: açò NO és una còpia
+
+        altre.vida = 42;
+
+        System.out.println("ana.vida = " + ana.vida);
+        System.out.println("altre.vida = " + altre.vida);
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>ana.vida = 42
+altre.vida = 42</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Només hi ha <strong>un</strong> objecte. <code>altre = ana</code> no copia l'objecte: fa que els dos noms apunten al mateix. Per això canviar la vida per un costat es veu per l'altre. <strong>Si vols dos objectes, cal <code>new</code> dos vegades.</strong> (Ací la classe es diu <code>DosNoms</code> perquè el programa es puga executar tot sol.)</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 07 · FES EL PROGRAMA ========================= -->
+    <section class="seccio" id="fes-el-programa" data-nav="07 · Fes el programa">
+      <h2>Fes el programa</h2>
+      <p class="entradeta">Quatre exercicis complets. Tots tenen la mateixa idea: pensar el motlle, després els objectes.</p>
+      <article class="exercici" id="ex1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">La classe Mòbil</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes una classe <code>Mobil</code> amb <code>marca</code>, <code>model</code> i <code>bateria</code> (enter, comença a 100). Afig els mètodes <code>usar(int minuts)</code> (que baixa la bateria i no la deixa negativa), <code>carregar()</code> (que la deixa a 100) i <code>mostra()</code> (que escriu l'estat). Crea dos mòbils i fes-los coses distintes.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Samsung Galaxy A55 · 100%
+Usat 40 min: queden 60%
+Carregat: 100%</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex1" hidden><p><strong>Pista:</strong> Tot el que fa el mòbil va en mètodes de la classe (sense <code>static</code>), i <code>main</code> només crea els objectes i els diu coses.</p></div>
+          <div class="solucio" id="sol-ex1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Mobil.java" data-etiqueta="SOLUCIÓ"><code>public class Mobil {
+    String marca;
+    String model;
+    int bateria;
+
+    public Mobil(String marca, String model) {
+        this.marca = marca;
+        this.model = model;
+        this.bateria = 100;
+    }
+
+    public void usar(int minuts) {
+        bateria = bateria - minuts;
+        if (bateria &lt; 0) {
+            bateria = 0;
+        }
+        System.out.println("Usat " + minuts + " min: queden " + bateria + "%");
+    }
+
+    public void carregar() {
+        bateria = 100;
+        System.out.println("Carregat: " + bateria + "%");
+    }
+
+    public void mostra() {
+        System.out.println(marca + " " + model + " · " + bateria + "%");
+    }
+
+    public static void main(String[] args) {
+        Mobil meu = new Mobil("Samsung", "Galaxy A55");
+        Mobil vell = new Mobil("Xiaomi", "Redmi 9");
+
+        meu.mostra();
+        meu.usar(40);
+        meu.carregar();
+
+        vell.usar(250);
+        vell.mostra();
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Samsung Galaxy A55 · 100%
+Usat 40 min: queden 60%
+Carregat: 100%
+Usat 250 min: queden 0%
+Xiaomi Redmi 9 · 0%</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El constructor deixa la bateria a 100 per als dos mòbils, però després cadascun viu la seua vida: el meu s'ha carregat i el vell s'ha quedat sense bateria. Els objectes no es barregen entre ells.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">El compte del joc d'estalvi</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">25 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes una classe <code>Compte</code> amb <code>titular</code> (text) i <code>saldo</code> (double). Afig <code>ingressar(double)</code>, <code>retirar(double)</code> (que no permeta quedar-se en negatiu) i <code>mostra()</code>. Crea dos comptes i fes operacions en els dos.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Ana: 75.0 euros
+Retirats 60.0 euros. Queden 15.0 euros
+No hi ha prou diners!</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex2" hidden><p><strong>Pista:</strong> La comprovació de si hi ha prou diners va <strong>dins</strong> del mètode <code>retirar</code>, no en <code>main</code>.</p></div>
+          <div class="solucio" id="sol-ex2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Compte.java" data-etiqueta="SOLUCIÓ"><code>public class Compte {
+    String titular;
+    double saldo;
+
+    public Compte(String titular, double saldoInicial) {
+        this.titular = titular;
+        this.saldo = saldoInicial;
+    }
+
+    public void ingressar(double quantitat) {
+        saldo = saldo + quantitat;
+        System.out.println("Ingressats " + quantitat + " euros. Saldo: " + saldo);
+    }
+
+    public void retirar(double quantitat) {
+        if (quantitat &gt; saldo) {
+            System.out.println("No hi ha prou diners! Saldo: " + saldo);
+        } else {
+            saldo = saldo - quantitat;
+            System.out.println("Retirats " + quantitat + " euros. Queden " + saldo + " euros");
+        }
+    }
+
+    public void mostra() {
+        System.out.println(titular + ": " + saldo + " euros");
+    }
+
+    public static void main(String[] args) {
+        Compte meu = new Compte("Ana", 50.0);
+        Compte germa = new Compte("Bruno", 120.0);
+
+        meu.ingressar(25.0);
+        meu.mostra();
+        meu.retirar(60.0);
+        meu.retirar(200.0);
+
+        germa.retirar(20.0);
+        germa.mostra();
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Ingressats 25.0 euros. Saldo: 75.0
+Ana: 75.0 euros
+Retirats 60.0 euros. Queden 15.0 euros
+No hi ha prou diners! Saldo: 15.0
+Retirats 20.0 euros. Queden 100.0 euros
+Bruno: 100.0 euros</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El mètode <code>retirar</code> té la regla del saldo dins seu, així que el compte no pot quedar-se en negatiu facen el que facen des de fora. I els dos comptes són independents: el que li passa a un no li passa a l'altre.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">L'equip del torneig</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">30 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes una classe <code>Jugador</code> amb <code>nom</code>, <code>punts</code> i <code>nivell</code> (constructor: punts a 0 i nivell a 1), amb els mètodes <code>guanyarPartida(int punts)</code> (que suma i puja de nivell cada 100 punts), <code>mostra()</code> i <code>estaPerDamuntDe(Jugador altre)</code> que torne un <code>boolean</code>. Crea un equip de 4 jugadors en un array, juga unes partides i mostra qui va primer.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Ana: 150 punts · nivell 2
+Bruno: 90 punts · nivell 1
+...
+Va primer: Ana</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex3" hidden><p><strong>Pista:</strong> Per al primer lloc, guarda <strong>un jugador</strong> com a candidat (<code>Jugador primer = equip[0];</code>), i compara'l amb els altres cridant <code>estaPerDamuntDe</code>.</p></div>
+          <div class="solucio" id="sol-ex3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Jugador.java" data-etiqueta="SOLUCIÓ"><code>public class Jugador {
+    String nom;
+    int punts;
+    int nivell;
+
+    public Jugador(String nom) {
+        this.nom = nom;
+        this.punts = 0;
+        this.nivell = 1;
+    }
+
+    public void guanyarPartida(int quants) {
+        punts = punts + quants;
+
+        while (punts &gt;= nivell * 100) {
+            nivell++;
+            System.out.println(nom + " puja al nivell " + nivell + "!");
+        }
+    }
+
+    public boolean estaPerDamuntDe(Jugador altre) {
+        return punts &gt; altre.punts;
+    }
+
+    public void mostra() {
+        System.out.println(nom + ": " + punts + " punts · nivell " + nivell);
+    }
+
+    public static void main(String[] args) {
+        Jugador[] equip = {
+            new Jugador("Ana"),
+            new Jugador("Bruno"),
+            new Jugador("Carla"),
+            new Jugador("Dani")
+        };
+
+        equip[0].guanyarPartida(150);
+        equip[1].guanyarPartida(90);
+        equip[2].guanyarPartida(240);
+        equip[3].guanyarPartida(40);
+
+        for (int i = 0; i &lt; equip.length; i++) {
+            equip[i].mostra();
+        }
+
+        Jugador primer = equip[0];
+        for (int i = 1; i &lt; equip.length; i++) {
+            if (equip[i].estaPerDamuntDe(primer)) {
+                primer = equip[i];
+            }
+        }
+
+        System.out.println("Va primer: " + primer.nom + " amb " + primer.punts + " punts");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Ana puja al nivell 2!
+Carla puja al nivell 2!
+Carla puja al nivell 3!
+Ana: 150 punts · nivell 2
+Bruno: 90 punts · nivell 1
+Carla: 240 punts · nivell 3
+Dani: 40 punts · nivell 1
+Va primer: Carla amb 240 punts</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Un mètode d'un objecte pot rebre <strong>un altre objecte</strong> com a paràmetre: <code>estaPerDamuntDe(Jugador altre)</code>. Dins es compara <code>punts</code> (el meu) amb <code>altre.punts</code> (el seu). I el bucle <code>while</code> de la pujada de nivell es repetix si algú guanya molts punts de colp.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">Combat per torns</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">35 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes una classe <code>Lluitador</code> amb <code>nom</code> i <code>vida</code> (constructor amb les dos dades). Afig <code>atacar(Lluitador altre, int dany)</code> que baixe la vida de l'altre, <code>estaViu()</code> que torne un <code>boolean</code> i <code>mostra()</code>. Escriu un <code>main</code> que simule un combat per torns entre dos lluitadors amb atacs de dany variable, i que acabe quan un dels dos es quede sense vida.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Torn 1: Ana ataca Bruno
+Bruno té 75 de vida
+...
+Ha guanyat Ana!</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex4" hidden><p><strong>Pista:</strong> Fes primer la classe amb els mètodes i proveu-la amb un parell de crides escrites a mà. Després munta el bucle del combat.</p></div>
+          <div class="solucio" id="sol-ex4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Lluitador.java" data-etiqueta="SOLUCIÓ"><code>public class Lluitador {
+    String nom;
+    int vida;
+
+    public Lluitador(String nom, int vida) {
+        this.nom = nom;
+        this.vida = vida;
+    }
+
+    public void atacar(Lluitador altre, int dany) {
+        System.out.println(nom + " ataca " + altre.nom + " i li fa " + dany + " de dany");
+        altre.rebreDany(dany);
+    }
+
+    public void rebreDany(int dany) {
+        vida = vida - dany;
+        if (vida &lt; 0) {
+            vida = 0;
+        }
+        System.out.println(nom + " té " + vida + " de vida");
+    }
+
+    public void curar(int quantitat) {
+        vida = vida + quantitat;
+        if (vida &gt; 100) {
+            vida = 100;
+        }
+        System.out.println(nom + " es cura i té " + vida + " de vida");
+    }
+
+    public boolean estaViu() {
+        return vida &gt; 0;
+    }
+
+    public static void main(String[] args) {
+        Lluitador ana = new Lluitador("Ana", 100);
+        Lluitador bruno = new Lluitador("Bruno", 100);
+
+        int torn = 1;
+        while (ana.estaViu() &amp;&amp; bruno.estaViu()) {
+            System.out.println("--- Torn " + torn + " ---");
+
+            if (torn % 2 == 1) {
+                ana.atacar(bruno, 35);
+            } else {
+                bruno.atacar(ana, 40);
+            }
+
+            torn++;
+        }
+
+        if (ana.estaViu()) {
+            System.out.println("Ha guanyat " + ana.nom + "!");
+        } else {
+            System.out.println("Ha guanyat " + bruno.nom + "!");
+        }
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>--- Torn 1 ---
+Ana ataca Bruno i li fa 35 de dany
+Bruno té 65 de vida
+--- Torn 2 ---
+Bruno ataca Ana i li fa 40 de dany
+Ana té 60 de vida
+--- Torn 3 ---
+Ana ataca Bruno i li fa 35 de dany
+Bruno té 30 de vida
+--- Torn 4 ---
+Bruno ataca Ana i li fa 40 de dany
+Ana té 20 de vida
+--- Torn 5 ---
+Ana ataca Bruno i li fa 35 de dany
+Bruno té 0 de vida
+Ha guanyat Ana!</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Ací els objectes col·laboren: <code>ana.atacar(bruno, 35)</code> fa que l'Ana mire el Bruno i li baixe la vida. Els objectes es passen entre ells com a paràmetres i es modifiquen els uns als altres. El bucle <code>while</code> s'atura quan un dels dos ja no està viu.</p>
+          </div>
+        </article>
+    </section>
+
+    <!-- ================================ 08 · REPTES ================================ -->
+    <section class="seccio seccio--suau" id="reptes" data-nav="08 · Reptes">
+      <h2>Reptes (sense solució)</h2>
+      <div class="nota nota--avis">
+        <span class="nota__icona" aria-hidden="true">🧠</span>
+        <div><p>Els reptes <strong>no tenen botó de solució</strong>, a propòsit. L'objectiu és pensar, provar, equivocar-se i tornar-ho a intentar. Es poden resoldre de moltes maneres diferents: totes les solucions que funcionen són bones.</p></div>
+      </div>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 1</span>
+          <h3 class="repte__titol">La mascota virtual</h3>
+        </div>
+<p>Crea una classe <code>Mascota</code> amb <code>nom</code>, <code>fam</code>, <code>energia</code> i <code>felicitat</code> (les tres comencen a 50). Afig els mètodes <code>menjar()</code>, <code>dormir()</code>, <code>jugar()</code> i <code>passarElTemps()</code> (que fa que baixen les tres necessitats una mica).</p>
+        <p>Després munta un <code>main</code> que simule 5 torns: en cada torn, l'usuari tria què fer i el programa ho aplica i mostra l'estat de la mascota. Au, i que no es muiga de fam!</p>
+        <p>El repte de veritat és <strong>pensar les regles</strong>: què passa si la fam arriba a 100? I si l'energia arriba a 0? Les regles han d'estar dins dels mètodes de la mascota, no en el <code>main</code>.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Afig un mètode <code>estaTrista()</code> que torne un <code>boolean</code>.</li>
+          <li>Que la mascota baixe de nivell d'ànim si se la deixa dos torns sense menjar.</li>
+          <li>Mostrar barres de progrés amb <code>#</code> per a cada necessitat.</li>
+        </ul>
+      </article>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 2</span>
+          <h3 class="repte__titol">La botiga de videojocs</h3>
+        </div>
+<p>Crea una classe <code>Videojoc</code> amb <code>titol</code>, <code>preu</code>, <code>venuts</code> i <code>estoc</code>. Afig mètodes <code>vendre(int quants)</code> (que comprove que hi ha estoc i avise si no n'hi ha prou), <code>rebaixar(double percentatge)</code> i <code>taquilla()</code> que torne quants diners ha generat.</p>
+        <p>Després munta una botiga amb <strong>un array de videojocs</strong> i fes un petit menú: mostrar el catàleg, vendre unitats d'un joc, rebaixar un joc i veure la taquilla total.</p>
+        <p>Quan l'acabes, intenta vendre més unitats de les que tens. El programa ha de defendre's: eixa defensa ha d'estar <strong>dins</strong> del mètode <code>vendre</code>, i no en el menú.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Afig <code>esRentable()</code> que torne si les vendes han superat una quantitat.</li>
+          <li>Troba el joc més venut recorrent l'array.</li>
+          <li>Mostra el valor total de l'estoc que queda (preu × estoc, sumat).</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ============================ 09 · ERRORS HABITUALS ============================ -->
+    <section class="seccio" id="errors" data-nav="09 · Errors habituals">
+      <h2>Errors habituals</h2>
+      <p class="entradeta">Els errors d'este tema són d'una pista que et deixa clar de què va: la mateixa paraula «static» apareix en la meitat.</p>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 1</span>
+            <h3 class="exercici__titol" style="margin:0">Oblidar el new</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>public class Cotxe {
+    String marca;
+
+    public void arrancar() {
+        System.out.println(marca + " arranca");
+    }
+
+    public static void main(String[] args) {
+        Cotxe cotxe;          // falta el new!
+        cotxe.arrancar();
+    }
+}</code></pre>
+          <p class="missatge-error">error: The local variable cotxe may not have been initialized
+        cotxe.arrancar();
+        ^^^^^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila: el compilador diu que la variable «pot ser que no s'haja inicialitzat».</dd>
+                <dt>Per què</dt><dd>Escriure <code>Cotxe cotxe;</code> només declara la variable: no fabrica cap objecte. Sense <code>new</code>, no hi ha res a què cridar el mètode.</dd>
+                <dt>Com detectar-ho</dt><dd>Missatge <code>The local variable cotxe may not have been initialized</code>, i assenyala la crida.</dd>
+                <dt>Com corregir-ho</dt><dd>Crea l'objecte: <code>Cotxe cotxe = new Cotxe();</code>. Este error és company de viatge: et passarà moltíssimes vegades al principi.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>public class Cotxe {
+    String marca = "Seat";
+
+    public void arrancar() {
+        System.out.println(marca + " arranca");
+    }
+
+    public static void main(String[] args) {
+        Cotxe cotxe = new Cotxe();
+        cotxe.arrancar();
+    }
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 2</span>
+            <h3 class="exercici__titol" style="margin:0">Cridar el mètode des de la classe en compte de l'objecte</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>public class Jugador {
+    String nom = "Ana";
+
+    public void atacar() {
+        System.out.println(nom + " ataca!");
+    }
+
+    public static void main(String[] args) {
+        Jugador.atacar();   // ERROR
+    }
+}</code></pre>
+          <p class="missatge-error">error: Cannot make a static reference to the non-static method atacar() from the type Jugador
+        Jugador.atacar();
+        ^^^^^^^^^^^^^^^^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila.</dd>
+                <dt>Per què</dt><dd><code>atacar()</code> no és estàtic: no es pot cridar «des de la classe», perquè no sabríem de quin jugador és el nom ni la vida. Cal un objecte concret.</dd>
+                <dt>Com detectar-ho</dt><dd>Missatge <code>Cannot make a static reference to the non-static method</code>. La paraula clau és <strong>static</strong>.</dd>
+                <dt>Com corregir-ho</dt><dd>Crea un objecte amb <code>new</code> i crida el mètode des d'ell: <code>ana.atacar();</code>.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>public class Jugador {
+    String nom = "Ana";
+
+    public void atacar() {
+        System.out.println(nom + " ataca!");
+    }
+
+    public static void main(String[] args) {
+        Jugador ana = new Jugador();
+        ana.atacar();
+    }
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 3</span>
+            <h3 class="exercici__titol" style="margin:0">Posar static en un mètode que usa els atributs</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>public class Jugador {
+    String nom = "Ana";
+
+    public static void saluda() {
+        System.out.println("Hola, " + nom);   // ERROR
+    }
+}</code></pre>
+          <p class="missatge-error">error: Cannot make a static reference to the non-static field nom
+        System.out.println(&quot;Hola, &quot; + nom);
+                                ^^^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila i assenyala l'atribut.</dd>
+                <dt>Per què</dt><dd>Un mètode <code>static</code> no pertany a cap objecte, així que no pot saber de quin jugador és el <code>nom</code>. Els atributs són d'un objecte concret i necessiten un mètode no estàtic per a accedir-hi.</dd>
+                <dt>Com detectar-ho</dt><dd>Missatge <code>Cannot make a static reference to the non-static field nom</code>.</dd>
+                <dt>Com corregir-ho</dt><dd>Lleva el <code>static</code> al mètode. <strong>Regla de la casa:</strong> <code>static</code> només per a <code>main</code> i per a mètodes que no toquen cap atribut.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>public class Jugador {
+    String nom = "Ana";
+
+    public void saluda() {
+        System.out.println("Hola, " + nom);
+    }
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 4</span>
+            <h3 class="exercici__titol" style="margin:0">Cridar el constructor amb paràmetres que no existixen</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>public class Jugador {
+    String nom;
+
+    public Jugador(String nom) {
+        this.nom = nom;
+    }
+
+    public static void main(String[] args) {
+        Jugador ana = new Jugador();   // ERROR: falta el text
+    }
+}</code></pre>
+          <p class="missatge-error">error: The constructor Jugador() is undefined
+        Jugador ana = new Jugador();
+                      ^^^^^^^^^^^^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila: eixe constructor no existix.</dd>
+                <dt>Per què</dt><dd>Quan escrivim un constructor amb paràmetres, Java ja no crea el constructor buit. Per això <code>new Jugador()</code> deixa d'existir.</dd>
+                <dt>Com detectar-ho</dt><dd>Missatge <code>The constructor Jugador() is undefined</code>: fixa't en els parèntesis, diu quina forma de constructor has demanat.</dd>
+                <dt>Com corregir-ho</dt><dd>Passa-li els arguments que demana (<code>new Jugador(&quot;Ana&quot;)</code>) o escriu també un constructor sense paràmetres, si vols permetre les dos maneres.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>public class Jugador {
+    String nom;
+
+    public Jugador(String nom) {
+        this.nom = nom;
+    }
+
+    public static void main(String[] args) {
+        Jugador ana = new Jugador("Ana");
+    }
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 5</span>
+            <h3 class="exercici__titol" style="margin:0">Imprimir l'objecte sencer</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>Jugador ana = new Jugador("Ana");
+System.out.println(ana);</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>En compte de les dades del jugador apareix una cosa com <code>Jugador@1b6d3586</code>.</dd>
+                <dt>Per què</dt><dd><code>println</code> no sap què mostrar d'un objecte, així que escriu el nom de la classe i una «matrícula» interna. Igual que passava amb els arrays en el Tema 4.</dd>
+                <dt>Com detectar-ho</dt><dd>Eixida amb el nom de la classe seguit de <code>@</code> i números i lletres.</dd>
+                <dt>Com corregir-ho</dt><dd>Escriu un mètode <code>mostra()</code> que presente les dades com vulgues, i crida'l. (Els programes professionals fan que el <code>println</code> de l'objecte funcione bé; això es veu més avant.)</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>Jugador ana = new Jugador("Ana");
+ana.mostra();   // o System.out.println(ana.nom + " té " + ana.vida)</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 6</span>
+            <h3 class="exercici__titol" style="margin:0">Accedir a un atribut com si fóra de la classe</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>public class Jugador {
+    int vida = 100;
+
+    public static void main(String[] args) {
+        System.out.println(Jugador.vida);   // ERROR
+    }
+}</code></pre>
+          <p class="missatge-error">error: Cannot make a static reference to the non-static field Jugador.vida
+        System.out.println(Jugador.vida);
+                           ^^^^^^^^^^^^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no compila.</dd>
+                <dt>Per què</dt><dd>La vida no és de la classe, és de cada jugador. Com que no has creat cap jugador, Java no sap de qui és eixa vida.</dd>
+                <dt>Com detectar-ho</dt><dd>Missatge <code>Cannot make a static reference to the non-static field Jugador.vida</code>.</dd>
+                <dt>Com corregir-ho</dt><dd>Crea un objecte i consulta el seu atribut: <code>ana.vida</code>. Si el que vols són dades compartides per tota la classe, eixes sí que poden ser <code>static</code> — ho veurem més avant.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>public class Jugador {
+    int vida = 100;
+
+    public static void main(String[] args) {
+        Jugador ana = new Jugador();
+        System.out.println(ana.vida);
+    }
+}</code></pre>
+            </div>
+          </div>
+        </article>
+    </section>
+
+    <!-- ============================= 10 · RESUM VISUAL ============================= -->
+    <section class="seccio seccio--suau" id="resum" data-nav="10 · Resum visual">
+      <h2>Resum visual</h2>
+      <p class="entradeta">Les idees que has d'endur-te d'este tema.</p>
+      <div class="resum-visual revela">
+        <div class="resum-visual__item"><p>Una <strong>classe</strong> és el motlle: diu quines dades tindrà una cosa i què sabrà fer.</p></div>
+        <div class="resum-visual__item"><p>Un <strong>objecte</strong> és una cosa concreta feta amb eixe motlle, i es crea amb <strong><code>new</code></strong>.</p></div>
+        <div class="resum-visual__item"><p>Els <strong>atributs</strong> són les dades de l'objecte; cada objecte té els seus.</p></div>
+        <div class="resum-visual__item"><p>Els <strong>mètodes de l'objecte</strong> no porten <code>static</code> i treballen amb els atributs d'eixe objecte.</p></div>
+        <div class="resum-visual__item"><p>El <strong>constructor</strong> es diu igual que la classe, no té tipus de retorn i s'executa sol amb <code>new</code>.</p></div>
+        <div class="resum-visual__item"><p><code>this.nom</code> significa «l'atribut <code>nom</code> d'este objecte».</p></div>
+        <div class="resum-visual__item"><p>S'arriba a les dades i als mètodes amb el <strong>punt</strong>: <code>ana.vida</code>, <code>ana.atacar()</code>.</p></div>
+        <div class="resum-visual__item"><p>Els objectes es guarden en <strong>arrays</strong> i es recorren amb bucles: <code>equip[i].atacar()</code>.</p></div>
+        <div class="resum-visual__item"><p><code>static</code> = no necessite cap objecte; sense <code>static</code> = soc d'un objecte.</p></div>
+        <div class="resum-visual__item"><p>els objectes s'encarreguen de les seues regles: el límit de vida, el saldo, l'estoc…</p></div>
+      </div>
+    </section>
+
+    <!-- ============================ 11 · AUTOAVALUACIÓ ============================ -->
+    <section class="seccio" id="autoavaluacio" data-nav="11 · Autoavaluació">
+      <h2>Autoavaluació</h2>
+      <p class="entradeta">Nou preguntes. Pensa-les abans de mirar la solució.</p>
+      <ol class="llista-autoavaluacio">
+        <li>
+          <p class="enunciat">Quina diferència hi ha entre una classe i un objecte?</p>
+
+          <ul class="opcions"><li>Són el mateix i es poden usar indistintament.</li><li>La classe és el motlle; l'objecte és una cosa concreta feta amb eixe motlle.</li><li>L'objecte és el motlle i la classe és la cosa creada.</li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av1">Mostrar solució</button>
+          <div class="solucio" id="av1" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) La classe és el motlle i l'objecte és una cosa concreta.</strong></p>
+            <p class="solucio__perque">La classe <code>Jugador</code> descriu com és qualsevol jugador. Amb <code>new</code> fabriquem objectes concrets: l'Ana, el Bruno, la Carla. La classe no té vida ni punts; cada objecte sí.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què fa esta línia: <code>Jugador ana = new Jugador(&quot;Ana&quot;);</code>?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av2">Mostrar solució</button>
+          <div class="solucio" id="av2" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Crea un objecte nou de la classe <code>Jugador</code>, executant el constructor amb «Ana», i el guarda en la variable <code>ana</code>.</strong></p>
+            <p class="solucio__perque"><code>new</code> fabrica l'objecte i crida el constructor, que deixa les dades preparades. La variable <code>ana</code> guarda l'objecte per a poder usar-lo.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Per què els mètodes de <code>Jugador</code> <strong>no</strong> porten <code>static</code>?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av3">Mostrar solució</button>
+          <div class="solucio" id="av3" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè treballen amb les dades d'un objecte concret, i necessiten saber de quin jugador són la vida i la puntuació.</strong></p>
+            <p class="solucio__perque">Un mètode <code>static</code> no pertany a cap objecte i no pot accedir als atributs. Com que <code>atacar()</code> ha de modificar la puntuació del jugador que rep la crida, ha de ser un mètode d'objecte.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què mostra este programa?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>Jugador a = new Jugador("Ana");
+Jugador b = new Jugador("Ana");
+
+a.vida = 50;
+
+System.out.println(a.vida);
+System.out.println(b.vida);</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av4">Mostrar solució</button>
+          <div class="solucio" id="av4" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Mostra <code>50</code> i <code>100</code>.</strong></p>
+            <p class="solucio__perque">Amb dos <code>new</code> hi ha <strong>dos objectes</strong> distints, encara que es diguen igual i tinguen el mateix nom. Canviar la vida d'un no afecta l'altre.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què passarà amb este codi?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>Jugador a = new Jugador("Ana");
+Jugador b = a;
+
+b.vida = 10;
+
+System.out.println(a.vida);</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av5">Mostrar solució</button>
+          <div class="solucio" id="av5" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Mostra <code>10</code> perquè <code>a</code> i <code>b</code> apunten al <strong>mateix</strong> objecte.</strong></p>
+            <p class="solucio__perque"><code>Jugador b = a;</code> no copia l'objecte: copia l'adreça on està. Els dos noms són el mateix jugador. Per a tindre dos objectes distints cal fer <code>new</code> dos vegades.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Escriu un constructor per a una classe <code>Mobil</code> amb els atributs <code>marca</code> i <code>bateria</code>, que deixa la bateria a 100.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av6">Mostrar solució</button>
+          <div class="solucio" id="av6" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>public Mobil(String marca) { this.marca = marca; this.bateria = 100; }</code></strong></p>
+            <p class="solucio__perque">El constructor porta el nom de la classe i no té tipus de retorn. S'executa sol en fer <code>new Mobil(&quot;Samsung&quot;)</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Tenim <code>Jugador[] equip = new Jugador[3];</code> i volem que tots ataquen. Escriu el bucle.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av7">Mostrar solució</button>
+          <div class="solucio" id="av7" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>for (int i = 0; i &lt; equip.length; i++) { equip[i].atacar(); }</code></strong></p>
+            <p class="solucio__perque">Cada casella guarda un objecte sencer. Es recorre com qualsevol array i es crida el mètode de cada objecte amb <code>equip[i].atacar()</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Este codi no compila. Per què?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>public class Jugador {
+    String nom = "Ana";
+
+    public static void saluda() {
+        System.out.println("Hola, " + nom);
+    }
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av8">Mostrar solució</button>
+          <div class="solucio" id="av8" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè un mètode <code>static</code> no pot accedir a l'atribut <code>nom</code>, que és d'un objecte.</strong></p>
+            <p class="solucio__perque">El missatge és <code>Cannot make a static reference to the non-static field nom</code>. Si llevem el <code>static</code> del mètode <code>saluda</code>, funciona: llavors sí que pertany a un objecte i pot llegir el seu <code>nom</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">On ha d'estar la regla «la vida no pot ser més de 100»: en el <code>main</code> o dins del mètode <code>curar</code>? Per què?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av9">Mostrar solució</button>
+          <div class="solucio" id="av9" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Dins del mètode <code>curar</code> de la classe, perquè així la regla es complica sempre, en qualsevol programa que use la classe.</strong></p>
+            <p class="solucio__perque">Si la regla estiguera en el <code>main</code>, cada programa que usara el <code>Jugador</code> hauria de recordar-la. Posant-la dins de l'objecte, l'objecte es protegix ell mateix: açò és l'avantatge principal de les classes.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <nav class="navegacio-temes no-imprimible" id="navegacio-temes" aria-label="Navegació entre temes"></nav>
+
+  </main>
+</div>
+
+<!-- ====================================== PEU ====================================== -->
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__graella">
+      <div>
+        <h4>Introducció a la Programació amb Java</h4>
+        <p>Optativa SMX · Sistemes Microinformàtics i Xarxes</p>
+        <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+      </div>
+      <div>
+        <h4>En este tema</h4>
+        <ul class="llista-netejada">
+          <li><a href="#teoria">Teoria</a></li>
+          <li><a href="#exemples">Exemples explicats</a></li>
+          <li><a href="#guiada">Programació guiada</a></li>
+          <li><a href="#resum">Resum visual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Llicència</h4>
+        <p>Material lliure per a ús educatiu.<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a></p>
+      </div>
+    </div>
+    <div class="peu__base">
+      <span>© 2026 Agustín Gil · IES La Vereda</span>
+      <a class="llicencia" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">
+        <span class="llicencia__icones" aria-hidden="true"><span>CC</span><span>BY</span><span>NC</span></span>
+        Creative Commons Reconeixement-NoComercial 4.0 Internacional
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Peu fix que apareix en cada pàgina del PDF -->
+<div class="peu-impressio" aria-hidden="true">
+  <span>Introducció a la Programació amb Java · Optativa SMX · Material creat per Agustín Gil - IES La Vereda 2026 · CC BY-NC 4.0</span>
+  <span class="peu-impressio__dreta">Tema 6</span>
+</div>
+
+<button class="boto boto--primari tornar-dalt no-imprimible" id="tornar-dalt" type="button" aria-label="Tornar a dalt">↑</button>
+
+<script src="../assets/js/resaltat.js"></script>
+<script src="../assets/js/dades-curs.js"></script>
+<script src="../assets/js/diapositives/tema6.js"></script>
+<script src="../assets/js/plantilla-tema.js"></script>
+<script src="../assets/js/pptx.js"></script>
+</body>
+</html>
