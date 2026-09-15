@@ -157,16 +157,16 @@ window.CURS = {
     },
     {
       n: 9,
-      fitxer: null,
+      fitxer: 'temes/tema9.html',
       titol: 'Cap a on va la programació?',
-      subtitol: 'Innovacions, tecnologies i el teu pròxim pas',
+      subtitol: 'Les ferramentes canvien; els fonaments es queden',
       emoji: '🌐',
       durada: '3 h',
       bloc: 'Programació real',
       desc: 'IA, aplicacions web i mòbils, APIs, IoT, robòtica, ciberseguretat, videojocs, núvol i agents d\'IA… sense perdre els fonaments.',
       continguts: ['IA i agents', 'Web i mòbil', 'APIs i IoT', 'Ciberseguretat', 'Núvol i dades'],
       prereq: 'Tot el curs. És la sessió que obri portes.',
-      estat: 'en-preparacio'
+      estat: 'publicat'
     }
   ]
 };

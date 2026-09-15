@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 9 · Cap a on va la programació | Introducció a la Programació amb Java</title>
+<meta name="description" content="Les ferramentes canvien cada any; els fonaments que has aprés es queden">
+<meta name="author" content="Agustín Gil · IES La Vereda 2026">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/tema.css">
+<link rel="stylesheet" href="../assets/css/print.css">
+<!-- PÀGINA GENERADA amb eines/genera-temes.mjs — edita eines/contingut/tema9.js i torna a generar-la -->
+</head>
+
+<body data-tema="9">
+
+<!-- ============================ PORTADA D'IMPRESSIÓ ============================ -->
+<div class="portada-impressio només-impressio" id="portada-impressio">
+  <p class="portada-impressio__curs" data-camp="assignatura">Optativa SMX · Introducció a la Programació</p>
+  <h1 data-camp="tema">Tema 9 · Cap a on va la programació</h1>
+  <p class="portada-impressio__resum" data-camp="subtitol">Les ferramentes canvien cada any; els fonaments que has aprés es queden</p>
+  <div class="portada-impressio__meta">
+    <p data-camp="autor">Material creat per Agustín Gil - IES La Vereda 2026</p>
+    <p>Llicència <span data-camp="llicencia">CC BY-NC 4.0</span> · <a data-camp="enllac" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">creativecommons.org/licenses/by-nc/4.0</a></p>
+    <p>Data d'impressió: <span data-camp="data"></span></p>
+    <p class="text-suau">Manual d'estudi: introducció, objectius, teoria, exemples explicats, programació guiada, errors habituals i resum. Les tres primeres preguntes d'autoavaluació inclouen la solució; els exercicis i els reptes es treballen en la versió web.</p>
+  </div>
+</div>
+
+<!-- ================================== CAPÇALERA ================================== -->
+<header class="capcalera">
+  <div class="contenidor capcalera__interior" style="max-width:1400px">
+    <a class="capcalera__marca" href="../index.html">
+      <span class="capcalera__logo" aria-hidden="true">{}</span>
+      <span class="capcalera__text">
+        <span class="capcalera__curs">Optativa SMX · Programació amb Java</span>
+        <span class="capcalera__tema">Tema 9 · Cap a on va la programació</span>
+      </span>
+    </a>
+    <div class="capcalera__accions">
+      <button class="boto boto--ciano boto--petit" type="button" data-imprimir>🖨 <span class="text-llarg">Imprimir</span> PDF</button>
+      <button class="boto boto--taronja boto--petit" type="button" data-pptx>📊 <span class="text-llarg">Crear</span> PowerPoint</button>
+      <a class="boto boto--fantasma boto--petit" href="../index.html">Índex del curs</a>
+      <button class="boto-icona" type="button" data-menu-toggle aria-expanded="false" aria-label="Obrir el menú del tema">☰</button>
+    </div>
+  </div>
+  <div class="contenidor capcalera__meta" style="max-width:1400px">
+    <span>✍ Material creat per Agustín Gil - IES La Vereda 2026</span>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-NC 4.0</a>
+    <span class="text-suau">Tema 9 de 10 · 3 hores de classe</span>
+  </div>
+  <div class="barra-progres" aria-hidden="true"><span></span></div>
+</header>
+
+<div class="overlay-menu" aria-hidden="true"></div>
+
+<div class="disposicio">
+
+  <!-- ============================== MENÚ LATERAL ============================== -->
+  <aside class="menu-lateral" id="menu-lateral" aria-label="Navegació del tema">
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">En este tema</p>
+      <nav class="indice-intern" id="indice-intern" aria-label="Índex del tema"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc" id="progres-exercicis" hidden>
+      <p class="menu-lateral__titol">El teu progrés</p>
+      <div class="barra-avaluacio"><span style="width:0"></span></div>
+      <p class="text-suau" id="progres-exercicis-text" style="font-size:.82rem;margin:0"></p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Temes del curs</p>
+      <nav class="llista-temes-mini" id="llista-temes-mini" aria-label="Temes del curs"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Accions</p>
+      <div class="pila" style="gap:.5rem">
+        <button class="boto boto--primari boto--ampla boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button>
+        <button class="boto boto--taronja boto--ampla boto--petit" type="button" data-pptx>📊 Crear PowerPoint</button>
+      </div>
+      <p class="text-suau" style="font-size:.78rem;margin:.6rem 0 0">
+        El PDF inclou la teoria i el resum. La presentació és per explicar a classe.
+      </p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Autoria</p>
+      <p class="text-suau" style="font-size:.8rem;margin:0">
+        <strong>Agustín Gil</strong><br>IES La Vereda · 2026<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+      </p>
+    </div>
+  </aside>
+
+  <!-- ================================= CONTINGUT ================================= -->
+  <main class="contingut">
+
+    <div class="hero-tema">
+      <span class="hero-tema__etiqueta">Tema 9 · Sessió de 3 hores</span>
+      <h1>Cap a on va la programació</h1>
+      <p class="hero-tema__entradeta">Has après a guardar dades, decidir, repetir, recórrer llistes, fer peces, crear objectes, muntar un programa complet i treballar amb IA. Eixes vuit coses no són «de Java»: són <strong>programar</strong>. Hui veurem tot el que pots construir amb elles i com continuar tot sol.</p>
+      <div class="hero-tema__meta">
+        <span class="pastilla">⏱ 3 hores</span>
+        <span class="pastilla">🚀 Fase 4 · On pots arribar</span>
+        <span class="pastilla">🧩 Necessites: Temes 0 a 8</span>
+        <span class="pastilla">❓ La pregunta clau: què vols construir tu?</span>
+      </div>
+    </div>
+
+    <!-- ============================ 01 · INTRODUCCIÓ ============================ -->
+    <section class="seccio" id="introduccio" data-nav="01 · Introducció" style="padding-top:0">
+      <h2>Una situació per començar</h2>
+      <div class="situacio revela">
+        <span class="situacio__emoji" aria-hidden="true">📱</span>
+        <div>
+<p>Pensa en el teu matí d'avui. Has fet estes coses quasi sense adonar-te:</p>
+          <ul class="llista-punts">
+                      <li>T'ha sonat la <strong>alarma</strong> del mòbil.</li>
+                      <li>Has mirado el <strong>grup de classe</strong> i el missatge ha arribat al mòbil de tots alhora.</li>
+                      <li>Has escoltat <strong>música</strong> mentre esmorzaves.</li>
+                      <li>Has entrat al <strong>joc</strong> i t'ha dit que el teu amic està connectat.</li>
+                      <li>Has pagat l'<strong>autobús</strong> amb el telèfon.</li>
+                      <li>Has mirado el <strong>temps</strong> que farà esta vesprada.</li>
+                    </ul>
+          <p>Darrere de cada una d'eixes coses hi ha <strong>programes</strong>. Programes que parlen amb altres programes, guardant dades i prenent decisions en mil·lisegons, des de servidors que no has vist mai.</p>
+          <p>I ací està la sorpresa: <strong>no hi ha cap idea nova</strong> dins d'eixos programes. Hi ha variables, condicions, bucles, arrays, mètodes, objectes i persones que han aprés a construir per etapes i a provar el que fan. Exactament el que has aprés tu.</p>
+          <p>Hui no hi ha sintaxi nova ni exercicis de repetició: hui mirarem <strong>on va tot això</strong>, què pots fer amb el que ja saps i com continues aprenent quan el curs s'acabe. I acabaràs amb un projecte menut, teu i acabat.</p>
+          <div class="nota nota--important">
+                      <span class="nota__icona" aria-hidden="true">⛔</span>
+                      <div><p>Queda't amb esta idea, que és la de tot el tema: <strong>les ferramentes canvien cada any; els fonaments es queden</strong>. Qui aprén a programar no aprén un programa: aprén a pensar solucions.</p></div>
+                    </div>
+        </div>
+      </div>
+
+      <div class="plan-sessio revela" style="margin-top:var(--esp-5)">
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">30-40 min</span>
+            <span class="plan-sessio__nom">Explicació: què hi ha darrere de tot això</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">50-60 min</span>
+            <span class="plan-sessio__nom">Programació guiada: el teu mini projecte</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Exercicis i reptes</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">20-30 min</span>
+            <span class="plan-sessio__nom">Resum, ruta personal i autoavaluació</span>
+          </div>
+      </div>
+
+      <div class="prerequisits">
+        <strong>Abans de començar has de poder fer això:</strong>
+        <ul>
+          <li>Tot el curs: variables, decisions, bucles, arrays, mètodes i objectes (Temes 1 a 6).</li>
+          <li>Saber construir un programa per etapes i provar-lo (Tema 7).</li>
+          <li>Saber treballar amb un assistent d'IA sense deixar de comprovar (Tema 8).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ 02 · QUÈ APRENDREM ============================ -->
+    <section class="seccio" id="objectius" data-nav="02 · Què aprendrem?">
+      <h2>Què aprendrem en este tema?</h2>
+      <p class="entradeta">En acabar esta sessió has de saber fer estes coses:</p>
+      <ul class="llista-objectius revela">
+        <li><span class="num">1</span><span>Identificar les <strong>tres peces</strong> que hi ha darrere de qualsevol aplicació: la interfície, la lògica i les dades.</span></li>
+        <li><span class="num">2</span><span>Explicar què és una <strong>API</strong> amb les teues paraules i reconéixer-la com un mètode més.</span></li>
+        <li><span class="num">3</span><span>Descriure què es pot construir en les grans <strong>àrees</strong> de la programació i què cal aprendre en cada una.</span></li>
+        <li><span class="num">4</span><span>Defendre que els <strong>fonaments es transferixen</strong> entre llenguatges, àrees i ferramentes.</span></li>
+        <li><span class="num">5</span><span><strong>Triar</strong> què aprendre després amb criteri: un projecte primer, les ferramentes després.</span></li>
+        <li><span class="num">6</span><span>Acabar un <strong>mini projecte propi</strong> i presentar-lo en tres minuts explicant el codi.</span></li>
+      </ul>
+    </section>
+
+    <!-- =============================== 03 · TEORIA =============================== -->
+    <section class="seccio" id="teoria" data-nav="03 · Teoria">
+      <h2>Teoria, poc a poc</h2>
+      <p class="entradeta">No aprenem ferramentes noves: mirem què hi ha darrere de les coses que ja uses i cap a on pots anar.</p>
+<h3>1. Tota aplicació té les mateixes tres peces</h3>
+        <div class="graella">
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">📲</span> 1. La interfície</h3>
+                      <p>El que es veu i es toca: l'app del mòbil, la pàgina web, la pantalla del caixer. És la part que parla amb la persona.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">⚙️</span> 2. La lògica</h3>
+                      <p>El programa que decidix: calcular la mitjana, comprovar la contrasenya, sumar punts. Ací està tot el que has aprés.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">🗄️</span> 3. Les dades</h3>
+                      <p>On es guarda tot quan tanques l'app: la base de dades. Si no hi fora, cada dia començaries de zero.</p>
+                    </article>
+                  </div>
+        <p>Quan polses <strong>Enviar</strong> en un joc, passen sempre les mateixes quatre coses, independentment de qui haja fet l'app:</p>
+        <ol class="llista-punts">
+                    <li>La <strong>interfície</strong> recull el que has escrit i monta un missatge.</li>
+                    <li>El missatge viatja per <strong>internet</strong> fins a un ordinador que està sempre encés (el servidor).</li>
+                    <li>La <strong>lògica</strong> del servidor comprova i calcula, i guarda el resultat en les <strong>dades</strong>.</li>
+                    <li>Torna la <strong>resposta</strong>: «partida guardada», «usuari o contrasenya incorrectes», els nous punts…</li>
+                  </ol>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Els programes <strong>parlen entre ells</strong> amb peticions i respostes. Quasi tot el que es fa hui en programació és això: una part demana i una altra respon.</p></div>
+                  </div>
+        <h3>2. Una API és un mètode que parla per internet</h3>
+        <p>Una <strong>API</strong> és un conjunt de coses que un programa deixa fer a uns altres. En el fons és un mètode com els del Tema 5, però en compte de rebre valors d'un <code>main</code>, els rep per internet.</p>
+        <pre class="codi" data-titol="Dins del programa (Tema 5)" data-etiqueta="UN MÈTODE NORMAL"><code>public static int totalPunts(Jugador[] jugadors) {
+            int suma = 0;
+            for (int i = 0; i &lt; jugadors.length; i++) {
+                suma = suma + jugadors[i].punts;
+            }
+            return suma;
+        }</code></pre>
+        <pre class="codi" data-titol="API.txt" data-etiqueta="EL MATEIX, PER A ALTRA GENT"><code>El servici publica una adreça:      GET /torneig/total
+
+        Algú ho demana des del seu programa →   GET /torneig/total
+
+        El servidor respon amb el resultat →    {"total": 395}
+
+        Qui ho demana no sap com està fet dins: només sap què
+        ha de demanar i què rebrà. Això és una API.</code></pre>
+        <p>I el detall important: dins de l'API segueix havent un <strong>mètode amb un bucle i un <code>return</code></strong>, com el que has escrit tu. Les API no són màgia: són mètodes amb bona educació.</p>
+        <h3>3. Un llenguatge, moltes faenes: el mateix es repeteix</h3>
+        <p>Estos quatre trossos fan exactament el mateix —sumar una llista de números— en quatre llenguatges que es fan servir hui a empreses de debò:</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Llenguatge</th><th>Sumar una llista</th></tr></thead>
+                      <tbody>
+                        <tr><td>Java</td><td><code>for (int i = 0; i &lt; v.length; i++) suma += v[i];</code></td></tr>
+                        <tr><td>Python</td><td><code>for x in v:</code>  <code>suma += x</code></td></tr>
+                        <tr><td>JavaScript</td><td><code>for (const x of v) suma += x;</code></td></tr>
+                        <tr><td>Kotlin</td><td><code>for (x in v) suma += x</code></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <p>Canvia la manera d'escriure-ho, el nom de les coses i els accents… però <strong>les idees són les mateixes</strong>: recórrer una llista, guardar un resultat, decidir amb una condició. Si canvies de llenguatge d'ací a un any, no comences de zero: comences del capítol dos.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Quan veus codi d'un altre llenguatge, busca-li les peces: la variable, el <code>if</code>, el bucle, la funció. En cinc minuts ja saps llegir-lo encara que no en sapigues escriure.</p></div>
+                  </div>
+        <h3>4. Les grans àrees: què es pot construir</h3>
+        <p>Estes són les destinacions més habituals de qui sap programar. <strong>No cal aprendre-les totes</strong>: només saber que existixen i què permeten.</p>
+        <div class="graella graella--4">
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">🌐</span> Web i mòbil</h3>
+                      <p>Pàgines i apps. La lògica s'escriu al servidor (Java, entre altres) i la interfície al navegador o al mòbil.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">🔌</span> APIs i servicis</h3>
+                      <p>Els programes que fan la faena per a altres programes: pagaments, enviaments, xats, reserves.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">🎮</span> Videojocs</h3>
+                      <p>Física, estats, puntuacions, enemics. Molts motors i servicis de jocs parlen Java o llenguatges parents.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">📊</span> Dades i IA</h3>
+                      <p>Analitzar informació i entrenar models: qui compra què, què passa si… És la base dels recomanadors.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">🤖</span> Robòtica i IoT</h3>
+                      <p>Sensors i actuadors: que una casa regule la temperatura o que un robot esquive un obstacle.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">🔐</span> Ciberseguretat</h3>
+                      <p>Protegir dades i sistemes: contrasenyes, permisos, atacs, auditories.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">☁️</span> Núvol i automatització</h3>
+                      <p>Programes que es reparteixen per centenars d'ordinadors i fan faena sense ningú davant.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">🧠</span> Agents i assistents</h3>
+                      <p>Programes que usen IA per fer tasques llargues: buscar, resumir, organitzar, respondre.</p>
+                    </article>
+                  </div>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p>En totes les àrees el primer any es fa el mateix: variables, condicions, bucles, llistes, funcions i objectes. <strong>Canvia el vocabulari, no els fonaments.</strong></p></div>
+                  </div>
+        <h3>5. El mateix programa en un joc, en un robot i en un servici</h3>
+        <p>Fixa't com la mateixa idea —decidir amb una condició— apareix en llocs molt distints:</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>On</th><th>Què decidix</th><th>Què canvia</th><th>Què NO canvia</th></tr></thead>
+                      <tbody>
+                        <tr><td>Un joc</td><td>Si l'enemic ataca o fuig</td><td>Dibuix, temps real, gràfics</td><td>La condició i el bucle</td></tr>
+                        <tr><td>Un robot</td><td>Si gira o va endavant</td><td>Sensors, motors, cables</td><td>La condició i el bucle</td></tr>
+                        <tr><td>Un servici</td><td>Si el descompte s'aplica</td><td>Xarxa, servidors, molta gent alhora</td><td>La condició i el bucle</td></tr>
+                        <tr><td>Una app de salut</td><td>Si cal avisar un metge</td><td>Dades sensibles, avisos, legalitat</td><td>La condició i el bucle</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <div class="nota nota--exit">
+                    <span class="nota__icona" aria-hidden="true">✅</span>
+                    <div><p>Quan arribes a una ferramenta nova, la pregunta no és «què he d'estudiar de nou?», sinó «<strong>què hi ha ací que ja sé?</strong>». Quasi sempre, un 70 % del que cal ja el portes.</p></div>
+                  </div>
+        <h3>6. Les ferramentes canvien, els fonaments es queden</h3>
+        <p>Estos nou fonaments no caducaran: porten dècades funcionant i seguiran quan les modes passen. Si els domines, pots aprendre qualsevol llenguatge nou en setmanes.</p>
+        <ul class="llista-punts">
+                    <li>Guardar informació en <strong>variables</strong> amb el tipus correcte.</li>
+                    <li><strong>Decidir</strong> amb condicions, incloent-hi el cas contrari.</li>
+                    <li><strong>Repetir</strong> amb bucles sense quedar-se'n dins per sempre.</li>
+                    <li><strong>Recórrer llistes</strong> tenint en compte els límits i el cas buit.</li>
+                    <li><strong>Dividir el problema en parts</strong> i fer-ne funcions o mètodes amb bon nom.</li>
+                    <li><strong>Modelar</strong> coses del món real amb objectes.</li>
+                    <li><strong>Provar</strong> amb casos normals, límits i dolents.</li>
+                    <li><strong>Llegir</strong> codi i missatges d'error dels altres.</li>
+                    <li><strong>Treballar en equip</strong>: versions, canvis xicotets, explicar el que has fet.</li>
+                  </ul>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>Pots canviar Java per un altre llenguatge, un altre editor o una altra ferramenta en un cap de setmana. <strong>Canviar de fonaments no es fa en un cap de setmana: ni en un any.</strong></p></div>
+                  </div>
+        <h3>7. Com es continua aprenent (ruta)</h3>
+        <div class="graella">
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">1️⃣</span> Domina el que ja saps</h3>
+                      <p>Escriu del primer al darrer programa sense mirar. Si te'n surts, la base és sòlida.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">2️⃣</span> Un projecte xicotet i acabat</h3>
+                      <p>Una cosa que t'agrade, que caps en unes setmanes i que pugues ensenyar acabada.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">3️⃣</span> Llig codi dels altres</h3>
+                      <p>Projectes oberts a GitHub. Primer llig, després canvia una cosa menuda i mira què passa.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">4️⃣</span> Aprén versions (Git)</h3>
+                      <p>Guardar l'evolució del codi i treballar en equip deixarà de ser un problema.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">5️⃣</span> Documentació i errors</h3>
+                      <p>Llig la documentació oficial i els missatges d'error. Són la millor escola i no cobren.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">6️⃣</span> Compartix i pregunta</h3>
+                      <p>Comunitat, companys, professors. Explicar el que has fet t'ensenya més que copiar.</p>
+                    </article>
+                  </div>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>El millor senyal que vas bé no és «sé molt»: és «<strong>he acabat un projecte menut</strong>». Projectes acabats, encara que siguen simples, obrin portes.</p></div>
+                  </div>
+        <h3>8. Com triar què aprendre (i què ignorar)</h3>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Pregunta</th><th>Què et diu la resposta</th></tr></thead>
+                      <tbody>
+                        <tr><td>Què vull construir?</td><td>El projecte mana. La ferramenta ve després, no al revés</td></tr>
+                        <tr><td>Què fa servir la gent que fa això?</td><td>Mira ofertes de faena i projectes reals, no vídeos de modes</td></tr>
+                        <tr><td>Puc tindre alguna cosa funcionant esta setmana?</td><td>Si no, la tecnologia és massa gran per a començar</td></tr>
+                        <tr><td>Per a què serveix el que estic aprenent?</td><td>Si no ho pots explicar amb un exemple, encara no ha entrat</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p>Córrer darrere de la ferramenta de moda és la manera més ràpida de no aprendre mai res: cada tres mesos començaries de zero. <strong>El projecte és el que dona sentit a l'aprenentatge.</strong></p></div>
+                  </div>
+        <h3>9. Amb el codi també es decidix sobre persones</h3>
+        <p>Quan el codi decidix coses de la vida de la gent (una beca, un descompte, un avís mèdic, qui veu què), apareixen responsabilitats que no són tècniques. Estes preguntes hauries de fer-te-les sempre:</p>
+        <ul class="llista-punts">
+                    <li><strong>Quines dades use?</strong> Les mínimes possibles, i només les que necessite.</li>
+                    <li><strong>Qui el pot usar i qui no?</strong> Permisos clars i contrasenyes ben gestionades.</li>
+                    <li><strong>I si s'equivoca?</strong> Un error del programa no pot deixar algú fora del sistema sense solució.</li>
+                    <li><strong>Ho pot entendre qui el patix?</strong> Si el programa denega una beca, cal poder explicar per què.</li>
+                    <li><strong>Qui respon del resultat?</strong> Sempre hi ha una persona responsable: no «ho ha decidit el programa».</li>
+                  </ul>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>La programació no és només un treball: és la manera com es construïx el món on vius. Escriure codi amb cura és una forma de respecte cap als altres.</p></div>
+                  </div>
+    </section>
+
+    <!-- =========================== 04 · EXEMPLES EXPLICATS =========================== -->
+    <section class="seccio seccio--suau" id="exemples" data-nav="04 · Exemples">
+      <h2>Exemples explicats pas a pas</h2>
+      <p class="entradeta">Tres exemples que obrin portes: una API, un robot i un recomanador. Tots s'executen amb el que ja saps.</p>
+<h3>Exemple 1 · Del mètode a l'API</h3>
+        <p>Convertim els mètodes del torneig del Tema 7 en un <strong>servici</strong>: una classe que rep una consulta i respon amb text en format JSON, que és com parlen hui les aplicacions.</p>
+        <pre class="codi" data-titol="ServidorPunts.java" data-etiqueta="LA LÒGICA D'UNA API"><code>public class ServidorPunts {
+
+            public static int total(Jugador[] jugadors) {
+                int suma = 0;
+                for (int i = 0; i &lt; jugadors.length; i++) {
+                    suma = suma + jugadors[i].punts;
+                }
+                return suma;
+            }
+
+            public static Jugador primer(Jugador[] jugadors) {
+                Jugador millor = jugadors[0];
+                for (int i = 1; i &lt; jugadors.length; i++) {
+                    if (jugadors[i].punts &gt; millor.punts) {
+                        millor = jugadors[i];
+                    }
+                }
+                return millor;
+            }
+
+            // El cor del servici: rep una consulta i respon un text
+            public static String respon(String consulta, Jugador[] jugadors) {
+                if (consulta.equals("total")) {
+                    return "{\"total\": " + total(jugadors) + "}";
+                }
+                if (consulta.equals("primer")) {
+                    return "{\"primer\": \"" + primer(jugadors).nom + "\", "
+                         + "\"punts\": " + primer(jugadors).punts + "}";
+                }
+                return "{\"error\": \"consulta desconeguda\"}";
+            }
+
+            public static void main(String[] args) {
+                Jugador[] jugadors = {
+                    new Jugador("Ana", 120),
+                    new Jugador("Bruno", 95),
+                    new Jugador("Carla", 180)
+                };
+
+                System.out.println(respon("total", jugadors));
+                System.out.println(respon("primer", jugadors));
+                System.out.println(respon("hola", jugadors));
+            }
+        }
+
+        class Jugador {
+            String nom;
+            int punts;
+
+            Jugador(String nom, int punts) {
+                this.nom = nom;
+                this.punts = punts;
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>{&quot;total&quot;: 395}
+        {&quot;primer&quot;: &quot;Carla&quot;, &quot;punts&quot;: 180}
+        {&quot;error&quot;: &quot;consulta desconeguda&quot;}</pre>
+                  </div>
+        <p>Fixa't en què ha canviat i què no: <strong>no hi ha cap idea nova</strong>. Hi ha un <code>if</code>, un bucle, un <code>return</code> i un <code>equals</code>. El que fa «d'API» és que el resultat és un <strong>text preparat perquè el llija un altre programa</strong> en compte d'una frase per a una persona.</p>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Els textos com <code>{&quot;total&quot;: 395}</code> es diuen <strong>JSON</strong> i són el format més habitual perquè dos programes es passen dades. De moment no cal que el generes bé del tot: només cal entendre que és text amb estructura, com el que has montat amb concatenació.</p></div>
+                  </div>
+        <h3>Exemple 2 · El robot que decidix</h3>
+        <p>Un robot és un programa amb sensors d'entrada i motors d'eixida. La lògica del mig és la que ja saps: condicions i bucles.</p>
+        <pre class="codi" data-titol="Robot.java" data-etiqueta="LA LÒGICA D'UN ROBOT"><code>public class Robot {
+
+            public static String decidir(int distancia, boolean obstacle) {
+                if (obstacle) {
+                    return "Gira";
+                }
+                if (distancia &lt; 20) {
+                    return "Endavant";
+                }
+                return "Atura";
+            }
+
+            public static void main(String[] args) {
+                // Simulem el que llegirien els sensors en cada moment
+                int[] distancies = {45, 30, 15, 15, 15};
+                boolean[] obstacles = {false, false, false, true, false};
+
+                int girs = 0;
+                for (int i = 0; i &lt; distancies.length; i++) {
+                    String orde = decidir(distancies[i], obstacles[i]);
+                    if (orde.equals("Gira")) {
+                        girs++;
+                    }
+                    System.out.println("Pàs " + (i + 1) + ": " + orde);
+                }
+                System.out.println("Girs fets: " + girs);
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Pàs 1: Atura
+        Pàs 2: Atura
+        Pàs 3: Endavant
+        Pàs 4: Gira
+        Pàs 5: Endavant
+        Girs fets: 1</pre>
+                  </div>
+        <p>En un robot de debò, <code>distancies</code> i <code>obstacles</code> no serien arrays escrits a mà: vindrien dels sensors. Però <strong>el mètode <code>decidir</code> seria exactament igual</strong>. Eixa és la part que has aprés i que no canvia.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Si t'interessa la robòtica o l'IoT, comença per ací: programa amb valors inventats, comprova que les decisions són correctes i, només després, connecta els sensors de veritat.</p></div>
+                  </div>
+        <h3>Exemple 3 · El primer recomanador (la llavor de la IA)</h3>
+        <p>Els recomanadors que et coneixen tan bé comencen amb una idea molt simple: <strong>comptar quant coincidixen dos usuaris</strong>. Ací tens el cor d'un recomanador, amb el que ja saps.</p>
+        <pre class="codi" data-titol="Recomanador.java" data-etiqueta="LA IDEA, EN 20 LÍNIES"><code>public class Recomanador {
+
+            // Tots els gustos ordenats: [acció, esports, música, cuina, viatges]
+            public static int coincidencies(boolean[] a, boolean[] b) {
+                int quants = 0;
+                for (int i = 0; i &lt; a.length &amp;&amp; i &lt; b.length; i++) {
+                    if (a[i] &amp;&amp; b[i]) {
+                        quants++;
+                    }
+                }
+                return quants;
+            }
+
+            public static String recomanar(boolean[] meus, boolean[] seus, String[] noms) {
+                String resultat = "";
+                for (int i = 0; i &lt; meus.length &amp;&amp; i &lt; seus.length; i++) {
+                    if (seus[i] &amp;&amp; !meus[i]) {
+                        resultat = resultat + noms[i] + " ";
+                    }
+                }
+                if (resultat.equals("")) {
+                    return "Res nou per a tu.";
+                }
+                return "Et podria agradar: " + resultat;
+            }
+
+            public static void main(String[] args) {
+                String[] gustos = {"acció", "esports", "música", "cuina", "viatges"};
+
+                boolean[] jo    = {true,  false, true,  false, false};
+                boolean[] amic  = {true,  true,  true,  false, true};
+
+                System.out.println("Coincidències amb l'amic: " + coincidencies(jo, amic));
+                System.out.println(recomanar(jo, amic, gustos));
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Coincidències amb l'amic: 2
+        Et podria agradar: esports viatges </pre>
+                  </div>
+        <p>Amb dos usuaris és una curiositat; amb <strong>milions</strong> d'usuaris i gustos, i amb matemàtiques més fines, és el motor de les plataformes de sèries, música i compres. I en la base hi ha això: un bucle, una condició i un array.</p>
+        <div class="nota nota--exit">
+                    <span class="nota__icona" aria-hidden="true">✅</span>
+                    <div><p>Quan t'expliquen que la IA és un món impossible d'entrar, recorda este exemple: <strong>tot el gran comença en un bucle ben fet</strong>.</p></div>
+                  </div>
+    </section>
+
+    <!-- =========================== 05 · PROGRAMACIÓ GUIADA =========================== -->
+    <section class="seccio" id="guiada" data-nav="05 · Programació guiada">
+      <h2>Programació guiada: el teu mini projecte, pas a pas</h2>
+      <p class="entradeta">Construirem entre tots un projecte menut i acabat, amb el mètode del Tema 7. Després el personalitzaràs: <strong>una idea teua, el mateix esquema</strong>.</p>
+      <div class="pas revela">
+        <span class="pas__num">1</span>
+        <div class="pas__cos">
+          <h3>Pas 1 · Triar la idea (i saber dir &quot;no&quot; a les grans)</h3>
+<p>Perquè un projecte s'acabe, ha de complir tres regles. Si en falla una, quasi sempre es queda a mitges:</p>
+          <div class="graella">
+                      <article class="targeta">
+                        <h3><span aria-hidden="true">❤️</span> T'ha d'agradar</h3>
+                        <p>Si t'avorrix, no l'acabaràs. Ha de ser un tema que t'interesse de debò.</p>
+                      </article>
+                      <article class="targeta">
+                        <h3><span aria-hidden="true">📦</span> Ha de cabre</h3>
+                        <p>Una sola idea: no «una app del centre». Una llista, un rànquing, un control de gastos.</p>
+                      </article>
+                      <article class="targeta">
+                        <h3><span aria-hidden="true">🔢</span> Ha de tindre dades</h3>
+                        <p>Si no hi ha res a guardar ni res a calcular, no hi ha programa.</p>
+                      </article>
+                    </div>
+          <p>Per a la classe farem <strong>el rànquing dels meus jocs</strong>: guarda els jocs que tens, les hores jugades i diu el total, el que més has jugat i la mitjana. Tu, després, el convertiràs en la teua llista.</p>
+          <div class="pregunta-classe"><p>Què faríeu perquè este projecte siga «una app del centre» i no s'acabe mai? Com el dividiríeu en projectes xicotets?</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">2</span>
+        <div class="pas__cos">
+          <h3>Pas 2 · El pla: parts i dades</h3>
+<p>Primer en paper, com al Tema 7. La llista de parts és el mapa.</p>
+          <pre class="codi" data-titol="PlaRànquing.txt" data-etiqueta="EL PLA"><code>1. Guardar els jocs (nom + hores)      →  classe Joc + array
+          2. Mostrar tots els jocs               →  mostrarTots()
+          3. Sumar les hores de tots             →  totalHores()
+          4. Dir quin és el que més he jugat     →  mesJugat()
+          5. Menú amb opcions i eixida           →  main()</code></pre>
+          <pre class="codi" data-titol="Joc.java" data-etiqueta="LES DADES"><code>public class Joc {
+              String nom;
+              int hores;
+
+              Joc(String nom, int hores) {
+                  this.nom = nom;
+                  this.hores = hores;
+              }
+          }</code></pre>
+          <div class="nota nota--tip">
+                      <span class="nota__icona" aria-hidden="true">💡</span>
+                      <div><p>Fixat que decidim <strong>dos tipus de dades</strong>: una classe per a «un joc» i un array per a «molts jocs». Igual que al Tema 6: la classe és el motlle, l'array és la capsa.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">3</span>
+        <div class="pas__cos">
+          <h3>Pas 3 · L'esquelet que compila</h3>
+<p>Escrivim el <code>main</code> amb el menú i les capçaleres dels mètodes amb un retorn provisional. Ha de compilar i executar-se.</p>
+          <pre class="codi" data-titol="Rànquing.java" data-etiqueta="PAS 3 · ESQUELET"><code>public class Ranquing {
+
+              public static void mostrarTots(Joc[] jocs) {
+                  System.out.println("(pendent)");
+              }
+
+              public static int totalHores(Joc[] jocs) {
+                  return 0;
+              }
+
+              public static Joc mesJugat(Joc[] jocs) {
+                  return jocs[0];
+              }
+
+              public static void main(String[] args) {
+                  Joc[] jocs = {
+                      new Joc("Minecraft", 120),
+                      new Joc("FIFA", 45),
+                      new Joc("Fortnite", 80)
+                  };
+
+                  System.out.println("1. Mostrar  2. Total  3. El mes jugat  4. Eixir");
+                  mostrarTots(jocs);
+                  System.out.println("Total: " + totalHores(jocs));
+                  System.out.println("Mes jugat: " + mesJugat(jocs).nom);
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>1. Mostrar  2. Total  3. El mes jugat  4. Eixir
+          (pendent)
+          Total: 0
+          Mes jugat: Minecraft</pre>
+                    </div>
+          <div class="nota nota--info">
+                      <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                      <div><p>Encara no fa res de profit i ja ens diu que l'estructura està bé: l'array d'objectes funciona i els mètodes es criden. <strong>Este és el moment de més tranquil·litat del projecte.</strong></p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">4</span>
+        <div class="pas__cos">
+          <h3>Pas 4 · Omplim les parts, una a una</h3>
+<p>Ara sí: una part, una execució. Comencem pels dos càlculs, que són els que tenen més perill.</p>
+          <pre class="codi" data-titol="Rànquing.java" data-etiqueta="PAS 4 · LES PARTS I LA SEUA EIXIDA"><code>    public static void mostrarTots(Joc[] jocs) {
+                  for (int i = 0; i &lt; jocs.length; i++) {
+                      System.out.println((i + 1) + ". " + jocs[i].nom + " — " + jocs[i].hores + " h");
+                  }
+              }
+
+              public static int totalHores(Joc[] jocs) {
+                  int suma = 0;
+                  for (int i = 0; i &lt; jocs.length; i++) {
+                      suma = suma + jocs[i].hores;
+                  }
+                  return suma;
+              }
+
+              public static Joc mesJugat(Joc[] jocs) {
+                  Joc millor = jocs[0];
+                  for (int i = 1; i &lt; jocs.length; i++) {
+                      if (jocs[i].hores &gt; millor.hores) {
+                          millor = jocs[i];
+                      }
+                  }
+                  return millor;
+              }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>1. Mostrar  2. Total  3. El mes jugat  4. Eixir
+          1. Minecraft — 120 h
+          2. FIFA — 45 h
+          3. Fortnite — 80 h
+          Total: 245
+          Mes jugat: Minecraft</pre>
+                    </div>
+          <p>Fixa't en un detall professional: <code>mesJugat</code> <strong>no imprimeix</strong>, torna l'objecte. Qui el crida decidix què fer-ne. Eixa decisió del Tema 7 és el que permetrà afegir opcions noves sense tocar res.</p>
+          <div class="pregunta-classe"><p>Què passaria si l'array estiguera buit? Quin dels mètodes fallaria primer i per què?</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">5</span>
+        <div class="pas__cos">
+          <h3>Pas 5 · Afegir una opció sense rompre res</h3>
+<p>La prova de foc de l'esquelet: afegim la mitjana d'hores <strong>sense tocar cap mètode dels que ja funcionen</strong>.</p>
+          <pre class="codi" data-titol="Rànquing.java" data-etiqueta="PAS 5 · UNA PART NOVA"><code>    public static double mitjana(Joc[] jocs) {
+                  if (jocs.length == 0) {
+                      return 0;
+                  }
+                  return totalHores(jocs) / (double) jocs.length;
+              }
+
+              // …i al main, una línia més (dins del main que ja teníem):
+              //     System.out.println("Mitjana: " + mitjana(jocs) + " h per joc");</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>1. Mostrar  2. Total  3. El mes jugat  4. Eixir
+          1. Minecraft — 120 h
+          2. FIFA — 45 h
+          3. Fortnite — 80 h
+          Total: 245
+          Mes jugat: Minecraft
+          Mitjana: 81.66666666666667 h per joc</pre>
+                    </div>
+          <p>Este és el senyal que el projecte està ben organitzat: <strong>una part nova és una part nova</strong>, no una reescriptura. Si per a afegir la mitjana hagueres de canviar <code>totalHores</code> i <code>mostrarTots</code>, l'esquelet estava mal pensat.</p>
+          <div class="nota nota--tip">
+                      <span class="nota__icona" aria-hidden="true">💡</span>
+                      <div><p>En un projecte de debò, la mitjana es mostraria arredonida a dos decimals. Ho pots deixar així de moment: <strong>primer funciona, després es puleix</strong>.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">6</span>
+        <div class="pas__cos">
+          <h3>Pas 6 · Els límits i les proves</h3>
+<p>Els tres casos de sempre, ara sobre el projecte sencer. Pensa tu què hauria de passar abans d'executar-ho:</p>
+          <pre class="codi" data-titol="Rànquing.java" data-etiqueta="PAS 6 · PROVES"><code>        Joc[] buit = {};                                        // cap joc
+                  Joc[] un = { new Joc("Un sol", 10) };                   // un joc
+                  Joc[] empat = { new Joc("A", 10), new Joc("B", 10) };   // empat
+
+                  mostrarTots(buit);
+                  System.out.println("Total buit: " + totalHores(buit));
+                  System.out.println("Mitjana buida: " + mitjana(buit));
+                  System.out.println("Mes jugat amb un: " + mesJugat(un).nom);
+                  System.out.println("Mes jugat amb empat: " + mesJugat(empat).nom);</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Total buit: 0
+          Mitjana buida: 0.0
+          Mes jugat amb un: Un sol
+          Mes jugat amb empat: A</pre>
+                    </div>
+          <p>El cas de l'empat ens fa una pregunta de programador: si dos jocs tenen les mateixes hores, <strong>quin ha de ser «el més jugat»?</strong> El primer que apareix, el darrer, o tots dos? Eixa decisió no la pren Java: la prens tu, i convé anotar-la.</p>
+          <div class="nota nota--important">
+                      <span class="nota__icona" aria-hidden="true">⛔</span>
+                      <div><p>Tractar els casos estranys és el que separa un treball de classe d'una ferramenta que algú podria usar. Si el teu programa no esclata amb una llista buida, ja et pots plantejar ensenyar-lo.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">7</span>
+        <div class="pas__cos">
+          <h3>Pas 7 · Presentar-lo en tres minuts</h3>
+<p>Un projecte que no s'explica no existix. El guió de la presentació és sempre el mateix i és molt curt:</p>
+          <ul class="llista-punts">
+                      <li><strong>Què fa</strong> el programa, en una frase (per a qui no l'ha vist mai).</li>
+                      <li><strong>Quines parts</strong> té i quines dades guarda (la llista i l'esquema).</li>
+                      <li><strong>Una part de codi</strong> que vulgues mostrar, explicant-la línia a línia.</li>
+                      <li><strong>Una decisió</strong> que vas prendre tu (què passa amb l'empat, què passa amb la llista buida).</li>
+                      <li><strong>Una cosa que t'ha costat</strong> i com la vas resoldre.</li>
+                      <li><strong>Una cosa que faries amb una setmana més.</strong></li>
+                    </ul>
+          <div class="pregunta-classe"><p>Si t'han fet el programa amb una IA i no saps explicar una línia, què és millor: amagar-ho o eixir a la pissarra i arreglar-ho davant de tots?</p></div>
+          <div class="nota nota--exit">
+                      <span class="nota__icona" aria-hidden="true">✅</span>
+                      <div><p>Saber explicar el teu codi és <strong>la competència més valorada</strong> de totes: en un treball, en un examen i en una entrevista. Un programa menut que saps defensar val més que un projecte gran que no entens.</p></div>
+                    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 06 · MINI EXERCICIS ============================= -->
+    <section class="seccio seccio--suau" id="mini-exercicis" data-nav="06 · Mini exercicis">
+      <h2>Mini exercicis</h2>
+      <p class="entradeta">Activitats curtes per a pensar on va tot el que has aprés. Dos o tres minuts cada una.</p>
+      <div class="llista-mini">
+        <article class="exercici exercici--mini" id="mini9-1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">Les tres capes</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat"><strong>Sense codi:</strong> classifica cada element en una de les tres capes (interfície, lògica o dades) i digues per què: (a) el botó blau de «Enviar» d'una app; (b) el mètode que comprova si la contrasenya és correcta; (c) la taula on es guarden els usuaris; (d) el missatge «Missatge enviat» que apareix a la pantalla; (e) el bucle que suma els punts d'una partida.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini9-1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini9-1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini9-1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini9-1" hidden><p><strong>Pista:</strong> Pregunta't: això es veu? es calcula? es guarda per a demà?</p></div>
+          <div class="solucio" id="sol-mini9-1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Capes.txt" data-etiqueta="SOLUCIÓ"><code>a) Interfície  → es veu i es toca.
+b) Lògica      → és el programa que decidix.
+c) Dades       → on es guarda tot, encara que tanques l'app.
+d) Interfície  → és una resposta que es mostra a la persona.
+e) Lògica      → és el càlcul (un bucle amb un return).
+
+Detall: la lògica i les dades viuen quasi sempre al servidor,
+i la interfície al dispositiu de qui usa l'app.</code></pre>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Quasi tota aplicació es pot descompondre així. Quan entens les capes, entens què estàs menjant en cada moment del projecte.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini9-2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">El mateix bucle, quatre llenguatges</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat"><strong>Sense executar res:</strong> digues què fa este trossos de codi i què tenen en comú.</div>
+          <pre class="codi" data-titol="Quatre.txt" data-etiqueta="CODI"><code>Java:        for (int i = 0; i &lt; v.length; i++) suma = suma + v[i];
+Python:      for x in v: suma = suma + x
+JavaScript:  for (const x of v) suma = suma + x;
+Kotlin:      for (x in v) suma = suma + x</code></pre>
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>undefined</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Tots quatre sumen els elements de la llista v</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini9-2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini9-2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini9-2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini9-2" hidden><p><strong>Pista:</strong> No mires la sintaxi: mira què passa amb la variable suma.</p></div>
+          <div class="solucio" id="sol-mini9-2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Quatre.txt" data-etiqueta="SOLUCIÓ"><code>Els quatre fan exactament el mateix: recórrer la llista v
+i acumular la suma de tots els seus elements en la variable suma.
+
+Què canvia: la manera d'escriure el bucle. Java i JavaScript
+porten les claus i el parèntesi; Python i Kotlin escriuen
+"per a cada x dins de v" d'una manera més curta.
+
+Què NO canvia: la idea de recórrer una col·lecció i acumular.
+El mateix passa amb if, amb les funcions i amb els objectes.</code></pre>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Si entens la idea, el llenguatge és només la manera d'escriure-la. Per això qui sap programar aprén un llenguatge nou molt més de pressa que qui només ha memoritzat sintaxi.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini9-3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">Quina àrea i què caldria aprendre</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Per a cada idea, digues en quina <strong>àrea</strong> cau i una cosa nova que hauries d'aprendre per a fer-la de debò: (a) que el meu coet de cartó esquive parets; (b) una pàgina on la meua classe reserve les pistes de bàsquet; (c) que em diga quines sèries m'agradaran segons les que he vist; (d) un concurs de contrasenyes per a vore qui la té més forta.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini9-3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini9-3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini9-3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini9-3" hidden><p><strong>Pista:</strong> Pensa on passa el programa: en un mòbil, en un servidor, en un robot o damunt de moltes dades.</p></div>
+          <div class="solucio" id="sol-mini9-3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Areas.txt" data-etiqueta="SOLUCIÓ"><code>a) Robòtica i IoT     → sensors i motors (connectar el món físic).
+b) Web i mòbil        → formularis, servidors i una base de dades.
+c) Dades i IA         → comparar gustos i aprendre matemàtiques de recomanació.
+d) Ciberseguretat     → com es trenquen les contrasenyes i què les fa fortes.
+
+En les quatre: variables, condicions, bucles, llistes, mètodes
+i objectes. La resta s'aprenen damunt d'eixa base.</code></pre>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Les àrees no demanen fonaments distints: demanen ferramentes i coneixements afegits damunt de la mateixa base.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini9-4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">Una API en una línia</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Escriu un mètode <code>String resumHores(Joc[] jocs)</code> que torne un text en format JSON amb el total d'hores, com el de l'exemple: <code>{&quot;total&quot;: 245}</code>. Després digues què caldria canviar perquè eixe text aplegara a un mòbil que el demanara per internet.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini9-4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini9-4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini9-4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini9-4" hidden><p><strong>Pista:</strong> Comença pel mètode (que ja saps fer) i després pensa en el «viatge» del text.</p></div>
+          <div class="solucio" id="sol-mini9-4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Resum.java" data-etiqueta="SOLUCIÓ"><code>public static String resumHores(Joc[] jocs) {
+    int total = 0;
+    for (int i = 0; i &lt; jocs.length; i++) {
+        total = total + jocs[i].hores;
+    }
+    return "{\"total\": " + total + "}";
+}
+
+// Perquè arribe a un mòbil caldria:
+//   1. un servici encés que escolte peticions d'internet,
+//   2. una adreça publicada (per exemple GET /jocs/total),
+//   3. cridar este mètode quan arribe la petició,
+//   4. enviar el text de tornada com a resposta,
+//   5. que el mòbil llija el JSON i el mostre.
+// El mètode de dins és el mateix que has escrit tu.</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>{&quot;total&quot;: 245}</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Una API és un mètode amb una adreça i una resposta en text. La lògica no canvia: canvia el transport.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini9-5">
+          <div class="exercici__cap">
+            <span class="exercici__num">5</span>
+            <h3 class="exercici__titol">Predicció amb sensors</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Pensa primer el resultat i després comprova'l: què mostrarà este programa? Quants girs farà?</div>
+          <pre class="codi" data-titol="Sensors.java" data-etiqueta="CODI"><code>public class Sensors {
+    public static String decidir(int distancia, boolean obstacle) {
+        if (obstacle) return "Gira";
+        if (distancia &lt; 20) return "Endavant";
+        return "Atura";
+    }
+
+    public static void main(String[] args) {
+        int[] distancies = {10, 10, 40, 5};
+        boolean[] obstacles = {false, true, false, true};
+
+        int girs = 0;
+        for (int i = 0; i &lt; distancies.length; i++) {
+            String orde = decidir(distancies[i], obstacles[i]);
+            if (orde.equals("Gira")) girs++;
+            System.out.println(orde);
+        }
+        System.out.println("Girs: " + girs);
+    }
+}</code></pre>
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>undefined</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Endavant
+Gira
+Atura
+Gira
+Girs: 2</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini9-5">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini9-5">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini9-5"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini9-5" hidden><p><strong>Pista:</strong> Vés cas per cas i apunta el resultat; no t'avances a la segona condició si la primera ja s'ha complit.</p></div>
+          <div class="solucio" id="sol-mini9-5" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Sensors.txt" data-etiqueta="SOLUCIÓ"><code>Endavant     (distància 10, sense obstacle)
+Gira         (obstacle, sense importar la distància)
+Atura        (40 no és &lt; 20 i no hi ha obstacle)
+Gira         (obstacle)
+Girs: 2</code></pre>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> L'orde de les condicions importa: la primera comprova l'obstacle i mana sobre la distància. Si canviàrem l'orde, el robot intentaria avançar amb una paret davant.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini9-6">
+          <div class="exercici__cap">
+            <span class="exercici__num">6</span>
+            <h3 class="exercici__titol">La teua ruta</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">5 min</span>
+          </div>
+          <div class="exercici__enunciat"><strong>Sense codi:</strong> escriu el teu pla personal per als pròxims sis mesos amb tres punts: (1) un projecte xicotet que vullgues acabar de veritat; (2) una cosa nova que vullques aprendre i per a què et servirà; (3) com comprovaràs d'ací a un mes que vas endavant. Escriu-lo en primera persona i sense genèrics («aprendre programació» no val).</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini9-6">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini9-6">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini9-6"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini9-6" hidden><p><strong>Pista:</strong> Un bon objectiu es pot ensenyar: si no pots dir «el dia 15 vull tindre això funcionant», no és un objectiu.</p></div>
+          <div class="solucio" id="sol-mini9-6" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="LaMeuaRuta.txt" data-etiqueta="SOLUCIÓ"><code>EXEMPLE (el teu ha de ser el teu)
+
+1. PROJECTE: un programa que guarde els meus entrenaments
+   d'atletisme i em diga la mitjana de temps per setmana.
+   → El vull acabat i el vull poder ensenyar.
+
+2. APRENDRE: llegir i escriure en un fitxer de text perquè
+   no perdre les dades quan tanque el programa.
+   → Servix perquè el meu projecte actual oblida tot al tancar.
+
+3. COMPROVACIÓ: dins d'un mes vull tindre la primera part
+   (llegir, guardar, mostrar) funcionant sobre 5 entrenaments
+   inventats i explicada a un company en 3 minuts.</code></pre>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Un objectiu útil és concret, comprovable i teu. Els plans genèrics («aprendre a programar») no es poden complir ni deixar de complir: per això no motiven.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 07 · FES EL PROGRAMA ========================= -->
+    <section class="seccio" id="fes-el-programa" data-nav="07 · Fes el programa">
+      <h2>Fes el programa</h2>
+      <p class="entradeta">Quatre portes distintes, els mateixos fonaments. Fes-les en l'orde i escriu tu la solució abans de mirar-la: en totes es prova amb casos normals, límits i dolents.</p>
+      <article class="exercici" id="ex9-1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">El servici del rànquing (API)</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Construeix una classe <code>ServeiRanquing</code> que tinga: <code>totalHores(Joc[])</code>, <code>mesJugat(Joc[])</code> i un mètode <code>respon(String consulta, Joc[] jocs)</code> que torne un text en JSON per a les consultes <code>&quot;total&quot;</code> i <code>&quot;mes jugat&quot;</code>, i un JSON d'error per a qualsevol altra. Al <code>main</code>, prova les tres consultes i imprimeix-les.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>respon(&quot;total&quot;, jocs)
+respon(&quot;mes jugat&quot;, jocs)
+respon(&quot;hola&quot;, jocs)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>{&quot;total&quot;: 245}
+{&quot;mes jugat&quot;: &quot;Minecraft&quot;, &quot;hores&quot;: 120}
+{&quot;error&quot;: &quot;consulta desconeguda&quot;}</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex9-1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex9-1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex9-1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex9-1" hidden><p><strong>Pista:</strong> Fes primer <code>respon(&quot;total&quot;)</code>, després afegix la segona consulta i, al final, el cas de la consulta desconeguda.</p></div>
+          <div class="solucio" id="sol-ex9-1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="ServeiRanquing.java" data-etiqueta="SOLUCIÓ"><code>public class ServeiRanquing {
+
+    public static int totalHores(Joc[] jocs) {
+        int suma = 0;
+        for (int i = 0; i &lt; jocs.length; i++) {
+            suma = suma + jocs[i].hores;
+        }
+        return suma;
+    }
+
+    public static Joc mesJugat(Joc[] jocs) {
+        Joc millor = jocs[0];
+        for (int i = 1; i &lt; jocs.length; i++) {
+            if (jocs[i].hores &gt; millor.hores) {
+                millor = jocs[i];
+            }
+        }
+        return millor;
+    }
+
+    public static String respon(String consulta, Joc[] jocs) {
+        if (jocs.length == 0) {
+            return "{\"error\": \"no hi ha dades\"}";
+        }
+        if (consulta.equals("total")) {
+            return "{\"total\": " + totalHores(jocs) + "}";
+        }
+        if (consulta.equals("mes jugat")) {
+            Joc millor = mesJugat(jocs);
+            return "{\"mes jugat\": \"" + millor.nom + "\", \"hores\": "
+                 + millor.hores + "}";
+        }
+        return "{\"error\": \"consulta desconeguda\"}";
+    }
+
+    public static void main(String[] args) {
+        Joc[] jocs = {
+            new Joc("Minecraft", 120),
+            new Joc("FIFA", 45),
+            new Joc("Fortnite", 80)
+        };
+
+        System.out.println(respon("total", jocs));
+        System.out.println(respon("mes jugat", jocs));
+        System.out.println(respon("hola", jocs));
+    }
+}
+
+class Joc {
+    String nom;
+    int hores;
+
+    Joc(String nom, int hores) {
+        this.nom = nom;
+        this.hores = hores;
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>{&quot;total&quot;: 245}
+{&quot;mes jugat&quot;: &quot;Minecraft&quot;, &quot;hores&quot;: 120}
+{&quot;error&quot;: &quot;consulta desconeguda&quot;}</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El mètode <code>respon</code> és el cor: decidix què s'ha de fer segons el que li demanen i sempre torna un text, encara que la consulta estiga mal escrita. Això és típic dels servicis: <strong>mai no poden quedar-se callats ni esclatar</strong>.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex9-2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">El robot que no s'ix del camí (robòtica)</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">25 min</span>
+          </div>
+          <div class="exercici__enunciat">Un robot de línia rep en cada pas un valor de sensor (<code>0</code> = línia negra, <code>1</code> = blanc) i un nivell de bateria. Escriu un mètode <code>ordre(int sensor, int bateria)</code> que torne: <code>&quot;Càrrega&quot;</code> si la bateria és 15 o menys; <code>&quot;Dreta&quot;</code> si el sensor val 0; <code>&quot;Esquerra&quot;</code> si val 1; i <code>&quot;Atura&quot;</code> si el sensor és un valor estrany. Al <code>main</code>, passa-li una llista de 6 lectures i compta quantes voltes ha girat cap a cada costat.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>sensors  = {0, 1, 0, 0, 1, 0}
+bateries = {80, 80, 80, 70, 70, 10}</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Dreta
+Esquerra
+Dreta
+Dreta
+Esquerra
+Càrrega
+Girs: dreta 3, esquerra 1</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex9-2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex9-2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex9-2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex9-2" hidden><p><strong>Pista:</strong> Prova també amb un sensor que valga 7: què ha de fer el robot davant d'una lectura impossible?</p></div>
+          <div class="solucio" id="sol-ex9-2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="RobotLínia.java" data-etiqueta="SOLUCIÓ"><code>public class RobotLinia {
+
+    public static String ordre(int sensor, int bateria) {
+        if (bateria &lt;= 15) {
+            return "Càrrega";
+        }
+        if (sensor == 0) {
+            return "Dreta";
+        }
+        if (sensor == 1) {
+            return "Esquerra";
+        }
+        return "Atura";
+    }
+
+    public static void main(String[] args) {
+        int[] sensors = {0, 1, 0, 0, 1, 0};
+        int[] bateries = {80, 80, 80, 70, 70, 10};
+
+        int drets = 0;
+        int esquerres = 0;
+
+        for (int i = 0; i &lt; sensors.length; i++) {
+            String orde = ordre(sensors[i], bateries[i]);
+            System.out.println(orde);
+            if (orde.equals("Dreta")) {
+                drets++;
+            }
+            if (orde.equals("Esquerra")) {
+                esquerres++;
+            }
+        }
+        System.out.println("Girs: dreta " + drets + ", esquerra " + esquerres);
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Càrrega
+Dreta
+Esquerra
+Dreta
+Dreta
+Càrrega
+Girs: dreta 3, esquerra 1</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> L'orde de les comprovacions és part de la solució: primer la seguretat (bateria) i després la conducció. Si el robot derrapa amb la bateria baixa, l'avís ja no servix de res.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex9-3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">El comprovador de contrasenyes (ciberseguretat)</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">25 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes un programa que avalue una contrasenya i li done una força: <strong>dèbil</strong> (menys de 8 caràcters), <strong>normal</strong> (8 o més), <strong>forta</strong> (8 o més amb un número) i <strong>molt forta</strong> (12 o més amb número i majúscula). A més, que compte quants intents fallits porta l'usuari i avise quan arribe a 3. Prova'l amb 4 contrasenyes distintes.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>&quot;hola&quot;
+&quot;contrasenya&quot;
+&quot;contrasenya1&quot;
+&quot;Contrasenya123&quot;</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>dèbil
+normal
+forta
+molt forta
+Intents: 4 → compte amb els intents</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex9-3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex9-3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex9-3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex9-3" hidden><p><strong>Pista:</strong> Comprova els caràcters comparant-los amb <code>&gt;= '0' &amp;&amp; &lt;= '9'</code>: no cal cap ferramenta nova.</p></div>
+          <div class="solucio" id="sol-ex9-3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Contrasenyes.java" data-etiqueta="SOLUCIÓ"><code>public class Contrasenyes {
+
+    public static boolean teNumero(String text) {
+        for (int i = 0; i &lt; text.length(); i++) {
+            if (text.charAt(i) &gt;= '0' &amp;&amp; text.charAt(i) &lt;= '9') {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean teMajuscula(String text) {
+        for (int i = 0; i &lt; text.length(); i++) {
+            if (text.charAt(i) &gt;= 'A' &amp;&amp; text.charAt(i) &lt;= 'Z') {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static String forca(String text) {
+        if (text.length() &lt; 8) {
+            return "dèbil";
+        }
+        if (text.length() &gt;= 12 &amp;&amp; teNumero(text) &amp;&amp; teMajuscula(text)) {
+            return "molt forta";
+        }
+        if (teNumero(text)) {
+            return "forta";
+        }
+        return "normal";
+    }
+
+    public static void main(String[] args) {
+        String[] proves = {"hola", "contrasenya", "contrasenya1", "Contrasenya123"};
+
+        for (int i = 0; i &lt; proves.length; i++) {
+            System.out.println(forca(proves[i]));
+        }
+
+        int intents = proves.length;
+        System.out.println("Intents: " + intents);
+        if (intents &gt;= 3) {
+            System.out.println("Compte amb els intents");
+        }
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>dèbil
+normal
+forta
+molt forta
+Intents: 4
+Compte amb els intents</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Cada regla és una comprovació menuda (<code>if</code> dins de mètodes curts) i l'orde importa: la longitud és el primer filtre i la resta només s'aplica si es passa. Dividir les regles en mètodes és exactament la feina del Tema 7.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex9-4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">El primer recomanador (dades i IA)</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">25 min</span>
+          </div>
+          <div class="exercici__enunciat">Tres usuaris tenen una llista de gustos (5 categories, <code>true</code>/<code>false</code>). Fes un programa que diga: (a) quant coincidix cada usuari amb el primer; (b) quin és el més semblant; (c) què li recomanaries a l'usuari 1 dels gustos que té el més semblant i ell no. Comença amb dades inventades i després prova amb les teues.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>gustos = {acció, esports, música, cuina, viatges}
+u1 = {true,  false, true,  false, false}
+u2 = {true,  true,  true,  false, true}
+u3 = {false, true,  false, true,  true}</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Coincidències amb u2: 2
+Coincidències amb u3: 0
+Més semblant: u2
+Recomanació: esports viatges</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex9-4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex9-4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex9-4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex9-4" hidden><p><strong>Pista:</strong> Resol-ho en dos mètodes (<code>coincidencies</code> i <code>recomanar</code>) i al <code>main</code> només decideixes quin és el més semblant.</p></div>
+          <div class="solucio" id="sol-ex9-4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Recomanador.java" data-etiqueta="SOLUCIÓ"><code>public class Recomanador {
+
+    public static int coincidencies(boolean[] a, boolean[] b) {
+        int quants = 0;
+        for (int i = 0; i &lt; a.length &amp;&amp; i &lt; b.length; i++) {
+            if (a[i] &amp;&amp; b[i]) {
+                quants++;
+            }
+        }
+        return quants;
+    }
+
+    public static String recomanar(boolean[] meus, boolean[] seus, String[] noms) {
+        String resultat = "";
+        for (int i = 0; i &lt; meus.length &amp;&amp; i &lt; seus.length; i++) {
+            if (seus[i] &amp;&amp; !meus[i]) {
+                resultat = resultat + noms[i] + " ";
+            }
+        }
+        if (resultat.equals("")) {
+            return "Res nou per a tu.";
+        }
+        return resultat;
+    }
+
+    public static void main(String[] args) {
+        String[] gustos = {"acció", "esports", "música", "cuina", "viatges"};
+
+        boolean[] u1 = {true,  false, true,  false, false};
+        boolean[] u2 = {true,  true,  true,  false, true};
+        boolean[] u3 = {false, true,  false, true,  true};
+
+        int amb2 = coincidencies(u1, u2);
+        int amb3 = coincidencies(u1, u3);
+
+        System.out.println("Coincidències amb u2: " + amb2);
+        System.out.println("Coincidències amb u3: " + amb3);
+
+        if (amb2 &gt;= amb3) {
+            System.out.println("Més semblant: u2");
+            System.out.println("Recomanació: " + recomanar(u1, u2, gustos));
+        } else {
+            System.out.println("Més semblant: u3");
+            System.out.println("Recomanació: " + recomanar(u1, u3, gustos));
+        }
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Coincidències amb u2: 2
+Coincidències amb u3: 0
+Més semblant: u2
+Recomanació: esports viatges </pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El recomanador no «entén» res: compara llistes i compta. Els grans sistemes de recomanació fan això mateix amb milions de files i matemàtiques més fines, però la idea de base és eixa i ja la saps fer.</p>
+          </div>
+        </article>
+    </section>
+
+    <!-- ================================ 08 · REPTES ================================ -->
+    <section class="seccio seccio--suau" id="reptes" data-nav="08 · Reptes">
+      <h2>Reptes (sense solució)</h2>
+      <div class="nota nota--avis">
+        <span class="nota__icona" aria-hidden="true">🧠</span>
+        <div><p>Els reptes <strong>no tenen botó de solució</strong>, a propòsit. L'objectiu és pensar, provar, equivocar-se i tornar-ho a intentar. Es poden resoldre de moltes maneres diferents: totes les solucions que funcionen són bones.</p></div>
+      </div>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 1</span>
+          <h3 class="repte__titol">El teu mini projecte, acabat i presentat</h3>
+        </div>
+<p>Este és el repte final del curs: <strong>acabar un programa teu</strong> i presentar-lo. No hi ha solució, perquè la solució és la teua idea i les teues decisions.</p>
+        <ul class="llista-punts">
+                    <li>Tria una idea que t'agrade i que cape en unes setmanes: rànquing de jocs, control de gastos, playlist, entrenaments, notes de SMX, inventari de cartes, cuina…</li>
+                    <li>Segueix el mètode del Tema 7: <strong>pla, dades, esquelet, una part i una prova, casos límits, millorar</strong>.</li>
+                    <li>Requisits mínims: almenys <strong>4 mètodes</strong> amb bon nom, <strong>una classe</strong> pròpia, un <code>main</code> que es llija com un resum i els tres casos provats (normal, límit i dolent).</li>
+                    <li>Documenta'l en un fitxer <code>Pla.txt</code>: què fa, quines parts té, quines decisions vas prendre i què faries amb una setmana més.</li>
+                    <li>Prepara la <strong>presentació de 3 minuts</strong> amb el guió del pas 7 de la sessió guiada.</li>
+                  </ul>
+        <p><strong>Entrega:</strong> el codi funcionant, el <code>Pla.txt</code> i la presentació feta a classe (o un vídeo de 3 minuts si no es pot presentar en directe).</p>
+        <p><strong>Criteris de valoració:</strong> que el programa funcione amb dades de veritat, que es puga explicar línia a línia, que aguante un cas límit i que la presentació siga clara per a qui no l'ha vist mai.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Guarda les dades en un fitxer de text perquè no es perden quan tanques el programa.</li>
+          <li>Afig un menú amb bucle (<code>while</code>) i una opció per a afegir dades noves.</li>
+          <li>Fes que un company el prove amb dades seues i detecta almenys un problema que no hauries trobat tu.</li>
+          <li>Fes una versió «en línia»: explica en un full com es convertiria en un servici amb una API com la de l'exemple 1.</li>
+        </ul>
+      </article>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 2</span>
+          <h3 class="repte__titol">Un programa per a ajudar algú de veritat</h3>
+        </div>
+<p>Els programes útils no són els més grans, són els que algú aprofita. Busca un problema real i menut que afecte algú del teu voltant i resol-lo amb un programa senzill.</p>
+        <ul class="llista-punts">
+                    <li><strong>Busca</strong> el problema: un càlcul que algú fa a mà cada setmana, una llista que sempre es perd, un recompte que sempre es descompta.</li>
+                    <li><strong>Pregunta</strong> a la persona afectada: què fa exactament, quines dades usa i què li agradaria no haver de fer mai més.</li>
+                    <li><strong>Escriu</strong> el programa amb els fonaments que tens. Ha de ser tan simple que la persona l'use sense manual.</li>
+                    <li><strong>Comprova</strong> amb dades reals seues (sense posar-les mai en un xat d'IA) i adapta el que calga.</li>
+                    <li><strong>Entrega'l</strong> amb una explicació de mitja pàgina per a algú que no programa.</li>
+                  </ul>
+        <p><strong>Entrega:</strong> el programa, l'explicació, i una resposta honesta a tres preguntes: què li va semblar a la persona, què no va funcionar a la primera i què has après que el professor no t'havia dit.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Fes-li una versió amb menú i una altra pensada per a fer-la servir des del mòbil (descriu com).</li>
+          <li>Mesura quant temps estalvia: quants minuts tardava a mà i quants tarda ara.</li>
+          <li>Presenta-ho com un cas real a la classe: problema, persona, solució i mesura de l'estalvi.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ============================ 09 · ERRORS HABITUALS ============================ -->
+    <section class="seccio" id="errors" data-nav="09 · Errors habituals">
+      <h2>Errors habituals</h2>
+      <p class="entradeta">Errors de qui està començant a mirar més enllà. Els quatre tenen la mateixa arrel: voler córrer abans de caminar.</p>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 1</span>
+            <h3 class="exercici__titol" style="margin:0">Voler aprendre-ho tot alhora</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="PlaDeNou.txt" data-etiqueta="CODI"><code>PLA PER ALS PRÒXIMS TRES MESOS
+
+1. Java avançat
+2. Python
+3. JavaScript i React
+4. Kotlin per a Android
+5. Ciberseguretat
+6. Intel·ligència artificial
+7. Kotlin i videojocs
+8. Núvol i contenidors
+9. Una altra cosa que he vist ahir
+
+(Tres setmanes després: nou carpetes a mig fer i cap programa acabat.)</code></pre>
+          <p class="missatge-error">Cada setmana una cosa nova… i cap projecte que arribe a funcionar.</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Fer una llista de tecnologies per a aprendre en compte d'un projecte per a acabar.</dd>
+                <dt>Per què</dt><dd>Cada tecnologia té la seua base, la seua sintaxi i la seua ferramenta; si saltes de l'una a l'altra, en totes et quedes a la part fàcil. I sense acabar res, no hi ha res que motiva.</dd>
+                <dt>Com detectar-ho</dt><dd>Si la teua llista té més de dos temes alhora, o si portes dos setmanes sense res que s'execute, ja és el senyal.</dd>
+                <dt>Com corregir-ho</dt><dd>Tria <strong>un projecte</strong> i, si de cas, <strong>una</strong> cosa nova per a eixe projecte. Quan el projecte estiga acabat, tria el següent.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="PlaAmbSentit.txt" data-etiqueta="CODI"><code>PLA PER ALS PRÒXIMS TRES MESOS
+
+PROJECTE (el que importa): programa de gastos per a mi
+  - Setmana 1: llegir i mostrar ✔
+  - Setmana 2: total i mitjana ✔
+  - Setmana 3: guardar en un fitxer ← cosa nova a aprendre
+  - Setmana 4: puleix-ho i presentar-ho ✔
+
+DESPRÉS, si l'he acabat: mire si vull web o mòbil.
+UNA COSA CADA VEGADA.</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 2</span>
+            <h3 class="exercici__titol" style="margin:0">Copiar codi que és d'un altre llenguatge</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Barreja.java" data-etiqueta="CODI"><code>String[] noms = {"Ana", "Bruno", "Carla"};
+
+int quants = len(noms);                  // açò és Python
+String gran = noms[0].toUpperCase();     // Java: es fa amb majúscula
+System.out.println(quants + " noms");</code></pre>
+          <p class="missatge-error">error: cannot find symbol — method len(String[])</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Copiar una línia que funciona en un altre llenguatge sense adaptar-la.</dd>
+                <dt>Per què</dt><dd>Cada llenguatge té les seues ferramentes: <code>len(noms)</code> en Python és <code>noms.length</code> en Java, i <code>toUpperCase</code> existix en Java però <code>toUpper</code> en Kotlin. Copiar sense adaptar dona errors o, pitjor, fa coses distintes de les que creus.</dd>
+                <dt>Com detectar-ho</dt><dd>Si el compilador diu «cannot find symbol» en una línia que pareix de manual, sospita: eixa línia ve d'un altre llenguatge.</dd>
+                <dt>Com corregir-ho</dt><dd>Busca com es fa <strong>en Java</strong> i comprova el tipus del resultat. Si no estàs segur, escriu-ho amb el que ja saps (un bucle i un comptador) en compte d'usar una drecera.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="BenFet.java" data-etiqueta="CODI"><code>String[] noms = {"Ana", "Bruno", "Carla"};
+
+int quants = noms.length;                 // la llargària d'un array
+String gran = noms[0].toUpperCase();      // passa a majúscules
+
+System.out.println(quants + " noms");     // 3 noms</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 3</span>
+            <h3 class="exercici__titol" style="margin:0">Vull fer WhatsApp per a demà</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="IdeaMassaGran.txt" data-etiqueta="CODI"><code>"Vull fer una app de missatgeria: xat, vídeo, grups, estats,
+ trucades, bots, pagaments, versió per a Android i per a iPhone."
+
+Data d'entrega: divendres.
+
+(No s'ha escrit ni la primera línia: no se sap per on començar.)</code></pre>
+          <p class="missatge-error">Un projecte tan gran no comença: s'abandona.</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Triar una idea enorme sense decidir la versió mínima que hauria de funcionar.</dd>
+                <dt>Per què</dt><dd>Els projectes grans es fan afegint coses a una versió xicoteta que ja funciona. Si comences per la idea final, no tindràs mai res per a provar ni per a ensenyar.</dd>
+                <dt>Com detectar-ho</dt><dd>Si la descripció del projecte no cap en una frase i no pots dir què faràs hui, és massa gran.</dd>
+                <dt>Com corregir-ho</dt><dd>Defineix la <strong>versió mínima</strong>: la cosa més menuda que ja és útil. En un xat podria ser «una pantalla on escrius un missatge i es guarda en una llista»: això ja funciona, ja s'executa i ja es pot millorar.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="VersioMinima.txt" data-etiqueta="CODI"><code>VERSIÓ MÍNIMA (hui)
+
+Una llista de missatges d'un sol usuari:
+  - escriure un missatge i guardar-lo
+  - veure la llista de missatges
+  - comptar quants n'hi ha
+
+Quan això funcione: destinataris, grups, xarxa…
+Les funcions grans s'afigen damunt d'alguna cosa que ja funciona.</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 4</span>
+            <h3 class="exercici__titol" style="margin:0">Guardar el projecte com a &quot;v3_definitiu_ara_si&quot;</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Carpeta.txt" data-etiqueta="CODI"><code>Projecte/
+  Ranquing.java
+  Ranquing_v2.java
+  Ranquing_v2_bona.java
+  Ranquing_v3_definitiu.java
+  Ranquing_v3_definitiu_ara_si.java
+  Ranquing_FINAL.java
+  Ranquing_FINAL_amb_ajuda.java
+  Ranquing_FINAL_bo.java        ← este és el que funciona
+
+(Dos dies després: cap d'eixos fitxers s'executa sol.)</code></pre>
+          <p class="missatge-error">Tres versions distintes del mateix fitxer i cap manera de saber què va canviar ni de tornar arrere.</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Guardar les versions copiant fitxers amb noms nous en compte de controlar les versions.</dd>
+                <dt>Per què</dt><dd>Quan alguna cosa deixa de funcionar, no saps què vas canviar; i quan treballes amb algú altre, no sabeu qui ha fet què. Un projecte gran no es pot mantindre així.</dd>
+                <dt>Com detectar-ho</dt><dd>Si tens dos fitxers iguals amb noms distints, o si dubtes de quin és «el bo», ja tens el problema.</dd>
+                <dt>Com corregir-ho</dt><dd>Un <strong>sol fitxer</strong> que sempre s'executa i un <strong>sistema de versions</strong> (com Git) que guarda l'història de tot el que has fet. Així pots tornar arrere quan calga.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="AmbVersions.txt" data-etiqueta="CODI"><code>Projecte/
+  Ranquing.java            ← l'únic fitxer, sempre el que funciona
+
+I l'història, guardada pel sistema de versions:
+
+  git add Ranquing.java
+  git commit -m "Mostra els jocs i suma les hores"
+
+  git add Ranquing.java
+  git commit -m "Afig la mitjana i el cas de llista buida"
+
+(Es pot tornar a qualsevol moment anterior. Sempre hi ha un «bo».)</code></pre>
+            </div>
+          </div>
+        </article>
+    </section>
+
+    <!-- ============================= 10 · RESUM VISUAL ============================= -->
+    <section class="seccio seccio--suau" id="resum" data-nav="10 · Resum visual">
+      <h2>Resum visual</h2>
+      <p class="entradeta">Últim resum del curs. Estes deu idees són les que t'has d'endur quan tanques els apunts.</p>
+      <div class="resum-visual revela">
+        <div class="resum-visual__item"><p>Tota aplicació té <strong>tres peces</strong>: interfície, lògica i dades.</p></div>
+        <div class="resum-visual__item"><p>Els programes <strong>parlen entre ells</strong> amb peticions i respostes; una <strong>API</strong> és un mètode amb adreça.</p></div>
+        <div class="resum-visual__item"><p>El <strong>mateix fonament</strong> servix per a un joc, un robot, un servici web o una app de salut.</p></div>
+        <div class="resum-visual__item"><p>Els <strong>fonaments es transferixen</strong> entre llenguatges: canvia la manera d'escriure-ho, no les idees.</p></div>
+        <div class="resum-visual__item"><p>Les àrees més habituals: web i mòbil, APIs, jocs, dades i IA, robòtica i IoT, ciberseguretat, núvol i agents.</p></div>
+        <div class="resum-visual__item"><p><strong>Les ferramentes canvien; els fonaments es queden.</strong> Saber programar no caduca.</p></div>
+        <div class="resum-visual__item"><p>Es continua aprenent amb <strong>projectes acabats</strong>, llegint codi dels altres, llegint errors i compartint.</p></div>
+        <div class="resum-visual__item"><p>Es tria què aprendre <strong>pel projecte</strong>, no per la moda del mes.</p></div>
+        <div class="resum-visual__item"><p>El codi decidix sobre persones: <strong>dades mínimes, permisos clars i responsabilitat</strong> de qui l'ha escrit.</p></div>
+        <div class="resum-visual__item"><p>La competència més valorada és <strong>saber explicar el teu codi</strong>; i el millor senyal de progrés és tindre alguna cosa acabada i teua.</p></div>
+      </div>
+    </section>
+
+    <!-- ============================ 11 · AUTOAVALUACIÓ ============================ -->
+    <section class="seccio" id="autoavaluacio" data-nav="11 · Autoavaluació">
+      <h2>Autoavaluació</h2>
+      <p class="entradeta">Última autoavaluació del curs. Nou preguntes per a vore si has entés on va tot el que has aprés i què vols fer a partir d'ara.</p>
+      <ol class="llista-autoavaluacio">
+        <li>
+          <p class="enunciat">Quines són les tres peces que té qualsevol aplicació?</p>
+
+          <ul class="opcions"><li>a) L'ordinador, el mòbil i internet.</li><li>b) La interfície, la lògica del programa i les dades.</li><li>c) El codi, els errors i les proves.</li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av1">Mostrar solució</button>
+          <div class="solucio" id="av1" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) Interfície, lògica i dades.</strong></p>
+            <p class="solucio__perque">La interfície parla amb la persona, la lògica decidix i calcula, i les dades guarden el resultat per a quan tornes. La major part del que has aprés viu en la lògica.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Amb una frase i amb les teues paraules: què és una API?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av2">Mostrar solució</button>
+          <div class="solucio" id="av2" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Un conjunt de coses que un programa deixa fer a uns altres; per exemple, un mètode que <strong>es pot cridar des d'un altre programa per internet</strong> i que respon amb un resultat (moltes voltes, text en format JSON).</strong></p>
+            <p class="solucio__perque">Dins continua havent un mètode amb el seu <code>return</code>: el que canvia és com arriba la petició i com torna la resposta.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Si l'any que ve canvies Java per un altre llenguatge, començaràs de zero?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av3">Mostrar solució</button>
+          <div class="solucio" id="av3" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><strong>No.</strong> Les idees són les mateixes: variables, condicions, bucles, arrays, mètodes, objectes, provar i dividir el problema. Canvia la manera d'escriure-ho i el nom d'algunes ferramentes.</strong></p>
+            <p class="solucio__perque">Per això els fonaments es queden: qui sap programar aprén un llenguatge nou molt més de pressa que qui només ha memoritzat sintaxi.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Açò és el cor d'un servici. Què mostrarà per pantalla?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>public static String resum(int[] hores) {
+    int total = 0;
+    for (int i = 0; i &lt; hores.length; i++) {
+        total = total + hores[i];
+    }
+    return "{\"total\": " + total + "}";
+}
+
+public static void main(String[] args) {
+    System.out.println(resum(new int[]{3, 5, 2}));
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av4">Mostrar solució</button>
+          <div class="solucio" id="av4" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>{&quot;total&quot;: 10}</code></strong></p>
+            <p class="solucio__perque">Suma 3 + 5 + 2 = 10 i el mètode torna un text amb eixa estructura. És el format JSON que els programes es passen entre ells per a entendre's.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Vull fer una app per a reservar les pistes del centre. Digues en quines tres peces es dividix i una cosa que hauries d'aprendre per a cada una.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av5">Mostrar solució</button>
+          <div class="solucio" id="av5" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><strong>Interfície:</strong> una pantalla o pàgina on triar dia i hora → aprendre formularis i disseny. <strong>Lògica:</strong> comprovar si la pista està lliure, guardar la reserva → això ja el saps fer amb <code>if</code>, bucles i mètodes. <strong>Dades:</strong> guardar les reserves per a demà → aprendre bases de dades. I perquè es comuniquen, una <strong>API</strong>.</strong></p>
+            <p class="solucio__perque">Fixat que la peça del mig —la lògica— <strong>ja la saps fer</strong>. El que cal aprendre és el transport (API) i el guardat (base de dades), no els fonaments.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Un company diu: «començaré pel framework de moda i després ja aprendré a programar». Què li contestaries?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av6">Mostrar solució</button>
+          <div class="solucio" id="av6" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Que les ferramentes de moda canvien cada pocs mesos i que, sense fonaments, no sabrà ni arreglar un error ni adaptar el codi quan la ferramenta canvie. És millor <strong>un projecte propi, acabat</strong>, amb el que ja sap, i aprendre la ferramenta quan el projecte la demane.</strong></p>
+            <p class="solucio__perque">El criteri és sempre el mateix: primer el «què vull construir», després el «amb què ho construïsc».</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">T'encarreguen una app de missatgeria i «l'has de tindre per a divendres». Què proposes tu?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av7">Mostrar solució</button>
+          <div class="solucio" id="av7" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Una <strong>versió mínima que funcione</strong>: una llista de missatges d'un sol usuari, escriure'n un, veure'ls i comptar-los. Amb això ja s'executa, s'ensenya i es pot millorar. Després s'afig destinataris, grups i xarxa, un a un.</strong></p>
+            <p class="solucio__perque">Els projectes grans no comencen grans: comencen funcionant i creixen. Dir «no» a l'abast és una habilitat professional.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Un programa decidix qui rep una beca. Quines coses hauries de comprovar, a més de que el codi funcione?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av8">Mostrar solució</button>
+          <div class="solucio" id="av8" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Amb quines <strong>dades</strong> decidix i si són les mínimes, qui pot vore-les, si la decisió <strong>es pot explicar</strong> a qui l'ha patida, què passa si s'equivoca (que hi haja manera de reclamar) i <strong>qui respon</strong> del resultat.</strong></p>
+            <p class="solucio__perque">Quan el codi afecta la vida de persones, la responsabilitat no desapareix darrere del programa: sempre hi ha algú que respon del que fa.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Tanca el curs amb un objectiu: què voldràs tindre acabat d'ací a tres mesos? Escriu-lo de manera que es puga comprovar si ho has fet o no.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av9">Mostrar solució</button>
+          <div class="solucio" id="av9" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Un objectiu útil és concret: <em>«tindre un programa de control de gastos que guarde les dades en un fitxer i mostrar-lo a classe»</em>. Comprovable vol dir que un altre pot mirar-ho i dir «sí» o «no», sense interpretacions.</strong></p>
+            <p class="solucio__perque">Els objectius concrets i comprovables es complixen molt més que els genèrics: són els que convertixen el que has aprés en un projecte de debò.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <nav class="navegacio-temes no-imprimible" id="navegacio-temes" aria-label="Navegació entre temes"></nav>
+
+  </main>
+</div>
+
+<!-- ====================================== PEU ====================================== -->
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__graella">
+      <div>
+        <h4>Introducció a la Programació amb Java</h4>
+        <p>Optativa SMX · Sistemes Microinformàtics i Xarxes</p>
+        <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+      </div>
+      <div>
+        <h4>En este tema</h4>
+        <ul class="llista-netejada">
+          <li><a href="#teoria">Teoria</a></li>
+          <li><a href="#exemples">Exemples explicats</a></li>
+          <li><a href="#guiada">Programació guiada</a></li>
+          <li><a href="#resum">Resum visual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Llicència</h4>
+        <p>Material lliure per a ús educatiu.<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a></p>
+      </div>
+    </div>
+    <div class="peu__base">
+      <span>© 2026 Agustín Gil · IES La Vereda</span>
+      <a class="llicencia" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">
+        <span class="llicencia__icones" aria-hidden="true"><span>CC</span><span>BY</span><span>NC</span></span>
+        Creative Commons Reconeixement-NoComercial 4.0 Internacional
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Peu fix que apareix en cada pàgina del PDF -->
+<div class="peu-impressio" aria-hidden="true">
+  <span>Introducció a la Programació amb Java · Optativa SMX · Material creat per Agustín Gil - IES La Vereda 2026 · CC BY-NC 4.0</span>
+  <span class="peu-impressio__dreta">Tema 9</span>
+</div>
+
+<button class="boto boto--primari tornar-dalt no-imprimible" id="tornar-dalt" type="button" aria-label="Tornar a dalt">↑</button>
+
+<script src="../assets/js/resaltat.js"></script>
+<script src="../assets/js/dades-curs.js"></script>
+<script src="../assets/js/diapositives/tema9.js"></script>
+<script src="../assets/js/plantilla-tema.js"></script>
+<script src="../assets/js/pptx.js"></script>
+</body>
+</html>
