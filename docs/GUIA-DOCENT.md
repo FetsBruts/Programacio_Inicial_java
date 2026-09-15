@@ -185,10 +185,11 @@ s'ha usat, s'ha de saber justificar i millorar).
 
 ## 9. Materials i entorn
 
-- **Entorn de treball:** es pot programar amb un **entorn en línia** (funciona al
-  navegador sense instal·lar res) o amb un **entorn d'escriptori** un cop
-  instal·lat el **JDK de Java 21 (LTS)**. Els IDE més utilitzats: IntelliJ IDEA,
-  Visual Studio Code, Eclipse, Apache NetBeans i BlueJ (didàctic).
+- **Entorn de treball:** el material no imposa cap ferramenta. El programa
+  s'escriu igual en un **entorn en línia** (navegador, sense instal·lar res) que
+  en un **entorn d'escriptori** amb el **JDK de Java 21 (LTS)** o superior. Els
+  IDE més utilitzats: IntelliJ IDEA, Visual Studio Code, Eclipse, Apache NetBeans
+  i BlueJ (didàctic). La decisió de quin es fa servir a l'aula és del professor.
 - **Carpeta de treball:** una carpeta per tema (`tema1/`) i un fitxer per
   exercici, amb el nom de la classe pública (`Exercici3Notes.java`).
 

@@ -23,7 +23,7 @@ Tot el contingut és en **valencià**.
 | Durada | Tema 0 + 9 sessions de 3 h ≈ **27 h lectives** |
 | Llenguatge | Java |
 | Format | Pàgines web (estudiar) + PowerPoint (explicar) + PDF (manual) |
-| Requisits | Cap. Es pot començar amb un entorn de programació en línia i, més avant, treballar amb el JDK instal·lat a l'ordinador |
+| Requisits | Cap: només un navegador. El material no depén de cap ferramenta concreta |
 
 ---
 
@@ -108,6 +108,12 @@ npm run prova:pagines                # comprova les 11 seccions de cada tema (js
 npm run prova:pptx                   # comprova el generador de PowerPoint
 npm run prova:java -- 9              # executa els programes amb un JDK (opcional)
 ```
+
+Els exemples de tots els temes es comproven damunt d'un **JDK de veritat**
+(Java 21) a cada canvi: l'acció de GitHub
+[`prova-java.yml`](.github/workflows/prova-java.yml) compila i executa un job
+per tema, bloc a bloc, i compara l'eixida real amb la que hi ha escrita al
+material. Un exemple amb una eixida equivocada no arriba mai a publicar-se.
 
 Cada tema viu com a **dades** en `eines/contingut/temaN.js`; el generador
 `eines/genera-temes.mjs` produïx la pàgina i les diapositives, i valida les

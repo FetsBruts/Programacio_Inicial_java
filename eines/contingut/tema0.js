@@ -87,7 +87,7 @@ globalThis.TEMA = {
 
       { h3: '5. Com executem el programa' },
       { p: 'Hi ha dos camins, i els dos són vàlids: **en línia** (escrius el codi al navegador i polses «Executar») o **al teu ordinador** (instal·les Java i un editor). El codi que escriurem és exactament el mateix en tots dos casos.' },
-      { p: 'Els primers dies fem servir un entorn en línia: no caldrà instal·lar res i podrem provar coses des del mateix navegador.' },
+      { p: 'El que importa no és la ferramenta, sinó el que escriuràs. El mateix programa s\'executa igual en qualsevol dels dos entorns.' },
 
       { h3: '6. El nostre primer programa' },
       { p: 'Mira\'l bé: només hi ha una instrucció que fa faena, la de dins. Les altres són la **carcassa** que Java necessita per arrancar.' },
