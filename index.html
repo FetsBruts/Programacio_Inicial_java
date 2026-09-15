@@ -348,30 +348,48 @@
       </div>
 
       <div class="panel-pestanya" id="panell-entorn" role="tabpanel" hidden>
-        <h3>Què necessitem per treballar</h3>
+        <h3>Amb què es treballa en Java</h3>
+        <p>
+          Java es pot escriure i executar de dos maneres: <strong>des del navegador</strong>
+          (entorns en línia, sense instal·lar res) o <strong>a l'ordinador</strong> (amb el JDK
+          instal·lat i un entorn de desenvolupament). No hi ha cap opció obligatòria: en totes
+          s'escriu el mateix codi i s'executa el mateix llenguatge.
+        </p>
         <div class="graella graella--2">
           <div>
-            <h4>El llenguatge</h4>
+            <h4>El llenguatge: el JDK</h4>
             <ul class="llista-punts">
-              <li><strong>JDK de Java 21 LTS</strong> (inclou el compilador <code>javac</code> i la máquina virtual <code>java</code>).</li>
-              <li>Es pot instal·lar del paquet oficial o del repositori del centre.</li>
+              <li><strong>JDK de Java 21 (LTS)</strong>: inclou el compilador <code>javac</code> i la màquina virtual <code>java</code>, que són els que convertixen el codi font en un programa que s'executa.</li>
+              <li>Les versions <abbr title="Long Term Support">LTS</abbr> són les recomanades per treballar: reben actualitzacions durant anys.</li>
             </ul>
-            <h4>L'editor</h4>
+
+            <h4>Entorns de desenvolupament (IDE)</h4>
+            <p class="text-suau" style="font-size:.95rem">Els més utilitzats en ensenyament i en el món professional:</p>
             <ul class="llista-punts">
-              <li><strong>Visual Studio Code</strong> amb l'extensió <em>Extension Pack for Java</em> (lleuger i visual).</li>
-              <li><strong>IntelliJ IDEA Community</strong> (molt còmode per a projectes).</li>
-              <li>Cap dels dos és obligatori: qualsevol editor de text pla servix per als primers temes.</li>
+              <li><a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="noopener">IntelliJ IDEA</a> · l'IDE més estés professionalment (té edició Community gratuïta).</li>
+              <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> + <em>Extension Pack for Java</em> · lleuger i molt popular.</li>
+              <li><a href="https://www.eclipse.org/downloads/" target="_blank" rel="noopener">Eclipse IDE</a> · clàssic en empresa i en centres educatius.</li>
+              <li><a href="https://netbeans.apache.org/" target="_blank" rel="noopener">Apache NetBeans</a> · senzill per a projectes Java.</li>
+              <li><a href="https://bluej.org/" target="_blank" rel="noopener">BlueJ</a> · entorn didàctic amb representació visual dels objectes.</li>
             </ul>
           </div>
           <div>
-            <h4>Sense instal·lar res</h4>
+            <h4>Entorns en línia (sense instal·lació)</h4>
+            <p class="text-suau" style="font-size:.95rem">
+              S'escriu el codi al navegador i es compila en un servidor. Útil quan no es pot
+              instal·lar programari o es treballa en un ordinador compartit.
+            </p>
             <ul class="llista-punts">
-              <li>Compiladors en línia per als primers dies: <a href="https://www.jdoodle.com/online-java-compiler" target="_blank" rel="noopener">JDoodle</a>, <a href="https://onecompiler.com/java" target="_blank" rel="noopener">OneCompiler</a> o <a href="https://replit.com/languages/java" target="_blank" rel="noopener">Replit</a>.</li>
-              <li>Perfecte per al Tema 0 i per provar idees ràpides.</li>
+              <li><a href="https://www.jdoodle.com/online-java-compiler" target="_blank" rel="noopener">JDoodle</a></li>
+              <li><a href="https://onecompiler.com/java" target="_blank" rel="noopener">OneCompiler</a></li>
+              <li><a href="https://www.programiz.com/java-programming/online-compiler/" target="_blank" rel="noopener">Programiz</a></li>
+              <li><a href="https://replit.com/languages/java" target="_blank" rel="noopener">Replit</a></li>
+              <li><a href="https://www.onlinegdb.com/online_java_compiler" target="_blank" rel="noopener">OnlineGDB</a></li>
             </ul>
-            <h4>Provar-ho per línia de comandaments</h4>
-            <pre class="codi" data-titol="Terminal · del fitxer al programa" data-etiqueta="ORDRE"><code>javac HolaMon.java   // compila: crea HolaMon.class
-java HolaMon         // executa el programa</code></pre>
+
+            <h4>Quan Java està instal·lat: el terminal</h4>
+            <pre class="codi" data-titol="Terminal · del codi font al programa" data-etiqueta="ORDRE"><code>javac HolaMon.java   // compila: convertix el codi font en bytecode
+java HolaMon         // executa el programa a la màquina virtual</code></pre>
           </div>
         </div>
         <div class="nota nota--info">
@@ -455,8 +473,8 @@ java HolaMon         // executa el programa</code></pre>
   <section class="seccio" id="recursos">
     <div class="contenidor">
       <span class="etiqueta-seccio">07 · Recursos</span>
-      <h2>Recursos que farem servir</h2>
-      <p class="entradeta">Tot el que cal per a les 10 sessions, amb alternatives gratuïtes per a casa.</p>
+      <h2>Recursos i ferramentes de Java</h2>
+      <p class="entradeta">Les referències del llenguatge, les ferramentes que es fan servir per programar i les regles del curs per treballar-hi.</p>
 
       <div class="graella revela">
         <article class="targeta targeta--interactiva">
@@ -464,17 +482,17 @@ java HolaMon         // executa el programa</code></pre>
           <p class="text-suau">El llenguatge i la documentació oficial.</p>
           <ul class="llista-punts">
             <li><a href="https://dev.java/" target="_blank" rel="noopener">dev.java</a> · guies i tutorials oficials.</li>
-            <li><a href="https://docs.oracle.com/en/java/" target="_blank" rel="noopener">docs.oracle.com/en/java</a> · documentació.</li>
-            <li><a href="https://www.jdoodle.com/online-java-compiler" target="_blank" rel="noopener">JDoodle</a> · compilar sense instal·lar res.</li>
+            <li><a href="https://docs.oracle.com/en/java/" target="_blank" rel="noopener">docs.oracle.com/en/java</a> · documentació i API.</li>
+            <li><a href="https://dev.java/learn/" target="_blank" rel="noopener">dev.java/learn</a> · apunts oficials per aprendre el llenguatge.</li>
           </ul>
         </article>
         <article class="targeta targeta--interactiva">
-          <h3>💻 Editors</h3>
-          <p class="text-suau">Per escriure codi còmodament.</p>
+          <h3>💻 Entorns per programar</h3>
+          <p class="text-suau">Els IDE més utilitzats en ensenyament i en el sector professional.</p>
           <ul class="llista-punts">
+            <li><a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="noopener">IntelliJ IDEA</a> · l'estàndard professional (edició Community gratuïta).</li>
             <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> + <em>Extension Pack for Java</em>.</li>
-            <li><a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="noopener">IntelliJ IDEA Community</a>.</li>
-            <li><a href="https://bluej.org/" target="_blank" rel="noopener">BlueJ</a> · bon amic per als primers temes.</li>
+            <li><a href="https://www.eclipse.org/downloads/" target="_blank" rel="noopener">Eclipse</a>, <a href="https://netbeans.apache.org/" target="_blank" rel="noopener">NetBeans</a> i <a href="https://bluej.org/" target="_blank" rel="noopener">BlueJ</a> (didàctic).</li>
           </ul>
         </article>
         <article class="targeta targeta--interactiva">
@@ -495,6 +513,16 @@ java HolaMon         // executa el programa</code></pre>
             <li>Guarda sempre la versió que funciona abans de provar coses noves.</li>
           </ul>
         </article>
+      </div>
+
+      <div class="nota nota--tip">
+        <span class="nota__icona" aria-hidden="true">🛠</span>
+        <div>
+          <p><strong>Entorns i instal·lació.</strong> Hi ha entorns en línia, que funcionen
+          directament des del navegador sense instal·lar res, i entorns d'escriptori, que es
+          baixen i s'instal·len a l'ordinador. A l'apartat <a href="#metodologia">«Materials i entorn»</a>
+          tens la llista completa dels uns i dels altres.</p>
+        </div>
       </div>
     </div>
   </section>

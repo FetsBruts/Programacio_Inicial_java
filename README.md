@@ -23,7 +23,7 @@ Tot el contingut és en **valencià**.
 | Durada | Tema 0 + 9 sessions de 3 h ≈ **27 h lectives** |
 | Llenguatge | Java |
 | Format | Pàgines web (estudiar) + PowerPoint (explicar) + PDF (manual) |
-| Requisits | Cap. Els primers dies fins i tot es pot treballar amb un compilador en línia |
+| Requisits | Cap. Es pot començar amb un entorn de programació en línia i, més avant, treballar amb el JDK instal·lat a l'ordinador |
 
 ---
 

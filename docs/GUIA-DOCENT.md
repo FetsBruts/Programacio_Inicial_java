@@ -185,11 +185,10 @@ s'ha usat, s'ha de saber justificar i millorar).
 
 ## 9. Materials i entorn
 
-- **JDK de Java 21 (LTS)** per compilar i executar.
-- **Editor:** Visual Studio Code (+ *Extension Pack for Java*) o IntelliJ IDEA
-  Community. BlueJ és una bona alternativa per als primers temes.
-- **Sense instal·lar res:** compiladors en línia (JDoodle, OneCompiler,
-  Replit) per al Tema 0 i per a proves ràpides.
+- **Entorn de treball:** es pot programar amb un **entorn en línia** (funciona al
+  navegador sense instal·lar res) o amb un **entorn d'escriptori** un cop
+  instal·lat el **JDK de Java 21 (LTS)**. Els IDE més utilitzats: IntelliJ IDEA,
+  Visual Studio Code, Eclipse, Apache NetBeans i BlueJ (didàctic).
 - **Carpeta de treball:** una carpeta per tema (`tema1/`) i un fitxer per
   exercici, amb el nom de la classe pública (`Exercici3Notes.java`).
 
