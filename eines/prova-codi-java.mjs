@@ -172,7 +172,9 @@ const normalitza = (t) => String(t)
 
 /* ------------------------------------------------------------ Execució */
 const ANOTACIONS = process.argv.includes('--anotacions');
-const volguts = process.argv.slice(2).map(Number);
+const volguts = process.argv.slice(2)
+  .filter((a) => /^\d+$/.test(a))     // els indicadors (--anotacions) no són temes
+  .map(Number);
 
 /* Escapa un missatge per a l'orde ::error:: de GitHub Actions */
 const perGitHub = (text) => String(text)
