@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 1 · Variables: guardar informació | Introducció a la Programació amb Java</title>
+<meta name="description" content="Les «caixes» on el programa desa les dades">
+<meta name="author" content="Agustín Gil · IES La Vereda 2026">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/tema.css">
+<link rel="stylesheet" href="../assets/css/print.css">
+<!-- PÀGINA GENERADA amb eines/genera-temes.mjs — edita eines/contingut/tema1.js i torna a generar-la -->
+</head>
+
+<body data-tema="1">
+
+<!-- ============================ PORTADA D'IMPRESSIÓ ============================ -->
+<div class="portada-impressio només-impressio" id="portada-impressio">
+  <p class="portada-impressio__curs" data-camp="assignatura">Optativa SMX · Introducció a la Programació</p>
+  <h1 data-camp="tema">Tema 1 · Variables: guardar informació</h1>
+  <p class="portada-impressio__resum" data-camp="subtitol">Les «caixes» on el programa desa les dades</p>
+  <div class="portada-impressio__meta">
+    <p data-camp="autor">Material creat per Agustín Gil - IES La Vereda 2026</p>
+    <p>Llicència <span data-camp="llicencia">CC BY-NC 4.0</span> · <a data-camp="enllac" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">creativecommons.org/licenses/by-nc/4.0</a></p>
+    <p>Data d'impressió: <span data-camp="data"></span></p>
+    <p class="text-suau">Manual d'estudi: introducció, objectius, teoria, exemples explicats, programació guiada, errors habituals i resum. Les tres primeres preguntes d'autoavaluació inclouen la solució; els exercicis i els reptes es treballen en la versió web.</p>
+  </div>
+</div>
+
+<!-- ================================== CAPÇALERA ================================== -->
+<header class="capcalera">
+  <div class="contenidor capcalera__interior" style="max-width:1400px">
+    <a class="capcalera__marca" href="../index.html">
+      <span class="capcalera__logo" aria-hidden="true">{}</span>
+      <span class="capcalera__text">
+        <span class="capcalera__curs">Optativa SMX · Programació amb Java</span>
+        <span class="capcalera__tema">Tema 1 · Variables: guardar informació</span>
+      </span>
+    </a>
+    <div class="capcalera__accions">
+      <button class="boto boto--ciano boto--petit" type="button" data-imprimir>🖨 <span class="text-llarg">Imprimir</span> PDF</button>
+      <button class="boto boto--taronja boto--petit" type="button" data-pptx>📊 <span class="text-llarg">Crear</span> PowerPoint</button>
+      <a class="boto boto--fantasma boto--petit" href="../index.html">Índex del curs</a>
+      <button class="boto-icona" type="button" data-menu-toggle aria-expanded="false" aria-label="Obrir el menú del tema">☰</button>
+    </div>
+  </div>
+  <div class="contenidor capcalera__meta" style="max-width:1400px">
+    <span>✍ Material creat per Agustín Gil - IES La Vereda 2026</span>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-NC 4.0</a>
+    <span class="text-suau">Tema 1 de 10 · 3 hores de classe</span>
+  </div>
+  <div class="barra-progres" aria-hidden="true"><span></span></div>
+</header>
+
+<div class="overlay-menu" aria-hidden="true"></div>
+
+<div class="disposicio">
+
+  <!-- ============================== MENÚ LATERAL ============================== -->
+  <aside class="menu-lateral" id="menu-lateral" aria-label="Navegació del tema">
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">En este tema</p>
+      <nav class="indice-intern" id="indice-intern" aria-label="Índex del tema"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc" id="progres-exercicis" hidden>
+      <p class="menu-lateral__titol">El teu progrés</p>
+      <div class="barra-avaluacio"><span style="width:0"></span></div>
+      <p class="text-suau" id="progres-exercicis-text" style="font-size:.82rem;margin:0"></p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Temes del curs</p>
+      <nav class="llista-temes-mini" id="llista-temes-mini" aria-label="Temes del curs"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Accions</p>
+      <div class="pila" style="gap:.5rem">
+        <button class="boto boto--primari boto--ampla boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button>
+        <button class="boto boto--taronja boto--ampla boto--petit" type="button" data-pptx>📊 Crear PowerPoint</button>
+      </div>
+      <p class="text-suau" style="font-size:.78rem;margin:.6rem 0 0">
+        El PDF inclou la teoria i el resum. La presentació és per explicar a classe.
+      </p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Autoria</p>
+      <p class="text-suau" style="font-size:.8rem;margin:0">
+        <strong>Agustín Gil</strong><br>IES La Vereda · 2026<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+      </p>
+    </div>
+  </aside>
+
+  <!-- ================================= CONTINGUT ================================= -->
+  <main class="contingut">
+
+    <div class="hero-tema">
+      <span class="hero-tema__etiqueta">Tema 1 · Sessió de 3 hores</span>
+      <h1>Variables: guardar informació</h1>
+      <p class="hero-tema__entradeta">Fins ara el programa sempre deia el mateix. A partir d'ara guardarà informació: punts, vides, notes, preus, noms… i podrà canviar-la mentre funciona.</p>
+      <div class="hero-tema__meta">
+        <span class="pastilla">⏱ 3 hores</span>
+        <span class="pastilla">📦 Fase 1 · Pensament de programador</span>
+        <span class="pastilla">🧩 Necessites: Tema 0</span>
+        <span class="pastilla">⌨️ 60-75 min programant</span>
+      </div>
+    </div>
+
+    <!-- ============================ 01 · INTRODUCCIÓ ============================ -->
+    <section class="seccio" id="introduccio" data-nav="01 · Introducció" style="padding-top:0">
+      <h2>Una situació per començar</h2>
+      <div class="situacio revela">
+        <span class="situacio__emoji" aria-hidden="true">🎮</span>
+        <div>
+<p>Estàs fent un videojoc. El jugador comença amb <strong>0 punts</strong> i <strong>3 vides</strong>. Mata un enemic i guanya <strong>250 punts</strong>. Rep un colp i perd <strong>una vida</strong>. Arriba a <strong>1500 punts</strong> i puja de nivell.</p>
+          <p>On guarda el programa tot això? El text del Tema 0 estava escrit dins del codi i no canviava mai. Un joc necessita guardar coses que <strong>van canviant</strong>: la puntuació, les vides, el nivell…</p>
+          <p>La solució és una <strong>variable</strong>: una caixa amb un nom on guardem informació, que podem llegir i canviar quan vulguem. És el concepte més important del tema i la base de tot el que vindrà: si no domines les variables, tot el demés costa el doble.</p>
+        </div>
+      </div>
+
+      <div class="plan-sessio revela" style="margin-top:var(--esp-5)">
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">30-40 min</span>
+            <span class="plan-sessio__nom">Explicació i demos</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Programació guiada</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Exercicis</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">15-30 min</span>
+            <span class="plan-sessio__nom">Repàs i repte</span>
+          </div>
+      </div>
+
+      <div class="prerequisits">
+        <strong>Abans de començar has de poder fer això:</strong>
+        <ul>
+          <li>Crear i executar un programa en Java (Tema 0).</li>
+          <li>Mostrar text per pantalla amb <code>System.out.println()</code>.</li>
+          <li>Saber que cada instrucció acaba en <code>;</code> i que el fitxer ha de dir-se igual que la classe.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ 02 · QUÈ APRENDREM ============================ -->
+    <section class="seccio" id="objectius" data-nav="02 · Què aprendrem?">
+      <h2>Què aprendrem en este tema?</h2>
+      <p class="entradeta">En acabar esta sessió has de saber fer estes coses:</p>
+      <ul class="llista-objectius revela">
+        <li><span class="num">1</span><span>Crear variables dels tipus bàsics: <code>int</code>, <code>double</code>, <code>boolean</code>, <code>char</code> i <code>String</code>.</span></li>
+        <li><span class="num">2</span><span>Guardar un valor, canviar-lo i mostrar-lo per pantalla.</span></li>
+        <li><span class="num">3</span><span>Fer càlculs amb els operadors <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> i <code>%</code>.</span></li>
+        <li><span class="num">4</span><span>Distingir nombres enters i decimals, i saber quan Java «perd» els decimals.</span></li>
+        <li><span class="num">5</span><span>Demanar dades a l'usuari pel teclat amb <code>Scanner</code>.</span></li>
+        <li><span class="num">6</span><span>Escriure missatges que barregen text i variables.</span></li>
+      </ul>
+    </section>
+
+    <!-- =============================== 03 · TEORIA =============================== -->
+    <section class="seccio" id="teoria" data-nav="03 · Teoria">
+      <h2>Teoria, poc a poc</h2>
+      <p class="entradeta">Una idea → un exemple. Prova cada exemple mentre el lliges: així no s'oblida.</p>
+<h3>1. Una variable és una caixa amb nom</h3>
+        <p>Imagina una capsa de cartó amb una etiqueta on posa <code>punts</code>. Dins de la capsa hi ha un nombre. Si volem canviar la puntuació, traiem el que hi ha i posem una altra cosa. La capsa sempre és la mateixa; el contingut canvia.</p>
+        <pre class="codi" data-titol="PrimeraVariable.java" data-etiqueta="LA PRIMERA VARIABLE"><code>public class PrimeraVariable {
+            public static void main(String[] args) {
+                int punts = 0;                 // una caixa que es diu punts i guarda 0
+                System.out.println(punts);     // mostrem el que hi ha dins
+
+                punts = 10;                    // canviem el contingut de la caixa
+                System.out.println(punts);
+
+                punts = punts + 25;            // el que hi havia dins, més 25
+                System.out.println(punts);
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>0
+        10
+        35</pre>
+                  </div>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p><code>punts = punts + 25;</code> no és cap broma ni una equació: vol dir <strong>«agafa el valor de dins de la caixa <code>punts</code>, suma-li 25 i torna a guardar el resultat a la mateixa caixa»</strong>. És la instrucció que més faràs servir en tota la teua vida de programador.</p></div>
+                  </div>
+        <h3>2. Declarar i assignar</h3>
+        <p>Quan creem una variable fem dos coses: <strong>declarar-la</strong> (dir com es diu i de quin tipus és) i <strong>assignar-li</strong> un valor.</p>
+        <pre class="codi" data-titol="Declarar i assignar" data-etiqueta="SINTAXI"><code>int edat;        // declare: volem una caixa de nombres enters que es diu edat
+        edat = 16;       // assigne: dins hi guarde el 16
+
+        int vides = 3;   // les dos coses a la vegada (el més habitual)</code></pre>
+        <p>La primera part (<code>int</code>) és el <strong>tipus</strong> de dada que hi cap a dins. La segona (<code>edat</code>) és el <strong>nom</strong>. El <code>=</code> es llig «guarda dins» i no és una comparació.</p>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p>Si declares una variable i no li dones cap valor, <strong>no la pots usar</strong>: Java no sap què hi ha dins i et dirà <em>variable might not have been initialized</em>. Sempre és millor donar-li un valor quan la crees.</p></div>
+                  </div>
+        <h3>3. El tipus no es pot canviar</h3>
+        <p>Una capsa d'enters només guarda enters; una de text, només text. Java és <strong>estricte</strong> amb això i no et deixarà barrejar-ho per accident.</p>
+        <pre class="codi codi--error" data-titol="UnaVariableNoPotCanviarDeTipus.java" data-etiqueta="AIXÒ NO COMPILA"><code>int edat = "setze";</code></pre>
+                  <p class="missatge-error">error: incompatible types: String cannot be converted to int</p>
+        <p>Eixe missatge ens diu exactament el problema: estem intentant guardar un text (<code>String</code>) dins d'una caixa de nombres enters (<code>int</code>). I tindrá tot el sentit quan penseu: <em>«i si volem guardar l'edat com a text per posar-la dins d'una frase?»</em> No cal: per a això ja tenim la concatenació.</p>
+        <h3>4. Els tipus bàsics</h3>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Tipus</th><th>Què guarda</th><th>Exemple</th></tr></thead>
+                      <tbody>
+                        <tr><td><code>int</code></td><td>Nombres enters (sense decimals)</td><td><code>int edat = 16;</code></td></tr>
+                        <tr><td><code>double</code></td><td>Nombres amb decimals</td><td><code>double nota = 7.5;</code></td></tr>
+                        <tr><td><code>boolean</code></td><td>Vertader o fals</td><td><code>boolean aprovat = true;</code></td></tr>
+                        <tr><td><code>char</code></td><td>Un sol caràcter</td><td><code>char lletra = 'A';</code></td></tr>
+                        <tr><td><code>String</code></td><td>Text (una cadena de caràcters)</td><td><code>String nom = &quot;Ana&quot;;</code></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <ul class="llista-punts">
+                    <li>Nombres per comptar coses (punts, vides, edat, quantitat): <code>int</code>.</li>
+                    <li>Nombres que poden tindre decimals (notes, preus, temperatures, alçades): <code>double</code>.</li>
+                    <li>Coses que només poden ser sí o no (aprovat, és major d'edat, té clau): <code>boolean</code>.</li>
+                    <li>Una lletra solta (una inicial, una opció de menú): <code>char</code>.</li>
+                    <li>Noms, títols, frases: <code>String</code>.</li>
+                  </ul>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Els textos (<code>String</code>) van entre <strong>cometes dobles</strong> i els caràcters solts (<code>char</code>) entre <strong>cometes simples</strong>: <code>String resposta = &quot;sí&quot;;</code> però <code>char inicial = 'A';</code>. Confondre-ho és l'error número u d'este tema.</p></div>
+                  </div>
+        <h3>5. Com es diuen les variables</h3>
+        <p>El nom el tries tu, però hi ha normes i costums: les normes les imposa Java i les costums les imposem nosaltres perquè el codi s'entenga.</p>
+        <ul class="llista-punts">
+                    <li><strong>No</strong> pot tindre espais ni accents: <code>puntsTotals</code>, no <code>punts totals</code> ni <code>punts_totals_2026</code>.</li>
+                    <li><strong>No</strong> pot començar per un número: <code>nivell1</code> sí, <code>1nivell</code> no.</li>
+                    <li>En Java s'escriu <strong>camelCase</strong>: primera paraula en minúscula i les següents amb majúscula: <code>puntsDeVida</code>, <code>preuAmbIva</code>.</li>
+                    <li>El nom ha de dir <strong>què guarda</strong>: <code>edats</code>, no <code>x</code>. Dins d'una setmana no te'n recordaràs.</li>
+                  </ul>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Sorpresa: Java <strong>sí que accepta</strong> accents i la <code>ç</code> en els noms de variables, però per costum no els fem servir. Escrivim <code>mitjana</code> (sense accents) perquè el codi no done mai problemes si l'obrim en un altre ordinador o el copiem a un altre programa.</p></div>
+                  </div>
+        <h3>6. Els operadors aritmètics</h3>
+        <p>Amb les variables podem calcular. Estos són els cinc operadors de sempre:</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Operador</th><th>Què fa</th><th>Exemple amb <code>a = 7</code> i <code>b = 2</code></th></tr></thead>
+                      <tbody>
+                        <tr><td><code>+</code></td><td>Suma</td><td><code>a + b</code> → 9</td></tr>
+                        <tr><td><code>-</code></td><td>Resta</td><td><code>a - b</code> → 5</td></tr>
+                        <tr><td><code>*</code></td><td>Multiplicació</td><td><code>a * b</code> → 14</td></tr>
+                        <tr><td><code>/</code></td><td>Divisió</td><td><code>a / b</code> → 3 (si són enters!)</td></tr>
+                        <tr><td><code>%</code></td><td>Residu: el que sobra de la divisió</td><td><code>a % b</code> → 1</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <p>El <strong>residu</strong> (<code>%</code>) pareix estrany però és molt útil: <code>7 % 2</code> és 1 perquè 7 dividit per 2 dona 3 i <strong>sobra 1</strong>. Servix, per exemple, per saber si un nombre és parell o per repartir coses en grups.</p>
+        <h3>7. Compte amb la divisió entre enters!</h3>
+        <p>Ací hi ha un parany que fa caure a tots els principiants. Pensa què apareixerà abans d'executar:</p>
+        <div class="prediccio">
+                    <h3>Què apareixerà per pantalla?</h3>
+                    <pre class="codi" data-titol="Divisio.java" data-etiqueta="PENSA PRIMER"><code>int a = 9;
+        int b = 2;
+        System.out.println(a / b);
+        System.out.println(a % b);
+        System.out.println(a / 2.0);</code></pre>
+                    <button class="boto boto--solucio" type="button" data-solucio="pred-divisio" data-text-mostrar="Mostrar què apareix" data-text-ocultar="Amagar">Mostrar què apareix</button>
+                    <div class="solucio" id="pred-divisio" hidden>
+                      <span class="solucio__etiqueta">Resposta</span>
+                      <div class="consola"><span class="consola__titol">Eixida real</span><pre>4
+        1
+        4.5</pre></div>
+                      <p class="solucio__perque"><strong>Per què:</strong> Quan els dos costats de la divisió són <strong>enters</strong>, Java fa la divisió entera i <strong>llença la part decimal</strong>: 9/2 dona 4, no 4.5. Si un dels dos és <code>double</code> (per exemple <code>2.0</code>), el resultat sí que porta decimals. No és un error de Java: és una regla del llenguatge que hem de conéixer.</p>
+                    </div>
+                  </div>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>Si vols decimals, <strong>almenys un dels dos nombres ha de ser <code>double</code></strong>. Escriu <code>9 / 2.0</code>, o guarda els nombres en variables <code>double</code> des del principi. Ensopegar amb açò és tan habitual que té nom propi: <em>la divisió entera</em>.</p></div>
+                  </div>
+        <h3>8. Combinar text i variables</h3>
+        <p>Per mostrar un resultat amb un missatge, s'enganxen les peces amb l'operador <code>+</code>. Este procés es diu <strong>concatenació</strong>.</p>
+        <pre class="codi" data-titol="Missatge.java" data-etiqueta="CONCATENACIÓ"><code>public class Missatge {
+            public static void main(String[] args) {
+                String nom = "Ana";
+                int punts = 350;
+
+                System.out.println("Hola, " + nom + "!");
+                System.out.println("Tens " + punts + " punts.");
+                System.out.println("La meitat de punts: " + punts / 2);
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Hola, Ana!
+        Tens 350 punts.
+        La meitat de punts: 175</pre>
+                  </div>
+        <p>Quan un dels costats del <code>+</code> és un text, l'altre es convertix en text i s'enganxen. Per això <code>&quot;Tens &quot; + punts</code> dona <code>Tens 350</code>.</p>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p><strong>Compte amb l'orde!</strong> <code>&quot;Total: &quot; + a + b</code> <strong>no suma</strong>, enganxa: si <code>a</code> és 3 i <code>b</code> és 4, mostra <code>Total: 34</code>. Si vols sumar de veritat, tanca la suma entre parèntesis: <code>&quot;Total: &quot; + (a + b)</code>.</p></div>
+                  </div>
+        <h3>9. Que l'usuari escriga dades: Scanner</h3>
+        <p>Fins ara el programa sempre deia el mateix. Amb <code>Scanner</code> el programa pot <strong>demanar dades</strong> i treballar amb elles.</p>
+        <pre class="codi" data-titol="Endevina.java" data-etiqueta="LECTURA PER TECLAT"><code>import java.util.Scanner;
+
+        public class Endevina {
+            public static void main(String[] args) {
+                Scanner teclat = new Scanner(System.in);   // el nostre lector de teclat
+
+                System.out.print("Escriu un número: ");
+                int numero = teclat.nextInt();             // espera i guarda el nombre
+
+                System.out.println("Has escrit el " + numero);
+            }
+        }</code></pre>
+                  <div class="consola consola--entrada">
+                    <span class="consola__titol">Què ha de passar</span>
+                    <pre>Escriu un número: 42
+        Has escrit el 42</pre>
+                  </div>
+        <ul class="llista-punts">
+                    <li>La primera línia (<code>import java.util.Scanner;</code>) va <strong>sempre</strong> a dalt del fitxer, abans de la classe. Es copia tal qual.</li>
+                    <li><code>Scanner teclat = new Scanner(System.in);</code> es crea <strong>una sola vegada</strong>, al principi del <code>main</code>. El nom <code>teclat</code> el triem nosaltres.</li>
+                  </ul>
+        <div class="nota nota-notecnica">
+                    <span class="nota__icona" aria-hidden="true">🔧</span>
+                    <div><p><strong>De moment no necessitem entendre esta part.</strong> les línies <code>import java.util.Scanner;</code> i <code>new Scanner(System.in)</code> formen part del que anomenem <em>carcassa</em>: cal escriure-les perquè funcione, però no cal entendre-les encara.</p></div>
+                  </div>
+        <p>Una vegada tenim el lector, podem llegir el que l'usuari escriu amb estos mètodes:</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Mètode</th><th>Què llig</th><th>Es guarda en</th></tr></thead>
+                      <tbody>
+                        <tr><td><code>teclat.nextInt()</code></td><td>Un nombre enter</td><td><code>int</code></td></tr>
+                        <tr><td><code>teclat.nextDouble()</code></td><td>Un nombre amb decimals</td><td><code>double</code></td></tr>
+                        <tr><td><code>teclat.next()</code></td><td>Una paraula (sense espais)</td><td><code>String</code></td></tr>
+                        <tr><td><code>teclat.nextLine()</code></td><td>Una línia sencera</td><td><code>String</code></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p>Els decimals s'escriuen amb <strong>punt</strong> (7.5), no amb coma. I si l'usuari escriu una lletra quan el programa espera un número, el programa s'atura amb l'error <code>InputMismatchException</code>: ho veurem en l'apartat d'errors.</p></div>
+                  </div>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>¿I si volem llegir una línia sencera amb espais desprès d'un número? Hi ha un detall famós que ho fa fallar. De moment fem servir <code>next()</code> per a una paraula i ho deixem per a més avant; quan ens passe, el tindrem en l'apartat d'errors d'este tema.</p></div>
+                  </div>
+        <h3>10. Un programa complet</h3>
+        <p>Ajuntem-ho tot: dades, càlcul i missatge final. Este programa calcula el preu d'un producte amb IVA.</p>
+        <pre class="codi" data-titol="PreuAmbIva.java" data-etiqueta="EXEMPLE COMPLET"><code>public class PreuAmbIva {
+            public static void main(String[] args) {
+                double preu = 20.0;            // preu del producte
+                double iva = 0.21;             // 21 % d'IVA
+
+                double total = preu + preu * iva;
+
+                System.out.println("Preu sense IVA: " + preu + " euros");
+                System.out.println("IVA (21%):      " + preu * iva + " euros");
+                System.out.println("Total a pagar:  " + total + " euros");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Preu sense IVA: 20.0 euros
+        IVA (21%):      4.2 euros
+        Total a pagar:  24.2 euros</pre>
+                  </div>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Fixa't que Java escriu <code>20.0</code> i <code>4.2</code>: <strong>no posa zeros que no calen</strong> i sempre mostra el punt decimal. Més avant aprendrem a arredonir a dos decimals per mostrar diners de veritat.</p></div>
+                  </div>
+    </section>
+
+    <!-- =========================== 04 · EXEMPLES EXPLICATS =========================== -->
+    <section class="seccio seccio--suau" id="exemples" data-nav="04 · Exemples">
+      <h2>Exemples explicats pas a pas</h2>
+      <p class="entradeta">Cada exemple: què volem aconseguir, el codi, què apareix per pantalla i per què funciona.</p>
+<h3>Exemple 1 · Els punts d'una partida</h3>
+        <p><strong>Què volem?</strong> Guardar la puntuació i les vides d'un jugador i vore com canvien després d'una pantalla.</p>
+        <pre class="codi" data-titol="Partida.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Partida {
+            public static void main(String[] args) {
+                int punts = 1200;
+                int vides = 3;
+
+                punts = punts + 250;      // hem superat una pantalla
+                vides = vides - 1;        // ens han tocat
+
+                System.out.println("Punts: " + punts);
+                System.out.println("Vides: " + vides);
+                System.out.println("Nivell: " + punts / 500);
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Punts: 1450
+        Vides: 2
+        Nivell: 2</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> <code>punts + 250</code> es calcula i el resultat es guarda <strong>a la mateixa variable</strong>. En l'última línia hi ha una divisió entre enters: 1450 / 500 és 2, perquè la part decimal es perd. Per a este joc ens va bé: el nivell es puja per trams complets.</p>
+        <h3>Exemple 2 · La temperatura</h3>
+        <p><strong>Què volem?</strong> Convertir graus Celsius a Fahrenheit. Per a això cal treballar amb decimals, perquè la temperatura no sempre és un nombre rodó.</p>
+        <pre class="codi" data-titol="Temperatura.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Temperatura {
+            public static void main(String[] args) {
+                double celsius = 21.5;
+                double fahrenheit = celsius * 9 / 5 + 32;
+
+                System.out.println(celsius + " graus Celsius són " + fahrenheit + " graus Fahrenheit.");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>21.5 graus Celsius són 70.7 graus Fahrenheit.</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> com que <code>celsius</code> és <code>double</code>, tota l'operació es fa amb decimals encara que hi haja un <code>9</code> i un <code>5</code> enters. Si <code>celsius</code> haguera sigut <code>int</code>, el resultat seria un desastre: <code>21 * 9 / 5</code> donaria 37 en compte de 37.8.</p>
+        <h3>Exemple 3 · Els diners que queden</h3>
+        <p><strong>Què volem?</strong> Saber quant ens queda després de gastar. I sumar el que hem gastat entre parèntesis, que és un parany habitual.</p>
+        <pre class="codi" data-titol="Cartera.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Cartera {
+            public static void main(String[] args) {
+                double diners = 20.0;
+                double entrepa = 4.75;
+                double beguda = 1.25;
+
+                double queda = diners - entrepa - beguda;
+
+                System.out.println("Tens " + diners + " euros.");
+                System.out.println("Has gastat " + (entrepa + beguda) + " euros.");
+                System.out.println("Et queden " + queda + " euros.");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Tens 20.0 euros.
+        Has gastat 6.0 euros.
+        Et queden 14.0 euros.</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> els parèntesis obliguen a fer primer la suma del gastat, i després eixe resultat s'enganxa al text. Sense parèntesis, eixiria <code>Has gastat 4.751.25 euros</code>.</p>
+        <h3>Exemple 4 · La nota mitjana</h3>
+        <p><strong>Què volem?</strong> Calcular la mitjana de tres notes. Mira bé l'eixida: hi ha una cosa que a tots ens sorprén el primer dia.</p>
+        <pre class="codi" data-titol="Mitjana.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Mitjana {
+            public static void main(String[] args) {
+                double nota1 = 6.0;
+                double nota2 = 7.0;
+                double nota3 = 8.0;
+
+                double suma = nota1 + nota2 + nota3;
+                double mitjana = suma / 3;
+
+                System.out.println("Suma: " + suma);
+                System.out.println("Mitjana: " + mitjana);
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Suma: 21.0
+        Mitjana: 7.0</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> la suma dona 21 i la divisió 7, però Java escriu <code>21.0</code> i <code>7.0</code> perquè les variables són <code>double</code>. <strong>No és un error</strong>: és la manera que té Java de dir «este nombre pot tindre decimals».</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Pregunta-la a classe: <em>«i si les notes foren <code>int</code> i dividim per <code>3</code>?»</em> La resposta és 7 sense decimals… i amb notes reals (6.5, 7.0, 8.5) l'arrodoniment cap avall seria un problema de veritat.</p></div>
+                  </div>
+        <h3>Què apareixerà per pantalla?</h3>
+        <p>Pensa-ho abans d'executar. Ací es veu molt bé com afecta l'orde de les operacions.</p>
+        <div class="prediccio">
+                    <h3>Pensa abans d'executar</h3>
+                    <pre class="codi" data-titol="Ordre.java" data-etiqueta="PENSA PRIMER"><code>int a = 3;
+        int b = 4;
+        System.out.println("Total: " + a + b);
+        System.out.println("Total: " + (a + b));</code></pre>
+                    <button class="boto boto--solucio" type="button" data-solucio="pred-ordre" data-text-mostrar="Mostrar què apareix" data-text-ocultar="Amagar">Mostrar què apareix</button>
+                    <div class="solucio" id="pred-ordre" hidden>
+                      <span class="solucio__etiqueta">Resposta</span>
+                      <div class="consola"><span class="consola__titol">Eixida real</span><pre>Total: 34
+        Total: 7</pre></div>
+                      <p class="solucio__perque"><strong>Per què:</strong> En la primera línia, quan Java troba el <code>+</code> entre un text i un número, convertix tot el que ve després en text i l'enganxa: per això ix 34. Amb els parèntesis, primer es fa la suma i després s'enganxa el resultat: 7.</p>
+                    </div>
+                  </div>
+    </section>
+
+    <!-- =========================== 05 · PROGRAMACIÓ GUIADA =========================== -->
+    <section class="seccio" id="guiada" data-nav="05 · Programació guiada">
+      <h2>Programació guiada: ho fem junts</h2>
+      <p class="entradeta">Construïm una calculadora de la paga setmanal: demanarà les hores treballades i quant es cobra per hora, i dirà quant es guanya. Pas a pas, provant cada pas.</p>
+      <div class="pas revela">
+        <span class="pas__num">1</span>
+        <div class="pas__cos">
+          <h3>Pensem el problema abans de tocar el teclat</h3>
+<p>Sempre igual: primer les idees i després el codi. Estos tres passos els farem servir tota la vida.</p>
+          <ul class="llista-punts">
+                      <li><strong>Què ha d'entrar?</strong> Les hores treballades i el preu de cada hora. Les dos coses les sap l'usuari → <code>Scanner</code>.</li>
+                      <li><strong>Què ha de passar?</strong> Una multiplicació: hores × preu.</li>
+                      <li><strong>Què ha d'eixir?</strong> Un missatge amb el resultat.</li>
+                    </ul>
+          <div class="pregunta-classe"><p>Les hores poden ser 7.5 (mitja hora)? I el preu, pot ser 12.50 €? Què significa això per als tipus que hem de triar?</p></div>
+          <p>Si pot haver-hi mitja hora, les dos dades són <strong><code>double</code></strong>. Si haguérem decidit que només comptem hores senceres, serien <code>int</code>. Sempre pensem en les dades abans de programar.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">2</span>
+        <div class="pas__cos">
+          <h3>Escrivim el que sí que sabem</h3>
+<p>Carcassa, <code>Scanner</code> i les dos preguntes. Ho provem amb unes dades qualsevol per comprovar que llig bé.</p>
+          <pre class="codi" data-titol="CalculadoraPaga.java" data-etiqueta="PAS 2"><code>import java.util.Scanner;
+
+          public class CalculadoraPaga {
+              public static void main(String[] args) {
+                  Scanner teclat = new Scanner(System.in);
+
+                  System.out.print("Quantes hores has treballat? ");
+                  double hores = teclat.nextDouble();
+
+                  System.out.print("Quant cobres per hora? ");
+                  double preuHora = teclat.nextDouble();
+
+                  System.out.println("Hores: " + hores);
+                  System.out.println("Preu per hora: " + preuHora);
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>Quantes hores has treballat? 7.5
+          Quant cobres per hora? 12.5
+          Hores: 7.5
+          Preu per hora: 12.5</pre>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">3</span>
+        <div class="pas__cos">
+          <h3>Afegim el càlcul</h3>
+<p>Una variable nova per al resultat i una multiplicació. Fixa't que la variable la creem damunt del <code>println</code>, perquè si no, no existiria.</p>
+          <pre class="codi" data-titol="CalculadoraPaga.java" data-etiqueta="PAS 3"><code>import java.util.Scanner;
+
+          public class CalculadoraPaga {
+              public static void main(String[] args) {
+                  Scanner teclat = new Scanner(System.in);
+
+                  System.out.print("Quantes hores has treballat? ");
+                  double hores = teclat.nextDouble();
+
+                  System.out.print("Quant cobres per hora? ");
+                  double preuHora = teclat.nextDouble();
+
+                  double total = hores * preuHora;
+
+                  System.out.println("Hores: " + hores);
+                  System.out.println("Preu per hora: " + preuHora);
+                  System.out.println("Total: " + total + " euros");
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>Quantes hores has treballat? 7.5
+          Quant cobres per hora? 12.5
+          Hores: 7.5
+          Preu per hora: 12.5
+          Total: 93.75 euros</pre>
+                    </div>
+          <div class="pregunta-classe"><p>Què passaria si haguérem declarat les hores com a <code>int</code> i l'usuari escriu 7.5?</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">4</span>
+        <div class="pas__cos">
+          <h3>Millorem el missatge final</h3>
+<p>El programa funciona, però el resultat barreja dades i càlcul. Traiem les línies de comprovació i deixem un missatge clar, com faria una aplicació de veritat.</p>
+          <pre class="codi" data-titol="CalculadoraPaga.java" data-etiqueta="PAS 4 · VERSIÓ FINAL"><code>import java.util.Scanner;
+
+          public class CalculadoraPaga {
+              public static void main(String[] args) {
+                  Scanner teclat = new Scanner(System.in);
+
+                  System.out.print("Quantes hores has treballat? ");
+                  double hores = teclat.nextDouble();
+
+                  System.out.print("Quant cobres per hora? ");
+                  double preuHora = teclat.nextDouble();
+
+                  double total = hores * preuHora;
+
+                  System.out.println("Has treballat " + hores + " hores a " + preuHora + " euros/hora.");
+                  System.out.println("Esta setmana cobraràs " + total + " euros.");
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>Quantes hores has treballat? 7.5
+          Quant cobres per hora? 12.5
+          Has treballat 7.5 hores a 12.5 euros/hora.
+          Esta setmana cobraràs 93.75 euros.</pre>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">5</span>
+        <div class="pas__cos">
+          <h3>Trenquem-lo: proves i preguntes</h3>
+<p>Un programa no està acabat fins que l'hem provat amb casos estranys. Provem estos i apuntem què passa:</p>
+          <ol class="llista-punts">
+                      <li><strong>0 hores</strong> → total 0.0. Està bé.</li>
+                      <li><strong>160 hores</strong> → funciona. Compensa comprovar-ho.</li>
+                      <li><strong>7,5</strong> (amb coma) → el programa s'atura amb <code>InputMismatchException</code>. Java espera un punt!</li>
+                      <li>Una lletra qualsevol → el mateix error, i el programa es tanca.</li>
+                    </ol>
+          <p>Eixe error de la coma és real i li passa a molta gent: els nombres decimals en Java s'escriuen amb <strong>punt</strong>. Ho apuntem en el bloc d'errors i seguim.</p>
+          <div class="pregunta-classe"><p>I si volguérem saber quant es cobra en un mes (4 setmanes i mitja)? Quines línies hi afegiríem?</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 06 · MINI EXERCICIS ============================= -->
+    <section class="seccio seccio--suau" id="mini-exercicis" data-nav="06 · Mini exercicis">
+      <h2>Mini exercicis</h2>
+      <p class="entradeta">Activitats molt curtes: un minut o dos cada una.</p>
+      <div class="llista-mini">
+        <article class="exercici exercici--mini" id="mini1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">La teua edat</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">1 min</span>
+          </div>
+          <div class="exercici__enunciat">Crea una variable <code>int</code> amb la teua edat i mostra-la amb un missatge.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini1">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini1"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="LaMeuaEdat.java" data-etiqueta="SOLUCIÓ"><code>public class LaMeuaEdat {
+    public static void main(String[] args) {
+        int edat = 16;
+        System.out.println("Tinc " + edat + " anys.");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Tinc 16 anys.</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Has declarat la variable amb el tipus (<code>int</code>), li has donat un valor i l'has mostrada eganxant-la al text.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">Les vides que queden</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">2 min</span>
+          </div>
+          <div class="exercici__enunciat">Crea una variable per a les vides d'un jugador, que comença amb 3. Lleva-li una vida, mostra-la, lleva-li'n una altra i torna a mostrar-la.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini2">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini2"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Vides.java" data-etiqueta="SOLUCIÓ"><code>public class Vides {
+    public static void main(String[] args) {
+        int vides = 3;
+        System.out.println("Vides: " + vides);
+
+        vides = vides - 1;
+        System.out.println("Vides: " + vides);
+
+        vides = vides - 1;
+        System.out.println("Vides: " + vides);
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Vides: 3
+Vides: 2
+Vides: 1</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Sempre la mateixa variable: el que canvia és el valor de dins. Fixa't que la instrucció <code>vides = vides - 1</code> es repetix dos vegades.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">Un preu amb descompte</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">2 min</span>
+          </div>
+          <div class="exercici__enunciat">Un producte costa 80.0 euros i està rebaixat un 25 %. Calcula el preu final i mostra'l. Consell: un 25 % menys és multiplicar per 0.75.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini3">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini3"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Descompte.java" data-etiqueta="SOLUCIÓ"><code>public class Descompte {
+    public static void main(String[] args) {
+        double preu = 80.0;
+        double preuFinal = preu * 0.75;
+
+        System.out.println("Preu: " + preu + " euros");
+        System.out.println("Preu amb descompte: " + preuFinal + " euros");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Preu: 80.0 euros
+Preu amb descompte: 60.0 euros</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Per aplicar un descompte es multiplica pel factor que queda. Un 25 % de descompte deixa el 75 % del preu: 0.75.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">Què mostra este programa?</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">2 min</span>
+          </div>
+          <div class="exercici__enunciat">Sense executar-lo, pensa què apareixerà per pantalla i explica per què. Després copia'l i comprova-ho.</div>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="CODI"><code>int cites = 7;
+int amics = 2;
+System.out.println(cites / amics);
+System.out.println(cites % amics);</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini4">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini4"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Resposta.java" data-etiqueta="SOLUCIÓ"><code>int cites = 7;
+int amics = 2;
+System.out.println(cites / amics);   // 3
+System.out.println(cites % amics);   // 1</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>3
+1</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> La divisió entre enters dona 3 (i es perd el 0.5). El residu diu quant sobra: 7 = 2 × 3 + 1, per tant sobra 1. Traduït al món real: 3 cites per persona i en sobra una.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini5">
+          <div class="exercici__cap">
+            <span class="exercici__num">5</span>
+            <h3 class="exercici__titol">Troba l'error</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Este programa no funciona. Copia'l, mira què diu el compilador i arregla'l.</div>
+          <pre class="codi codi--error" data-titol="Trencat.java" data-etiqueta="QUÈ FALLA?"><code>public class Trencat {
+    public static void main(String[] args) {
+        punts = 100;
+        System.out.println(punts);
+    }
+}</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini5">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini5">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini5"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini5" hidden><p><strong>Pista:</strong> El compilador es queixa que no troba cap símbol amb eixe nom. Quina informació li falta a Java per saber què és <code>punts</code>?</p></div>
+          <div class="solucio" id="sol-mini5" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Arreglat.java" data-etiqueta="SOLUCIÓ"><code>public class Arreglat {
+    public static void main(String[] args) {
+        int punts = 100;
+        System.out.println(punts);
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>100</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Faltava declarar la variable: Java no sabia si <code>punts</code> era un nombre, un text o què. Sense el tipus (<code>int</code>) no hi hauria ni una capsa on guardar el 100.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini6">
+          <div class="exercici__cap">
+            <span class="exercici__num">6</span>
+            <h3 class="exercici__titol">El teu nom pel teclat</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana el nom a l'usuari (una sola paraula) i saluda'l pel seu nom.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Quin és el teu nom? Ana</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Hola, Ana! Benvinguda al curs.</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini6">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini6"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini6" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Saluda.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Saluda {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Quin és el teu nom? ");
+        String nom = teclat.next();
+
+        System.out.println("Hola, " + nom + "! Benvinguda al curs.");
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Quin és el teu nom? Ana
+Hola, Ana! Benvinguda al curs.</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> <code>next()</code> llig una paraula (fins al primer espai) i la guarda en un <code>String</code>. Damunt et mostrem la sessió completa: el que escriu l'usuari i el que respon el programa.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini7">
+          <div class="exercici__cap">
+            <span class="exercici__num">7</span>
+            <h3 class="exercici__titol">La suma de dos nombres</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana dos nombres enters i mostra la seua suma.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Primer nombre: 7
+Segon nombre: 5</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>La suma és 12</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini7">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini7"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini7" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Suma.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Suma {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Primer nombre: ");
+        int primer = teclat.nextInt();
+
+        System.out.print("Segon nombre: ");
+        int segon = teclat.nextInt();
+
+        System.out.println("La suma és " + (primer + segon));
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Primer nombre: 7
+Segon nombre: 5
+La suma és 12</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Fixat en els parèntesis: <code>&quot;La suma és &quot; + (primer + segon)</code>. Sense ells, eixiria <code>La suma és 75</code>. És l'error que hem vist en l'apartat de teoria… i en el qual cau tothom.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 07 · FES EL PROGRAMA ========================= -->
+    <section class="seccio" id="fes-el-programa" data-nav="07 · Fes el programa">
+      <h2>Fes el programa</h2>
+      <p class="entradeta">Quatre exercicis una mica més llargs. Escriu-los sencers, executa'ls i prova'ls amb dades diferents abans de mirar la solució.</p>
+      <article class="exercici" id="ex1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">La fitxa personal</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">15 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana a l'usuari el nom (una paraula), l'edat (un nombre enter) i l'alçada en metres (un nombre amb decimals). Després mostra una fitxa amb les tres dades.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Nom: Ana
+Edat: 16
+Alçada (m): 1.63</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>--- FITXA ---
+Nom: Ana
+Edat: 16 anys
+Alçada: 1.63 m</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex1" hidden><p><strong>Pista:</strong> Tres variables, tres mètodes del teclat: <code>next()</code>, <code>nextInt()</code> i <code>nextDouble()</code>.</p></div>
+          <div class="solucio" id="sol-ex1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Fitxa.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Fitxa {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Nom: ");
+        String nom = teclat.next();
+
+        System.out.print("Edat: ");
+        int edat = teclat.nextInt();
+
+        System.out.print("Alçada (m): ");
+        double alcada = teclat.nextDouble();
+
+        System.out.println("--- FITXA ---");
+        System.out.println("Nom: " + nom);
+        System.out.println("Edat: " + edat + " anys");
+        System.out.println("Alçada: " + alcada + " m");
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Nom: Ana
+Edat: 16
+Alçada (m): 1.63
+--- FITXA ---
+Nom: Ana
+Edat: 16 anys
+Alçada: 1.63 m</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Tres tipus distints per a tres dades distintes: <code>String</code> per al nom, <code>int</code> per a l'edat i <code>double</code> per a l'alçada. Podem llegir-los seguits sense problema perquè <code>next()</code>, <code>nextInt()</code> i <code>nextDouble()</code> salten els espais i els salts de línia.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">La botiga de videojocs</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Una botiga ven claus de videojocs. Demana el preu en cèntims d'un joc i quants en vol comprar l'usuari. Calcula el total en cèntims i mostra'l també en euros (dividint entre 100.0).</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Preu en cèntims: 4999
+Quants: 3</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Total: 14997 cèntims
+En euros: 149.97 euros</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex2" hidden><p><strong>Pista:</strong> Guarda els diners com a enters i dividix entre <code>100.0</code> només per mostrar. Compte a dividir entre <code>100</code> sense el <code>.0</code>.</p></div>
+          <div class="solucio" id="sol-ex2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Botiga.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Botiga {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Preu en cèntims: ");
+        int preuCentims = teclat.nextInt();
+
+        System.out.print("Quants: ");
+        int quantitat = teclat.nextInt();
+
+        int totalCentims = preuCentims * quantitat;
+
+        System.out.println("Total: " + totalCentims + " cèntims");
+        System.out.println("En euros: " + totalCentims / 100.0 + " euros");
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Preu en cèntims: 4999
+Quants: 3
+Total: 14997 cèntims
+En euros: 149.97 euros</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Els diners es guarden en cèntims (enters) perquè els <code>int</code> són exactes: així no hi ha sorpreses d'arrodoniment. Només en el moment de mostrar-los dividim entre <code>100.0</code> (amb el <code>.0</code> perquè volem decimals!) per passar-ho a euros.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">El conversor de temperatures</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana una temperatura en graus Celsius i mostra-la convertida a Fahrenheit. La fórmula és: Fahrenheit = Celsius × 9 / 5 + 32.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Temperatura en Celsius: 30</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>30.0 graus Celsius són 86.0 graus Fahrenheit.</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex3" hidden><p><strong>Pista:</strong> Guarda la temperatura en un <code>double</code> encara que l'usuari escriga un nombre rodó.</p></div>
+          <div class="solucio" id="sol-ex3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Conversor.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Conversor {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Temperatura en Celsius: ");
+        double celsius = teclat.nextDouble();
+
+        double fahrenheit = celsius * 9 / 5 + 32;
+
+        System.out.println(celsius + " graus Celsius són " + fahrenheit + " graus Fahrenheit.");
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Temperatura en Celsius: 30
+30.0 graus Celsius són 86.0 graus Fahrenheit.</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Com que <code>celsius</code> és <code>double</code>, tota la fórmula es calcula amb decimals: 30 × 9 = 270, dividit per 5 dona 54.0 i més 32, 86.0. Si hagueres guardat els graus en un <code>int</code>, la divisió per 5 et donaria un resultat fals en molts casos.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">Quants entrepans puc comprar?</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">25 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana quants euros tens i quant costa un entrepà (les dos coses en euros enters). Digues quants entrepans pots comprar i quants euros et sobraran. No es pot emprar decimals ni condicions: només els operadors <code>/</code> i <code>%</code>.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Euros que tens: 10
+Preu de l'entrepà: 3</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Pots comprar 3 entrepans.
+Et sobraran 1 euros.</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex4" hidden><p><strong>Pista:</strong> La divisió entera et diu quants caben i el residu et diu què sobra. Prova-ho amb 10 i 3 a mà: 3 × 3 = 9, i en sobra 1.</p></div>
+          <div class="solucio" id="sol-ex4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Entrepans.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Entrepans {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Euros que tens: ");
+        int diners = teclat.nextInt();
+
+        System.out.print("Preu de l'entrepà: ");
+        int preu = teclat.nextInt();
+
+        int quants = diners / preu;      // divisió entera: només els sencers
+        int sobren = diners % preu;      // el residu: el que no es pot gastar
+
+        System.out.println("Pots comprar " + quants + " entrepans.");
+        System.out.println("Et sobraran " + sobren + " euros.");
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Euros que tens: 10
+Preu de l'entrepà: 3
+Pots comprar 3 entrepans.
+Et sobraran 1 euros.</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Ací la divisió entera és justament el que volem: 10 / 3 dona 3 perquè <strong>no es pot comprar mig entrepà</strong>. I el residu 10 % 3 dona 1, que són els euros que sobren. Dos operadors, dos resultats útils.</p>
+          </div>
+        </article>
+    </section>
+
+    <!-- ================================ 08 · REPTES ================================ -->
+    <section class="seccio seccio--suau" id="reptes" data-nav="08 · Reptes">
+      <h2>Reptes (sense solució)</h2>
+      <div class="nota nota--avis">
+        <span class="nota__icona" aria-hidden="true">🧠</span>
+        <div><p>Els reptes <strong>no tenen botó de solució</strong>, a propòsit. L'objectiu és pensar, provar, equivocar-se i tornar-ho a intentar. Es poden resoldre de moltes maneres diferents: totes les solucions que funcionen són bones.</p></div>
+      </div>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 1</span>
+          <h3 class="repte__titol">La fitxa del teu personatge</h3>
+        </div>
+<p>Crea un programa que construïsca la fitxa d'un personatge de videojoc. Ha de demanar el <strong>nom</strong> (una paraula), la <strong>classe</strong> (mag, guerrer, arquer…), els <strong>punts de vida</strong> i l'<strong>or</strong> que porta.</p>
+        <p>Després ha de calcular i mostrar: el <strong>nivell</strong> del personatge (cada 100 monedes d'or és un nivell) i quant <strong>or li falta</strong> per al següent nivell.</p>
+        <p>L'eixida ha de quedar com una fitxa, amb línies alineades i els valors ben col·locats. Pensa quines dades són enters i quines no.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Afig una dada més: el pes de l'equipament en quilograms (amb decimals) i mostra el pes total.</li>
+          <li>Que el programa calcule també la vida que li queda després de rebre un colp de 25 punts.</li>
+        </ul>
+      </article>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 2</span>
+          <h3 class="repte__titol">La calculadora de l'índex de massa corporal</h3>
+        </div>
+<p>Fes un programa que demane el pes en quilograms (amb decimals) i l'alçada en metres (amb decimals) i calcule l'<strong>IMC</strong>, que es calcula així: IMC = pes / (alçada × alçada).</p>
+        <p>Mostra el resultat amb un missatge clar. Prova'l amb les teues dades i amb dades exagerades (2 metres d'alçada i 40 kg) i pensa si el resultat et pareix correcte.</p>
+        <p>No fa falta decidir si el resultat és bo o roín: això necessita condicions, i les condicions arriben en el següent tema. Ací només cal calcular i mostrar.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Que el programa mostre també quant pesaria la persona si guanyara 5 kg.</li>
+          <li>Afig la conversió de l'alçada a centímetres (alçada × 100).</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ============================ 09 · ERRORS HABITUALS ============================ -->
+    <section class="seccio" id="errors" data-nav="09 · Errors habituals">
+      <h2>Errors habituals</h2>
+      <p class="entradeta">Estos són els errors que segur que veuràs. Llig-los abans de programar: quan apareguen, sabràs què passa.</p>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 1</span>
+            <h3 class="exercici__titol" style="margin:0">Usar una variable sense valor</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>int punts;
+System.out.println(punts);</code></pre>
+          <p class="missatge-error">error: variable punts might not have been initialized</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Hem creat la caixa però l'hem deixada buida i després hem intentat mostrar què hi ha dins.</dd>
+                <dt>Per què</dt><dd>Java no suposa valors: una variable <code>int</code> no val 0 per art de màgia, i Java no vol inventar-se'n un.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge diu <em>might not have been initialized</em> («pot ser que no se li haja donat valor»).</dd>
+                <dt>Com corregir-ho</dt><dd>Dona-li un valor quan la declares: <code>int punts = 0;</code>. Si encara no saps quin valor tindrà, posa-li zero i canvia'l després.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int punts = 0;
+System.out.println(punts);</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 2</span>
+            <h3 class="exercici__titol" style="margin:0">Escriure els decimals amb coma</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>double preu = 4,95;</code></pre>
+          <p class="missatge-error">error: ',' expected
+        double preu = 4,95;
+                       ^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Hem escrit la coma decimal que fem servir quan parlem i quan escrivim a mà.</dd>
+                <dt>Per què</dt><dd>En Java (i en la majoria de llenguatges de programació) el separador decimal és el <strong>punt</strong>. La coma té un altre significat: servix per separar coses.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge deia literalment <code>',' expected</code>: Java esperava una coma en un altre lloc perquè no entén eixa.</dd>
+                <dt>Com corregir-ho</dt><dd>Escriu el punt: <code>4.95</code>. I recorda-ho també quan l'usuari haja d'escriure decimals pel teclat: 1.63, no 1,63.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>double preu = 4.95;</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 3</span>
+            <h3 class="exercici__titol" style="margin:0">La divisió entera que es mengen els decimals</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>int notes = 21;
+double mitjana = notes / 3;</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Esperàvem 7.0 i el programa… sí, dona 7.0. Però si les notes hagueren sumat 22, hauria donat 7.0 també! (Perquè 22 / 3 = 7 en divisió entera i es perd el 0.333).</dd>
+                <dt>Per què</dt><dd>La divisió es decideix abans de guardar el resultat: si els dos nombres són enters, Java fa la divisió entre enters i <strong>llença la part decimal</strong>. Després ja no hi ha res a recuperar.</dd>
+                <dt>Com detectar-ho</dt><dd>El senyal és un resultat rarament rodó quan esperàvem decimals. Si el resultat sempre és un nombre enter quan no ho hauria de ser, mira els tipus.</dd>
+                <dt>Com corregir-ho</dt><dd>Fes que almenys un dels dos siga decimal: escriu <code>3.0</code>, o guarda el numerador en una variable <code>double</code> des del principi.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int notes = 21;
+double mitjana = notes / 3.0;</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 4</span>
+            <h3 class="exercici__titol" style="margin:0">Oblidar el tipus de la variable</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>punts = 100;</code></pre>
+          <p class="missatge-error">error: cannot find symbol
+        punts = 100;
+        ^
+  symbol:   variable punts</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Hem intentat guardar un valor en una variable que no havíem creat.</dd>
+                <dt>Per què</dt><dd>Java necessita saber el nom i el tipus <strong>abans</strong> d'usar una variable. Si no la troba, diu que no coneix eixe símbol.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge diu <code>cannot find symbol</code> i assenyala el nom exacte que no troba.</dd>
+                <dt>Com corregir-ho</dt><dd>Declara-la abans: <code>int punts = 100;</code>. Si el nom està ben escrit, mira si l'has declarada dins d'una altra part del programa on no arriba.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int punts = 100;</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 5</span>
+            <h3 class="exercici__titol" style="margin:0">Escriure una lletra quan el programa espera un número</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>Scanner teclat = new Scanner(System.in);
+int edat = teclat.nextInt();</code></pre>
+          <p class="missatge-error">Exception in thread &quot;main&quot; java.util.InputMismatchException
+	at java.base/java.util.Scanner.throwFor(Scanner.java:939)</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>L'usuari ha escrit una lletra o una paraula on el programa esperava un nombre.</dd>
+                <dt>Per què</dt><dd><code>nextInt()</code> només sap llegir nombres enters. Si el que arriba no és un nombre, llança una excepció i el programa s'atura.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge conté <code>InputMismatchException</code>. També passa si escrivim els decimals amb coma en un <code>nextDouble()</code>.</dd>
+                <dt>Com corregir-ho</dt><dd>De moment, assegura't d'escriure el tipus de dada que toca (un nombre enter, amb punt si és decimal). Més avant aprendrem a comprovar-ho perquè el programa no es tanque.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>Scanner teclat = new Scanner(System.in);
+System.out.print("Edat: ");
+int edat = teclat.nextInt();   // i l'usuari escriu un número</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 6</span>
+            <h3 class="exercici__titol" style="margin:0">Confondre cometes dobles i simples</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>String resposta = 'sí';
+char inicial = "A";</code></pre>
+          <p class="missatge-error">error: incompatible types: char cannot be converted to String
+        String resposta = 'sí';
+error: incompatible types: String cannot be converted to char
+        char inicial = &quot;A&quot;;</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Hem creuat les cometes: text amb cometes simples i caràcter amb cometes dobles.</dd>
+                <dt>Per què</dt><dd><code>char</code> guarda <strong>un sol caràcter</strong> i va entre cometes simples; <code>String</code> guarda <strong>text</strong> i va entre cometes dobles. Són dos tipus distints.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge parla de <code>char cannot be converted to String</code> (o al revés).</dd>
+                <dt>Com corregir-ho</dt><dd>Text → cometes dobles (<code>&quot;sí&quot;</code>). Un sol caràcter → cometes simples (<code>'A'</code>).</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>String resposta = "sí";
+char inicial = 'A';</code></pre>
+            </div>
+          </div>
+        </article>
+    </section>
+
+    <!-- ============================= 10 · RESUM VISUAL ============================= -->
+    <section class="seccio seccio--suau" id="resum" data-nav="10 · Resum visual">
+      <h2>Resum visual</h2>
+      <p class="entradeta">Les idees que has d'endur-te. Si pots explicar-les amb les teues paraules, el tema està apamat.</p>
+      <div class="resum-visual revela">
+        <div class="resum-visual__item"><p>Una <strong>variable</strong> és una caixa amb nom on guardem un valor que pot canviar.</p></div>
+        <div class="resum-visual__item"><p>Per crear-la cal dir-ne el <strong>tipus</strong> i el <strong>nom</strong>: <code>int punts = 100;</code>.</p></div>
+        <div class="resum-visual__item"><p>Tipus bàsics: <code>int</code> (enters), <code>double</code> (decimals), <code>boolean</code> (sí/no), <code>char</code> (un caràcter) i <code>String</code> (text).</p></div>
+        <div class="resum-visual__item"><p>Els operadors són <code>+ - * / %</code>. El residu <code>%</code> diu què sobra d'una divisió.</p></div>
+        <div class="resum-visual__item"><p>Si dividixes dos enters, Java <strong>perd els decimals</strong>: escriu <code>2.0</code> o guarda els nombres com a <code>double</code>.</p></div>
+        <div class="resum-visual__item"><p>Amb <code>+</code> s'enganxen text i variables. Compte: <code>&quot;Total: &quot; + a + b</code> no suma! Cal <code>(a + b)</code>.</p></div>
+        <div class="resum-visual__item"><p><code>Scanner</code> permet llegir el que l'usuari escriu: <code>nextInt()</code>, <code>nextDouble()</code>, <code>next()</code>.</p></div>
+        <div class="resum-visual__item"><p>Els decimals s'escriuen amb <strong>punt</strong> i Java no posa zeros que no calen: mostra <code>20.0</code> i <code>4.2</code>.</p></div>
+      </div>
+    </section>
+
+    <!-- ============================ 11 · AUTOAVALUACIÓ ============================ -->
+    <section class="seccio" id="autoavaluacio" data-nav="11 · Autoavaluació">
+      <h2>Autoavaluació</h2>
+      <p class="entradeta">Nou preguntes. Pensa la resposta abans de mirar-la: si l'encertes, ja tens el tema controlat.</p>
+      <ol class="llista-autoavaluacio">
+        <li>
+          <p class="enunciat">Què és una variable?</p>
+
+          <ul class="opcions"><li>Un text que es mostra per pantalla.</li><li>Una caixa amb un nom on guardem un valor que pot canviar.</li><li>Una ordre que repetix instruccions.</li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av1">Mostrar solució</button>
+          <div class="solucio" id="av1" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) Una caixa amb un nom on guardem un valor.</strong></p>
+            <p class="solucio__perque">La variable té un nom i un tipus, guarda un valor i podem canviar eixe valor tantes vegades com vulguem.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quin tipus faries servir per guardar la nota d'un examen que pot ser 7.5?</p>
+
+          <ul class="opcions"><li><code>int</code></li><li><code>double</code></li><li><code>String</code></li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av2">Mostrar solució</button>
+          <div class="solucio" id="av2" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) <code>double</code></strong></p>
+            <p class="solucio__perque">Un <code>int</code> no pot guardar decimals: 7.5 es convertiria en un error de compilació. La nota va en <code>double</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què mostra este programa per pantalla?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>int vides = 3;
+vides = vides + 2;
+System.out.println("Vides: " + vides);</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av3">Mostrar solució</button>
+          <div class="solucio" id="av3" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>Vides: 5</code></strong></p>
+            <p class="solucio__perque">La variable comença valent 3, després es guarda 3 + 2 = 5 en la mateixa variable i finalment es mostra.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quin és el resultat de <code>7 / 2</code> si els dos nombres són enters? I el de <code>7 % 2</code>?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av4">Mostrar solució</button>
+          <div class="solucio" id="av4" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>7 / 2</code> dona 3 i <code>7 % 2</code> dona 1.</strong></p>
+            <p class="solucio__perque">La divisió entre enters es queda amb la part entera i llenga els decimals. El residu (<code>%</code>) dona el que sobra: 7 = 2 × 3 + 1.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Volem la mitjana de dos nombres enters que sumen 21 i volem decimals. Quina línia és correcta?</p>
+
+          <ul class="opcions"><li><code>double m = 21 / 2;</code></li><li><code>double m = 21 / 2.0;</code></li><li><code>double m = 21 % 2;</code></li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av5">Mostrar solució</button>
+          <div class="solucio" id="av5" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) <code>double m = 21 / 2.0;</code></strong></p>
+            <p class="solucio__perque">Amb <code>2.0</code> la divisió es fa amb decimals i el resultat és 10.5. En la primera opció, Java fa la divisió entre enters (10) i després guarda eixe 10 dins d'un <code>double</code>: ja és massa tard.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què apareixerà per pantalla?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>int a = 3;
+int b = 4;
+System.out.println("Total: " + a + b);</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av6">Mostrar solució</button>
+          <div class="solucio" id="av6" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>Total: 34</code></strong></p>
+            <p class="solucio__perque">Quan el <code>+</code> ajunta un text amb un número, tot el que ve després es convertix en text i s'enganxa. Si volíem la suma, caldria escriure <code>&quot;Total: &quot; + (a + b)</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Per què el programa s'atura amb <code>InputMismatchException</code>?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>Scanner teclat = new Scanner(System.in);
+int edat = teclat.nextInt();
+// l'usuari escriu: setze</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av7">Mostrar solució</button>
+          <div class="solucio" id="av7" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè l'usuari ha escrit lletres on el programa esperava un nombre enter.</strong></p>
+            <p class="solucio__perque"><code>nextInt()</code> només llig nombres enters. També passa si escrius un decimal amb coma: Java espera el punt.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Este programa no compila. Què li falta?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>mitjana = 7.5;
+System.out.println(mitjana);</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av8">Mostrar solució</button>
+          <div class="solucio" id="av8" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Falta declarar la variable amb el seu tipus: <code>double mitjana = 7.5;</code>.</strong></p>
+            <p class="solucio__perque">Java ha de saber el nom i el tipus abans d'usar una variable. El missatge seria <em>cannot find symbol: variable mitjana</em>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Volem guardar l'edat d'una persona que pot tindre 15 anys o 15.5 anys (mig any). Quin tipus tries, i per què?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av9">Mostrar solució</button>
+          <div class="solucio" id="av9" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>double</code>, perquè ha de poder guardar decimals.</strong></p>
+            <p class="solucio__perque">Si tries <code>int</code> i guardes 15.5, el programa ni tan sols compilarà. Pensar el tipus de cada dada <strong>abans</strong> d'escriure el codi ens estalvia errors: sempre ens preguntem «pot tindre decimals esta dada?».</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <nav class="navegacio-temes no-imprimible" id="navegacio-temes" aria-label="Navegació entre temes"></nav>
+
+  </main>
+</div>
+
+<!-- ====================================== PEU ====================================== -->
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__graella">
+      <div>
+        <h4>Introducció a la Programació amb Java</h4>
+        <p>Optativa SMX · Sistemes Microinformàtics i Xarxes</p>
+        <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+      </div>
+      <div>
+        <h4>En este tema</h4>
+        <ul class="llista-netejada">
+          <li><a href="#teoria">Teoria</a></li>
+          <li><a href="#exemples">Exemples explicats</a></li>
+          <li><a href="#guiada">Programació guiada</a></li>
+          <li><a href="#resum">Resum visual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Llicència</h4>
+        <p>Material lliure per a ús educatiu.<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a></p>
+      </div>
+    </div>
+    <div class="peu__base">
+      <span>© 2026 Agustín Gil · IES La Vereda</span>
+      <a class="llicencia" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">
+        <span class="llicencia__icones" aria-hidden="true"><span>CC</span><span>BY</span><span>NC</span></span>
+        Creative Commons Reconeixement-NoComercial 4.0 Internacional
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Peu fix que apareix en cada pàgina del PDF -->
+<div class="peu-impressio" aria-hidden="true">
+  <span>Introducció a la Programació amb Java · Optativa SMX · Material creat per Agustín Gil - IES La Vereda 2026 · CC BY-NC 4.0</span>
+  <span class="peu-impressio__dreta">Tema 1</span>
+</div>
+
+<button class="boto boto--primari tornar-dalt no-imprimible" id="tornar-dalt" type="button" aria-label="Tornar a dalt">↑</button>
+
+<script src="../assets/js/resaltat.js"></script>
+<script src="../assets/js/dades-curs.js"></script>
+<script src="../assets/js/diapositives/tema1.js"></script>
+<script src="../assets/js/plantilla-tema.js"></script>
+<script src="../assets/js/pptx.js"></script>
+</body>
+</html>

@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 3 · Repetir: els bucles | Introducció a la Programació amb Java</title>
+<meta name="description" content="Fer que el programa repetisca coses sense escriure-les mil vegades">
+<meta name="author" content="Agustín Gil · IES La Vereda 2026">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/tema.css">
+<link rel="stylesheet" href="../assets/css/print.css">
+<!-- PÀGINA GENERADA amb eines/genera-temes.mjs — edita eines/contingut/tema3.js i torna a generar-la -->
+</head>
+
+<body data-tema="3">
+
+<!-- ============================ PORTADA D'IMPRESSIÓ ============================ -->
+<div class="portada-impressio només-impressio" id="portada-impressio">
+  <p class="portada-impressio__curs" data-camp="assignatura">Optativa SMX · Introducció a la Programació</p>
+  <h1 data-camp="tema">Tema 3 · Repetir: els bucles</h1>
+  <p class="portada-impressio__resum" data-camp="subtitol">Fer que el programa repetisca coses sense escriure-les mil vegades</p>
+  <div class="portada-impressio__meta">
+    <p data-camp="autor">Material creat per Agustín Gil - IES La Vereda 2026</p>
+    <p>Llicència <span data-camp="llicencia">CC BY-NC 4.0</span> · <a data-camp="enllac" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">creativecommons.org/licenses/by-nc/4.0</a></p>
+    <p>Data d'impressió: <span data-camp="data"></span></p>
+    <p class="text-suau">Manual d'estudi: introducció, objectius, teoria, exemples explicats, programació guiada, errors habituals i resum. Les tres primeres preguntes d'autoavaluació inclouen la solució; els exercicis i els reptes es treballen en la versió web.</p>
+  </div>
+</div>
+
+<!-- ================================== CAPÇALERA ================================== -->
+<header class="capcalera">
+  <div class="contenidor capcalera__interior" style="max-width:1400px">
+    <a class="capcalera__marca" href="../index.html">
+      <span class="capcalera__logo" aria-hidden="true">{}</span>
+      <span class="capcalera__text">
+        <span class="capcalera__curs">Optativa SMX · Programació amb Java</span>
+        <span class="capcalera__tema">Tema 3 · Repetir: els bucles</span>
+      </span>
+    </a>
+    <div class="capcalera__accions">
+      <button class="boto boto--ciano boto--petit" type="button" data-imprimir>🖨 <span class="text-llarg">Imprimir</span> PDF</button>
+      <button class="boto boto--taronja boto--petit" type="button" data-pptx>📊 <span class="text-llarg">Crear</span> PowerPoint</button>
+      <a class="boto boto--fantasma boto--petit" href="../index.html">Índex del curs</a>
+      <button class="boto-icona" type="button" data-menu-toggle aria-expanded="false" aria-label="Obrir el menú del tema">☰</button>
+    </div>
+  </div>
+  <div class="contenidor capcalera__meta" style="max-width:1400px">
+    <span>✍ Material creat per Agustín Gil - IES La Vereda 2026</span>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-NC 4.0</a>
+    <span class="text-suau">Tema 3 de 10 · 3 hores de classe</span>
+  </div>
+  <div class="barra-progres" aria-hidden="true"><span></span></div>
+</header>
+
+<div class="overlay-menu" aria-hidden="true"></div>
+
+<div class="disposicio">
+
+  <!-- ============================== MENÚ LATERAL ============================== -->
+  <aside class="menu-lateral" id="menu-lateral" aria-label="Navegació del tema">
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">En este tema</p>
+      <nav class="indice-intern" id="indice-intern" aria-label="Índex del tema"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc" id="progres-exercicis" hidden>
+      <p class="menu-lateral__titol">El teu progrés</p>
+      <div class="barra-avaluacio"><span style="width:0"></span></div>
+      <p class="text-suau" id="progres-exercicis-text" style="font-size:.82rem;margin:0"></p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Temes del curs</p>
+      <nav class="llista-temes-mini" id="llista-temes-mini" aria-label="Temes del curs"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Accions</p>
+      <div class="pila" style="gap:.5rem">
+        <button class="boto boto--primari boto--ampla boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button>
+        <button class="boto boto--taronja boto--ampla boto--petit" type="button" data-pptx>📊 Crear PowerPoint</button>
+      </div>
+      <p class="text-suau" style="font-size:.78rem;margin:.6rem 0 0">
+        El PDF inclou la teoria i el resum. La presentació és per explicar a classe.
+      </p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Autoria</p>
+      <p class="text-suau" style="font-size:.8rem;margin:0">
+        <strong>Agustín Gil</strong><br>IES La Vereda · 2026<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+      </p>
+    </div>
+  </aside>
+
+  <!-- ================================= CONTINGUT ================================= -->
+  <main class="contingut">
+
+    <div class="hero-tema">
+      <span class="hero-tema__etiqueta">Tema 3 · Sessió de 3 hores</span>
+      <h1>Repetir: els bucles</h1>
+      <p class="hero-tema__entradeta">Escriure «Hola» cinc vegades és fàcil. Escriure'l 1.000 vegades, o comptar les notes de tota la classe, ja no. Per a això existeixen els bucles: la primera superpotència de veritat d'un programa.</p>
+      <div class="hero-tema__meta">
+        <span class="pastilla">⏱ 3 hores</span>
+        <span class="pastilla">📦 Fase 1 · Pensament de programador</span>
+        <span class="pastilla">🧩 Necessites: Temes 0, 1 i 2</span>
+        <span class="pastilla">❓ La pregunta clau: quantes voltes, i quan pare?</span>
+      </div>
+    </div>
+
+    <!-- ============================ 01 · INTRODUCCIÓ ============================ -->
+    <section class="seccio" id="introduccio" data-nav="01 · Introducció" style="padding-top:0">
+      <h2>Una situació per començar</h2>
+      <div class="situacio revela">
+        <span class="situacio__emoji" aria-hidden="true">🎮</span>
+        <div>
+<p>Un videojoc mostra la paraula <strong>GAME OVER</strong> i fa un compte enrere: 3… 2… 1… Fins ara ho hauríem d'escriure així:</p>
+          <pre class="codi" data-titol="GameOver.java" data-etiqueta="SENSE BUCLE"><code>System.out.println("GAME OVER");
+          System.out.println("3");
+          System.out.println("2");
+          System.out.println("1");
+          System.out.println("Fi");</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>GAME OVER
+          3
+          2
+          1
+          Fi</pre>
+                    </div>
+          <p>Funciona… per a un compte de 3. I si volem comptar des de 100? I si volem demanar la contrasenya <strong>fins que l'usuari l'encerta</strong>? No sabem quantes voltes farà! Escriure 100 línies no és programar.</p>
+          <p>Els programes de veritat <strong>no repeteixen codi</strong>: fan que el codi es repetisca. Esta és la idea d'este tema: el <strong>bucle</strong> (o <em>bucle</em>, en anglés <em>loop</em>).</p>
+        </div>
+      </div>
+
+      <div class="plan-sessio revela" style="margin-top:var(--esp-5)">
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">30-40 min</span>
+            <span class="plan-sessio__nom">Explicació i demos</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Programació guiada</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Exercicis</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">15-30 min</span>
+            <span class="plan-sessio__nom">Repàs i repte</span>
+          </div>
+      </div>
+
+      <div class="prerequisits">
+        <strong>Abans de començar has de poder fer això:</strong>
+        <ul>
+          <li>Crear variables i canviar-ne el valor.</li>
+          <li>Llegir dades pel teclat amb <code>Scanner</code>.</li>
+          <li>Fer comparacions i escriure un <code>if</code> (Tema 2).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ 02 · QUÈ APRENDREM ============================ -->
+    <section class="seccio" id="objectius" data-nav="02 · Què aprendrem?">
+      <h2>Què aprendrem en este tema?</h2>
+      <p class="entradeta">En acabar esta sessió has de saber fer estes coses:</p>
+      <ul class="llista-objectius revela">
+        <li><span class="num">1</span><span>Escriure un bucle <code>while</code> amb la seua condició.</span></li>
+        <li><span class="num">2</span><span>Escriure un bucle <code>for</code> quan sé quantes voltes vull.</span></li>
+        <li><span class="num">3</span><span>Usar un <strong>comptador</strong> i un <strong>acumulador</strong> dins d'un bucle.</span></li>
+        <li><span class="num">4</span><span>Saber quan s'acaba un bucle i per què (condició d'eixida).</span></li>
+        <li><span class="num">5</span><span>Reconéixer un <strong>bucle infinit</strong> i arreglar-lo.</span></li>
+        <li><span class="num">6</span><span>Triar entre <code>while</code> i <code>for</code> segons el problema.</span></li>
+      </ul>
+    </section>
+
+    <!-- =============================== 03 · TEORIA =============================== -->
+    <section class="seccio" id="teoria" data-nav="03 · Teoria">
+      <h2>Teoria, poc a poc</h2>
+      <p class="entradeta">Una idea → un exemple. I dues preguntes sempre: quantes voltes fa? i quan para?</p>
+<h3>1. El bucle while</h3>
+        <p><code>while</code> significa «mentres». Es llig així: <em>mentres la condició siga vertadera, repeteix el que hi ha dins de les claus</em>.</p>
+        <pre class="codi" data-titol="Comptar.java" data-etiqueta="WHILE"><code>public class Comptar {
+            public static void main(String[] args) {
+                int i = 1;
+
+                while (i &lt;= 5) {
+                    System.out.println("Volta número " + i);
+                    i = i + 1;
+                }
+
+                System.out.println("Fi. He contat fins a " + (i - 1));
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Volta número 1
+        Volta número 2
+        Volta número 3
+        Volta número 4
+        Volta número 5
+        Fi. He contat fins a 5</pre>
+                  </div>
+        <p>Fixa't en les tres peces que <strong>sempre</strong> té un bucle:</p>
+        <ol class="llista-punts">
+                    <li>Una variable que canvia: <code>i</code> (es diu <strong>comptador</strong>).</li>
+                    <li>Una condició que al principi és vertadera: <code>i &lt;= 5</code>.</li>
+                    <li>Una línia que acosta la condició a fer-se falsa: <code>i = i + 1</code>.</li>
+                  </ol>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>Si falta la tercera peça, el bucle <strong>no s'acaba mai</strong>. Eixe és el famós <em>bucle infinit</em>. El programa no dona cap error: es queda pensant per sempre i l'has de parar a la força.</p></div>
+                  </div>
+        <h3>2. Comptadors: i = i + 1</h3>
+        <p>Un comptador és una variable que guarda quantes voltes hem fet. Es pot canviar de tres maneres:</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>S'escriu</th><th>Què fa</th><th>Quan el fem servir</th></tr></thead>
+                      <tbody>
+                        <tr><td><code>i = i + 1</code></td><td>suma 1 (es veu tot el procés)</td><td>per entendre-ho</td></tr>
+                        <tr><td><code>i++</code></td><td>suma 1 (forma curta)</td><td>és el més habitual</td></tr>
+                        <tr><td><code>i--</code></td><td>resta 1</td><td>per comptar enrere</td></tr>
+                        <tr><td><code>i = i + 2</code></td><td>suma 2</td><td>per anar de dos en dos</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <pre class="codi" data-titol="Coet.java" data-etiqueta="COMPTE ENRERE"><code>public class Coet {
+            public static void main(String[] args) {
+                int i = 3;
+
+                while (i &gt; 0) {
+                    System.out.println(i);
+                    i--;
+                }
+
+                System.out.println("Despeguem!");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>3
+        2
+        1
+        Despeguem!</pre>
+                  </div>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>La condició s'ha de llegir com un <em>permís per continuar</em>: <code>i &gt; 0</code>. Quan arriba a 0, el permís desapareix i el bucle para. El valor que fa que pare es diu <strong>condició d'eixida</strong>.</p></div>
+                  </div>
+        <h3>3. Acumuladors: sumar dins del bucle</h3>
+        <p>Un acumulador és una variable que va <strong>acumulant</strong> un valor a cada volta: una suma, un total de punts, un producte… És la base de tots els comptes que faràs en programació.</p>
+        <pre class="codi" data-titol="Suma.java" data-etiqueta="ACUMULADOR"><code>public class Suma {
+            public static void main(String[] args) {
+                int suma = 0;              // comença a zero, SEMPRE fora del bucle
+
+                for (int i = 1; i &lt;= 10; i++) {
+                    suma = suma + i;
+                }
+
+                System.out.println("La suma del 1 al 10 és " + suma);
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>La suma del 1 al 10 és 55</pre>
+                  </div>
+        <p>Comprovem-ho a mà: 1 + 2 + 3 + … + 10 = 55. El acumulador va guardant el total volta a volta: després de la primera 1, després 3, després 6, després 10, i aixina fins a 55.</p>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>L'acumulador s'inicialitza <strong>abans</strong> del bucle i s'actualitza <strong>dins</strong>. Un error clàssic és crear-lo dins del bucle: llavors es perd el total de cada volta i només guardarem l'últim valor.</p></div>
+                  </div>
+        <h3>4. El bucle for: quan sabem quantes voltes</h3>
+        <p>Si sabem quantes voltes volem fer, hi ha una manera més curta i ordenada. El <code>for</code> té les tres peces del bucle escrites totes juntes al principi:</p>
+        <p><code>for (comença; mentre es complisca; què canvie en cada volta)</code></p>
+        <pre class="codi" data-titol="Taula.java" data-etiqueta="FOR"><code>public class Taula {
+            public static void main(String[] args) {
+                int numero = 7;
+
+                for (int i = 1; i &lt;= 5; i++) {
+                    int resultat = numero * i;
+                    System.out.println(numero + " x " + i + " = " + resultat);
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>7 x 1 = 7
+        7 x 2 = 14
+        7 x 3 = 21
+        7 x 4 = 28
+        7 x 5 = 35</pre>
+                  </div>
+        <p>Compara'ls i veuràs que fan el mateix, però el <code>for</code> ho diu tot d'una vegada:</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Pregunta</th><th>Amb while</th><th>Amb for</th></tr></thead>
+                      <tbody>
+                        <tr><td>On comença el comptador?</td><td><code>int i = 1;</code> (fora)</td><td><code>for (int i = 1;</code></td></tr>
+                        <tr><td>Quina és la condició?</td><td><code>while (i &lt;= 5)</code></td><td><code>; i &lt;= 5;</code></td></tr>
+                        <tr><td>Què canvia a cada volta?</td><td><code>i++;</code> (dins)</td><td><code>i++)</code></td></tr>
+                        <tr><td>Quant viu la variable <code>i</code>?</td><td>Fins al final del programa</td><td>Només dins del bucle</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Regla pràctica: <strong>si sé quantes voltes → <code>for</code></strong>. Si depén d'una condició que no controle (una contrasenya, una resposta de l'usuari) → <strong><code>while</code></strong>.</p></div>
+                  </div>
+        <h3>5. Bucles que depenen de l'usuari</h3>
+        <p>Moltes vegades no sabem quantes voltes farem: depén del que faça l'usuari. Ací el <code>while</code> és el rei. Este programa demana la contrasenya fins que s'encerta:</p>
+        <pre class="codi" data-titol="ClauCorrecta.java" data-etiqueta="WHILE + SCANNER"><code>import java.util.Scanner;
+
+        public class ClauCorrecta {
+            public static void main(String[] args) {
+                Scanner teclat = new Scanner(System.in);
+                String clau = "";
+
+                while (!clau.equals("java2026")) {
+                    System.out.print("Contrasenya: ");
+                    clau = teclat.next();
+                }
+
+                System.out.println("Endavant, pots entrar!");
+            }
+        }</code></pre>
+                  <div class="consola consola--entrada">
+                    <span class="consola__titol">Què ha de passar</span>
+                    <pre>Contrasenya: hola
+        Contrasenya: 1234
+        Contrasenya: java2026
+        Endavant, pots entrar!</pre>
+                  </div>
+        <p>Fixa't que la variable <code>clau</code> es crea <strong>abans</strong> del bucle amb un text buit (<code>&quot;&quot;</code>), perquè la condició puga comprovar-se la primera vegada.</p>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Hem escrit <code>!clau.equals(&quot;java2026&quot;)</code>, que es llig «mentres la clau NO siga java2026». L'operador <code>!</code> del tema anterior és molt útil en les condicions dels bucles.</p></div>
+                  </div>
+        <h3>6. Pistes per a l'usuari i break</h3>
+        <p>Quan el bucle espera una resposta correcta, és molt important <strong>dir a l'usuari què està passant</strong>. I quan volem eixir d'un bucle enmig, tenim <code>break</code>: «ix del bucle ara mateix».</p>
+        <pre class="codi" data-titol="Divisor.java" data-etiqueta="BREAK"><code>public class Divisor {
+            public static void main(String[] args) {
+                int numero = 31431;
+                int divisor = 2;
+
+                while (true) {
+                    if (numero % divisor == 0) {
+                        System.out.println("El divisor més menut és " + divisor);
+                        break;      // ja el tenim: no cal seguir buscant
+                    }
+                    divisor = divisor + 1;
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>El divisor més menut és 3</pre>
+                  </div>
+        <p><code>while (true)</code> significa «per sempre». El bucle para quan arriba al <code>break</code>. Este patró es fa servir molt: buscar alguna cosa fins a trobar-la i, quan la trobem, eixir.</p>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p><code>while (true)</code> <strong>sense cap <code>break</code></strong> és un bucle infinit segur. Si el fas servir, assegura't que hi ha almenys un camí que el puga aturar.</p></div>
+                  </div>
+        <h3>7. I si el bucle no fa cap volta?</h3>
+        <p>El cos d'un bucle pot executar-se zero vegades. Depén sempre de la condició.</p>
+        <pre class="codi" data-titol="ZeroVoltes.java" data-etiqueta="ZERO VOLTES"><code>public class ZeroVoltes {
+            public static void main(String[] args) {
+                int i = 1;
+
+                while (i &gt; 10) {
+                    System.out.println("Açò no s'escriu mai");
+                    i++;
+                }
+
+                System.out.println("El programa continua normalment");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>El programa continua normalment</pre>
+                  </div>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p>Si el programa «no fa res» i esperaves que contara alguna cosa, mira bé la condició del bucle: pot ser que la primera comprovació ja siga falsa.</p></div>
+                  </div>
+        <h3>8. Bucles infinits: què fer</h3>
+        <p>Si el teu programa es queda penjat i no acaba, probablement és un bucle infinit. <strong>No espantes</strong>: es para i es repara.</p>
+        <ul class="llista-punts">
+                    <li>Per a parar-lo: en l'editor, botó de <em>Stop</em> (quadradet roig). A la terminal: <code>Ctrl + C</code>.</li>
+                    <li>Sempre sol ser la mateixa causa: el <strong>comptador no canvia mai</strong>, o canvia en la direcció equivocada.</li>
+                  </ul>
+        <p>Este codi no acaba mai: falta la línia que canvia <code>i</code>. El pots escriure per vore-ho, però <strong>no l'executes</strong>: es queda penjat.</p>
+        <pre class="codi codi--error" data-titol="Infinit.java" data-etiqueta="NO ES COMPILA·NO L'EXECUTES"><code>int i = 1;
+        while (i &lt;= 5) {
+            System.out.println("Soc l'Infinito");
+        }</code></pre>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>Protocol sempre que un programa es penja: (1) para'l, (2) mira la condició, (3) mira si la variable de la condició canvia dins del bucle, (4) arregla-ho i torna a executar.</p></div>
+                  </div>
+    </section>
+
+    <!-- =========================== 04 · EXEMPLES EXPLICATS =========================== -->
+    <section class="seccio seccio--suau" id="exemples" data-nav="04 · Exemples">
+      <h2>Exemples explicats pas a pas</h2>
+      <p class="entradeta">Cada exemple: què volem aconseguir, el codi, què apareix per pantalla i per què funciona.</p>
+<h3>Exemple 1 · La suma de punts del joc</h3>
+        <p><strong>Què volem?</strong> Un joc fa 5 partides i dóna punts en cada una. Volem el total i la mitjana. Sense bucles, açò serien 5 <code>nextInt()</code> seguits.</p>
+        <pre class="codi" data-titol="Punts.java" data-etiqueta="EXEMPLE EXPLICAT"><code>import java.util.Scanner;
+
+        public class Punts {
+            public static void main(String[] args) {
+                Scanner teclat = new Scanner(System.in);
+                int total = 0;
+
+                for (int partida = 1; partida &lt;= 5; partida++) {
+                    System.out.print("Punts de la partida " + partida + ": ");
+                    int punts = teclat.nextInt();
+                    total = total + punts;
+                }
+
+                double mitjana = total / 5.0;
+                System.out.println("Total: " + total + " punts");
+                System.out.println("Mitjana per partida: " + mitjana);
+            }
+        }</code></pre>
+                  <div class="consola consola--entrada">
+                    <span class="consola__titol">Què ha de passar</span>
+                    <pre>Punts de la partida 1: 120
+        Punts de la partida 2: 95
+        Punts de la partida 3: 180
+        Punts de la partida 4: 60
+        Punts de la partida 5: 145
+        Total: 600 punts
+        Mitjana per partida: 120.0</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> el comptador <code>partida</code> va de l'1 al 5. Cada volta llegim un valor i el sumem a <code>total</code>. Quan el bucle acaba, <code>total</code> té la suma de les cinc partides.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Fixa't en el <code>5.0</code>: dividir un <code>int</code> entre un <code>int</code> dona un <code>int</code> (i perdria els decimals). Com al tema 1: si volem decimals, almenys un dels dos valors ha de ser <code>double</code>.</p></div>
+                  </div>
+        <h3>Exemple 2 · Estalviar per al mòbil</h3>
+        <p><strong>Què volem?</strong> Cada setmana estalviem 15 €. Quantes setmanes calen per arribar a 100 €? No sabem el número de voltes: <code>while</code>.</p>
+        <pre class="codi" data-titol="Estalvi.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Estalvi {
+            public static void main(String[] args) {
+                int diners = 0;
+                int setmanes = 0;
+
+                while (diners &lt; 100) {
+                    diners = diners + 15;
+                    setmanes++;
+                }
+
+                System.out.println("Calen " + setmanes + " setmanes.");
+                System.out.println("Al final tindrem " + diners + " euros.");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Calen 7 setmanes.
+        Al final tindrem 105 euros.</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> el bucle seguix mentres no arribem als 100 €. Cada volta suma 15 € i augmenta el comptador. Al final, amb 105 €, la condició <code>diners &lt; 100</code> ja és falsa i el bucle para.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Observa que ens passem de 100 €. Quan el que volem és <strong>passar</strong> un llindar, el bucle sempre acaba «una mica més enllà». Si vols el primer valor que supera el llindar, això mateix és el correcte.</p></div>
+                  </div>
+        <h3>Exemple 3 · Nota mitjana de la classe (sense arrays!)</h3>
+        <p><strong>Què volem?</strong> Saber quantes notes es van llegint i la seua mitjana, sense saber quantes n'hi haurà. Utilitzarem un valor especial per a acabar: el -1.</p>
+        <pre class="codi" data-titol="MitjanaClasse.java" data-etiqueta="EXEMPLE EXPLICAT"><code>import java.util.Scanner;
+
+        public class MitjanaClasse {
+            public static void main(String[] args) {
+                Scanner teclat = new Scanner(System.in);
+                double suma = 0;
+                int quantes = 0;
+
+                System.out.print("Nota (-1 per acabar): ");
+                double nota = teclat.nextDouble();
+
+                while (nota != -1) {
+                    suma = suma + nota;
+                    quantes++;
+                    System.out.print("Nota (-1 per acabar): ");
+                    nota = teclat.nextDouble();
+                }
+
+                if (quantes &gt; 0) {
+                    System.out.println("Hi ha " + quantes + " notes.");
+                    System.out.println("La mitjana és " + (suma / quantes));
+                } else {
+                    System.out.println("No has escrit cap nota.");
+                }
+            }
+        }</code></pre>
+                  <div class="consola consola--entrada">
+                    <span class="consola__titol">Què ha de passar</span>
+                    <pre>Nota (-1 per acabar): 6
+        Nota (-1 per acabar): 7
+        Nota (-1 per acabar): 4
+        Nota (-1 per acabar): 9
+        Nota (-1 per acabar): -1
+        Hi ha 4 notes.
+        La mitjana és 6.5</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> llegim la primera nota <strong>abans</strong> del bucle i una més al final de cada volta. Quan arriba el -1, el bucle s'atura. El <code>-1</code> es diu <strong>valor sentinella</strong>: un valor que no és una dada real i que només servix per a dir «ja està».</p>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p>Amb el sentinella hem de tindre compte de no sumar-lo mai: per això el comprovem <strong>abans</strong> d'entrar al cos del bucle. Si el sumarem, la mitjana estaria mal calculada.</p></div>
+                  </div>
+        <h3>Exemple 4 · Control de candidats a un portallengües</h3>
+        <p><strong>Què volem?</strong> Acceptar candidats per al portallengües de la classe, i parar quan un dels candidats no complisca el requisit de nota. Un <code>for</code> que es deté enmig amb <code>break</code>.</p>
+        <pre class="codi" data-titol="Portallengues.java" data-etiqueta="EXEMPLE EXPLICAT"><code>import java.util.Scanner;
+
+        public class Portallengues {
+            public static void main(String[] args) {
+                Scanner teclat = new Scanner(System.in);
+                int acceptats = 0;
+
+                for (int candidat = 1; candidat &lt;= 5; candidat++) {
+                    System.out.print("Nota del candidat " + candidat + ": ");
+                    double nota = teclat.nextDouble();
+
+                    if (nota &lt; 7) {
+                        System.out.println("Candidat " + candidat + ": no passa el tall.");
+                        break;
+                    }
+
+                    acceptats++;
+                    System.out.println("Candidat " + candidat + ": acceptat!");
+                }
+
+                System.out.println("Candidats acceptats: " + acceptats);
+            }
+        }</code></pre>
+                  <div class="consola consola--entrada">
+                    <span class="consola__titol">Què ha de passar</span>
+                    <pre>Nota del candidat 1: 9
+        Candidat 1: acceptat!
+        Nota del candidat 2: 8
+        Candidat 2: acceptat!
+        Nota del candidat 3: 6.5
+        Candidat 3: no passa el tall.
+        Candidats acceptats: 2</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> el <code>break</code> fa que el bucle acabe immediatament. Les voltes 4 i 5 no es fan. I com que <code>acceptats</code> es va guardant fora de les decisions, al final tenim el compte correcte.</p>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Fixa't que este programa <strong>no usa arrays</strong>: guardem el compte, no les notes. Sempre que pugues, guarda només el que necessites.</p></div>
+                  </div>
+        <h3>Quantes voltes es fan?</h3>
+        <p>Llig el codi i pensa quantes línies apareixeran i amb quins números. Després comprova-ho.</p>
+        <div class="prediccio">
+                    <h3>Pensa abans d'executar</h3>
+                    <pre class="codi" data-titol="Parells.java" data-etiqueta="PENSA PRIMER"><code>for (int i = 0; i &lt; 6; i++) {
+            if (i % 2 == 0) {
+                System.out.println(i);
+            }
+        }</code></pre>
+                    <button class="boto boto--solucio" type="button" data-solucio="pred-parells" data-text-mostrar="Mostrar què apareix" data-text-ocultar="Amagar">Mostrar què apareix</button>
+                    <div class="solucio" id="pred-parells" hidden>
+                      <span class="solucio__etiqueta">Resposta</span>
+                      <div class="consola"><span class="consola__titol">Eixida real</span><pre>0
+        2
+        4</pre></div>
+                      <p class="solucio__perque"><strong>Per què:</strong> El bucle fa 6 voltes (0, 1, 2, 3, 4, 5) perquè comença en 0 i la condició és <code>i &lt; 6</code>. Dins, només s'escriuen els que tenen residu 0 en dividir per 2: el 0, el 2 i el 4. El 6 no entra perquè el bucle ja ha parat.</p>
+                    </div>
+                  </div>
+    </section>
+
+    <!-- =========================== 05 · PROGRAMACIÓ GUIADA =========================== -->
+    <section class="seccio" id="guiada" data-nav="05 · Programació guiada">
+      <h2>Programació guiada: ho fem junts</h2>
+      <p class="entradeta">Farem el joc d'endevinar el número secret. Primer amb una sola pregunta, després amb el bucle, després amb pistes i finalment amb un límit d'intents.</p>
+      <div class="pas revela">
+        <span class="pas__num">1</span>
+        <div class="pas__cos">
+          <h3>El problema, en paraules</h3>
+<p>El programa pensa un número (del 1 al 100). L'usuari ha d'endevinar-lo. El programa ha de: preguntar, comprovar, donar una pista (*més gran* o <em>més menut</em>), tornar a preguntar, comptar els intents i felicitar quan s'encerta.</p>
+          <div class="pregunta-classe"><p>Sabem quantes voltes farà? Per què?</p></div>
+          <p><strong>No ho sabem</strong>: l'usuari pot encertar-ho a la primera o necessitar huit intents. Per tant, <code>while</code>. I la condició serà «mentres la prova siga diferent del número secret».</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">2</span>
+        <div class="pas__cos">
+          <h3>Primera versió: una sola pregunta</h3>
+<p>Com sempre, comencem pel més simple possible: preguntem una vegada i comprovem. Encara sense bucle.</p>
+          <pre class="codi" data-titol="Endevinalla.java" data-etiqueta="PAS 2"><code>import java.util.Scanner;
+
+          public class Endevinalla {
+              public static void main(String[] args) {
+                  Scanner teclat = new Scanner(System.in);
+                  int secret = 42;
+
+                  System.out.print("El meu número (1-100): ");
+                  int prova = teclat.nextInt();
+
+                  if (prova == secret) {
+                      System.out.println("Correcte!");
+                  } else {
+                      System.out.println("No! Torna-ho a provar.");
+                  }
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>El meu número (1-100): 30
+          No! Torna-ho a provar.</pre>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">3</span>
+        <div class="pas__cos">
+          <h3>Afig el bucle while</h3>
+<p>Ara volem que torne a preguntar. Afegim el <code>while</code>: mentres la prova siga distint del secret, pregunta un'altra vegada.</p>
+          <pre class="codi" data-titol="Endevinalla.java" data-etiqueta="PAS 3"><code>import java.util.Scanner;
+
+          public class Endevinalla {
+              public static void main(String[] args) {
+                  Scanner teclat = new Scanner(System.in);
+                  int secret = 42;
+
+                  System.out.print("El meu número (1-100): ");
+                  int prova = teclat.nextInt();
+
+                  while (prova != secret) {
+                      System.out.print("No! Torna-ho a provar: ");
+                      prova = teclat.nextInt();
+                  }
+
+                  System.out.println("Correcte! El número era el " + secret + ".");
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>El meu número (1-100): 30
+          No! Torna-ho a provar: 55
+          No! Torna-ho a provar: 42
+          Correcte! El número era el 42.</pre>
+                    </div>
+          <div class="pregunta-classe"><p>Per què hem hagut de canviar el <code>if</code> per un <code>while</code>? Què guanyem?</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">4</span>
+        <div class="pas__cos">
+          <h3>Ara donem pistes</h3>
+<p>Dir només «No!» és molt frustrant. Un bon programa ajuda l'usuari. Si la prova és menuda, el secret és <strong>més gran</strong>; si és major, el secret és <strong>més menut</strong>.</p>
+          <pre class="codi" data-titol="Endevinalla.java" data-etiqueta="PAS 4"><code>import java.util.Scanner;
+
+          public class Endevinalla {
+              public static void main(String[] args) {
+                  Scanner teclat = new Scanner(System.in);
+                  int secret = 42;
+
+                  System.out.print("El meu número (1-100): ");
+                  int prova = teclat.nextInt();
+
+                  while (prova != secret) {
+                      if (prova &lt; secret) {
+                          System.out.print("El meu és més gran. Torna-ho a provar: ");
+                      } else {
+                          System.out.print("El meu és més menut. Torna-ho a provar: ");
+                      }
+                      prova = teclat.nextInt();
+                  }
+
+                  System.out.println("Correcte! El número era el " + secret + ".");
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>El meu número (1-100): 30
+          El meu és més gran. Torna-ho a provar: 60
+          El meu és més menut. Torna-ho a provar: 42
+          Correcte! El número era el 42.</pre>
+                    </div>
+          <p>Fixa't que els <code>if</code> estan <strong>dins</strong> del bucle: cada volta es tornen a comprovar les pistes. Un <code>if</code> dins d'un bucle és el patró més habitual que existeix.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">5</span>
+        <div class="pas__cos">
+          <h3>Comptem els intents i limitem-los a 5</h3>
+<p>Un joc sense límit és massa fàcil (o massa llarg). Afegim un comptador d'intents i parem als 5.</p>
+          <pre class="codi" data-titol="Endevinalla.java" data-etiqueta="PAS 5"><code>import java.util.Scanner;
+
+          public class Endevinalla {
+              public static void main(String[] args) {
+                  Scanner teclat = new Scanner(System.in);
+                  int secret = 42;
+                  int intents = 0;
+                  int prova = 0;
+
+                  while (prova != secret &amp;&amp; intents &lt; 5) {
+                      intents++;
+                      System.out.print("Intent " + intents + ". El meu número (1-100): ");
+                      prova = teclat.nextInt();
+
+                      if (prova &lt; secret) {
+                          System.out.println("El meu és més gran que eixe.");
+                      } else if (prova &gt; secret) {
+                          System.out.println("El meu és més menut que eixe.");
+                      }
+                  }
+
+                  if (prova == secret) {
+                      System.out.println("Correcte! Has encertat en " + intents + " intents.");
+                  } else {
+                      System.out.println("S'han acabat els intents. El número era el " + secret + ".");
+                  }
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>Intent 1. El meu número (1-100): 50
+          El meu és més menut que eixe.
+          Intent 2. El meu número (1-100): 20
+          El meu és més gran que eixe.
+          Intent 3. El meu número (1-100): 35
+          El meu és més gran que eixe.
+          Intent 4. El meu número (1-100): 42
+          Correcte! Has encertat en 4 intents.</pre>
+                    </div>
+          <p>La condició del bucle ara té <strong>dos motius per parar</strong>: encertar o quedar-se sense intents. S'unixen amb <code>&amp;&amp;</code>: el bucle continua només si encara no s'ha encertat <strong>i</strong> queden intents.</p>
+          <p>I si no s'encerta mai? Provem-ho amb cinc números que fallen:</p>
+          <pre class="codi" data-titol="Endevinalla.java" data-etiqueta="PAS 5 · CAS DE FALLAR"><code>// Mateix programa de dalt, amb estes dades:
+          // 1, 2, 3, 4, 5  →  cap coincidix amb el 42</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>Intent 1. El meu número (1-100): 1
+          El meu és més gran que eixe.
+          Intent 2. El meu número (1-100): 2
+          ...
+          Intent 5. El meu número (1-100): 5
+          El meu és més gran que eixe.
+          S'han acabat els intents. El número era el 42.</pre>
+                    </div>
+          <div class="pregunta-classe"><p>Quina d'estes dos condicions s'examina primer: <code>prova != secret</code> o <code>intents &lt; 5</code>? Passaria res si les canviem d'orde?</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">6</span>
+        <div class="pas__cos">
+          <h3>Proves finals i millores</h3>
+<p>Un programa no està acabat fins que el proves amb casos estranys. Estos són els d'este joc:</p>
+          <div class="taula-embolcall">
+                      <table class="taula">
+                        <thead><tr><th>Què proves</th><th>Què ha de passar</th></tr></thead>
+                        <tbody>
+                          <tr><td>Encertar a la primera</td><td>Ha de dir «Has encertat en 1 intents»</td></tr>
+                          <tr><td>Fallar cinc vegades</td><td>Ha de dir el número i acomiadar-se</td></tr>
+                          <tr><td>Un número fora de l'1-100</td><td>El programa no avisa: això és una millora pendent</td></tr>
+                          <tr><td>Escriure una lletra</td><td><code>InputMismatchException</code> (com en el tema 1)</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+          <p>I ací van tres millores que pots fer tu: comprovar que el número estiga entre 1 i 100, dir si la prova és <em>molt</em> lluny (*«fred!»*) o <em>prop</em> (*«calent!»*), i deixar que l'usuari trie la dificultat segons els intents.</p>
+          <div class="nota nota--tip">
+                      <span class="nota__icona" aria-hidden="true">💡</span>
+                      <div><p>Millorar un programa que ja funciona és <strong>el millor exercici de programació</strong> que hi ha: no comences de zero i has d'entendre bé el que tens. Fes-ho sempre.</p></div>
+                    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 06 · MINI EXERCICIS ============================= -->
+    <section class="seccio seccio--suau" id="mini-exercicis" data-nav="06 · Mini exercicis">
+      <h2>Mini exercicis</h2>
+      <p class="entradeta">Activitats molt curtes per agafar soltura amb els bucles. Escriu-les i executa-les.</p>
+      <div class="llista-mini">
+        <article class="exercici exercici--mini" id="mini1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">De l'1 al 5 amb while</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Escriu un <code>while</code> que mostre els números de l'1 al 5, cadascun en una línia.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini1">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini1"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="UnACinc.java" data-etiqueta="SOLUCIÓ"><code>public class UnACinc {
+    public static void main(String[] args) {
+        int i = 1;
+
+        while (i &lt;= 5) {
+            System.out.println(i);
+            i++;
+        }
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>1
+2
+3
+4
+5</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Les tres peces del bucle: el comptador <code>i</code> comença en 1, la condició és <code>i &lt;= 5</code> i el comptador augmenta amb <code>i++</code> a cada volta.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">Compte enrere de 10 a 1</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes un compte enrere del 10 a l'1 amb un bucle i després mostra «Fi».</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini2">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini2"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Enrere.java" data-etiqueta="SOLUCIÓ"><code>public class Enrere {
+    public static void main(String[] args) {
+        int i = 10;
+
+        while (i &gt;= 1) {
+            System.out.println(i);
+            i--;
+        }
+
+        System.out.println("Fi");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Fi</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Per comptar enrere, la condició mira cap avall (<code>i &gt;= 1</code>) i el comptador disminuïx (<code>i--</code>). Si t'oblides el <code>i--</code>, el bucle no s'acaba mai.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">La taula del 4</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Mostra la taula de multiplicar del 4, de l'1 al 10, amb un <code>for</code>.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>4 x 1 = 4
+4 x 2 = 8
+...
+4 x 10 = 40</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini3">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini3"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="TaulaQuatre.java" data-etiqueta="SOLUCIÓ"><code>public class TaulaQuatre {
+    public static void main(String[] args) {
+        int numero = 4;
+
+        for (int i = 1; i &lt;= 10; i++) {
+            System.out.println(numero + " x " + i + " = " + (numero * i));
+        }
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>4 x 1 = 4
+4 x 2 = 8
+4 x 3 = 12
+4 x 4 = 16
+4 x 5 = 20
+4 x 6 = 24
+4 x 7 = 28
+4 x 8 = 32
+4 x 9 = 36
+4 x 10 = 40</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Com que sabem exactament quantes voltes volem (10), fem servir <code>for</code>. El número de fora (<code>numero</code>) no canvia mai; el de dins (<code>i</code>) és el comptador.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">Suma els parells</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">5 min</span>
+          </div>
+          <div class="exercici__enunciat">Suma tots els números parells de l'1 al 20 i mostra el total.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>La suma és 110</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini4">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini4"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="SumaParells.java" data-etiqueta="SOLUCIÓ"><code>public class SumaParells {
+    public static void main(String[] args) {
+        int suma = 0;
+
+        for (int i = 1; i &lt;= 20; i++) {
+            if (i % 2 == 0) {
+                suma = suma + i;
+            }
+        }
+
+        System.out.println("La suma és " + suma);
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>La suma és 110</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> L'acumulador <code>suma</code> es crea fora del bucle. Dins, el <code>if</code> decidix si el número és parell (residu 0) i només llavors el sumem. 2+4+6+…+20 = 110.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini5">
+          <div class="exercici__cap">
+            <span class="exercici__num">5</span>
+            <h3 class="exercici__titol">Quantes voltes?</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Sense executar, digues quantes voltes fa este bucle i què apareix per pantalla. Després comprova-ho.</div>
+          <pre class="codi" data-titol="Voltes.java" data-etiqueta="CODI"><code>int i = 3;
+while (i &lt;= 12) {
+    System.out.println(i);
+    i = i + 3;
+}</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini5">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini5"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini5" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="VoltesSolucio.java" data-etiqueta="SOLUCIÓ"><code>int i = 3;
+while (i &lt;= 12) {
+    System.out.println(i);
+    i = i + 3;
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>3
+6
+9
+12</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El comptador va de 3 en 3: 3, 6, 9, 12 i 15. Quan arriba a 15, la condició <code>i &lt;= 12</code> ja és falsa i el bucle para. Per tant, <strong>4 voltes</strong> i s'escriuen els quatre números.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini6">
+          <div class="exercici__cap">
+            <span class="exercici__num">6</span>
+            <h3 class="exercici__titol">Troba l'error: el bucle que no para</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Este bucle hauria de mostrar els números de l'1 al 3 i no ho fa (ni tan sols acaba). Troba l'error i arregla'l.</div>
+          <pre class="codi codi--error" data-titol="Trencat.java" data-etiqueta="QUÈ FALLA?"><code>int i = 1;
+while (i &lt;= 3) {
+    System.out.println(i);
+}</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini6">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini6">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini6"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini6" hidden><p><strong>Pista:</strong> Quina de les tres peces del bucle falta?</p></div>
+          <div class="solucio" id="sol-mini6" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Arreglat.java" data-etiqueta="SOLUCIÓ"><code>int i = 1;
+while (i &lt;= 3) {
+    System.out.println(i);
+    i++;
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>1
+2
+3</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Faltava la peça que acosta la condició a fer-se falsa: <code>i++</code>. Sense ella, <code>i</code> sempre val 1, la condició sempre és vertadera i el bucle no acaba mai. Es diu <strong>bucle infinit</strong>.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini7">
+          <div class="exercici__cap">
+            <span class="exercici__num">7</span>
+            <h3 class="exercici__titol">Demana números fins a un 0</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">8 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana números a l'usuari i mostra la suma. El programa ha d'acabar quan l'usuari escriga un 0 (i no comptar eixe 0).</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Número: 5
+Número: 10
+Número: 0</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>La suma és 15</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini7">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini7"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini7" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="SumaFinsZero.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class SumaFinsZero {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+        int suma = 0;
+
+        System.out.print("Número: ");
+        int numero = teclat.nextInt();
+
+        while (numero != 0) {
+            suma = suma + numero;
+            System.out.print("Número: ");
+            numero = teclat.nextInt();
+        }
+
+        System.out.println("La suma és " + suma);
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Número: 5
+Número: 10
+Número: 0
+La suma és 15</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El 0 és el <strong>valor sentinella</strong>: no és una dada, és la senyal d'acabar. Per això el comprovem en la condició del bucle i no el sumem mai. Llegim un número abans del bucle i un més al final de cada volta.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 07 · FES EL PROGRAMA ========================= -->
+    <section class="seccio" id="fes-el-programa" data-nav="07 · Fes el programa">
+      <h2>Fes el programa</h2>
+      <p class="entradeta">Quatre exercicis complets. Pensa primer: quantes voltes? quan para?</p>
+      <article class="exercici" id="ex1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">La taula de multiplicar que demana l'usuari</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">15 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana un número i mostra'n la taula de multiplicar completa (de l'1 al 10), amb el format <code>7 x 3 = 21</code>.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Número: 3</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>3 x 1 = 3
+3 x 2 = 6
+...
+3 x 10 = 30</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex1" hidden><p><strong>Pista:</strong> El comptador del <code>for</code> és el segon número de la multiplicació (<code>i</code>), no el que demanes a l'usuari.</p></div>
+          <div class="solucio" id="sol-ex1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="TaulaDemanada.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class TaulaDemanada {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Número: ");
+        int numero = teclat.nextInt();
+
+        for (int i = 1; i &lt;= 10; i++) {
+            System.out.println(numero + " x " + i + " = " + (numero * i));
+        }
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Número: 3
+3 x 1 = 3
+3 x 2 = 6
+3 x 3 = 9
+3 x 4 = 12
+3 x 5 = 15
+3 x 6 = 18
+3 x 7 = 21
+3 x 8 = 24
+3 x 9 = 27
+3 x 10 = 30</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El <code>for</code> fa exactament 10 voltes: des de l'1 fins al 10 inclòs. La multiplicació es fa dins del <code>println</code>, però podríem guardar-la en una variable; les dos maneres estan bé.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">Parells i senars de l'1 al 20</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Comptant de l'1 al 20, digues quants números parells hi ha, quants senars i quant sumen tots els parells.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Parells: 10
+Senars: 10
+Suma dels parells: 110</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex2" hidden><p><strong>Pista:</strong> Necessites tres variables i un <code>if</code> dins del bucle. Les tres variables es creen abans del <code>for</code>.</p></div>
+          <div class="solucio" id="sol-ex2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="ParellsSenars.java" data-etiqueta="SOLUCIÓ"><code>public class ParellsSenars {
+    public static void main(String[] args) {
+        int parells = 0;
+        int senars = 0;
+        int sumaParells = 0;
+
+        for (int i = 1; i &lt;= 20; i++) {
+            if (i % 2 == 0) {
+                parells++;
+                sumaParells = sumaParells + i;
+            } else {
+                senars++;
+            }
+        }
+
+        System.out.println("Parells: " + parells);
+        System.out.println("Senars: " + senars);
+        System.out.println("Suma dels parells: " + sumaParells);
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Parells: 10
+Senars: 10
+Suma dels parells: 110</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Tenim <strong>tres</strong> variables que s'actualitzen dins del bucle: dos comptadors i un acumulador. Les tres es creen abans del bucle. El <code>else</code> s'encarrega dels senars, que només es compten.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">Endevina el número</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">25 min</span>
+          </div>
+          <div class="exercici__enunciat">El programa pensa el número 25. L'usuari ha d'endevinar-lo. A cada intent, el programa diu «més gran» o «més menut» i finalment diu en quants intents s'ha encertat. No hi ha límit d'intents.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Intenta-ho (1-100): 50
+Intenta-ho (1-100): 12
+Intenta-ho (1-100): 25</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>El meu és més menut.
+El meu és més gran.
+Correcte! Has encertat en 3 intents.</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex3" hidden><p><strong>Pista:</strong> Compta els intents <strong>fallits</strong> dins del bucle i, quan acabes, suma-li 1 (el que ha encertat). Així el compte és exacte.</p></div>
+          <div class="solucio" id="sol-ex3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Endevina.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Endevina {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+        int secret = 25;
+        int intents = 0;
+
+        System.out.print("Intenta-ho (1-100): ");
+        int prova = teclat.nextInt();
+
+        while (prova != secret) {
+            intents++;
+
+            if (prova &lt; secret) {
+                System.out.println("El meu és més gran.");
+            } else {
+                System.out.println("El meu és més menut.");
+            }
+
+            System.out.print("Intenta-ho (1-100): ");
+            prova = teclat.nextInt();
+        }
+
+        System.out.println("Correcte! Has encertat en " + (intents + 1) + " intents.");
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Intenta-ho (1-100): 50
+El meu és més menut.
+Intenta-ho (1-100): 12
+El meu és més gran.
+Intenta-ho (1-100): 25
+Correcte! Has encertat en 3 intents.</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> </p>
+          </div>
+        </article>
+      <article class="exercici" id="ex4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">La guardiola</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">25 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana a l'usuari quant estalvia cada setmana i quant vol aconseguir. Mostra setmana a setmana quant porta estalviat, fins a arribar a l'objectiu. Al final, digues quantes setmanes han calgut i si s'ha passat o no de l'objectiu. Si l'estalvi setmanal és 0 o negatiu, avisa i no comences el bucle.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Quant estalvies cada setmana? 30
+Quant vols aconseguir? 100</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Setmana 1: portes 30 euros
+Setmana 2: portes 60 euros
+Setmana 3: portes 90 euros
+Setmana 4: portes 120 euros
+Has aconseguit l'objectiu en 4 setmanes.
+T'has passat 20 euros.</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex4" hidden><p><strong>Pista:</strong> El comptador de setmanes i l'acumulador de diners van junts dins del bucle. La comprovació de «passat o just» es fa DESPRÉS del bucle.</p></div>
+          <div class="solucio" id="sol-ex4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Guardiola.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Guardiola {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Quant estalvies cada setmana? ");
+        double setmanal = teclat.nextDouble();
+
+        System.out.print("Quant vols aconseguir? ");
+        double objectiu = teclat.nextDouble();
+
+        if (setmanal &lt;= 0) {
+            System.out.println("Si no estalvies res, no avancem mai. Revisa les dades.");
+        } else {
+            double diners = 0;
+            int setmanes = 0;
+
+            while (diners &lt; objectiu) {
+                diners = diners + setmanal;
+                setmanes++;
+                System.out.println("Setmana " + setmanes + ": portes " + diners + " euros");
+            }
+
+            System.out.println("Has aconseguit l'objectiu en " + setmanes + " setmanes.");
+
+            if (diners &gt; objectiu) {
+                System.out.println("T'has passat " + (diners - objectiu) + " euros.");
+            } else {
+                System.out.println("Has encertat just!");
+            }
+        }
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Quant estalvies cada setmana? 30
+Quant vols aconseguir? 100
+Setmana 1: portes 30.0 euros
+Setmana 2: portes 60.0 euros
+Setmana 3: portes 90.0 euros
+Setmana 4: portes 120.0 euros
+Has aconseguit l'objectiu en 4 setmanes.
+T'has passat 20.0 euros.</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> </p>
+          </div>
+        </article>
+    </section>
+
+    <!-- ================================ 08 · REPTES ================================ -->
+    <section class="seccio seccio--suau" id="reptes" data-nav="08 · Reptes">
+      <h2>Reptes (sense solució)</h2>
+      <div class="nota nota--avis">
+        <span class="nota__icona" aria-hidden="true">🧠</span>
+        <div><p>Els reptes <strong>no tenen botó de solució</strong>, a propòsit. L'objectiu és pensar, provar, equivocar-se i tornar-ho a intentar. Es poden resoldre de moltes maneres diferents: totes les solucions que funcionen són bones.</p></div>
+      </div>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 1</span>
+          <h3 class="repte__titol">La nota mitjana de la classe</h3>
+        </div>
+<p>Demana les notes de tota la classe fins que l'usuari escriga -1. Al final ha de mostrar: quantes notes s'han escrit, la mitjana, la nota més alta i la més baixa.</p>
+        <p>El repte està en què no pots guardar totes les notes (encara no hem après arrays): has de calcular el màxim i el mínim <strong>sobre la marxa</strong>, comparant cada nota amb la que ja tens guardada.</p>
+        <p>Pensa com començaries el màxim i el mínim... Si els inicialitzes a 0, què passa si totes les notes són més grans que 0? Quina seria la primera nota vàlida per iniciar-los?</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Afig quants aprovats i quants suspesos hi ha.</li>
+          <li>Calcula quin percentatge d'aprovats hi ha (sense oblidar els decimals).</li>
+          <li>Ordre extra: mostra la nota mitjana arredonida a 2 decimals.</li>
+        </ul>
+      </article>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 2</span>
+          <h3 class="repte__titol">El banc que cobra interessos</h3>
+        </div>
+<p>Una persona té 500 € en un banc que li paga un 3 % d'interessos cada any. Escriu un programa que mostre com evolucionen els diners any a any i digues quants anys calen perquè arribe a 1.000 €.</p>
+        <p>Un 3 % s'obté multiplicant per 1.03. Comença amb un <code>for</code> de 10 anys per vore l'evolució i, després, canvia'l per un <code>while</code> que pare quan arribe als 1.000 €.</p>
+        <p>Quan l'acabes, prova-ho amb un interés del 0 % o negatiu. Què passa? Com hauries de protegir el programa?</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Que el programa demane el capital inicial, l'interés i l'objectiu.</li>
+          <li>Mostra els diners amb dos decimals.</li>
+          <li>Compara el resultat de guardar 100 € cada any a més a més dels interessos.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ============================ 09 · ERRORS HABITUALS ============================ -->
+    <section class="seccio" id="errors" data-nav="09 · Errors habituals">
+      <h2>Errors habituals</h2>
+      <p class="entradeta">Els errors habituals d'este tema. Hem classificat els perillosíssims (els que pengen el programa) i els lògics (els que donen un resultat equivocat).</p>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 1</span>
+            <h3 class="exercici__titol" style="margin:0">Oblidar d'incrementar el comptador → bucle infinit</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>int i = 1;
+while (i &lt;= 5) {
+    System.out.println(i);
+}</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no acaba mai i ompli la pantalla de números 1.</dd>
+                <dt>Per què</dt><dd>La variable <code>i</code> de la condició no canvia mai. La condició <code>i &lt;= 5</code> sempre és vertadera i el bucle no té manera de parar.</dd>
+                <dt>Com detectar-ho</dt><dd>El programa no acaba, la pantalla no para de créixer i has de parar-lo amb el botó <em>Stop</em> o <code>Ctrl + C</code>.</dd>
+                <dt>Com corregir-ho</dt><dd>Assegura't que <strong>alguna cosa dins del bucle acosta la condició a fer-se falsa</strong>: <code>i++</code>. Regla: abans d'executar, llig el bucle i pregunta't «què farà que pare?».</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int i = 1;
+while (i &lt;= 5) {
+    System.out.println(i);
+    i++;
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 2</span>
+            <h3 class="exercici__titol" style="margin:0">Punt i coma darrere del while (no dona error!)</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>int i = 1;
+while (i &lt;= 5);
+{
+    System.out.println(i);
+    i++;
+}</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa es queda penjat i no escriu res de res. I no dona cap error de compilació.</dd>
+                <dt>Per què</dt><dd>El <code>;</code> deixa el <code>while</code> amb el cos buit: comprova la condició infinitament sense fer res, i mai no arriba a executar les claus de davall.</dd>
+                <dt>Com detectar-ho</dt><dd>Compila bé però no acaba ni mostra res. És el mateix parany que ja vam vore amb el <code>if</code> en el tema anterior.</dd>
+                <dt>Com corregir-ho</dt><dd>Lleva el <code>;</code> de darrere de la condició. Norma pràctica: després de <code>while (condició)</code> <strong>sempre</strong> ve una clau <code>{</code>.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int i = 1;
+while (i &lt;= 5) {
+    System.out.println(i);
+    i++;
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 3</span>
+            <h3 class="exercici__titol" style="margin:0">Inicialitzar l'acumulador dins del bucle</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>for (int i = 1; i &lt;= 5; i++) {
+    int suma = 0;
+    suma = suma + i;
+    System.out.println(suma);
+}</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>En compte de 1, 3, 6, 10, 15, mostra 1, 2, 3, 4, 5. L'acumulador «s'oblida» del que havia sumat abans.</dd>
+                <dt>Per què</dt><dd>Si creem la variable dins del bucle, es torna a crear a cada volta amb el valor 0. No és un error de Java: és un error de disseny, i el programa compila perfectament.</dd>
+                <dt>Com detectar-ho</dt><dd>La suma final no és la que esperaves. Sempre sol ser un problema de <strong>on està creada</strong> la variable.</dd>
+                <dt>Com corregir-ho</dt><dd>Les variables que es volen guardar mentre el bucle roda es creen <strong>abans</strong> del bucle. Dins només s'actualitzen.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int suma = 0;
+for (int i = 1; i &lt;= 5; i++) {
+    suma = suma + i;
+    System.out.println(suma);
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 4</span>
+            <h3 class="exercici__titol" style="margin:0">Comptar una volta de més o de menys</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>for (int i = 1; i &lt; 5; i++) {
+    System.out.println("Volta " + i);
+}</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El primer bucle fa 4 voltes quan en volem 5.</dd>
+                <dt>Per què</dt><dd>Amb <code>&lt;</code> el número 5 no entra mai. Per comptar de l'1 al 5 inclòs, la condició ha de ser <code>i &lt;= 5</code>.</dd>
+                <dt>Com detectar-ho</dt><dd>Compta les línies de l'eixida i compara-les amb les que esperaves. És l'error número u amb els bucles.</dd>
+                <dt>Com corregir-ho</dt><dd>Regla pràctica: si el comptador <strong>comença en 0</strong>, la condició és <code>&lt; N</code>; si <strong>comença en 1</strong>, és <code>&lt;= N</code>.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>for (int i = 1; i &lt;= 5; i++) {
+    System.out.println("Volta " + i);
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 5</span>
+            <h3 class="exercici__titol" style="margin:0">Condició del while que ja és falsa de bon principi</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>int i = 1;
+while (i &gt; 10) {
+    System.out.println(i);
+    i++;
+}
+System.out.println("Açò s'escriu sempre");</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa no mostra ni un número i pareix que «no faça res».</dd>
+                <dt>Per què</dt><dd>La primera comprovació de la condició (<code>1 &gt; 10</code>) ja és falsa, i el cos del bucle no s'executa mai.</dd>
+                <dt>Com detectar-ho</dt><dd>El programa acaba massa ràpid i sense eixida. Mira la condició i pensa si el primer valor la complix.</dd>
+                <dt>Com corregir-ho</dt><dd>Corregeix la condició perquè siga vertadera al principi. Si el bucle pot fer zero voltes i això és correcte, considera afegir un missatge per a l'usuari.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int i = 1;
+while (i &lt; 10) {
+    System.out.println(i);
+    i++;
+}
+System.out.println("Fi");</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 6</span>
+            <h3 class="exercici__titol" style="margin:0">Comparar textos amb == en la condició del bucle</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>String clau = "";
+while (clau != "java") {
+    System.out.print("Contrasenya: ");
+    clau = teclat.next();
+}</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El bucle no s'acaba <strong>mai</strong>, ni tan sols quan l'usuari escriu la contrasenya correcta. Bucle infinit.</dd>
+                <dt>Per què</dt><dd>Amb textos, <code>!=</code> compara si són objectes diferents, i el text del teclat sempre és un objecte nou. Per això la condició és sempre vertadera.</dd>
+                <dt>Com detectar-ho</dt><dd>Demanes la contrasenya bé i el programa no reacciona: torna a preguntar sempre. Comparació de text + bucle = compte!</dd>
+                <dt>Com corregir-ho</dt><dd>Fes servir <code>!clau.equals(&quot;java&quot;)</code>. <strong>Els textos es comparen amb <code>equals</code></strong>, dins i fora dels bucles.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>String clau = "";
+while (!clau.equals("java")) {
+    System.out.print("Contrasenya: ");
+    clau = teclat.next();
+}</code></pre>
+            </div>
+          </div>
+        </article>
+    </section>
+
+    <!-- ============================= 10 · RESUM VISUAL ============================= -->
+    <section class="seccio seccio--suau" id="resum" data-nav="10 · Resum visual">
+      <h2>Resum visual</h2>
+      <p class="entradeta">Les idees que has d'endur-te d'este tema.</p>
+      <div class="resum-visual revela">
+        <div class="resum-visual__item"><p>Un <strong>bucle</strong> repetix codi: no escrivim mai el mateix mil vegades.</p></div>
+        <div class="resum-visual__item"><p><code>while</code> repetix <strong>mentres</strong> la condició siga vertadera.</p></div>
+        <div class="resum-visual__item"><p><code>for</code> és per quan sabem quantes voltes volem.</p></div>
+        <div class="resum-visual__item"><p>Tot bucle té tres peces: valor inicial, condició i canvi del comptador.</p></div>
+        <div class="resum-visual__item"><p>Sense el canvi del comptador → <strong>bucle infinit</strong> (<code>Ctrl + C</code> per a parar-lo).</p></div>
+        <div class="resum-visual__item"><p>Un <strong>comptador</strong> (<code>i++</code>) compta voltes; un <strong>acumulador</strong> (<code>suma = suma + x</code>) guarda totals.</p></div>
+        <div class="resum-visual__item"><p>Els acumuladors i comptadors es creen <strong>fora</strong> del bucle.</p></div>
+        <div class="resum-visual__item"><p><code>break</code> servix per a eixir del bucle quan ja tenim el que buscàvem.</p></div>
+        <div class="resum-visual__item"><p>Un bucle pot fer <strong>zero voltes</strong> si la condició ja és falsa.</p></div>
+      </div>
+    </section>
+
+    <!-- ============================ 11 · AUTOAVALUACIÓ ============================ -->
+    <section class="seccio" id="autoavaluacio" data-nav="11 · Autoavaluació">
+      <h2>Autoavaluació</h2>
+      <p class="entradeta">Nou preguntes. Pensa-les abans de mirar la solució.</p>
+      <ol class="llista-autoavaluacio">
+        <li>
+          <p class="enunciat">Quantes voltes fa este bucle?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>for (int i = 1; i &lt;= 4; i++) {
+    System.out.println(i);
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av1">Mostrar solució</button>
+          <div class="solucio" id="av1" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>4 voltes: s'escriuen 1, 2, 3 i 4.</strong></p>
+            <p class="solucio__perque">La condició és <code>i &lt;= 4</code>, és a dir, fins a 4 inclòs. Comença en 1, així que fa 4 voltes.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quina diferència hi ha entre <code>while</code> i <code>for</code>?</p>
+
+          <ul class="opcions"><li>No hi ha cap diferència, fan exactament el mateix codi.</li><li><code>for</code> és per quan sabem quantes voltes volem; <code>while</code>, quan depén d'una condició.</li><li><code>while</code> només servix per a comptar.</li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av2">Mostrar solució</button>
+          <div class="solucio" id="av2" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) <code>for</code> per a voltes conegudes i <code>while</code> per a condicions que no controlem.</strong></p>
+            <p class="solucio__perque">Els dos poden fer la mateixa faena, però el <code>for</code> ho diu tot en una línia (on comença, fins quan, com canvia). Quan sabem el número de voltes, queda més clar.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què és un bucle infinit?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av3">Mostrar solució</button>
+          <div class="solucio" id="av3" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Un bucle del qual el programa no pot eixir mai perquè la seua condició no arriba a ser falsa.</strong></p>
+            <p class="solucio__perque">Normalment passa perquè falta canviar la variable de la condició. El programa compila bé, però es queda penjat: cal parar-lo amb el botó <em>Stop</em> o <code>Ctrl + C</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Este bucle no acaba mai. Per què?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>int i = 1;
+while (i &lt;= 3) {
+    System.out.println(i);
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av4">Mostrar solució</button>
+          <div class="solucio" id="av4" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Falta <code>i++</code> dins del bucle, així que <code>i</code> sempre val 1.</strong></p>
+            <p class="solucio__perque">La condició <code>i &lt;= 3</code> sempre és vertadera perquè <code>i</code> no canvia mai. Cal afegir la línia que incrementa el comptador perquè el bucle puga acabar.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Escriu un bucle que sume els números de l'1 al 5 i mostre el total.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av5">Mostrar solució</button>
+          <div class="solucio" id="av5" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>int suma = 0; for (int i = 1; i &lt;= 5; i++) { suma = suma + i; } System.out.println(suma);</code></strong></p>
+            <p class="solucio__perque">La variable <code>suma</code> és l'acumulador: es crea <strong>abans</strong> del bucle amb el valor 0 i dins del bucle va sumant el comptador. El resultat és 15.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quantes voltes fa este bucle i què s'escriu?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>int i = 2;
+while (i &lt; 10) {
+    System.out.println(i);
+    i = i + 2;
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av6">Mostrar solució</button>
+          <div class="solucio" id="av6" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Fa 4 voltes i s'escriuen 2, 4, 6 i 8.</strong></p>
+            <p class="solucio__perque">El comptador va de 2 en 2. Quan val 10, la condició <code>i &lt; 10</code> ja no es complix (el 10 no entra) i el bucle para. Per això no s'escriu el 10.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Per què l'acumulador s'ha de crear fora del bucle?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av7">Mostrar solució</button>
+          <div class="solucio" id="av7" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè si es crea dins, es torna a posar a zero a cada volta i es perd el total acumulat.</strong></p>
+            <p class="solucio__perque">Una variable creada dins del bucle naix i mor en cada volta. Si volem recordar el total entre voltes, ha de nàixer abans i viure mentres el bucle treballa.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què fa exactament <code>break</code> dins d'un bucle?</p>
+
+          <ul class="opcions"><li>Fa un descans d'un segon i continua.</li><li>Eix del bucle immediatament.</li><li>Torna a començar el bucle des del principi.</li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av8">Mostrar solució</button>
+          <div class="solucio" id="av8" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) Eix del bucle immediatament.</strong></p>
+            <p class="solucio__perque">Quan <code>break</code> s'executa, el bucle acaba i el programa continua en la línia següent, sense fer cap volta més. És molt útil per a buscar alguna cosa i parar quan la trobem.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Volem demanar números fins que l'usuari escriga un 0, i sumar-los tots (el 0 no compta). Escriu el bucle.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av9">Mostrar solució</button>
+          <div class="solucio" id="av9" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>int suma = 0; int n = teclat.nextInt(); while (n != 0) { suma = suma + n; n = teclat.nextInt(); }</code></strong></p>
+            <p class="solucio__perque">El 0 és el valor <strong>sentinella</strong>: només indica que cal acabar. Per això la condició del bucle el detecta abans de sumar-lo. Si el sumàrem dins del bucle, el resultat seria incorrecte.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <nav class="navegacio-temes no-imprimible" id="navegacio-temes" aria-label="Navegació entre temes"></nav>
+
+  </main>
+</div>
+
+<!-- ====================================== PEU ====================================== -->
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__graella">
+      <div>
+        <h4>Introducció a la Programació amb Java</h4>
+        <p>Optativa SMX · Sistemes Microinformàtics i Xarxes</p>
+        <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+      </div>
+      <div>
+        <h4>En este tema</h4>
+        <ul class="llista-netejada">
+          <li><a href="#teoria">Teoria</a></li>
+          <li><a href="#exemples">Exemples explicats</a></li>
+          <li><a href="#guiada">Programació guiada</a></li>
+          <li><a href="#resum">Resum visual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Llicència</h4>
+        <p>Material lliure per a ús educatiu.<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a></p>
+      </div>
+    </div>
+    <div class="peu__base">
+      <span>© 2026 Agustín Gil · IES La Vereda</span>
+      <a class="llicencia" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">
+        <span class="llicencia__icones" aria-hidden="true"><span>CC</span><span>BY</span><span>NC</span></span>
+        Creative Commons Reconeixement-NoComercial 4.0 Internacional
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Peu fix que apareix en cada pàgina del PDF -->
+<div class="peu-impressio" aria-hidden="true">
+  <span>Introducció a la Programació amb Java · Optativa SMX · Material creat per Agustín Gil - IES La Vereda 2026 · CC BY-NC 4.0</span>
+  <span class="peu-impressio__dreta">Tema 3</span>
+</div>
+
+<button class="boto boto--primari tornar-dalt no-imprimible" id="tornar-dalt" type="button" aria-label="Tornar a dalt">↑</button>
+
+<script src="../assets/js/resaltat.js"></script>
+<script src="../assets/js/dades-curs.js"></script>
+<script src="../assets/js/diapositives/tema3.js"></script>
+<script src="../assets/js/plantilla-tema.js"></script>
+<script src="../assets/js/pptx.js"></script>
+</body>
+</html>

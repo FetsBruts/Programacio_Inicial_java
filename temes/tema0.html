@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 0 · Què és programar? | Introducció a la Programació amb Java</title>
+<meta name="description" content="El primer contacte: instruccions, codi font i el nostre «Hola món!»">
+<meta name="author" content="Agustín Gil · IES La Vereda 2026">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/tema.css">
+<link rel="stylesheet" href="../assets/css/print.css">
+<!-- PÀGINA GENERADA amb eines/genera-temes.mjs — edita eines/contingut/tema0.js i torna a generar-la -->
+</head>
+
+<body data-tema="0">
+
+<!-- ============================ PORTADA D'IMPRESSIÓ ============================ -->
+<div class="portada-impressio només-impressio" id="portada-impressio">
+  <p class="portada-impressio__curs" data-camp="assignatura">Optativa SMX · Introducció a la Programació</p>
+  <h1 data-camp="tema">Tema 0 · Què és programar?</h1>
+  <p class="portada-impressio__resum" data-camp="subtitol">El primer contacte: instruccions, codi font i el nostre «Hola món!»</p>
+  <div class="portada-impressio__meta">
+    <p data-camp="autor">Material creat per Agustín Gil - IES La Vereda 2026</p>
+    <p>Llicència <span data-camp="llicencia">CC BY-NC 4.0</span> · <a data-camp="enllac" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">creativecommons.org/licenses/by-nc/4.0</a></p>
+    <p>Data d'impressió: <span data-camp="data"></span></p>
+    <p class="text-suau">Manual d'estudi: introducció, objectius, teoria, exemples explicats, programació guiada, errors habituals i resum. Les tres primeres preguntes d'autoavaluació inclouen la solució; els exercicis i els reptes es treballen en la versió web.</p>
+  </div>
+</div>
+
+<!-- ================================== CAPÇALERA ================================== -->
+<header class="capcalera">
+  <div class="contenidor capcalera__interior" style="max-width:1400px">
+    <a class="capcalera__marca" href="../index.html">
+      <span class="capcalera__logo" aria-hidden="true">{}</span>
+      <span class="capcalera__text">
+        <span class="capcalera__curs">Optativa SMX · Programació amb Java</span>
+        <span class="capcalera__tema">Tema 0 · Què és programar?</span>
+      </span>
+    </a>
+    <div class="capcalera__accions">
+      <button class="boto boto--ciano boto--petit" type="button" data-imprimir>🖨 <span class="text-llarg">Imprimir</span> PDF</button>
+      <button class="boto boto--taronja boto--petit" type="button" data-pptx>📊 <span class="text-llarg">Crear</span> PowerPoint</button>
+      <a class="boto boto--fantasma boto--petit" href="../index.html">Índex del curs</a>
+      <button class="boto-icona" type="button" data-menu-toggle aria-expanded="false" aria-label="Obrir el menú del tema">☰</button>
+    </div>
+  </div>
+  <div class="contenidor capcalera__meta" style="max-width:1400px">
+    <span>✍ Material creat per Agustín Gil - IES La Vereda 2026</span>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-NC 4.0</a>
+    <span class="text-suau">Tema 0 de 10 · Sessió curta d'introducció</span>
+  </div>
+  <div class="barra-progres" aria-hidden="true"><span></span></div>
+</header>
+
+<div class="overlay-menu" aria-hidden="true"></div>
+
+<div class="disposicio">
+
+  <!-- ============================== MENÚ LATERAL ============================== -->
+  <aside class="menu-lateral" id="menu-lateral" aria-label="Navegació del tema">
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">En este tema</p>
+      <nav class="indice-intern" id="indice-intern" aria-label="Índex del tema"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc" id="progres-exercicis" hidden>
+      <p class="menu-lateral__titol">El teu progrés</p>
+      <div class="barra-avaluacio"><span style="width:0"></span></div>
+      <p class="text-suau" id="progres-exercicis-text" style="font-size:.82rem;margin:0"></p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Temes del curs</p>
+      <nav class="llista-temes-mini" id="llista-temes-mini" aria-label="Temes del curs"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Accions</p>
+      <div class="pila" style="gap:.5rem">
+        <button class="boto boto--primari boto--ampla boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button>
+        <button class="boto boto--taronja boto--ampla boto--petit" type="button" data-pptx>📊 Crear PowerPoint</button>
+      </div>
+      <p class="text-suau" style="font-size:.78rem;margin:.6rem 0 0">
+        El PDF inclou la teoria i el resum. La presentació és per explicar a classe.
+      </p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Autoria</p>
+      <p class="text-suau" style="font-size:.8rem;margin:0">
+        <strong>Agustín Gil</strong><br>IES La Vereda · 2026<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+      </p>
+    </div>
+  </aside>
+
+  <!-- ================================= CONTINGUT ================================= -->
+  <main class="contingut">
+
+    <div class="hero-tema">
+      <span class="hero-tema__etiqueta">Tema 0 · Introducció al curs</span>
+      <h1>Què és programar?</h1>
+      <p class="hero-tema__entradeta">Abans de saber escriure codi cal entendre què és programar: donar instruccions ordenades a un ordinador. En esta sessió escriurem i executarem el nostre primer programa de veritat.</p>
+      <div class="hero-tema__meta">
+        <span class="pastilla">⏱ Sessió curta</span>
+        <span class="pastilla">🚀 Primer contacte</span>
+        <span class="pastilla">⌨️ Escriurem codi des del minut zero</span>
+        <span class="pastilla">☕ Java</span>
+      </div>
+    </div>
+
+    <!-- ============================ 01 · INTRODUCCIÓ ============================ -->
+    <section class="seccio" id="introduccio" data-nav="01 · Introducció" style="padding-top:0">
+      <h2>Una situació per començar</h2>
+      <div class="situacio revela">
+        <span class="situacio__emoji" aria-hidden="true">⏰</span>
+        <div>
+<p><strong>Sona el despertador del mòbil.</strong> I si el mòbil tinguera una alarma que sona cada dia a les 7:00, però només si l'endemà tens classe? Algú ha hagut d'escriure, pas a pas, què ha de fer el telèfon: <em>mira l'hora</em>, <em>mira el calendari</em>, <em>si demà hi ha classe, sona</em>.</p>
+          <p>Això és programar. Un programa no és màgia ni intel·ligència: són <strong>instruccions ordenades</strong> que algú ha pensat abans. Si canvies l'orde, o si t'oblides una instrucció, el resultat canvia.</p>
+          <p>Durant 10 sessions aprendrem a escriure eixes instruccions en <strong>Java</strong>. Començarem per un programa que només escriu un missatge per pantalla i acabarem construint programes amb dades, decisions, bucles i objectes.</p>
+        </div>
+      </div>
+
+      <div class="plan-sessio revela" style="margin-top:var(--esp-5)">
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">10-15 min</span>
+            <span class="plan-sessio__nom">Què significa programar</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">15-20 min</span>
+            <span class="plan-sessio__nom">Del codi font al programa</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">20-25 min</span>
+            <span class="plan-sessio__nom">El nostre «Hola món!»</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">10 min</span>
+            <span class="plan-sessio__nom">Repte de tancament</span>
+          </div>
+      </div>
+
+      <div class="prerequisits">
+        <strong>Abans de començar has de poder fer això:</strong>
+        <ul>
+          <li>Cap coneixement de programació. Comencem de zero.</li>
+          <li>Un ordinador amb navegador web (els primers dies no cal instal·lar res).</li>
+          <li>Ganes de provar coses i de trencar-les per vore què passa.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ 02 · QUÈ APRENDREM ============================ -->
+    <section class="seccio" id="objectius" data-nav="02 · Què aprendrem?">
+      <h2>Què aprendrem en este tema?</h2>
+      <p class="entradeta">En acabar esta sessió has de saber explicar i fer estes coses:</p>
+      <ul class="llista-objectius revela">
+        <li><span class="num">1</span><span>Explicar amb les teues paraules què és programar i què és un programa.</span></li>
+        <li><span class="num">2</span><span>Reconéixer què és el codi font i per a què servix un compilador.</span></li>
+        <li><span class="num">3</span><span>Escriure i executar un programa senzill que mostre text per pantalla.</span></li>
+        <li><span class="num">4</span><span>Modificar un programa perquè faça una altra cosa.</span></li>
+        <li><span class="num">5</span><span>Llegir un missatge d'error bàsic i trobar què falta.</span></li>
+      </ul>
+    </section>
+
+    <!-- =============================== 03 · TEORIA =============================== -->
+    <section class="seccio" id="teoria" data-nav="03 · Teoria">
+      <h2>Teoria, poc a poc</h2>
+      <p class="entradeta">Cada idea va amb un exemple. No cal memoritzar res: cal entendre-ho.</p>
+<h3>1. Programar és donar ordres ordenades</h3>
+        <p>Una recepta de cuina és un programa: si canvies l'orde de les passes, ix malament. La diferència és que ací qui executa les instruccions és un ordinador, que és molt ràpid però <strong>no entén res si no li ho diem exactament</strong>.</p>
+        <p>Un ordinador no endevina. Si li demanes «fes la mitjana de les notes», no sap fer-ho. Cal dir-li: <em>demana les notes</em>, <em>suma-les</em>, <em>dividix per quantes n'hi ha</em>, <em>mostra el resultat</em>.</p>
+        <ul class="llista-punts">
+                    <li><strong>Pensar</strong> el problema: què volem aconseguir?</li>
+                    <li><strong>Dividir-lo</strong> en passos xicotets i ordenats.</li>
+                    <li><strong>Escriure</strong> eixos passos en un llenguatge que l'ordinador entenga.</li>
+                    <li><strong>Provar</strong> si funciona i corregir el que faça falta.</li>
+                  </ul>
+        <h3>2. Què és un programa</h3>
+        <p>Un programa és un conjunt d'instruccions guardades en un fitxer que l'ordinador pot executar. Quan l'executes, les instruccions es fan <strong>en orde</strong>, una darrere d'una altra, de dalt a baix.</p>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Nota mental: si el programa fa una cosa que no esperàvem, normalment és perquè <strong>l'orde de les instruccions</strong> no és el que pensàvem.</p></div>
+                  </div>
+        <h3>3. Un llenguatge de programació</h3>
+        <p>Per escriure eixes instruccions fem servir un <strong>llenguatge de programació</strong>: un idioma artificial amb regles. Nosaltres farem servir <strong>Java</strong>.</p>
+        <p>Per què Java? Perquè és molt estés (aplicacions, servidors, Android, videojocs), perquè té una comunitat enorme on buscar ajuda i, sobretot, perquè és <strong>estricte</strong>: t'obliga a dir de quin tipus és cada dada. Eixa exigència, que al principi molesta, ajuda a entendre què està passant dins del programa. És un idioma més per aprendre, i els idiomes s'aprenen practicant.</p>
+        <h3>4. Del codi font al programa</h3>
+        <p>Quan escrivim, el que tenim és <strong>codi font</strong>: les instruccions escrites per nosaltres (<code>HolaMon.java</code>). L'ordinador entén este codi directament? No. Cal traduir-lo.</p>
+        <div class="graella graella--4">
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">📝</span> Codi font</h3>
+                      <p>El que escrivim nosaltres: <code>HolaMon.java</code>. Es pot llegir, se li poden posar comentaris i es pot corregir.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">⚙️</span> Compilació</h3>
+                      <p>Un programa anomenat <strong>compilador</strong> revisa el codi i el traduïx. Si hi ha un error, s'atura i ens avisa.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">📦</span> Fitxer executable</h3>
+                      <p>El resultat de compilar. Ja no el llegim nosaltres: el llegix la màquina virtual de Java.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">▶️</span> Execució</h3>
+                      <p>La <strong>màquina virtual</strong> (JVM) executa eixe fitxer i fa les instruccions. Ací veiem el resultat.</p>
+                    </article>
+                  </div>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Si el compilador s'atura, no passa res: <strong>ens està ajudant</strong>. Ens diu la línia on s'ha perdut i què no entén. Revisar eixe missatge és part del treball.</p></div>
+                  </div>
+        <h3>5. Com executem el programa</h3>
+        <p>Hi ha dos camins, i els dos són vàlids: <strong>en línia</strong> (escrius el codi al navegador i polses «Executar») o <strong>al teu ordinador</strong> (instal·les Java i un editor). El codi que escriurem és exactament el mateix en tots dos casos.</p>
+        <p>Els primers dies fem servir un entorn en línia: no caldrà instal·lar res i podrem provar coses des del mateix navegador.</p>
+        <h3>6. El nostre primer programa</h3>
+        <p>Mira'l bé: només hi ha una instrucció que fa faena, la de dins. Les altres són la <strong>carcassa</strong> que Java necessita per arrancar.</p>
+        <pre class="codi" data-titol="HolaMon.java" data-etiqueta="EL PRIMER PROGRAMA"><code>public class HolaMon {
+            public static void main(String[] args) {
+                System.out.println("Hola món!");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Hola món!</pre>
+                  </div>
+        <p><code>System.out.println(&quot;...&quot;)</code> vol dir, en llenguatge de persones: <em>«System, trau (out) per pantalla i imprimeix una línia (println) amb este text»</em>. El text va sempre <strong>entre cometes dobles</strong>.</p>
+        <p>S'acaba amb un <strong>punt i coma</strong> (<code>;</code>). En Java, cada instrucció s'acaba amb <code>;</code>, com un punt al final d'una frase. Si l'oblides, el compilador s'atura ahí mateix i t'ho diu.</p>
+        <div class="nota nota-notecnica">
+                    <span class="nota__icona" aria-hidden="true">🔧</span>
+                    <div><p><strong>De moment no necessitem entendre esta part.</strong> Les línies <code>public class HolaMon {</code> i <code>public static void main(String[] args) {</code> (i les dos claus <code>}</code>) són la carcassa del programa. Ja arribarem més avant a entendre-les.</p></div>
+                  </div>
+        <h3>7. El nom del fitxer té normes</h3>
+        <p>El fitxer ha de dir-se igual que la classe pública que hi ha dins. Si la classe és <code>HolaMon</code>, el fitxer serà <code>HolaMon.java</code>. Si els canviem de nom, Java no el troba.</p>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p>Java distingix <strong>majúscules i minúscules</strong>: <code>System</code>, <code>String</code> i <code>HolaMon</code> comencen amb majúscula per conveni, i <code>println</code> va tot en minúscules. Escriure <code>Println</code> o <code>system</code> no funciona.</p></div>
+                  </div>
+    </section>
+
+    <!-- =========================== 04 · EXEMPLES EXPLICATS =========================== -->
+    <section class="seccio seccio--suau" id="exemples" data-nav="04 · Exemples">
+      <h2>Exemples explicats pas a pas</h2>
+      <p class="entradeta">Cada exemple: què volem aconseguir, el codi, què apareix per pantalla i per què funciona.</p>
+<h3>Exemple 1 · Un missatge de benvinguda</h3>
+        <p><strong>Què volem?</strong> Que el programa ens salude pel nostre nom.</p>
+        <pre class="codi" data-titol="Benvinguda.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Benvinguda {
+            public static void main(String[] args) {
+                System.out.println("Hola! Sóc el teu primer programa.");
+                System.out.println("Em diuen Java i estic aprenent amb tu.");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Hola! Sóc el teu primer programa.
+        Em diuen Java i estic aprenent amb tu.</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> cada <code>println</code> escriu una línia i, en acabar, baixa a la següent. Si haguérem escrit <code>print</code> (sense <code>ln</code>), tot eixiria enganxat en una sola línia.</p>
+        <h3>Exemple 2 · Una targeta de presentació</h3>
+        <p><strong>Què volem?</strong> Presentar-nos amb diverses línies, com si fora una fitxa.</p>
+        <pre class="codi" data-titol="Presentacio.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Presentacio {
+            public static void main(String[] args) {
+                System.out.println("=== FITXA DE L'ALUMNE ===");
+                System.out.println("Nom:   Ana");
+                System.out.println("Curs:  SMX");
+                System.out.println("Nivell: principiant absolut");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>=== FITXA DE L'ALUMNE ===
+        Nom:   Ana
+        Curs:  SMX
+        Nivell: principiant absolut</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> l'apòstrof dins del text no dona problemes, però hem d'anar amb compte amb les <strong>cometes dobles</strong>: si volem escriure una cometa dins del text, hem d'escriure-la com a <code>\&quot;</code>.</p>
+        <h3>Exemple 3 · Un dibuix fet amb text</h3>
+        <p><strong>Què volem?</strong> Dibuixar una cosa amb caràcters, com es fa als videojocs antics. Ací es veu molt bé que l'orde de les instruccions és el que crea la forma.</p>
+        <pre class="codi" data-titol="Dibuix.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Dibuix {
+            public static void main(String[] args) {
+                System.out.println("   *   ");
+                System.out.println("  ***  ");
+                System.out.println(" ***** ");
+                System.out.println("*******");
+                System.out.println("   |   ");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>   *
+          ***
+         *****
+        *******
+           |</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> cada línia té una quantitat d'espais diferent davant de l'asterisc. Eixos espais són els que fan que la forma crèixca cap als costats.</p>
+        <h3>Què apareixerà per pantalla?</h3>
+        <p>Pensa-ho abans d'executar. Fixa't sobretot en la tercera línia.</p>
+        <div class="prediccio">
+                    <h3>Pensa abans d'executar</h3>
+                    <pre class="codi" data-titol="Comptador.java" data-etiqueta="PENSA PRIMER"><code>public class Comptador {
+            public static void main(String[] args) {
+                System.out.println("Nivell 1");
+                System.out.println("Nivell 1 + 1");
+            }
+        }</code></pre>
+                    <button class="boto boto--solucio" type="button" data-solucio="pred-tema0" data-text-mostrar="Mostrar què apareix" data-text-ocultar="Amagar">Mostrar què apareix</button>
+                    <div class="solucio" id="pred-tema0" hidden>
+                      <span class="solucio__etiqueta">Resposta</span>
+                      <div class="consola"><span class="consola__titol">Eixida real</span><pre>Nivell 1
+        Nivell 1 + 1</pre></div>
+                      <p class="solucio__perque"><strong>Per què:</strong> Java no fa les operacions que estan dins de les cometes: allí tot és <strong>text</strong>. Perquè sumara de veritat, no podríem posar les cometes al voltant de l'operació.</p>
+                    </div>
+                  </div>
+    </section>
+
+    <!-- =========================== 05 · PROGRAMACIÓ GUIADA =========================== -->
+    <section class="seccio" id="guiada" data-nav="05 · Programació guiada">
+      <h2>Programació guiada: ho fem junts</h2>
+      <p class="entradeta">Escrivim el nostre primer programa des de zero, pas a pas. No mirem la solució: la construïm.</p>
+      <div class="pas revela">
+        <span class="pas__num">1</span>
+        <div class="pas__cos">
+          <h3>Pensem què volem fer i com es diu el fitxer</h3>
+<p>Volem un programa que es diga <strong>ElMeuPrimerPrograma</strong> i que ens salude, diga el curs i ens desitge sort.</p>
+          <div class="pregunta-classe"><p>Si la classe es dirà <code>ElMeuPrimerPrograma</code>, com s'haurà de dir el fitxer?</p></div>
+          <p>El fitxer serà <strong><code>ElMeuPrimerPrograma.java</code></strong>. Ací ja hem après la primera norma de Java.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">2</span>
+        <div class="pas__cos">
+          <h3>Escrivim la carcassa buida i comprovem que arranca</h3>
+<p>Dins de la carcassa no hi ha res encara. Provem-ho: un programa buit <strong>no fa res i no dona error</strong>. Si donara error, sabríem que el problema està en la carcassa.</p>
+          <pre class="codi" data-titol="ElMeuPrimerPrograma.java" data-etiqueta="PAS 2"><code>public class ElMeuPrimerPrograma {
+              public static void main(String[] args) {
+                  // ací dins escriurem les nostres instruccions
+                  // les dues barres fan que Java no llija la línia
+              }
+          }</code></pre>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">3</span>
+        <div class="pas__cos">
+          <h3>Afegim la primera instrucció</h3>
+<p>Una sola línia, i la provem. Sempre: una cosa, provar, i continuar.</p>
+          <pre class="codi" data-titol="ElMeuPrimerPrograma.java" data-etiqueta="PAS 3"><code>public class ElMeuPrimerPrograma {
+              public static void main(String[] args) {
+                  System.out.println("Bon dia! Soc el teu programa.");
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Bon dia! Soc el teu programa.</pre>
+                    </div>
+          <div class="pregunta-classe"><p>I si llevem el punt i coma? Provem-ho, a vore què diu el compilador.</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">4</span>
+        <div class="pas__cos">
+          <h3>Afegim més instruccions i cuidem l'aspecte</h3>
+<p>Ara afegim les altres dos línies. Els espais i els salts de línia <strong>no</strong> afecten el resultat: escrivim el codi de manera que es llija bé.</p>
+          <pre class="codi" data-titol="ElMeuPrimerPrograma.java" data-etiqueta="PAS 4"><code>public class ElMeuPrimerPrograma {
+              public static void main(String[] args) {
+                  System.out.println("Bon dia! Soc el teu programa.");
+                  System.out.println("Este curs aprenem a programar en Java.");
+                  System.out.println("Esperem que t'ho passes bé!");
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Bon dia! Soc el teu programa.
+          Este curs aprenem a programar en Java.
+          Esperem que t'ho passes bé!</pre>
+                    </div>
+          <p>La indentació (els espais del començament de cada línia) no és obligatòria per a Java, però ens ajuda a vore què hi ha dins de què.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">5</span>
+        <div class="pas__cos">
+          <h3>Trenquem-lo a propòsit</h3>
+<p>Últim pas i el més important: provoca errors. Lleva una cometa, canvia una majúscula, borra un parèntesi. Llig què diu el compilador cada vegada.</p>
+          <pre class="codi codi--error" data-titol="Error provocat" data-etiqueta="PROVEM"><code>System.out.println("Bon dia!);
+                  }</code></pre>
+                    <p class="missatge-error">error: unclosed string literal
+                  System.out.println(&quot;Bon dia!);
+                                     ^
+          error: ';' expected
+          2 errors</p>
+          <p>El compilador ens diu <strong>unclosed string literal</strong>: «tens una cadena de text sense tancar». I assenyala amb <code>^</code> exactament el lloc on s'ha perdut. Saber llegir eixa fletxa és mig treball de programador.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 06 · MINI EXERCICIS ============================= -->
+    <section class="seccio seccio--suau" id="mini-exercicis" data-nav="06 · Mini exercicis">
+      <h2>Mini exercicis</h2>
+      <p class="entradeta">Activitats molt curtes: un minut o dos cada una. Es fan a classe mateix.</p>
+      <div class="llista-mini">
+        <article class="exercici exercici--mini" id="mini1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">Canvia el missatge</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">1 min</span>
+          </div>
+          <div class="exercici__enunciat">Escriu un programa que mostre per pantalla el teu nom.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini1">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini1"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="ElMeuNom.java" data-etiqueta="SOLUCIÓ"><code>public class ElMeuNom {
+    public static void main(String[] args) {
+        System.out.println("Ana");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Ana</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Has canviat només el text que hi ha entre cometes. La carcassa és la mateixa de sempre.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">Tres línies</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">2 min</span>
+          </div>
+          <div class="exercici__enunciat">Mostra tres línies: el teu nom, el teu curs i el teu institut.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini2">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini2"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="TresLinies.java" data-etiqueta="SOLUCIÓ"><code>public class TresLinies {
+    public static void main(String[] args) {
+        System.out.println("Nom: Ana");
+        System.out.println("Curs: SMX");
+        System.out.println("Institut: IES La Vereda");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Nom: Ana
+Curs: SMX
+Institut: IES La Vereda</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Cada <code>println</code> escriu una línia nova. Amb tres instruccions, tres línies.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">Una cara</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">2 min</span>
+          </div>
+          <div class="exercici__enunciat">Dibuixa una cara amb caràcters del teclat (ulls, nas i boca).</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini3">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini3"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Cara.java" data-etiqueta="SOLUCIÓ"><code>public class Cara {
+    public static void main(String[] args) {
+        System.out.println("  o   o  ");
+        System.out.println("    ^    ");
+        System.out.println("  \\___/  ");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>  o   o
+    ^
+  \___/</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> La barra invertida <code>\</code> és especial en Java: per a escriure una barra de veritat n'hem de posar dos.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">Sense salts de línia</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">2 min</span>
+          </div>
+          <div class="exercici__enunciat">Prova de canviar <code>println</code> per <code>print</code> en dos instruccions i mira què passa. Després explica la diferència.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini4">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini4"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="SenseSalt.java" data-etiqueta="SOLUCIÓ"><code>public class SenseSalt {
+    public static void main(String[] args) {
+        System.out.print("SMX ");
+        System.out.print("2026");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>SMX 2026</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> <code>print</code> no baixa de línia; <code>println</code> sí. Amb <code>print</code>, el que escriguem després continua en la mateixa línia.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini5">
+          <div class="exercici__cap">
+            <span class="exercici__num">5</span>
+            <h3 class="exercici__titol">Troba l'error</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">2 min</span>
+          </div>
+          <div class="exercici__enunciat">Este codi no funciona. Copia'l, troba l'error i arregla'l.</div>
+          <pre class="codi codi--error" data-titol="Trencat.java" data-etiqueta="QUÈ FALLA?"><code>public class Trencat {
+    public static void main(String[] args) {
+        System.out.println("Hola")
+        System.out.println("Adéu");
+    }
+}</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini5">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini5">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini5"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini5" hidden><p><strong>Pista:</strong> Mira el final de cada línia que fa faena. Totes haurien d'acabar igual.</p></div>
+          <div class="solucio" id="sol-mini5" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Arreglat.java" data-etiqueta="SOLUCIÓ"><code>public class Arreglat {
+    public static void main(String[] args) {
+        System.out.println("Hola");
+        System.out.println("Adéu");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Hola
+Adéu</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Falten dos punts i coma. El compilador s'atura en la primera línia que no acaba amb <code>;</code> i ens assenyala on.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 07 · FES EL PROGRAMA ========================= -->
+    <section class="seccio" id="fes-el-programa" data-nav="07 · Fes el programa">
+      <h2>Fes el programa</h2>
+      <p class="entradeta">Tres exercicis complets. Escriu-los sencers, executeu-los i, si donen error, llig el missatge abans de mirar la solució.</p>
+      <article class="exercici" id="ex1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">El meu programa de presentació</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">15 min</span>
+          </div>
+          <div class="exercici__enunciat">Crea un programa que escriga per pantalla: el teu nom, la teua edat, el teu joc o sèrie preferida i una frase que t'agrade. Cada cosa en una línia, i el nom en la primera.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex1" hidden><p><strong>Pista:</strong> Un <code>println</code> per cada línia que vulgues mostrar.</p></div>
+          <div class="solucio" id="sol-ex1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="SocJo.java" data-etiqueta="SOLUCIÓ"><code>public class SocJo {
+    public static void main(String[] args) {
+        System.out.println("Em dic Ana");
+        System.out.println("Tinc 16 anys");
+        System.out.println("El meu joc preferit és Minecraft");
+        System.out.println("Aprenc a programar perquè vull fer els meus propis jocs.");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Em dic Ana
+Tinc 16 anys
+El meu joc preferit és Minecraft
+Aprenc a programar perquè vull fer els meus propis jocs.</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Cada línia és una instrucció. Fixa't que el text va sempre entre cometes dobles i que cada instrucció acaba en <code>;</code>.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">Un cartell de benvinguda de la teua classe</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes un «cartell» fet amb text: una línia de guions a dalt, el nom de la classe, el curs i una línia de guions davall. Després envolta'l amb asteriscs als costats.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(el programa no demana res: només mostra el cartell)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>*************************
+*  SMX — 2026 · LA VEREDA  *
+*************************</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex2" hidden><p><strong>Pista:</strong> Compta els caràcters de cada línia perquè totes tinguen la mateixa llargària.</p></div>
+          <div class="solucio" id="sol-ex2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Cartell.java" data-etiqueta="SOLUCIÓ"><code>public class Cartell {
+    public static void main(String[] args) {
+        System.out.println("***************************");
+        System.out.println("*   SMX — 2026 · LA VEREDA *");
+        System.out.println("***************************");
+        System.out.println("*   Benvinguts a classe!   *");
+        System.out.println("***************************");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>***************************
+*   SMX — 2026 · LA VEREDA *
+***************************
+*   Benvinguts a classe!   *
+***************************</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Els asteriscs i els espais es compten a mà: per això el text queda alineat. Per a alinear columnes cal comptar caràcters.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">El programa que fa preguntes</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Escriu un programa que mostre tres preguntes i, davall de cada una, la resposta correcta. L'objectiu no és demanar res a l'usuari encara: és practicar moltes línies de text i fixar-se en l'ordre.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>(no demana dades encara)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Pregunta: Quant és 2 + 2?  →  4
+Pregunta: Quina és la capital de França?  →  París
+Pregunta: Quantes hores té un dia?  →  24</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex3" hidden><p><strong>Pista:</strong> Cada pregunta i la seua resposta poden anar en la mateixa línia, separades per una fletxa i espais.</p></div>
+          <div class="solucio" id="sol-ex3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Preguntes.java" data-etiqueta="SOLUCIÓ"><code>public class Preguntes {
+    public static void main(String[] args) {
+        System.out.println("Pregunta: Quant és 2 + 2?  →  4");
+        System.out.println("Pregunta: Quina és la capital de França?  →  París");
+        System.out.println("Pregunta: Quantes hores té un dia?  →  24");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Pregunta: Quant és 2 + 2?  →  4
+Pregunta: Quina és la capital de França?  →  París
+Pregunta: Quantes hores té un dia?  →  24</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> La fletxa <code>→</code> és un caràcter més: es pot escriure directament. Els accents també funcionen si el fitxer es guarda amb codificació UTF-8.</p>
+          </div>
+        </article>
+    </section>
+
+    <!-- ================================ 08 · REPTES ================================ -->
+    <section class="seccio seccio--suau" id="reptes" data-nav="08 · Reptes">
+      <h2>Reptes (sense solució)</h2>
+      <div class="nota nota--avis">
+        <span class="nota__icona" aria-hidden="true">🧠</span>
+        <div><p>Els reptes <strong>no tenen botó de solució</strong>, a propòsit. L'objectiu és pensar, provar, equivocar-se i tornar-ho a intentar. Es poden resoldre de moltes maneres diferents: totes les solucions que funcionen són bones.</p></div>
+      </div>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 1</span>
+          <h3 class="repte__titol">El logo de la teua marca</h3>
+        </div>
+<p>Inventa una marca (pot ser de roba, de videojocs, de música o de menjar) i dibuixa el seu logo amb caràcters de text. Ha de tindre com a mínim 6 línies i, si pot ser, alguna forma simètrica.</p>
+        <p>Quan el tingues, prova de canviar-li el color de fons... no es pot encara! Apunta-ho: ho farem en el Tema 1 amb el nom del company.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Fes dos logos distints en el mateix programa, separats per una línia en blanc.</li>
+          <li>Afig-li un «copyright» amb el nom de la marca.</li>
+        </ul>
+      </article>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 2</span>
+          <h3 class="repte__titol">El robot de benvinguda</h3>
+        </div>
+<p>Escriu un programa que parega un robot saludant: que diga hola, que pregunte com estàs i que conteste ell mateix en tres o quatre línies.</p>
+        <p>No hi ha solució: l'important és que l'orde de les línies tinga sentit, com una conversa.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Que el robot parle dos idiomes: primer en valencià i després en anglés.</li>
+          <li>Que faça un dibuix del robot abans de parlar.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ============================ 09 · ERRORS HABITUALS ============================ -->
+    <section class="seccio" id="errors" data-nav="09 · Errors habituals">
+      <h2>Errors habituals</h2>
+      <p class="entradeta">Estos errors apareixeran segur. Llig-los abans de programar: quan els veges, sabràs què passa.</p>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 1</span>
+            <h3 class="exercici__titol" style="margin:0">Falta el punt i coma</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>System.out.println("Hola")</code></pre>
+          <p class="missatge-error">error: ';' expected
+        System.out.println(&quot;Hola&quot;)
+                              ^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Java s'ha trobat una instrucció que no acaba en <code>;</code> i no sap si ja ha acabat o si falta una cosa més.</dd>
+                <dt>Per què</dt><dd>Cada instrucció de Java ha d'acabar en punt i coma. És la manera com Java sap on acaba una ordre i on comença la següent.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge diu <code>';' expected</code> i assenyala amb <code>^</code> el lloc exacte. Sol ser la línia que hi ha just damunt.</dd>
+                <dt>Com corregir-ho</dt><dd>Posa el <code>;</code> al final de la instrucció. Si la instrucció ocupa dos línies, va al final de la segona.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>System.out.println("Hola");</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 2</span>
+            <h3 class="exercici__titol" style="margin:0">Text sense tancar (cometes)</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>System.out.println("Bon dia!);</code></pre>
+          <p class="missatge-error">error: unclosed string literal
+        System.out.println(&quot;Bon dia!);
+                           ^</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Java ha trobat l'inici del text (amb <code>&quot;</code>) però no ha trobat on acaba.</dd>
+                <dt>Per què</dt><dd>Una cadena de text sempre va entre <strong>dos</strong> cometes dobles. Si només n'hi ha una, Java continua buscant fins al final de la línia i es perd.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge diu <code>unclosed string literal</code> («cadena de text sense tancar»).</dd>
+                <dt>Com corregir-ho</dt><dd>Tanca la cometa: <code>&quot;Bon dia!&quot;</code>. Comprova que sigue <strong>recta</strong> (<code>&quot;</code>), i no una cometa «tipogràfica» (<code>“</code>), que el teclat del mòbil posa de vegades i que Java no entén.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>System.out.println("Bon dia!");</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 3</span>
+            <h3 class="exercici__titol" style="margin:0">El nom del fitxer no és el de la classe</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Programa.java" data-etiqueta="CODI"><code>public class ElMeuPrograma {
+    public static void main(String[] args) {
+        System.out.println("Hola");
+    }
+}</code></pre>
+          <p class="missatge-error">error: class ElMeuPrograma is public, should be declared in a file named ElMeuPrograma.java</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>La classe es diu <code>ElMeuPrograma</code> però el fitxer es diu <code>Programa.java</code>.</dd>
+                <dt>Per què</dt><dd>Java busca el codi pel nom del fitxer. Si no coincidixen, no el troba.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge ho diu clarament: <code>should be declared in a file named ...</code>.</dd>
+                <dt>Com corregir-ho</dt><dd>Canvia el nom del fitxer perquè siga igual que la classe pública, amb la mateixa majúscula i tot: <code>ElMeuPrograma.java</code>.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="ElMeuPrograma.java" data-etiqueta="CODI"><code>public class ElMeuPrograma {
+    public static void main(String[] args) {
+        System.out.println("Hola");
+    }
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 4</span>
+            <h3 class="exercici__titol" style="margin:0">Majúscules i minúscules</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>system.out.println("Hola");</code></pre>
+          <p class="missatge-error">error: package system does not exist</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Hem escrit <code>system</code> en minúscula.</dd>
+                <dt>Per què</dt><dd>Java és sensible a les majúscules: <code>System</code> i <code>system</code> són dos noms distints, i el segon no existix.</dd>
+                <dt>Com detectar-ho</dt><dd>El compilador diu que no troba <code>package system</code> o que no pot resoldre el símbol.</dd>
+                <dt>Com corregir-ho</dt><dd>Escriu-ho igual que sempre: <code>System.out.println(...)</code>, amb <code>S</code> majúscula en <code>System</code> i tot <code>println</code> en minúscules.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>System.out.println("Hola");</code></pre>
+            </div>
+          </div>
+        </article>
+    </section>
+
+    <!-- ============================= 10 · RESUM VISUAL ============================= -->
+    <section class="seccio seccio--suau" id="resum" data-nav="10 · Resum visual">
+      <h2>Resum visual</h2>
+      <p class="entradeta">Si pots explicar estes sis idees amb les teues paraules, el tema està apamat.</p>
+      <div class="resum-visual revela">
+        <div class="resum-visual__item"><p><strong>Programar</strong> és donar instruccions ordenades a l'ordinador perquè resolga un problema.</p></div>
+        <div class="resum-visual__item"><p>Un <strong>programa</strong> és un fitxer amb instruccions que es fan dalt a baix, en orde.</p></div>
+        <div class="resum-visual__item"><p>El <strong>codi font</strong> el llegim nosaltres; el <strong>compilador</strong> el traduïx i la <strong>màquina virtual</strong> l'executa.</p></div>
+        <div class="resum-visual__item"><p><code>System.out.println(&quot;...&quot;)</code> mostra una línia de text per pantalla; <code>print</code> no baixa de línia.</p></div>
+        <div class="resum-visual__item"><p>Cada instrucció acaba en <code>;</code> i els textos van entre <strong>cometes dobles</strong>.</p></div>
+        <div class="resum-visual__item"><p>Java distingix majúscules i minúscules, i el fitxer ha de dir-se igual que la classe pública.</p></div>
+        <div class="resum-visual__item"><p>Un missatge d'error no és un fracàs: ens diu la línia i què no ha entés. Cal llegir-lo.</p></div>
+      </div>
+    </section>
+
+    <!-- ============================ 11 · AUTOAVALUACIÓ ============================ -->
+    <section class="seccio" id="autoavaluacio" data-nav="11 · Autoavaluació">
+      <h2>Autoavaluació</h2>
+      <p class="entradeta">Nou preguntes per comprovar si ho tens clar. No estan ordenades per dificultat: pensa la resposta abans de mirar-la.</p>
+      <ol class="llista-autoavaluacio">
+        <li>
+          <p class="enunciat">Què és programar?</p>
+
+          <ul class="opcions"><li>Escriure molt de text en un fitxer.</li><li>Donar instruccions ordenades a l'ordinador perquè resolga un problema.</li><li>Instal·lar programes a l'ordinador.</li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av1">Mostrar solució</button>
+          <div class="solucio" id="av1" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) Donar instruccions ordenades a l'ordinador.</strong></p>
+            <p class="solucio__perque">Programar és pensar la solució d'un problema i escriure-la en passos ordenats, en un llenguatge que l'ordinador entenga.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quina d'estes instruccions mostra correctament un text per pantalla?</p>
+
+          <ul class="opcions"><li><code>System.out.println(Hola);</code></li><li><code>System.out.println(&quot;Hola&quot;);</code></li><li><code>System.out.println(&quot;Hola&quot;)</code></li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av2">Mostrar solució</button>
+          <div class="solucio" id="av2" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) <code>System.out.println(&quot;Hola&quot;);</code></strong></p>
+            <p class="solucio__perque">El text va entre cometes dobles i la instrucció acaba en punt i coma. La primera opció no compila perquè <code>Hola</code> no és una variable; la tercera, perquè falta el <code>;</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què fa el compilador?</p>
+
+          <ul class="opcions"><li>Executa el programa.</li><li>Traduïx el codi font i avisa si hi ha errors.</li><li>Guarda el fitxer.</li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av3">Mostrar solució</button>
+          <div class="solucio" id="av3" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) Traduïx el codi font i avisa si hi ha errors.</strong></p>
+            <p class="solucio__perque">El compilador traduïx el que hem escrit a un format que entén la màquina virtual. Si troba alguna cosa mal escrita, s'atura i ens assenyala on.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Escriu (mentalment) què apareixerà per pantalla si executes este programa.</p>
+          <pre class="codi" data-titol="Comptar.java" data-etiqueta="ANALITZA"><code>System.out.println("Nivell 2");
+System.out.println("Nivell 2 + 1");</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av4">Mostrar solució</button>
+          <div class="solucio" id="av4" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Dues línies: <code>Nivell 2</code> i <code>Nivell 2 + 1</code>.</strong></p>
+            <p class="solucio__perque">Tot el que està entre cometes és text: la suma no es fa. Si volguérem sumar de veritat, no podríem posar les cometes al voltant de l'operació.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Per què el compilador diu «unclosed string literal»?</p>
+          <pre class="codi" data-titol="Trencat.java" data-etiqueta="ANALITZA"><code>System.out.println("Adéu);</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av5">Mostrar solució</button>
+          <div class="solucio" id="av5" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè falta la cometa que tanca el text.</strong></p>
+            <p class="solucio__perque">Java necessita saber on comença i on acaba el text: per això hi ha dos cometes. Si en falta una, continua buscant i es perd.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Si el fitxer es diu <code>Practica.java</code> i dins la classe es diu <code>Practica1</code>, què passarà?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av6">Mostrar solució</button>
+          <div class="solucio" id="av6" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Que no compilarà: si la classe és pública, el fitxer ha de dir-se igual.</strong></p>
+            <p class="solucio__perque">El missatge serà semblant a <em>class Practica1 is public, should be declared in a file named Practica1.java</em>. La solució és fer coincidir els dos noms.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quina diferència hi ha entre <code>print</code> i <code>println</code>?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av7">Mostrar solució</button>
+          <div class="solucio" id="av7" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>println</code> escriu el text i baixa de línia; <code>print</code> escriu el text i es queda en la mateixa línia.</strong></p>
+            <p class="solucio__perque"><code>ln</code> ve de <em>line</em>, línia. Amb <code>print</code> podem construir una línia amb diverses instruccions.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Ordena mentalment estes passes del treball d'un programador i digues quina va PRIMER: escriure codi / provar el programa / pensar el problema / dividir-lo en passos.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av8">Mostrar solució</button>
+          <div class="solucio" id="av8" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Primer pensar el problema i dividir-lo en passos; després escriure el codi; i finalment provar-lo.</strong></p>
+            <p class="solucio__perque">Escriure codi sense haver pensat el problema és el camí més ràpid per a equivocar-se. Primer les idees, després el teclat.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Un company diu: «el meu programa no funciona, segur que Java està roín». Què comprovaries primer?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av9">Mostrar solució</button>
+          <div class="solucio" id="av9" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Els errors típics: punt i coma, cometes, el nom del fitxer i les majúscules de <code>System</code> i <code>println</code>.</strong></p>
+            <p class="solucio__perque">Gairebé tots els errors del principi són d'eixos quatre tipus, i el compilador ens diu en quina línia mirar. Sempre es llig el missatge abans de tocar res.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <nav class="navegacio-temes no-imprimible" id="navegacio-temes" aria-label="Navegació entre temes"></nav>
+
+  </main>
+</div>
+
+<!-- ====================================== PEU ====================================== -->
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__graella">
+      <div>
+        <h4>Introducció a la Programació amb Java</h4>
+        <p>Optativa SMX · Sistemes Microinformàtics i Xarxes</p>
+        <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+      </div>
+      <div>
+        <h4>En este tema</h4>
+        <ul class="llista-netejada">
+          <li><a href="#teoria">Teoria</a></li>
+          <li><a href="#exemples">Exemples explicats</a></li>
+          <li><a href="#guiada">Programació guiada</a></li>
+          <li><a href="#resum">Resum visual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Llicència</h4>
+        <p>Material lliure per a ús educatiu.<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a></p>
+      </div>
+    </div>
+    <div class="peu__base">
+      <span>© 2026 Agustín Gil · IES La Vereda</span>
+      <a class="llicencia" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">
+        <span class="llicencia__icones" aria-hidden="true"><span>CC</span><span>BY</span><span>NC</span></span>
+        Creative Commons Reconeixement-NoComercial 4.0 Internacional
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Peu fix que apareix en cada pàgina del PDF -->
+<div class="peu-impressio" aria-hidden="true">
+  <span>Introducció a la Programació amb Java · Optativa SMX · Material creat per Agustín Gil - IES La Vereda 2026 · CC BY-NC 4.0</span>
+  <span class="peu-impressio__dreta">Tema 0</span>
+</div>
+
+<button class="boto boto--primari tornar-dalt no-imprimible" id="tornar-dalt" type="button" aria-label="Tornar a dalt">↑</button>
+
+<script src="../assets/js/resaltat.js"></script>
+<script src="../assets/js/dades-curs.js"></script>
+<script src="../assets/js/diapositives/tema0.js"></script>
+<script src="../assets/js/plantilla-tema.js"></script>
+<script src="../assets/js/pptx.js"></script>
+</body>
+</html>

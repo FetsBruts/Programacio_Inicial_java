@@ -1,0 +1,15 @@
+{
+  "name": "programacio-inicial-java",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Material del curs «Introducció a la Programació amb Java» (IES La Vereda, 2026). Les pàgines no necessiten Node: s'obrin directament al navegador. Este package.json només servix per a les ferramentes de comprovació de eines/.",
+  "scripts": {
+    "genera": "node eines/genera-temes.mjs",
+    "prova:pagines": "node eines/prova-pagines.mjs",
+    "prova:java": "node eines/prova-codi-java.mjs",
+    "prova:pptx": "node eines/prova-pptx.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^30.0.1"
+  }
+}

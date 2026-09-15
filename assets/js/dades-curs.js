@@ -40,7 +40,7 @@ window.CURS = {
   temes: [
     {
       n: 0,
-      fitxer: null,
+      fitxer: 'temes/tema0.html',
       titol: 'Què és programar?',
       subtitol: 'El primer contacte: instruccions, codi font i el nostre «Hola món!»',
       emoji: '🚀',
@@ -49,11 +49,11 @@ window.CURS = {
       desc: 'Què significa programar, què és un programa i per què aprenem Java. Escriurem i executarem el nostre primer programa.',
       continguts: ['Què és programar', 'Llenguatge de programació', 'Codi font i execució', 'Entorn de treball', 'Hola món!'],
       prereq: 'Cap. Només ganes de provar coses.',
-      estat: 'en-preparacio'
+      estat: 'publicat'
     },
     {
       n: 1,
-      fitxer: null,
+      fitxer: 'temes/tema1.html',
       titol: 'Variables: guardar informació',
       subtitol: 'Les «caixes» on el programa desa les dades',
       emoji: '📦',
@@ -62,11 +62,11 @@ window.CURS = {
       desc: 'Guardar, canviar i mostrar informació: tipus bàsics, operadors aritmètics i les primeres entrades per teclat.',
       continguts: ['int, double, boolean, char, String', 'Declarar i assignar', 'Operadors + − * / %', 'Scanner', 'Concatenació'],
       prereq: 'Tema 0: saber crear un fitxer i executar-lo.',
-      estat: 'en-preparacio'
+      estat: 'publicat'
     },
     {
       n: 2,
-      fitxer: null,
+      fitxer: 'temes/tema2.html',
       titol: 'Prendre decisions',
       subtitol: 'Que el programa decidisca per si mateix',
       emoji: '🔀',
@@ -75,11 +75,11 @@ window.CURS = {
       desc: 'Comparacions, operadors lògics, if / else if / else i una primera ullada a switch. La pregunta clau: quina condició ha de complir-se?',
       continguts: ['Comparacions', '&& || !', 'if / else', 'else if', 'switch'],
       prereq: 'Tema 1: variables i tipus bàsics.',
-      estat: 'en-preparacio'
+      estat: 'publicat'
     },
     {
       n: 3,
-      fitxer: null,
+      fitxer: 'temes/tema3.html',
       titol: 'Repetir: els bucles',
       subtitol: 'Per què els ordinadors són tan bons repetint coses',
       emoji: '🔁',
@@ -88,7 +88,7 @@ window.CURS = {
       desc: 'while i for, comptadors, acumuladors, condicions d\'eixida i com evitar el temut bucle infinit.',
       continguts: ['while', 'for', 'Comptadors', 'Acumuladors', 'Bucles infinits'],
       prereq: 'Temes 1 i 2: variables i condicions.',
-      estat: 'en-preparacio'
+      estat: 'publicat'
     },
     {
       n: 4,

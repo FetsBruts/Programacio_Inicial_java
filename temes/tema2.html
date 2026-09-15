@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 2 · Prendre decisions | Introducció a la Programació amb Java</title>
+<meta name="description" content="Que el programa decidisca per si mateix">
+<meta name="author" content="Agustín Gil · IES La Vereda 2026">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/tema.css">
+<link rel="stylesheet" href="../assets/css/print.css">
+<!-- PÀGINA GENERADA amb eines/genera-temes.mjs — edita eines/contingut/tema2.js i torna a generar-la -->
+</head>
+
+<body data-tema="2">
+
+<!-- ============================ PORTADA D'IMPRESSIÓ ============================ -->
+<div class="portada-impressio només-impressio" id="portada-impressio">
+  <p class="portada-impressio__curs" data-camp="assignatura">Optativa SMX · Introducció a la Programació</p>
+  <h1 data-camp="tema">Tema 2 · Prendre decisions</h1>
+  <p class="portada-impressio__resum" data-camp="subtitol">Que el programa decidisca per si mateix</p>
+  <div class="portada-impressio__meta">
+    <p data-camp="autor">Material creat per Agustín Gil - IES La Vereda 2026</p>
+    <p>Llicència <span data-camp="llicencia">CC BY-NC 4.0</span> · <a data-camp="enllac" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">creativecommons.org/licenses/by-nc/4.0</a></p>
+    <p>Data d'impressió: <span data-camp="data"></span></p>
+    <p class="text-suau">Manual d'estudi: introducció, objectius, teoria, exemples explicats, programació guiada, errors habituals i resum. Les tres primeres preguntes d'autoavaluació inclouen la solució; els exercicis i els reptes es treballen en la versió web.</p>
+  </div>
+</div>
+
+<!-- ================================== CAPÇALERA ================================== -->
+<header class="capcalera">
+  <div class="contenidor capcalera__interior" style="max-width:1400px">
+    <a class="capcalera__marca" href="../index.html">
+      <span class="capcalera__logo" aria-hidden="true">{}</span>
+      <span class="capcalera__text">
+        <span class="capcalera__curs">Optativa SMX · Programació amb Java</span>
+        <span class="capcalera__tema">Tema 2 · Prendre decisions</span>
+      </span>
+    </a>
+    <div class="capcalera__accions">
+      <button class="boto boto--ciano boto--petit" type="button" data-imprimir>🖨 <span class="text-llarg">Imprimir</span> PDF</button>
+      <button class="boto boto--taronja boto--petit" type="button" data-pptx>📊 <span class="text-llarg">Crear</span> PowerPoint</button>
+      <a class="boto boto--fantasma boto--petit" href="../index.html">Índex del curs</a>
+      <button class="boto-icona" type="button" data-menu-toggle aria-expanded="false" aria-label="Obrir el menú del tema">☰</button>
+    </div>
+  </div>
+  <div class="contenidor capcalera__meta" style="max-width:1400px">
+    <span>✍ Material creat per Agustín Gil - IES La Vereda 2026</span>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-NC 4.0</a>
+    <span class="text-suau">Tema 2 de 10 · 3 hores de classe</span>
+  </div>
+  <div class="barra-progres" aria-hidden="true"><span></span></div>
+</header>
+
+<div class="overlay-menu" aria-hidden="true"></div>
+
+<div class="disposicio">
+
+  <!-- ============================== MENÚ LATERAL ============================== -->
+  <aside class="menu-lateral" id="menu-lateral" aria-label="Navegació del tema">
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">En este tema</p>
+      <nav class="indice-intern" id="indice-intern" aria-label="Índex del tema"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc" id="progres-exercicis" hidden>
+      <p class="menu-lateral__titol">El teu progrés</p>
+      <div class="barra-avaluacio"><span style="width:0"></span></div>
+      <p class="text-suau" id="progres-exercicis-text" style="font-size:.82rem;margin:0"></p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Temes del curs</p>
+      <nav class="llista-temes-mini" id="llista-temes-mini" aria-label="Temes del curs"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Accions</p>
+      <div class="pila" style="gap:.5rem">
+        <button class="boto boto--primari boto--ampla boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button>
+        <button class="boto boto--taronja boto--ampla boto--petit" type="button" data-pptx>📊 Crear PowerPoint</button>
+      </div>
+      <p class="text-suau" style="font-size:.78rem;margin:.6rem 0 0">
+        El PDF inclou la teoria i el resum. La presentació és per explicar a classe.
+      </p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Autoria</p>
+      <p class="text-suau" style="font-size:.8rem;margin:0">
+        <strong>Agustín Gil</strong><br>IES La Vereda · 2026<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+      </p>
+    </div>
+  </aside>
+
+  <!-- ================================= CONTINGUT ================================= -->
+  <main class="contingut">
+
+    <div class="hero-tema">
+      <span class="hero-tema__etiqueta">Tema 2 · Sessió de 3 hores</span>
+      <h1>Prendre decisions</h1>
+      <p class="hero-tema__entradeta">Un programa que sempre fa el mateix servix de poc. Ara aprendrem a fer que decidisca: si l'usuari té 18 anys, si la contrasenya és correcta, si la nota arriba al 5…</p>
+      <div class="hero-tema__meta">
+        <span class="pastilla">⏱ 3 hores</span>
+        <span class="pastilla">📦 Fase 1 · Pensament de programador</span>
+        <span class="pastilla">🧩 Necessites: Temes 0 i 1</span>
+        <span class="pastilla">❓ La pregunta clau: quina condició ha de complir-se?</span>
+      </div>
+    </div>
+
+    <!-- ============================ 01 · INTRODUCCIÓ ============================ -->
+    <section class="seccio" id="introduccio" data-nav="01 · Introducció" style="padding-top:0">
+      <h2>Una situació per començar</h2>
+      <div class="situacio revela">
+        <span class="situacio__emoji" aria-hidden="true">🎟️</span>
+        <div>
+<p>Un cinema vol calcular el preu de l'entrada: si tens menys de 6 anys, <strong>gratis</strong>; si tens entre 6 i 17, <strong>6 euros</strong>; dels 18 als 64, <strong>9 euros</strong>; i si tens 65 o més, <strong>5 euros</strong>.</p>
+          <p>Amb el que sabem fins ara hauríem d'escriure un programa per a cada cas, i no sabríem quin executar. El programa ha de <strong>decidir</strong> ell tot sol, mirant l'edat que li donem.</p>
+          <p>Ací comença la part més divertida de programar: fer que el programa pregunte, compare i trie. I hi ha <strong>una pregunta</strong> que et faràs tota la vida de programador: <em>«quina condició s'ha de complir perquè passe açò?»</em></p>
+        </div>
+      </div>
+
+      <div class="plan-sessio revela" style="margin-top:var(--esp-5)">
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">30-40 min</span>
+            <span class="plan-sessio__nom">Explicació i demos</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Programació guiada</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Exercicis</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">15-30 min</span>
+            <span class="plan-sessio__nom">Repàs i repte</span>
+          </div>
+      </div>
+
+      <div class="prerequisits">
+        <strong>Abans de començar has de poder fer això:</strong>
+        <ul>
+          <li>Crear variables i guardar-hi valors (Tema 1).</li>
+          <li>Llegir dades pel teclat amb <code>Scanner</code>.</li>
+          <li>Entendre la diferència entre enters i decimals.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ 02 · QUÈ APRENDREM ============================ -->
+    <section class="seccio" id="objectius" data-nav="02 · Què aprendrem?">
+      <h2>Què aprendrem en este tema?</h2>
+      <p class="entradeta">En acabar esta sessió has de saber fer estes coses:</p>
+      <ul class="llista-objectius revela">
+        <li><span class="num">1</span><span>Comparar dos valors amb <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code> i <code>&gt;=</code>.</span></li>
+        <li><span class="num">2</span><span>Escriure un <code>if</code> i un <code>else</code> i saber què fa cada part.</span></li>
+        <li><span class="num">3</span><span>Encadenar diversos casos amb <code>else if</code> en l'orde correcte.</span></li>
+        <li><span class="num">4</span><span>Combinar condicions amb <code>&amp;&amp;</code>, <code>||</code> i <code>!</code>.</span></li>
+        <li><span class="num">5</span><span>Comparar textos correctament (amb <code>equals</code>, no amb <code>==</code>).</span></li>
+        <li><span class="num">6</span><span>Fer menús i opcions amb <code>switch</code>.</span></li>
+      </ul>
+    </section>
+
+    <!-- =============================== 03 · TEORIA =============================== -->
+    <section class="seccio" id="teoria" data-nav="03 · Teoria">
+      <h2>Teoria, poc a poc</h2>
+      <p class="entradeta">Una idea → un exemple. I sempre la mateixa pregunta: quina condició ha de complir-se?</p>
+<h3>1. Comparar dos valors</h3>
+        <p>Per decidir, primer hem de saber comparar. Una comparació <strong>no</strong> dona un número: dona <strong>vertader o fals</strong> (<code>true</code> / <code>false</code>), que és justament el tipus <code>boolean</code> que vam vore en el tema anterior.</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Operador</th><th>Es llig</th><th>Exemple</th><th>Resultat</th></tr></thead>
+                      <tbody>
+                        <tr><td><code>==</code></td><td>és igual a</td><td><code>5 == 5</code></td><td><code>true</code></td></tr>
+                        <tr><td><code>!=</code></td><td>és diferent de</td><td><code>5 != 3</code></td><td><code>true</code></td></tr>
+                        <tr><td><code>&gt;</code></td><td>és més gran que</td><td><code>4 &gt; 9</code></td><td><code>false</code></td></tr>
+                        <tr><td><code>&lt;</code></td><td>és més menut que</td><td><code>4 &lt; 9</code></td><td><code>true</code></td></tr>
+                        <tr><td><code>&gt;=</code></td><td>és més gran o igual que</td><td><code>5 &gt;= 5</code></td><td><code>true</code></td></tr>
+                        <tr><td><code>&lt;=</code></td><td>és més menut o igual que</td><td><code>7 &lt;= 5</code></td><td><code>false</code></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <pre class="codi" data-titol="Comparacions.java" data-etiqueta="COMPARAR"><code>public class Comparacions {
+            public static void main(String[] args) {
+                int edat = 16;
+
+                boolean major = edat &gt;= 18;          // guardem el resultat en un boolean
+                System.out.println(major);            // false
+                System.out.println(edat == 16);       // true
+                System.out.println(edat != 16);       // false
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>false
+        true
+        false</pre>
+                  </div>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p><strong><code>=</code> no és el mateix que <code>==</code>.</strong> Un sol igual (<code>=</code>) <strong>guarda</strong> un valor dins d'una variable. Dos iguals (<code>==</code>) <strong>comparen</strong>. Confondre'ls és l'error número u d'este tema, i Java no sempre t'avisa!</p></div>
+                  </div>
+        <h3>2. El primer if</h3>
+        <p>Un <code>if</code> és una pregunta que fem al programa: <em>si la condició és vertadera, faça açò; si no, res</em>.</p>
+        <pre class="codi" data-titol="Aprovat.java" data-etiqueta="IF"><code>public class Aprovat {
+            public static void main(String[] args) {
+                double nota = 7.5;
+
+                if (nota &gt;= 5) {
+                    System.out.println("Estàs aprovat!");
+                }
+
+                System.out.println("Fi del programa.");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Estàs aprovat!
+        Fi del programa.</pre>
+                  </div>
+        <p>Fixa't en tres coses de la sintaxi: la condició va <strong>entre parèntesis</strong>, el codi que s'executa si es complix va <strong>entre claus</strong>, i el contingut de les claus està <strong>indentat</strong> per vore-ho clarament.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>La pregunta que sempre ens fem: <strong>quina condició ha de complir-se perquè passe açò?</strong> Ací la resposta és <code>nota &gt;= 5</code>. Si no sabem respondre eixa pregunta, encara no hem pensat bé el problema.</p></div>
+                  </div>
+        <h3>3. I si no es complix: else</h3>
+        <p><code>else</code> vol dir «si no». Amb <code>if</code> i <code>else</code> cobrim els dos camins possibles: un o l'altre, mai els dos.</p>
+        <pre class="codi" data-titol="AprovatOSuspes.java" data-etiqueta="IF / ELSE"><code>public class AprovatOSuspes {
+            public static void main(String[] args) {
+                double nota = 4.25;
+
+                if (nota &gt;= 5) {
+                    System.out.println("Aprovat");
+                } else {
+                    System.out.println("Suspés");
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Suspés</pre>
+                  </div>
+        <p>Mira el parèntesi de tancament de la condició: <strong>no porta punt i coma</strong>. Si li'n posem, el <code>if</code> es queda sense cos i el programa fa una cosa estranya sense donar error. Ho tenim en l'apartat d'errors.</p>
+        <h3>4. Més de dos camins: else if</h3>
+        <p>Quan hi ha més de dos casos, s'encadenen les preguntes. Java les mira <strong>en orde</strong> i entra en la primera que es complica.</p>
+        <pre class="codi" data-titol="Notes.java" data-etiqueta="ELSE IF"><code>public class Notes {
+            public static void main(String[] args) {
+                double nota = 8.5;
+
+                if (nota &lt; 5) {
+                    System.out.println("Insuficient");
+                } else if (nota &lt; 7) {
+                    System.out.println("Suficient o Bé");
+                } else if (nota &lt; 9) {
+                    System.out.println("Notable");
+                } else {
+                    System.out.println("Excel·lent");
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Notable</pre>
+                  </div>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p><strong>L'orde importa.</strong> Si començarem per <code>nota &lt; 9</code>, un 4.5 també compliria la condició i mai no arribaríem a mirar si és un insuficient. Sempre es posen primer les condicions <strong>més concretes</strong> (les més estretes) i al final la més àmplia.</p></div>
+                  </div>
+        <h3>5. Combinar condicions</h3>
+        <p>A vegades cal que es complisquen dos coses alhora, o que en baste una. Per a això tenim els operadors lògics.</p>
+        <div class="taula-embolcall">
+                    <table class="taula">
+                      <thead><tr><th>Operador</th><th>Es llig</th><th>És vertader quan…</th></tr></thead>
+                      <tbody>
+                        <tr><td><code>&amp;&amp;</code></td><td>I (a més a més)</td><td>les <strong>dos</strong> condicions es complixen</td></tr>
+                        <tr><td><code>||</code></td><td>O</td><td>es complix <strong>almenys una</strong> de les dos</td></tr>
+                        <tr><td><code>!</code></td><td>No</td><td>la condició <strong>no</strong> es complix</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+        <pre class="codi" data-titol="Combinades.java" data-etiqueta="CONDICIONS COMBINADES"><code>public class Combinades {
+            public static void main(String[] args) {
+                int edat = 16;
+                boolean teCarnet = false;
+
+                System.out.println(edat &gt;= 18 &amp;&amp; teCarnet);   // pot conduir? false
+                System.out.println(edat &gt;= 18 || teCarnet);   // alguna cosa?   false
+                System.out.println(!teCarnet);                // no té carnet?  true
+
+                boolean adolescent = edat &gt;= 13 &amp;&amp; edat &lt;= 19;
+                System.out.println(adolescent);               // true
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>false
+        false
+        true
+        true</pre>
+                  </div>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>En Java <strong>no es pot escriure</strong> <code>13 &lt;= edat &lt;= 19</code>, encara que en matemàtiques es faça així. Cal escriure les dos comparacions i unir-les amb <code>&amp;&amp;</code>: <code>edat &gt;= 13 &amp;&amp; edat &lt;= 19</code>.</p></div>
+                  </div>
+        <h3>6. Comparar textos: equals</h3>
+        <p>Ací hi ha una trampa molt famosa. Per comparar dos textos <strong>no</strong> es fa servir <code>==</code>, sinó el mètode <code>equals()</code>:</p>
+        <pre class="codi" data-titol="Contrasenya.java" data-etiqueta="EQUALS"><code>import java.util.Scanner;
+
+        public class Contrasenya {
+            public static void main(String[] args) {
+                String clauGuardada = "1234";
+                Scanner teclat = new Scanner(System.in);
+
+                System.out.print("Contrasenya: ");
+                String clauEscrita = teclat.next();
+
+                System.out.println(clauEscrita == clauGuardada);        // false! ensurt
+                System.out.println(clauEscrita.equals(clauGuardada));   // true, segur
+            }
+        }</code></pre>
+                  <div class="consola consola--entrada">
+                    <span class="consola__titol">Què ha de passar</span>
+                    <pre>Contrasenya: 1234
+        false
+        true</pre>
+                  </div>
+        <p>Sí, has llegit bé: la primera línia dona <code>false</code> encara que els dos textos diguen exactament el mateix. <code>==</code> compara si són <em>el mateix objecte</em> (i el text que arriba pel teclat sempre és un objecte nou), mentres que <code>equals</code> compara si <em>contenen el mateix text</em>. Nosaltres sempre volem el segon.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Regla fàcil de recordar: <strong>els textos es comparen amb <code>equals</code></strong>. Sempre. I si no ens importen les majúscules, hi ha <code>equalsIgnoreCase(&quot;hola&quot;)</code>.</p></div>
+                  </div>
+        <h3>7. Menús: switch</h3>
+        <p>Quan totes les decisions depenen de <strong>un sol valor</strong> i són opcions numerades (un menú, per exemple), hi ha una manera més ordenada d'escriure-ho: <code>switch</code>.</p>
+        <pre class="codi" data-titol="Menu.java" data-etiqueta="SWITCH"><code>public class Menu {
+            public static void main(String[] args) {
+                int opcio = 2;
+
+                switch (opcio) {
+                    case 1:
+                        System.out.println("Nova partida");
+                        break;
+                    case 2:
+                        System.out.println("Carregar partida");
+                        break;
+                    case 3:
+                        System.out.println("Opcions");
+                        break;
+                    default:
+                        System.out.println("Opció desconeguda");
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Carregar partida</pre>
+                  </div>
+        <p>El <code>switch</code> compara el valor amb cada <code>case</code> i entra en el que coincidix. El <code>break</code> fa que s'acabe eixe cas; i <code>default</code> és el cas «si no coincidix cap altre».</p>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Si t'oblides un <code>break</code>, Java continua executant els casos següents. És un error clàssic i es veu de seguida en l'eixida: ixen diversos missatges. Les versions noves de Java tenen una manera d'escriure-ho sense <code>break</code>, però de moment ens quedem amb esta, que funciona en totes les versions.</p></div>
+                  </div>
+        <h3>8. if dins d'un if</h3>
+        <p>Es poden ficar decisions dins de decisions. Es diu <em>niar</em> i és perfectament vàlid, però si n'hi ha moltes el codi es fa difícil de seguir. De moment, prova-ho amb dos nivells com a màxim.</p>
+        <pre class="codi" data-titol="Niat.java" data-etiqueta="IF NIAT"><code>public class Niat {
+            public static void main(String[] args) {
+                int edat = 20;
+                boolean teEntrada = true;
+
+                if (edat &gt;= 18) {
+                    if (teEntrada) {
+                        System.out.println("Endavant, pots passar.");
+                    } else {
+                        System.out.println("Primer compra l'entrada.");
+                    }
+                } else {
+                    System.out.println("Ho sent, per a majors de 18 anys.");
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Endavant, pots passar.</pre>
+                  </div>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Moltes vegades un <code>if</code> niat es pot escriure en una sola condició: <code>if (edat &gt;= 18 &amp;&amp; teEntrada)</code>. És més curt i es llix millor. Sempre que pugues, uneix les condicions amb <code>&amp;&amp;</code>.</p></div>
+                  </div>
+    </section>
+
+    <!-- =========================== 04 · EXEMPLES EXPLICATS =========================== -->
+    <section class="seccio seccio--suau" id="exemples" data-nav="04 · Exemples">
+      <h2>Exemples explicats pas a pas</h2>
+      <p class="entradeta">Cada exemple: què volem aconseguir, el codi, què apareix per pantalla i per què funciona.</p>
+<h3>Exemple 1 · Major o menor d'edat</h3>
+        <p><strong>Què volem?</strong> Que el programa diga si una persona pot entrar en una web de contingut per a adults.</p>
+        <pre class="codi" data-titol="Edats.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Edats {
+            public static void main(String[] args) {
+                int edat = 15;
+
+                if (edat &gt;= 18) {
+                    System.out.println("Pots entrar: ets major d'edat.");
+                } else {
+                    System.out.println("Ho sent, cal tindre 18 anys.");
+                    System.out.println("Et falten " + (18 - edat) + " anys.");
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Ho sent, cal tindre 18 anys.
+        Et falten 3 anys.</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> la condició és <code>edat &gt;= 18</code>. Com que 15 no és major ni igual que 18, la condició és falsa i s'executa el bloc de l'<code>else</code>. I dins d'eixe bloc pugem calcular quants anys falten: 18 − 15.</p>
+        <h3>Exemple 2 · El preu de l'entrada</h3>
+        <p><strong>Què volem?</strong> El cinema de la introducció: quatre tarifes segons l'edat. Fixa't en l'orde de les condicions.</p>
+        <pre class="codi" data-titol="Cinema.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Cinema {
+            public static void main(String[] args) {
+                int edat = 70;
+
+                if (edat &lt; 6) {
+                    System.out.println("Entrada gratuïta");
+                } else if (edat &lt; 18) {
+                    System.out.println("Entrada: 6 euros");
+                } else if (edat &lt; 65) {
+                    System.out.println("Entrada: 9 euros");
+                } else {
+                    System.out.println("Entrada: 5 euros (jubilats)");
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Entrada: 5 euros (jubilats)</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> les condicions van <strong>de menor a major</strong> i s'aprofiten les unes de les altres. Quan arribem a l'última, encara que posa només <code>else</code>, ja sabem que l'edat és 65 o més, perquè totes les anteriors han sigut falses.</p>
+        <h3>Exemple 3 · El nivell d'un videojoc</h3>
+        <p><strong>Què volem?</strong> Traduir els punts d'un jugador al seu nivell, amb la paraula corresponent.</p>
+        <pre class="codi" data-titol="Nivell.java" data-etiqueta="EXEMPLE EXPLICAT"><code>public class Nivell {
+            public static void main(String[] args) {
+                int punts = 2450;
+
+                String nivell;
+                if (punts &lt; 1000) {
+                    nivell = "principiant";
+                } else if (punts &lt; 2500) {
+                    nivell = "intermedi";
+                } else {
+                    nivell = "expert";
+                }
+
+                System.out.println("Amb " + punts + " punts, el teu nivell és " + nivell + ".");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Amb 2450 punts, el teu nivell és intermedi.</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> ací no mostrem res dins del <code>if</code>: <strong>decidim un valor i el guardem</strong>. És un patró molt útil: fer les decisions primer i mostrar el resultat una sola vegada al final.</p>
+        <h3>Exemple 4 · L'accés amb contrasenya</h3>
+        <p><strong>Què volem?</strong> Demanar una contrasenya i deixar passar només si encerta. Ací es veu per què cal <code>equals</code>.</p>
+        <pre class="codi" data-titol="Acces.java" data-etiqueta="EXEMPLE EXPLICAT"><code>import java.util.Scanner;
+
+        public class Acces {
+            public static void main(String[] args) {
+                String clauCorrecta = "patata123";
+                Scanner teclat = new Scanner(System.in);
+
+                System.out.print("Contrasenya: ");
+                String clau = teclat.next();
+
+                if (clau.equals(clauCorrecta)) {
+                    System.out.println("Accés concedit. Benvingut!");
+                } else {
+                    System.out.println("Contrasenya incorrecta.");
+                }
+            }
+        }</code></pre>
+                  <div class="consola consola--entrada">
+                    <span class="consola__titol">Què ha de passar</span>
+                    <pre>Contrasenya: patata123
+        Accés concedit. Benvingut!</pre>
+                  </div>
+        <p><strong>Per què funciona:</strong> <code>clau.equals(clauCorrecta)</code> compara el contingut dels dos textos. Si haguerem escrit <code>clau == clauCorrecta</code>, el programa diria sempre «incorrecta» encara que l'usuari l'encertara.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Bonus de seguretat: mai no s'ha d'escriure dins del codi una contrasenya de veritat. Ací ho fem per aprendre, però recorda-ho: el codi el pot llegir tothom.</p></div>
+                  </div>
+        <h3>Què apareixerà per pantalla?</h3>
+        <p>Este és el parany del punt i coma. Pensa què ix abans d'executar.</p>
+        <div class="prediccio">
+                    <h3>Pensa abans d'executar</h3>
+                    <pre class="codi" data-titol="Parany.java" data-etiqueta="PENSA PRIMER"><code>int edat = 12;
+        if (edat &gt;= 18);
+        {
+            System.out.println("Pots conduir");
+        }</code></pre>
+                    <button class="boto boto--solucio" type="button" data-solucio="pred-punticoma" data-text-mostrar="Mostrar què apareix" data-text-ocultar="Amagar">Mostrar què apareix</button>
+                    <div class="solucio" id="pred-punticoma" hidden>
+                      <span class="solucio__etiqueta">Resposta</span>
+                      <div class="consola"><span class="consola__titol">Eixida real</span><pre>Pots conduir</pre></div>
+                      <p class="solucio__perque"><strong>Per què:</strong> El <code>;</code> al final de la línia del <code>if</code> fa que el <code>if</code> no tinga cos: la condició es comprova i es descarta. El bloc de davall de les claus s'executa SEMPRE, tinga l'edat que tinga. És un error que no dona cap missatge i costa molt de trobar: per això no hem de posar mai <code>;</code> darrere d'un <code>if</code>.</p>
+                    </div>
+                  </div>
+    </section>
+
+    <!-- =========================== 05 · PROGRAMACIÓ GUIADA =========================== -->
+    <section class="seccio" id="guiada" data-nav="05 · Programació guiada">
+      <h2>Programació guiada: ho fem junts</h2>
+      <p class="entradeta">Construïm un programa que valora una nota i diu la qualificació oficial, amb els trams ben ordenats. Pas a pas, com sempre.</p>
+      <div class="pas revela">
+        <span class="pas__num">1</span>
+        <div class="pas__cos">
+          <h3>Lliguem el problema i traiem les condicions</h3>
+<p>La nota oficial a Formació Professional funciona així: menys de 5 és <strong>Insuficient</strong>; de 5 a menys de 6, <strong>Suficient</strong>; de 6 a menys de 7, <strong>Bé</strong>; de 7 a menys de 9, <strong>Notable</strong>; i 9 o més, <strong>Excel·lent</strong>.</p>
+          <div class="pregunta-classe"><p>Quantes condicions necessitem? I en quin orde les hem de posar?</p></div>
+          <p>Tenim quatre trams i un cas final. L'orde natural és de menor a major: <code>nota &lt; 5</code>, <code>nota &lt; 6</code>, <code>nota &lt; 7</code>, <code>nota &lt; 9</code> i, si cap s'ha complit, ja sabem que és 9 o més → <strong>Excel·lent</strong>.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">2</span>
+        <div class="pas__cos">
+          <h3>La primera versió, amb dos trams</h3>
+<p>Com sempre, comencem pel més simple i el provem: aprovat o suspés.</p>
+          <pre class="codi" data-titol="Qualificacio.java" data-etiqueta="PAS 2"><code>import java.util.Scanner;
+
+          public class Qualificacio {
+              public static void main(String[] args) {
+                  Scanner teclat = new Scanner(System.in);
+
+                  System.out.print("Escriu la nota: ");
+                  double nota = teclat.nextDouble();
+
+                  if (nota &lt; 5) {
+                      System.out.println("Insuficient");
+                  } else {
+                      System.out.println("Aprovat");
+                  }
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>Escriu la nota: 6.5
+          Aprovat</pre>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">3</span>
+        <div class="pas__cos">
+          <h3>Afegim els trams intermedis</h3>
+<p>Ara encadenem els <code>else if</code>. <strong>L'orde és el que fa que funcione</strong>: cada condició només pot ser vertadera si les anteriors són falses.</p>
+          <pre class="codi" data-titol="Qualificacio.java" data-etiqueta="PAS 3"><code>import java.util.Scanner;
+
+          public class Qualificacio {
+              public static void main(String[] args) {
+                  Scanner teclat = new Scanner(System.in);
+
+                  System.out.print("Escriu la nota: ");
+                  double nota = teclat.nextDouble();
+
+                  if (nota &lt; 5) {
+                      System.out.println("Insuficient");
+                  } else if (nota &lt; 6) {
+                      System.out.println("Suficient");
+                  } else if (nota &lt; 7) {
+                      System.out.println("Bé");
+                  } else if (nota &lt; 9) {
+                      System.out.println("Notable");
+                  } else {
+                      System.out.println("Excel·lent");
+                  }
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>Escriu la nota: 8.75
+          Notable</pre>
+                    </div>
+          <div class="pregunta-classe"><p>I si posàrem primer <code>nota &lt; 9</code>? Què passaria amb una nota de 4.5?</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">4</span>
+        <div class="pas__cos">
+          <h3>Provem-ho amb casos límit</h3>
+<p>Els casos límit són els que estan just en la frontera: 4.99, 5.0, 5.99, 6.0, 8.99, 9.0. Sempre es proven: és on solen aparéixer els errors.</p>
+          <div class="taula-embolcall">
+                      <table class="taula">
+                        <thead><tr><th>Nota</th><th>Què ha d'eixir</th><th>Per què</th></tr></thead>
+                        <tbody>
+                          <tr><td><code>4.99</code></td><td>Insuficient</td><td>És més menuda que 5</td></tr>
+                          <tr><td><code>5.0</code></td><td>Suficient</td><td>No complix <code>&lt; 5</code>, però sí <code>&lt; 6</code></td></tr>
+                          <tr><td><code>8.99</code></td><td>Notable</td><td>No complix <code>&lt; 7</code>, però sí <code>&lt; 9</code></td></tr>
+                          <tr><td><code>9.0</code></td><td>Excel·lent</td><td>No complix cap condició → <code>else</code></td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+          <div class="nota nota--tip">
+                      <span class="nota__icona" aria-hidden="true">💡</span>
+                      <div><p>Regla d'or: <strong>prova sempre el valor just de la frontera</strong>. Si el programa funciona amb 8.99 i amb 9.0, les fronteres estan bé.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">5</span>
+        <div class="pas__cos">
+          <h3>Trenquem-lo a propòsit</h3>
+<p>Provem tres coses i apuntem què passa:</p>
+          <ol class="llista-punts">
+                      <li>Una nota de <strong>12</strong> → diu Excel·lent, i està mal dit: hauríem d'haver comprovat abans que la nota està entre 0 i 10.</li>
+                      <li>Una nota de <strong>−3</strong> → diu Insuficient, i tampoc no és correcte.</li>
+                      <li>Una <strong>lletra</strong> → <code>InputMismatchException</code>, com en el tema anterior.</li>
+                    </ol>
+          <p>Comprovem-ho i decidim: afegiríem una comprovació al principi que diga «això no és una nota». Eixa idea — <strong>comprovar les dades abans de treballar amb elles</strong> — és una de les coses que distingix un programa amateur d'un de bo. I ho farem més avant amb més ferramentes.</p>
+          <pre class="codi" data-titol="Qualificacio.java" data-etiqueta="PAS 5 · MILLORA"><code>import java.util.Scanner;
+
+          public class Qualificacio {
+              public static void main(String[] args) {
+                  Scanner teclat = new Scanner(System.in);
+
+                  System.out.print("Escriu la nota: ");
+                  double nota = teclat.nextDouble();
+
+                  if (nota &lt; 0 || nota &gt; 10) {
+                      System.out.println("Eixa nota no és possible: ha d'estar entre 0 i 10.");
+                  } else if (nota &lt; 5) {
+                      System.out.println("Insuficient");
+                  } else if (nota &lt; 6) {
+                      System.out.println("Suficient");
+                  } else if (nota &lt; 7) {
+                      System.out.println("Bé");
+                  } else if (nota &lt; 9) {
+                      System.out.println("Notable");
+                  } else {
+                      System.out.println("Excel·lent");
+                  }
+              }
+          }</code></pre>
+                    <div class="consola consola--entrada">
+                      <span class="consola__titol">Què ha de passar</span>
+                      <pre>Escriu la nota: 12
+          Eixa nota no és possible: ha d'estar entre 0 i 10.</pre>
+                    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 06 · MINI EXERCICIS ============================= -->
+    <section class="seccio seccio--suau" id="mini-exercicis" data-nav="06 · Mini exercicis">
+      <h2>Mini exercicis</h2>
+      <p class="entradeta">Activitats molt curtes per agafar soltura amb les condicions.</p>
+      <div class="llista-mini">
+        <article class="exercici exercici--mini" id="mini1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">Vertader o fals?</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">2 min</span>
+          </div>
+          <div class="exercici__enunciat">Sense executar-lo, digues què mostrarà cada línia. Després comprova-ho.</div>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="CODI"><code>int a = 7;
+System.out.println(a &gt; 5);
+System.out.println(a == 7);
+System.out.println(a != 7);</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini1">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini1"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Solucio.java" data-etiqueta="SOLUCIÓ"><code>int a = 7;
+System.out.println(a &gt; 5);    // true
+System.out.println(a == 7);   // true
+System.out.println(a != 7);   // false</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>true
+true
+false</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Les comparacions donen sempre <code>true</code> o <code>false</code>. El primer: 7 és més gran que 5. El segon: 7 és igual a 7. El tercer: 7 no és diferent de 7, per tant és fals.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">Pot conduir?</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Crea una variable amb una edat i mostra «Pot conduir» si és 18 o més, i «No pot conduir» si no.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini2">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini2"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Conduir.java" data-etiqueta="SOLUCIÓ"><code>public class Conduir {
+    public static void main(String[] args) {
+        int edat = 17;
+
+        if (edat &gt;= 18) {
+            System.out.println("Pot conduir");
+        } else {
+            System.out.println("No pot conduir");
+        }
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>No pot conduir</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> La condició <code>edat &gt;= 18</code> inclou el 18 exactament gràcies al signe <code>&gt;=</code> (major <strong>o igual</strong>). Si haguerem posat <code>&gt;</code>, una persona de 18 anys justos no podria conduir.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">Parell o senar</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Utilitza el residu (<code>%</code>) i un <code>if</code> per dir si un número és parell o senar.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini3">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini3"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Parell.java" data-etiqueta="SOLUCIÓ"><code>public class Parell {
+    public static void main(String[] args) {
+        int numero = 7;
+
+        if (numero % 2 == 0) {
+            System.out.println("És parell");
+        } else {
+            System.out.println("És senar");
+        }
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>És senar</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Si el residu de dividir per 2 és zero, el nombre és parell. És la primera cosa útil que fem amb l'operador <code>%</code> del tema anterior.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">Troba l'error</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Este programa no compila. Copia'l, llig el missatge i arregla'l.</div>
+          <pre class="codi codi--error" data-titol="Trencat.java" data-etiqueta="QUÈ FALLA?"><code>int nota = 6;
+if (nota = 5) {
+    System.out.println("Justet");
+}</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini4" hidden><p><strong>Pista:</strong> Mira els operadors de comparació. N'hi ha un que és per assignar i un altre per comparar.</p></div>
+          <div class="solucio" id="sol-mini4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Arreglat.java" data-etiqueta="SOLUCIÓ"><code>int nota = 5;
+if (nota == 5) {
+    System.out.println("Justet");
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Justet</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Amb un sol <code>=</code> estem intentant <strong>guardar</strong> el 5 dins de <code>nota</code>, i el resultat d'una assignació és un número, no un vertader/fals. El <code>if</code> espera un <code>boolean</code>: per això Java dona error <code>incompatible types</code>. Amb <code>==</code> sí que comparem.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini5">
+          <div class="exercici__cap">
+            <span class="exercici__num">5</span>
+            <h3 class="exercici__titol">Escriu la condició</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Volem comprovar si una edat està entre 13 i 19 anys (els dos inclosos). Escriu la condició correcta en Java.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini5">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini5"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini5" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Condicio.java" data-etiqueta="SOLUCIÓ"><code>int edat = 16;
+
+if (edat &gt;= 13 &amp;&amp; edat &lt;= 19) {
+    System.out.println("És adolescent");
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>És adolescent</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> En Java no es pot escriure <code>13 &lt;= edat &lt;= 19</code>. Cal fer les dos comparacions i unir-les amb <code>&amp;&amp;</code>: que siga 13 o més <strong>i</strong> 19 o menys.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini6">
+          <div class="exercici__cap">
+            <span class="exercici__num">6</span>
+            <h3 class="exercici__titol">La contrasenya correcta</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana una paraula a l'usuari i digues si coincidix amb la contrasenya «hola123».</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Escriu la contrasenya: hola123</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Contrasenya correcta</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini6">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini6"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini6" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Clau.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Clau {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Escriu la contrasenya: ");
+        String clau = teclat.next();
+
+        if (clau.equals("hola123")) {
+            System.out.println("Contrasenya correcta");
+        } else {
+            System.out.println("Contrasenya incorrecta");
+        }
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Escriu la contrasenya: hola123
+Contrasenya correcta</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Els textos sempre es comparen amb <code>equals</code>. Si hages escrit <code>clau == &quot;hola123&quot;</code>, el programa hauria dit «incorrecta» encara que l'usuari l'encertara.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini7">
+          <div class="exercici__cap">
+            <span class="exercici__num">7</span>
+            <h3 class="exercici__titol">El menú del joc</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana un número de l'1 al 3 i mostra què s'ha triat: 1 → «Nova partida», 2 → «Carregar», 3 → «Opcions». Si és una altra cosa, «Opció no vàlida».</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Tria una opció: 2</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Carregar partida</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini7">Mostrar solució</button>
+
+            <label class="marca-fet"><input type="checkbox" data-fet="mini7"> Fet</label>
+          </div>
+
+          <div class="solucio" id="sol-mini7" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="MenuJoc.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class MenuJoc {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Tria una opció: ");
+        int opcio = teclat.nextInt();
+
+        switch (opcio) {
+            case 1:
+                System.out.println("Nova partida");
+                break;
+            case 2:
+                System.out.println("Carregar partida");
+                break;
+            case 3:
+                System.out.println("Opcions");
+                break;
+            default:
+                System.out.println("Opció no vàlida");
+        }
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Tria una opció: 2
+Carregar partida</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Amb <code>switch</code> el codi queda més pla i més fàcil de llegir que amb tres <code>else if</code>. No t'oblides dels <code>break</code>: si en falta un, s'executen també els casos següents.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 07 · FES EL PROGRAMA ========================= -->
+    <section class="seccio" id="fes-el-programa" data-nav="07 · Fes el programa">
+      <h2>Fes el programa</h2>
+      <p class="entradeta">Quatre exercicis complets. Recorda: primer pensa quina condició ha de complir-se, després escriu el codi.</p>
+      <article class="exercici" id="ex1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">Aprovat o suspés</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">12 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana una nota (pot tindre decimals) i mostra «Aprovat» si és 5 o més i «Suspés» si no. Afig també quant punts falten per aprovar quan estiga suspés.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Nota: 4.25</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Suspés
+Et falten 0.75 punts per aprovar.</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex1" hidden><p><strong>Pista:</strong> La resta per saber què falta es fa dins del bloc de l'<code>else</code>, no fora.</p></div>
+          <div class="solucio" id="sol-ex1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Nota.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Nota {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Nota: ");
+        double nota = teclat.nextDouble();
+
+        if (nota &gt;= 5) {
+            System.out.println("Aprovat");
+        } else {
+            System.out.println("Suspés");
+            System.out.println("Et falten " + (5 - nota) + " punts per aprovar.");
+        }
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Nota: 4.25
+Suspés
+Et falten 0.75 punts per aprovar.</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> La resta <code>5 - nota</code> es fa només quan estem en el bloc de l'<code>else</code>, és a dir, només quan realment ha suspés. Este és un bon exemple de com les decisions ens estalvien càlculs inútils.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">El control d'accés del videojoc</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana un nom d'usuari i una contrasenya. L'accés s'ha de concedir només si l'usuari és «admin» <strong>i</strong> la contrasenya és «java2026». Si l'usuari és correcte però la contrasenya no, digues «Contrasenya incorrecta». Si l'usuari ja està mal, digues «Usuari desconegut».</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Usuari: admin
+Contrasenya: 1234</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Contrasenya incorrecta</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex2" hidden><p><strong>Pista:</strong> L'operador <code>!</code> davant de <code>usuari.equals(&quot;admin&quot;)</code> significa «si NO és admin».</p></div>
+          <div class="solucio" id="sol-ex2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Control.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Control {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Usuari: ");
+        String usuari = teclat.next();
+
+        System.out.print("Contrasenya: ");
+        String clau = teclat.next();
+
+        if (!usuari.equals("admin")) {
+            System.out.println("Usuari desconegut");
+        } else if (clau.equals("java2026")) {
+            System.out.println("Accés concedit. Endavant!");
+        } else {
+            System.out.println("Contrasenya incorrecta");
+        }
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Usuari: admin
+Contrasenya: 1234
+Contrasenya incorrecta</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Els dos textos es comparen amb <code>equals</code> i l'operador <code>!</code> invertix el resultat de la comparació de l'usuari. L'orde de les comprovacions és lògic: primer mirem si l'usuari existix, i només si existix passem a comprovar la contrasenya.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">El preu de l'entrada del cinema</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Demana l'edat i mostra el preu segons els quatre trams: menys de 6 anys, gratis; de 6 a 17 anys, 6 euros; de 18 a 64 anys, 9 euros; 65 o més, 5 euros. A més, quan el client siga menor d'edat, mostra també un missatge que diga que pot demanar el descompte de família nombrosa.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Edat: 16</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Entrada: 6 euros
+Pots demanar el descompte de família nombrosa.</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex3" hidden><p><strong>Pista:</strong> Escriu les condicions de menor a major i deixa l'<code>else</code> per a l'últim tram. El missatge del descompte és un <code>if</code> independent, fora de la cadena.</p></div>
+          <div class="solucio" id="sol-ex3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Cinema.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Cinema {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Edat: ");
+        int edat = teclat.nextInt();
+
+        if (edat &lt; 6) {
+            System.out.println("Entrada gratuïta");
+                } else if (edat &lt; 18) {
+            System.out.println("Entrada: 6 euros");
+        } else if (edat &lt; 65) {
+            System.out.println("Entrada: 9 euros");
+        } else {
+            System.out.println("Entrada: 5 euros");
+        }
+
+        if (edat &lt; 18) {
+            System.out.println("Pots demanar el descompte de família nombrosa.");
+        }
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Edat: 16
+Entrada: 6 euros
+Pots demanar el descompte de família nombrosa.</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> L'escala de trams de preu va amb <code>else if</code> perquè <strong>són exclusions</strong>: només un dels quatre preus pot ser el bo. El descompte de família nombrosa, en canvi, és una condició <strong>independent</strong> del preu, i per això va en un <code>if</code> a banda i no dins de la cadena.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">La màquina de begudes</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">25 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes el menú de la màquina de begudes amb <code>switch</code>: 1 → Aigua (1 euro), 2 → Suc (1.50 euros), 3 → Cafè (1.20 euros), 4 → Refresc (1.80 euros). Després demana els diners que introdueix l'usuari i digues si en té prou i quants diners li falten o li sobren.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Tria una beguda: 2
+Diners introduïts: 1.0</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Has triat Suc (1.5 euros)
+Et falten 0.5 euros</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex4" hidden><p><strong>Pista:</strong> Guarda el preu en una variable dins de cada <code>case</code> i, al final, fes les comprovacions dels diners fora del <code>switch</code>.</p></div>
+          <div class="solucio" id="sol-ex4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Maquina.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Maquina {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+
+        System.out.print("Tria una beguda: ");
+        int opcio = teclat.nextInt();
+
+        double preu;
+        String nom;
+
+        switch (opcio) {
+            case 1:
+                nom = "Aigua";
+                preu = 1.00;
+                break;
+            case 2:
+                nom = "Suc";
+                preu = 1.50;
+                break;
+            case 3:
+                nom = "Cafè";
+                preu = 1.20;
+                break;
+            case 4:
+                nom = "Refresc";
+                preu = 1.80;
+                break;
+            default:
+                nom = "";
+                preu = 0;
+                System.out.println("Eixa opció no existix.");
+        }
+
+        if (preu &gt; 0) {
+            System.out.println("Has triat " + nom + " (" + preu + " euros)");
+
+            System.out.print("Diners introduïts: ");
+            double diners = teclat.nextDouble();
+
+            if (diners &gt;= preu) {
+                System.out.println("Gràcies! El teu canvi és " + (diners - preu) + " euros");
+            } else {
+                System.out.println("Et falten " + (preu - diners) + " euros");
+            }
+        }
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>Tria una beguda: 2
+Has triat Suc (1.5 euros)
+Diners introduïts: 1.0
+Et falten 0.5 euros</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El <code>switch</code> ens servix per triar el producte i guardar-ne el nom i el preu. Després, amb un <code>if</code> anidat, tornem a decidir segons els diners. Fixa't que llegim els diners <strong>després</strong> del menú: si l'opció no existix, no té sentit demanar-los. Els nombres decimals s'escriuen amb punt: 1.0.</p>
+          </div>
+        </article>
+    </section>
+
+    <!-- ================================ 08 · REPTES ================================ -->
+    <section class="seccio seccio--suau" id="reptes" data-nav="08 · Reptes">
+      <h2>Reptes (sense solució)</h2>
+      <div class="nota nota--avis">
+        <span class="nota__icona" aria-hidden="true">🧠</span>
+        <div><p>Els reptes <strong>no tenen botó de solució</strong>, a propòsit. L'objectiu és pensar, provar, equivocar-se i tornar-ho a intentar. Es poden resoldre de moltes maneres diferents: totes les solucions que funcionen són bones.</p></div>
+      </div>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 1</span>
+          <h3 class="repte__titol">L'any de traspàs</h3>
+        </div>
+<p>Un any és de traspàs (té 366 dies) si es complixen estes condicions: és divisible per 4, <strong>excepte</strong> si és divisible per 100; però si és divisible per 400, <strong>sí</strong> que és de traspàs.</p>
+        <p>Demana un any i digues si és de traspàs o no. El repte està a combinar bé els operadors <code>%</code>, <code>&amp;&amp;</code> i <code>||</code>.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Comprovar-ho amb els anys 2000, 1900, 2024 i 2026.</li>
+          <li>Dir també quants dies té el mes de febrer d'eixe any.</li>
+        </ul>
+      </article>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 2</span>
+          <h3 class="repte__titol">El joc de les tres preguntes</h3>
+        </div>
+<p>Fes un programa que faça tres preguntes a l'usuari (les que vulgues) i que comprove les respostes. Al final ha de dir quantes n'ha encertat de tres i un missatge diferent segons el resultat: 3 → «perfecte», 2 → «molt bé», 1 → «cal repassar», 0 → «tornem a començar».</p>
+        <p>Necessitaràs una variable per comptar els encerts i sumar-li 1 cada vegada que s'encerta. I recorda que els textos es comparen amb <code>equals</code>.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Que les respostes no distingisquen majúscules de minúscules (<code>equalsIgnoreCase</code>).</li>
+          <li>Que al final es mostre també un percentatge d'encerts (encerts / 3 × 100).</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ============================ 09 · ERRORS HABITUALS ============================ -->
+    <section class="seccio" id="errors" data-nav="09 · Errors habituals">
+      <h2>Errors habituals</h2>
+      <p class="entradeta">Els errors habituals d'este tema. Alguns no donen missatge d'error: ixen malament i ja està. Eixos són els perillosos.</p>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 1</span>
+            <h3 class="exercici__titol" style="margin:0">Confondre = amb ==</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>int nota = 6;
+if (nota = 5) {
+    System.out.println("Justet");
+}</code></pre>
+          <p class="missatge-error">error: incompatible types: int cannot be converted to boolean
+        if (nota = 5) {</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Hem escrit un sol igual dins de la condició.</dd>
+                <dt>Per què</dt><dd>Un sol <code>=</code> <strong>guarda</strong> un valor i dona com a resultat un número; el <code>if</code> necessita un <code>boolean</code>. Dos iguals (<code>==</code>) <strong>comparen</strong> i donen <code>true</code> o <code>false</code>.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge diu <code>int cannot be converted to boolean</code>, i assenyala la línia de la condició.</dd>
+                <dt>Com corregir-ho</dt><dd>Posa els dos iguals: <code>nota == 5</code>. Consell per a la vida: <strong>si el compilador es queixa d'una comparació, mira els iguals</strong>.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int nota = 6;
+if (nota == 5) {
+    System.out.println("Justet");
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 2</span>
+            <h3 class="exercici__titol" style="margin:0">Punt i coma darrere del if (no dona error!)</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>int edat = 12;
+if (edat &gt;= 18);
+{
+    System.out.println("Pots conduir");
+}</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa mostra «Pots conduir» a una persona de 12 anys, i no dona cap missatge d'error.</dd>
+                <dt>Per què</dt><dd>El <code>;</code> ha deixat el <code>if</code> sense cos: la condició es comprova i es descarta. Les claus que venen després són un bloc solt, que s'executa sempre.</dd>
+                <dt>Com detectar-ho</dt><dd>No hi ha error de compilació: s'ha de detectar <strong>provant el programa</strong> amb un valor que NO hauria de passar. És l'error més perillós de tots.</dd>
+                <dt>Com corregir-ho</dt><dd>Lleva el <code>;</code> i queda't amb les claus: <code>if (condicio) { ... }</code>.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>int edat = 12;
+if (edat &gt;= 18) {
+    System.out.println("Pots conduir");
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 3</span>
+            <h3 class="exercici__titol" style="margin:0">Comparar textos amb ==</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>String clau = teclat.next();
+if (clau == "hola") {
+    System.out.println("Endavant");
+}</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa diu que la contrasenya és incorrecta encara que l'usuari l'escriga bé.</dd>
+                <dt>Per què</dt><dd>Amb els textos, <code>==</code> compara si són <em>el mateix objecte</em>, no si diuen el mateix. Un text que arriba pel teclat mai no és el mateix objecte que un text escrit dins del codi.</dd>
+                <dt>Com detectar-ho</dt><dd>El programa compila i funciona, però les comparacions de text sempre donen fals. I no hi ha cap missatge d'error.</dd>
+                <dt>Com corregir-ho</dt><dd>Fes servir <code>equals</code>: <code>clau.equals(&quot;hola&quot;)</code>. Si no importen les majúscules: <code>clau.equalsIgnoreCase(&quot;hola&quot;)</code>.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>String clau = teclat.next();
+if (clau.equals("hola")) {
+    System.out.println("Endavant");
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 4</span>
+            <h3 class="exercici__titol" style="margin:0">L'orde dels else if</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>if (edat &lt; 65) {
+    System.out.println("Entrada: 9 euros");
+} else if (edat &lt; 6) {
+    System.out.println("Gratis");
+}</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Un xiquet de 3 anys ha de pagar 9 euros i no arriba mai al cas «gratis».</dd>
+                <dt>Per què</dt><dd>Java mira els <code>else if</code> <strong>en orde</strong> i entra en el primer que es complica. Si la condició més àmplia va primera, es menja tots els casos.</dd>
+                <dt>Com detectar-ho</dt><dd>Prova el programa amb els casos extrems. Si un cas «impossible» eix, l'orde està mal posat.</dd>
+                <dt>Com corregir-ho</dt><dd>Ordena les condicions de la més concreta a la més general (de menor a major, si són trams d'edat o de punts).</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>if (edat &lt; 6) {
+    System.out.println("Gratis");
+} else if (edat &lt; 65) {
+    System.out.println("Entrada: 9 euros");
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 5</span>
+            <h3 class="exercici__titol" style="margin:0">Condicions encadenades com en matemàtiques</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>if (13 &lt;= edat &lt;= 19) {</code></pre>
+          <p class="missatge-error">error: bad operand types for binary operator '&lt;='
+        if (13 &lt;= edat &lt;= 19) {</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Hem escrit la condició com la diríem en matemàtiques.</dd>
+                <dt>Per què</dt><dd>En Java, <code>13 &lt;= edat</code> ja dona un resultat (<code>true</code> o <code>false</code>), i no es pot comparar eixe resultat amb 19. Cal escriure les dos comparacions.</dd>
+                <dt>Com detectar-ho</dt><dd>El missatge parla d'operadors que no es poden usar junts.</dd>
+                <dt>Com corregir-ho</dt><dd>Uneix les dos comparacions amb <code>&amp;&amp;</code>: <code>edat &gt;= 13 &amp;&amp; edat &lt;= 19</code>.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>if (edat &gt;= 13 &amp;&amp; edat &lt;= 19) {</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 6</span>
+            <h3 class="exercici__titol" style="margin:0">Oblidar les claus i pensar que afecten més línies</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Mal.java" data-etiqueta="CODI"><code>if (nota &gt;= 5)
+    System.out.println("Aprovat");
+    System.out.println("Enhorabona!");</code></pre>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El segon missatge s'escriu sempre, haja aprovat o no.</dd>
+                <dt>Per què</dt><dd>Sense claus, el <code>if</code> només controla <strong>la primera línia</strong> que té davall. La segona ja no depén de la condició.</dd>
+                <dt>Com detectar-ho</dt><dd>Compila sense errors, però el missatge apareix en casos que no toquen. Es detecta provant.</dd>
+                <dt>Com corregir-ho</dt><dd>Posa claus sempre, encara que dins només hi haja una línia. Estalvia este error i fa el codi més llegible.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Be.java" data-etiqueta="CODI"><code>if (nota &gt;= 5) {
+    System.out.println("Aprovat");
+    System.out.println("Enhorabona!");
+}</code></pre>
+            </div>
+          </div>
+        </article>
+    </section>
+
+    <!-- ============================= 10 · RESUM VISUAL ============================= -->
+    <section class="seccio seccio--suau" id="resum" data-nav="10 · Resum visual">
+      <h2>Resum visual</h2>
+      <p class="entradeta">Les idees que has d'endur-te d'este tema.</p>
+      <div class="resum-visual revela">
+        <div class="resum-visual__item"><p>Les comparacions (<code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>) donen sempre <strong><code>true</code> o <code>false</code></strong>.</p></div>
+        <div class="resum-visual__item"><p><code>=</code> guarda un valor; <code>==</code> compara. Confondre'ls és l'error més habitual.</p></div>
+        <div class="resum-visual__item"><p><code>if</code> fa una cosa si es complix la condició; <code>else</code> fa l'altra.</p></div>
+        <div class="resum-visual__item"><p><code>else if</code> encadenen casos i es miren <strong>en orde</strong>: del més concret al més general.</p></div>
+        <div class="resum-visual__item"><p><code>&amp;&amp;</code> cal que es complisquen les dos coses; <code>||</code> en basta una; <code>!</code> invertix.</p></div>
+        <div class="resum-visual__item"><p>Els textos es comparen amb <strong><code>equals</code></strong>, mai amb <code>==</code>.</p></div>
+        <div class="resum-visual__item"><p><code>switch</code> va bé per a menús i opcions; no t'oblides dels <code>break</code>.</p></div>
+        <div class="resum-visual__item"><p>La pregunta clau sempre: <strong>quina condició ha de complir-se perquè passe açò?</strong></p></div>
+      </div>
+    </section>
+
+    <!-- ============================ 11 · AUTOAVALUACIÓ ============================ -->
+    <section class="seccio" id="autoavaluacio" data-nav="11 · Autoavaluació">
+      <h2>Autoavaluació</h2>
+      <p class="entradeta">Nou preguntes. Pensa-les abans de mirar la solució.</p>
+      <ol class="llista-autoavaluacio">
+        <li>
+          <p class="enunciat">Quina diferència hi ha entre <code>=</code> i <code>==</code>?</p>
+
+          <ul class="opcions"><li>No hi ha cap diferència.</li><li><code>=</code> guarda un valor en una variable i <code>==</code> compara dos valors.</li><li><code>=</code> compara i <code>==</code> guarda.</li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av1">Mostrar solució</button>
+          <div class="solucio" id="av1" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) <code>=</code> guarda i <code>==</code> compara.</strong></p>
+            <p class="solucio__perque">Un sol igual assigna (guarda); dos iguals comparen i donen <code>true</code> o <code>false</code>. Per això dins d'un <code>if</code> sempre van dos iguals.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què mostrarà este programa?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>int x = 10;
+if (x &gt; 5) {
+    System.out.println("Gran");
+} else {
+    System.out.println("Petit");
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av2">Mostrar solució</button>
+          <div class="solucio" id="av2" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>Gran</code></strong></p>
+            <p class="solucio__perque">La condició <code>x &gt; 5</code> és vertadera perquè 10 és més gran que 5. Quan la condició es complix, s'executa el bloc del <code>if</code> i mai el de l'<code>else</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Amb què es comparen dos textos en Java?</p>
+
+          <ul class="opcions"><li><code>==</code></li><li><code>equals()</code></li><li><code>&gt;</code></li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av3">Mostrar solució</button>
+          <div class="solucio" id="av3" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) <code>equals()</code></strong></p>
+            <p class="solucio__perque">Amb textos, <code>==</code> compara si són el mateix objecte, no si diuen el mateix. El mètode <code>equals()</code> compara el contingut.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Escriu la condició per comprovar si una nota està aprovada (5 o més) i a més no arriba a 7.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av4">Mostrar solució</button>
+          <div class="solucio" id="av4" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>nota &gt;= 5 &amp;&amp; nota &lt; 7</code></strong></p>
+            <p class="solucio__perque">Han de complir-se les dos coses alhora, per tant s'unixen amb <code>&amp;&amp;</code>. Fixa't que el 7 queda fora (<code>&lt;</code>) i el 5 entra (<code>&gt;=</code>).</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Este programa hauria de dir «Pots passar» només a majors de 18 anys. Funciona?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>int edat = 15;
+if (edat &gt;= 18);
+{
+    System.out.println("Pots passar");
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av5">Mostrar solució</button>
+          <div class="solucio" id="av5" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>No: el punt i coma després del <code>if</code> fa que el missatge s'escriga sempre.</strong></p>
+            <p class="solucio__perque">El punt i coma tanca el <code>if</code> sense cos. El bloc de les claus passa a ser codi solt. És perillós perquè <strong>no dona cap error</strong>: només es detecta provant el programa.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quina diferència hi ha entre <code>&amp;&amp;</code> i <code>||</code>?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av6">Mostrar solució</button>
+          <div class="solucio" id="av6" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>&amp;&amp;</code> necessita que es complisquen les dos condicions; <code>||</code> en necessita només una.</strong></p>
+            <p class="solucio__perque">Es llig <code>&amp;&amp;</code> com «i» i <code>||</code> com «o». Exemple: per a entrar al cine amb descompte cal ser menor <strong>i</strong> vindre acompanyat; per a agafar el bus, tindre targeta <strong>o</strong> diners en efectiu.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Què mostrarà este programa?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>int opcio = 3;
+switch (opcio) {
+    case 1:
+        System.out.println("U");
+    case 3:
+        System.out.println("Tres");
+        break;
+    default:
+        System.out.println("Altre");
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av7">Mostrar solució</button>
+          <div class="solucio" id="av7" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>Tres</code></strong></p>
+            <p class="solucio__perque">La coincidència és el <code>case 3</code>, que té <code>break</code> i s'acaba. Si al <code>case 3</code> li faltara el <code>break</code>, s'executaria també el <code>default</code> i eixiria «Tres» i «Altre».</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Este codi compila? Per què?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>int edat = 16;
+if (13 &lt;= edat &lt;= 19) {
+    System.out.println("Adolescent");
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av8">Mostrar solució</button>
+          <div class="solucio" id="av8" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>No compila: en Java no es poden encadenar comparacions així.</strong></p>
+            <p class="solucio__perque"><code>13 &lt;= edat</code> ja dona <code>true</code> o <code>false</code>, i no es pot comparar eixe resultat amb 19. Cal escriure <code>edat &gt;= 13 &amp;&amp; edat &lt;= 19</code>.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Volem un programa que diga si un any és de traspàs. Escriu la condició completa (divisible per 4, però no per 100, excepte si és divisible per 400).</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av9">Mostrar solució</button>
+          <div class="solucio" id="av9" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong><code>(any % 4 == 0 &amp;&amp; any % 100 != 0) || any % 400 == 0</code></strong></p>
+            <p class="solucio__perque">Els parèntesis agrupen la primera part («divisible per 4 i no per 100») i després la segona excepció («o divisible per 400»). Sense els parèntesis, <code>&amp;&amp;</code> i <code>||</code> es barregen i el resultat no és el que volem. Comprovem-ho amb 2000 (sí), 1900 (no), 2024 (sí) i 2026 (no).</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <nav class="navegacio-temes no-imprimible" id="navegacio-temes" aria-label="Navegació entre temes"></nav>
+
+  </main>
+</div>
+
+<!-- ====================================== PEU ====================================== -->
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__graella">
+      <div>
+        <h4>Introducció a la Programació amb Java</h4>
+        <p>Optativa SMX · Sistemes Microinformàtics i Xarxes</p>
+        <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+      </div>
+      <div>
+        <h4>En este tema</h4>
+        <ul class="llista-netejada">
+          <li><a href="#teoria">Teoria</a></li>
+          <li><a href="#exemples">Exemples explicats</a></li>
+          <li><a href="#guiada">Programació guiada</a></li>
+          <li><a href="#resum">Resum visual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Llicència</h4>
+        <p>Material lliure per a ús educatiu.<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a></p>
+      </div>
+    </div>
+    <div class="peu__base">
+      <span>© 2026 Agustín Gil · IES La Vereda</span>
+      <a class="llicencia" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">
+        <span class="llicencia__icones" aria-hidden="true"><span>CC</span><span>BY</span><span>NC</span></span>
+        Creative Commons Reconeixement-NoComercial 4.0 Internacional
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Peu fix que apareix en cada pàgina del PDF -->
+<div class="peu-impressio" aria-hidden="true">
+  <span>Introducció a la Programació amb Java · Optativa SMX · Material creat per Agustín Gil - IES La Vereda 2026 · CC BY-NC 4.0</span>
+  <span class="peu-impressio__dreta">Tema 2</span>
+</div>
+
+<button class="boto boto--primari tornar-dalt no-imprimible" id="tornar-dalt" type="button" aria-label="Tornar a dalt">↑</button>
+
+<script src="../assets/js/resaltat.js"></script>
+<script src="../assets/js/dades-curs.js"></script>
+<script src="../assets/js/diapositives/tema2.js"></script>
+<script src="../assets/js/plantilla-tema.js"></script>
+<script src="../assets/js/pptx.js"></script>
+</body>
+</html>
