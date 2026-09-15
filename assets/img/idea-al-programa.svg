@@ -1,110 +1,138 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560" role="img" aria-labelledby="titol-svg desc-svg">
-  <title id="titol-svg">De la idea al programa</title>
-  <desc id="desc-svg">Esquema: una idea es dividix en passos, es convertix en codi Java, es prova i funciona.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" width="720" height="520" role="img" aria-labelledby="titol-svg desc-svg" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title id="titol-svg">Del problema al programa</title>
+  <desc id="desc-svg">Esquema del mètode de treball del curs: entendre el problema, dividir-lo en parts, programar-ho en Java i provar-ho.</desc>
 
   <defs>
-    <linearGradient id="fons" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0A1F4A"/>
-      <stop offset="100%" stop-color="#050F26"/>
+    <linearGradient id="fons" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0%" stop-color="#0C2350"/>
+      <stop offset="55%" stop-color="#071634"/>
+      <stop offset="100%" stop-color="#04091C"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#06B6D4"/>
-      <stop offset="100%" stop-color="#F97316"/>
+    <linearGradient id="barra" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="55%" stop-color="#7BA4F7"/>
+      <stop offset="100%" stop-color="#FB923C"/>
     </linearGradient>
-    <radialGradient id="llum" cx="20%" cy="0%" r="70%">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.30"/>
+    <linearGradient id="vidre" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+    <radialGradient id="glow-ciano" cx="6%" cy="0%" r="72%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.34"/>
       <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="llum2" cx="100%" cy="100%" r="65%">
-      <stop offset="0%" stop-color="#FB923C" stop-opacity="0.24"/>
+    <radialGradient id="glow-taronja" cx="104%" cy="106%" r="70%">
+      <stop offset="0%" stop-color="#FB923C" stop-opacity="0.26"/>
       <stop offset="100%" stop-color="#FB923C" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="graella" width="28" height="28" patternUnits="userSpaceOnUse">
-      <path d="M28 0H0V28" fill="none" stroke="#7BA4F7" stroke-opacity="0.10" stroke-width="1"/>
+    <pattern id="graella" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#7BA4F7" stroke-opacity="0.09" stroke-width="1"/>
     </pattern>
-    <filter id="ombra" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#03081C" flood-opacity="0.55"/>
-    </filter>
   </defs>
 
-  <rect width="720" height="560" rx="28" fill="url(#fons)"/>
-  <rect width="720" height="560" rx="28" fill="url(#graella)"/>
-  <rect width="720" height="560" rx="28" fill="url(#llum)"/>
-  <rect width="720" height="560" rx="28" fill="url(#llum2)"/>
-  <rect x="0.75" y="0.75" width="718.5" height="558.5" rx="28" fill="none" stroke="#7BA4F7" stroke-opacity="0.28" stroke-width="1.5"/>
+  <!-- ============================ FONS ============================ -->
+  <rect width="720" height="520" rx="26" fill="url(#fons)"/>
+  <rect width="720" height="520" rx="26" fill="url(#graella)"/>
+  <rect width="720" height="520" rx="26" fill="url(#glow-ciano)"/>
+  <rect width="720" height="520" rx="26" fill="url(#glow-taronja)"/>
+  <rect x="0.75" y="0.75" width="718.5" height="518.5" rx="26" fill="none" stroke="#7BA4F7" stroke-opacity="0.22" stroke-width="1.5"/>
 
-  <!-- Etiqueta superior -->
-  <g>
-    <rect x="40" y="36" width="252" height="30" rx="15" fill="#06B6D4" fill-opacity="0.14" stroke="#22D3EE" stroke-opacity="0.45"/>
-    <circle cx="58" cy="51" r="4.5" fill="#22D3EE"/>
-    <text x="72" y="56" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#A5F3FC">OPTATIVA SMX · JAVA</text>
+  <!-- ========================= ETIQUETA SUPERIOR ========================= -->
+  <rect x="40" y="34" width="256" height="32" rx="16" fill="#22D3EE" fill-opacity="0.12" stroke="#22D3EE" stroke-opacity="0.42"/>
+  <circle cx="60" cy="50" r="4" fill="#22D3EE"/>
+  <text x="74" y="55" font-size="12.5" font-weight="600" letter-spacing="1.8" fill="#A5F3FC">OPTATIVA SMX · JAVA</text>
+  <text x="680" y="55" text-anchor="end" font-size="12.5" font-weight="600" letter-spacing="1.2" fill="#7BA4F7" font-family="ui-monospace, Menlo, Consolas, monospace">CURS 2026 · IES LA VEREDA</text>
+
+  <!-- ======================= FINESTRA DE CODI ======================= -->
+  <rect x="40" y="84" width="640" height="250" rx="14" fill="#04102A" stroke="#7BA4F7" stroke-opacity="0.28"/>
+  <path d="M40 98a14 14 0 0 1 14-14h612a14 14 0 0 1 14 14v30H40z" fill="url(#vidre)"/>
+  <path d="M40 128h640" stroke="#7BA4F7" stroke-opacity="0.22"/>
+
+  <circle cx="64" cy="106" r="5" fill="#F87171"/>
+  <circle cx="82" cy="106" r="5" fill="#FBBF24"/>
+  <circle cx="100" cy="106" r="5" fill="#34D399"/>
+  <text x="122" y="111" font-size="12.5" fill="#9DB4D8" font-family="ui-monospace, Menlo, Consolas, monospace">HolaMon.java</text>
+  <text x="664" y="111" text-anchor="end" font-size="11" font-weight="600" letter-spacing="1" fill="#5C7BAE">JAVA 21</text>
+
+  <!-- Números de línia -->
+  <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="14" fill="#3F5A87" text-anchor="end">
+    <text x="72" y="163">1</text>
+    <text x="72" y="191">2</text>
+    <text x="72" y="219">3</text>
+    <text x="72" y="247">4</text>
+    <text x="72" y="275">5</text>
+    <text x="72" y="303">6</text>
+  </g>
+  <path d="M86 140v172" stroke="#7BA4F7" stroke-opacity="0.16"/>
+
+  <!-- Codi: les paraules fluïxen amb <tspan>, així les columnes sempre quadren -->
+  <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="15.5" xml:space="preserve">
+    <text x="100" y="163">
+      <tspan fill="#FF9ECD">public class </tspan><tspan fill="#7AD7FF">HolaMon</tspan><tspan fill="#D7E3F7"> {</tspan>
+    </text>
+    <text x="100" y="191">
+      <tspan fill="#FF9ECD">public static void </tspan><tspan fill="#9FF7D2">main</tspan><tspan fill="#D7E3F7">(</tspan><tspan fill="#7AD7FF">String</tspan><tspan fill="#D7E3F7">[] args) {</tspan>
+    </text>
+    <text x="130" y="219">
+      <tspan fill="#7AD7FF">System</tspan><tspan fill="#D7E3F7">.out.</tspan><tspan fill="#9FF7D2">println</tspan><tspan fill="#D7E3F7">(</tspan><tspan fill="#FFD479">"Hola món!"</tspan><tspan fill="#D7E3F7">);</tspan>
+    </text>
+    <text x="130" y="247">
+      <tspan fill="#7AD7FF">System</tspan><tspan fill="#D7E3F7">.out.</tspan><tspan fill="#9FF7D2">println</tspan><tspan fill="#D7E3F7">(</tspan><tspan fill="#FFD479">"Ara et toca a tu."</tspan><tspan fill="#D7E3F7">);</tspan>
+    </text>
+    <text x="130" y="275"><tspan fill="#D7E3F7">}</tspan></text>
+    <text x="100" y="303"><tspan fill="#D7E3F7">}</tspan></text>
   </g>
 
-  <!-- Finestra de codi -->
-  <g filter="url(#ombra)">
-    <rect x="40" y="96" width="640" height="228" rx="16" fill="#071A3D" stroke="#7BA4F7" stroke-opacity="0.30"/>
-    <rect x="40" y="96" width="640" height="38" rx="16" fill="#0C2A5C"/>
-    <rect x="40" y="120" width="640" height="14" fill="#0C2A5C"/>
-    <circle cx="64" cy="115" r="6" fill="#EF6B5E"/>
-    <circle cx="84" cy="115" r="6" fill="#F5BF4F"/>
-    <circle cx="104" cy="115" r="6" fill="#62C554"/>
-    <text x="128" y="120" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12.5" fill="#8FA8CE">HolaMon.java</text>
+  <!-- ========================= FLUX DE TREBALL ========================= -->
+  <path d="M152 380h96M312 380h96M472 380h96" stroke="#7BA4F7" stroke-opacity="0.32" stroke-width="1.5" stroke-dasharray="2 7" stroke-linecap="round"/>
 
-    <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="15" font-weight="500">
-      <text x="66" y="170" fill="#FF9ECD">public class</text>
-      <text x="182" y="170" fill="#7AD7FF">HolaMon</text>
-      <text x="250" y="170" fill="#CFE0F7">{</text>
-
-      <text x="86" y="200" fill="#FF9ECD">public static void</text>
-      <text x="242" y="200" fill="#9FF7D2">main</text>
-      <text x="278" y="200" fill="#CFE0F7">(</text>
-      <text x="286" y="200" fill="#7AD7FF">String</text>
-      <text x="336" y="200" fill="#CFE0F7">[] args) {</text>
-
-      <text x="106" y="230" fill="#7AD7FF">System</text>
-      <text x="162" y="230" fill="#CFE0F7">.out.println(</text>
-      <text x="266" y="230" fill="#FFD479">"Hola món!"</text>
-      <text x="356" y="230" fill="#CFE0F7">);</text>
-
-      <text x="86" y="260" fill="#CFE0F7">}</text>
-      <text x="66" y="290" fill="#CFE0F7">}</text>
-      <text x="440" y="290" fill="#7F93B5" font-style="italic">// ja està: això és un programa</text>
-    </g>
+  <g fill="none" stroke="#FB923C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M194 374.5l5.5 5.5-5.5 5.5"/>
+    <path d="M354 374.5l5.5 5.5-5.5 5.5"/>
+    <path d="M514 374.5l5.5 5.5-5.5 5.5"/>
   </g>
 
-  <!-- Passos -->
-  <g font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
-    <g>
-      <rect x="40" y="368" width="140" height="80" rx="14" fill="#EEF4FF" fill-opacity="0.10" stroke="#7BA4F7" stroke-opacity="0.55"/>
-      <text x="110" y="404" text-anchor="middle" font-size="26">💡</text>
-      <text x="110" y="430" text-anchor="middle" font-size="13" font-weight="700" fill="#DBE7FE">Entendre</text>
-    </g>
-    <path d="M190 408h22" stroke="#F97316" stroke-width="3" marker-end="url(#fletxa)"/>
-    <g>
-      <rect x="222" y="368" width="140" height="80" rx="14" fill="#EEF4FF" fill-opacity="0.10" stroke="#7BA4F7" stroke-opacity="0.55"/>
-      <text x="292" y="404" text-anchor="middle" font-size="26">🧩</text>
-      <text x="292" y="430" text-anchor="middle" font-size="13" font-weight="700" fill="#DBE7FE">Dividir</text>
-    </g>
-    <path d="M372 408h22" stroke="#F97316" stroke-width="3" marker-end="url(#fletxa)"/>
-    <g>
-      <rect x="404" y="368" width="140" height="80" rx="14" fill="#EEF4FF" fill-opacity="0.10" stroke="#7BA4F7" stroke-opacity="0.55"/>
-      <text x="474" y="404" text-anchor="middle" font-size="26">⌨️</text>
-      <text x="474" y="430" text-anchor="middle" font-size="13" font-weight="700" fill="#DBE7FE">Programar</text>
-    </g>
-    <path d="M554 408h22" stroke="#F97316" stroke-width="3" marker-end="url(#fletxa)"/>
-    <g>
-      <rect x="586" y="368" width="94" height="80" rx="14" fill="#06B6D4" fill-opacity="0.16" stroke="#22D3EE" stroke-opacity="0.6"/>
-      <text x="633" y="404" text-anchor="middle" font-size="26">✅</text>
-      <text x="633" y="430" text-anchor="middle" font-size="13" font-weight="700" fill="#A5F3FC">Provar</text>
-    </g>
+  <!-- Pas 1 · Entendre -->
+  <circle cx="120" cy="380" r="24" fill="#0B2350" stroke="#22D3EE" stroke-opacity="0.55"/>
+  <g stroke="#67E8F9" stroke-width="1.8" fill="none" stroke-linecap="round">
+    <circle cx="120" cy="375" r="7.5"/>
+    <path d="M116.5 382.5h7M117.5 386h5"/>
+    <path d="M120 364v-3M112 368l-2.2-2.2M128 368l2.2-2.2M109.5 375h-3M130.5 375h3"/>
   </g>
 
-  <rect x="40" y="486" width="640" height="6" rx="3" fill="url(#accent)"/>
-  <text x="40" y="524" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="14" fill="#8FA8CE">Programar és explicar a l'ordinador, pas a pas, com resoldre un problema.</text>
+  <!-- Pas 2 · Dividir -->
+  <circle cx="280" cy="380" r="24" fill="#0B2350" stroke="#22D3EE" stroke-opacity="0.55"/>
+  <g fill="none" stroke="#67E8F9" stroke-width="1.8" stroke-linejoin="round">
+    <rect x="269" y="369" width="9.5" height="9.5" rx="2.2"/>
+    <rect x="281.5" y="369" width="9.5" height="9.5" rx="2.2"/>
+    <rect x="269" y="381.5" width="9.5" height="9.5" rx="2.2"/>
+    <rect x="281.5" y="381.5" width="9.5" height="9.5" rx="2.2" stroke-dasharray="2.6 2.6" stroke="#FB923C"/>
+  </g>
 
-  <defs>
-    <marker id="fletxa" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-      <path d="M0 0l9 4.5L0 9z" fill="#F97316"/>
-    </marker>
-  </defs>
+  <!-- Pas 3 · Programar -->
+  <circle cx="440" cy="380" r="24" fill="#0B2350" stroke="#22D3EE" stroke-opacity="0.55"/>
+  <text x="440" y="387" text-anchor="middle" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="17" font-weight="700" fill="#67E8F9">{ }</text>
+
+  <!-- Pas 4 · Provar -->
+  <circle cx="600" cy="380" r="24" fill="#22D3EE" fill-opacity="0.14" stroke="#22D3EE" stroke-opacity="0.8"/>
+  <path d="M590 380.5l6.5 6.5 13-13.5" fill="none" stroke="#67E8F9" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g font-size="15" font-weight="600" fill="#CFE0F7" text-anchor="middle">
+    <text x="120" y="431">Entendre</text>
+    <text x="280" y="431">Dividir</text>
+    <text x="440" y="431">Programar</text>
+    <text x="600" y="431">Provar</text>
+  </g>
+  <g font-size="12" fill="#7BA4F7" text-anchor="middle">
+    <text x="120" y="450">què hem de fer</text>
+    <text x="280" y="450">en passos xicotets</text>
+    <text x="440" y="450">en Java</text>
+    <text x="600" y="450">i corregir errors</text>
+  </g>
+
+  <!-- ========================== PEU DE LA FIGURA ========================== -->
+  <rect x="40" y="472" width="640" height="5" rx="2.5" fill="url(#barra)"/>
+  <text x="40" y="503" font-size="15.5" fill="#9DB4D8">
+    Programar és explicar-li a l'ordinador, pas a pas, com resoldre un problema.
+  </text>
 </svg>
