@@ -5,6 +5,22 @@
      el que ja se sap, QUÈ es queda per sempre i COM es continua aprenent.
    · sortida = eixida real (es comprova amb  node eines/prova-codi-java.mjs 9 )
    ========================================================================== */
+/* Classe auxiliar que ja s'ha explicat dins del tema. No es mostra a la pàgina:
+   només servix perquè la comprovació automàtica puga compilar i executar els
+   trossos de codi de la programació guiada. */
+const JOC = {
+  titol: 'Joc.java',
+  text: `public class Joc {
+    String nom;
+    int hores;
+
+    Joc(String nom, int hores) {
+        this.nom = nom;
+        this.hores = hores;
+    }
+}`
+};
+
 globalThis.TEMA = {
   n: 9,
   titol: 'Cap a on va la programació',
@@ -420,6 +436,7 @@ Et podria agradar: esports viatges `
           { codi: {
             titol: 'Rànquing.java',
             etiqueta: 'PAS 3 · ESQUELET',
+            fitxers: [JOC],
             text: `public class Ranquing {
 
     public static void mostrarTots(Joc[] jocs) {
@@ -461,7 +478,7 @@ Mes jugat: Minecraft`
           { p: 'Ara sí: una part, una execució. Comencem pels dos càlculs, que són els que tenen més perill.' },
           { codi: {
             titol: 'Rànquing.java',
-            etiqueta: 'PAS 4 · LES PARTS I LA SEUA EIXIDA',
+            fitxers: [JOC],            etiqueta: 'PAS 4 · LES PARTS I LA SEUA EIXIDA',
             text: `    public static void mostrarTots(Joc[] jocs) {
         for (int i = 0; i < jocs.length; i++) {
             System.out.println((i + 1) + ". " + jocs[i].nom + " — " + jocs[i].hores + " h");
@@ -485,6 +502,19 @@ Mes jugat: Minecraft`
         }
         return millor;
     }`,
+            prova: `
+    public static void main(String[] args) {
+        Joc[] jocs = {
+            new Joc("Minecraft", 120),
+            new Joc("FIFA", 45),
+            new Joc("Fortnite", 80)
+        };
+
+        System.out.println("1. Mostrar  2. Total  3. El mes jugat  4. Eixir");
+        mostrarTots(jocs);
+        System.out.println("Total: " + totalHores(jocs));
+        System.out.println("Mes jugat: " + mesJugat(jocs).nom);
+    }`,
             sortida: `1. Mostrar  2. Total  3. El mes jugat  4. Eixir
 1. Minecraft — 120 h
 2. FIFA — 45 h
@@ -502,6 +532,7 @@ Mes jugat: Minecraft`
           { p: 'La prova de foc de l\'esquelet: afegim la mitjana d\'hores **sense tocar cap mètode dels que ja funcionen**.' },
           { codi: {
             titol: 'Rànquing.java',
+            fitxers: [JOC],
             etiqueta: 'PAS 5 · UNA PART NOVA',
             text: `    public static double mitjana(Joc[] jocs) {
         if (jocs.length == 0) {
@@ -512,6 +543,47 @@ Mes jugat: Minecraft`
 
     // …i al main, una línia més (dins del main que ja teníem):
     //     System.out.println("Mitjana: " + mitjana(jocs) + " h per joc");`,
+            previ: `
+    public static void mostrarTots(Joc[] jocs) {
+        for (int i = 0; i < jocs.length; i++) {
+            System.out.println((i + 1) + ". " + jocs[i].nom + " — " + jocs[i].hores + " h");
+        }
+    }
+
+    public static int totalHores(Joc[] jocs) {
+        int suma = 0;
+        for (int i = 0; i < jocs.length; i++) {
+            suma = suma + jocs[i].hores;
+        }
+        return suma;
+    }
+
+    public static Joc mesJugat(Joc[] jocs) {
+        Joc millor = jocs[0];
+        for (int i = 1; i < jocs.length; i++) {
+            if (jocs[i].hores > millor.hores) {
+                millor = jocs[i];
+            }
+        }
+        return millor;
+    }
+
+`,
+            prova: `
+    public static void main(String[] args) {
+        Joc[] jocs = {
+            new Joc("Minecraft", 120),
+            new Joc("FIFA", 45),
+            new Joc("Fortnite", 80)
+        };
+
+        System.out.println("1. Mostrar  2. Total  3. El mes jugat  4. Eixir");
+        mostrarTots(jocs);
+        System.out.println("Total: " + totalHores(jocs));
+        System.out.println("Mes jugat: " + mesJugat(jocs).nom);
+        System.out.println("Mitjana: " + mitjana(jocs) + " h per joc");
+    }
+`,
             sortida: `1. Mostrar  2. Total  3. El mes jugat  4. Eixir
 1. Minecraft — 120 h
 2. FIFA — 45 h
@@ -530,6 +602,7 @@ Mitjana: 81.66666666666667 h per joc`
           { p: 'Els tres casos de sempre, ara sobre el projecte sencer. Pensa tu què hauria de passar abans d\'executar-ho:' },
           { codi: {
             titol: 'Rànquing.java',
+            fitxers: [JOC],
             etiqueta: 'PAS 6 · PROVES',
             text: `        Joc[] buit = {};                                        // cap joc
         Joc[] un = { new Joc("Un sol", 10) };                   // un joc
@@ -540,6 +613,38 @@ Mitjana: 81.66666666666667 h per joc`
         System.out.println("Mitjana buida: " + mitjana(buit));
         System.out.println("Mes jugat amb un: " + mesJugat(un).nom);
         System.out.println("Mes jugat amb empat: " + mesJugat(empat).nom);`,
+            previ: `
+    public static void mostrarTots(Joc[] jocs) {
+        for (int i = 0; i < jocs.length; i++) {
+            System.out.println((i + 1) + ". " + jocs[i].nom + " — " + jocs[i].hores + " h");
+        }
+    }
+
+    public static int totalHores(Joc[] jocs) {
+        int suma = 0;
+        for (int i = 0; i < jocs.length; i++) {
+            suma = suma + jocs[i].hores;
+        }
+        return suma;
+    }
+
+    public static Joc mesJugat(Joc[] jocs) {
+        Joc millor = jocs[0];
+        for (int i = 1; i < jocs.length; i++) {
+            if (jocs[i].hores > millor.hores) {
+                millor = jocs[i];
+            }
+        }
+        return millor;
+    }
+
+    public static double mitjana(Joc[] jocs) {
+        if (jocs.length == 0) {
+            return 0;
+        }
+        return totalHores(jocs) / (double) jocs.length;
+    }
+`,
             sortida: `Total buit: 0
 Mitjana buida: 0.0
 Mes jugat amb un: Un sol
@@ -654,6 +759,16 @@ i objectes. La resta s'aprenen damunt d'eixa base.`,
 //   4. enviar el text de tornada com a resposta,
 //   5. que el mòbil llija el JSON i el mostre.
 // El mètode de dins és el mateix que has escrit tu.`,
+          fitxers: [JOC],
+          prova: `
+    public static void main(String[] args) {
+        Joc[] jocs = {
+            new Joc("Minecraft", 120),
+            new Joc("FIFA", 45),
+            new Joc("Fortnite", 80)
+        };
+        System.out.println(resumHores(jocs));
+    }`,
           sortida: '{"total": 245}',
           perque: 'Una API és un mètode amb una adreça i una resposta en text. La lògica no canvia: canvia el transport.'
         },
@@ -816,7 +931,7 @@ Dreta
 Dreta
 Esquerra
 Càrrega
-Girs: dreta 3, esquerra 1`
+Girs: dreta 3, esquerra 2`
         },
         solucio: {
           titol: 'RobotLínia.java',
@@ -855,13 +970,13 @@ Girs: dreta 3, esquerra 1`
         System.out.println("Girs: dreta " + drets + ", esquerra " + esquerres);
     }
 }`,
-          sortida: `Càrrega
-Dreta
+          sortida: `Dreta
 Esquerra
 Dreta
 Dreta
+Esquerra
 Càrrega
-Girs: dreta 3, esquerra 1`,
+Girs: dreta 3, esquerra 2`,
           perque: 'L\'orde de les comprovacions és part de la solució: primer la seguretat (bateria) i després la conducció. Si el robot derrapa amb la bateria baixa, l\'avís ja no servix de res.'
         },
         pista: 'Prova també amb un sensor que valga 7: què ha de fer el robot davant d\'una lectura impossible?'

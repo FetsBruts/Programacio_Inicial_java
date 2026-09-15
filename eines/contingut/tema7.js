@@ -618,6 +618,19 @@ No hi ha cap producte que es diga Impressora`
         }
         return millor.nom + " amb " + millor.punts + " punts";
     }`,
+            prova: `
+    public static void main(String[] args) {
+        Jugador[] jugadors = new Jugador[2];
+        jugadors[0] = new Jugador();
+        jugadors[0].nom = "Ana";
+        jugadors[0].punts = 120;
+        jugadors[1] = new Jugador();
+        jugadors[1].nom = "Bruno";
+        jugadors[1].punts = 95;
+
+        System.out.println("Amb Ana (120) i Bruno (95): total " + totalPunts(jugadors)
+                + " i millor \\" + millorJugador(jugadors) + "\\".");
+    }`,
             sortida: 'Amb Ana (120) i Bruno (95): total 215 i millor "Ana amb 120 punts".'
           } },
           { nota: { tipus: 'tip', text: 'Fixem-nos en la condició del `if`: primer comprovem que la casella no és buida i **després** mirem els punts. L\'orde no és casualitat: si la casella és `null` i mirem els punts abans, el programa s\'atura.' } }
@@ -648,6 +661,19 @@ No hi ha cap producte que es diga Impressora`
             jugadors[posicio].punts = jugadors[posicio].punts + punts;
             System.out.println(nom + " ara té " + jugadors[posicio].punts + " punts");
         }
+    }`,
+            prova: `
+    public static void main(String[] args) {
+        Jugador[] jugadors = new Jugador[2];
+        jugadors[0] = new Jugador();
+        jugadors[0].nom = "Ana";
+        jugadors[0].punts = 120;
+        jugadors[1] = new Jugador();
+        jugadors[1].nom = "Bruno";
+        jugadors[1].punts = 95;
+
+        afegirPunts(jugadors, "Ana", 25);
+        afegirPunts(jugadors, "Zeus", 10);
     }`,
             sortida: `Ana ara té 145 punts
 No hi ha cap jugador que es diga Zeus`
@@ -694,6 +720,8 @@ No hi ha cap jugador que es diga Zeus`
             }
         }
     }`,
+            noExecuta: true,
+            titolSortida: 'Què ha de passar',
             sortida: 'El programa funciona i no s\'acaba fins que triem l\'opció 0.'
           } },
           { llista: [

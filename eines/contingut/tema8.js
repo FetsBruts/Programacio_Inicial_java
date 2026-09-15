@@ -362,7 +362,11 @@ public class BucleBo {
         entrada: `6.5
 7.0
 -1`,
-        sortida: `Mitjana: 6.75`
+        sortida: 'Nota (-1 per acabar): Nota (-1 per acabar): Nota (-1 per acabar): Mitjana: 6.75',
+        sortidaMostrada: `Nota (-1 per acabar): 6.5
+Nota (-1 per acabar): 7.0
+Nota (-1 per acabar): -1
+Mitjana: 6.75`
       } },
       { p: '**Què hem après:** en programació, un bucle necessita que **alguna cosa canvie dins** perquè puga acabar. Quan la IA et done un bucle, primera pregunta: *què canvia ací?* I segona: *i si no hi ha cap dada?*' },
       { nota: { tipus: 'important', text: 'Este és l\'error que més temps fa perdre a classe, perquè el programa no dona cap missatge: simplement es queda pensant. Si et passa, **mira la condició i mira si la seua variable canvia dins del bucle**.' } }
@@ -470,6 +474,20 @@ Passades: 0  Fallades: 0`
 
         System.out.println("Passades: " + passades + "  Fallades: " + fallades);
     }`,
+            previ: `
+    static int passades = 0;
+    static int fallades = 0;
+
+    public static void comprovar(String nom, double obtingut, double esperat) {
+        if (Math.abs(obtingut - esperat) < 0.01) {
+            passades++;
+            System.out.println("✔ " + nom + " -> " + obtingut);
+        } else {
+            fallades++;
+            System.out.println("✗ " + nom + " -> esperàvem " + esperat + " i ha donat " + obtingut);
+        }
+    }
+`,
             sortida: `✗ mitjana de 6, 7 i 6 -> esperàvem 6.33 i ha donat 6.0
 Passades: 0  Fallades: 1`
           } },
@@ -499,6 +517,20 @@ Passades: 0  Fallades: 1`
 
         System.out.println("Passades: " + passades + "  Fallades: " + fallades);
     }`,
+            previ: `
+    static int passades = 0;
+    static int fallades = 0;
+
+    public static void comprovar(String nom, double obtingut, double esperat) {
+        if (Math.abs(obtingut - esperat) < 0.01) {
+            passades++;
+            System.out.println("✔ " + nom + " -> " + obtingut);
+        } else {
+            fallades++;
+            System.out.println("✗ " + nom + " -> esperàvem " + esperat + " i ha donat " + obtingut);
+        }
+    }
+`,
             sortida: `✔ mitjana de 6, 7 i 6 -> 6.333333333333333
 ✔ mitjana d'un sol valor -> 8.0
 ✔ mitjana amb un negatiu -> 0.0
@@ -740,7 +772,7 @@ comprovacions, la resposta és una opinió.`,
     exercicis: [
       {
         id: 'ex8-1', titol: 'Auditoria d\'un programa generat', dificultat: 'facil', temps: '20 min',
-        enunciat: 'Este programa el va generar una IA i pareix que funciona: **executa\'l amb la llista de baix i mira què dona de veritat** (no et refies del que diu el text). Troba **tres problemes** —un d\'ordre de recorregut, un de tipus de dades i un de cas límit—, explica\'ls i arregla\'ls. Després prova\'l amb: (a) la llista de l\'exemple, (b) una llista buida, (c) una llista amb un sol element i (d) una llista amb tots els preus negatius.',
+        enunciat: 'Este programa el va generar una IA i el text de davall diu **què hauria de passar** amb la llista de l\'exemple: `Total: 11.5`, `Mitjana: 2.875` i `Més car: 4.2`. **Executa\'l i mira què dona de veritat.** Troba **tres problemes** —un d\'ordre de recorregut, un de tipus de dades i un de cas límit—, explica\'ls i arregla\'ls. Després prova\'l amb: (a) la llista de l\'exemple, (b) una llista buida, (c) una llista amb un sol element i (d) una llista amb tots els preus negatius.',
         exemple: { entrada: 'preus = {2.50, 1.80, 3.00, 4.20}', sortida: 'Total: 11.5\nMitjana: 2.875\nMés car: 4.2' },
         codi: {
           titol: 'Compra.java',
@@ -935,7 +967,13 @@ public class Temperatures {
 -2
 3.5
 -0.5`,
-          sortida: `Mitjana: 1.1
+          sortida: 'Temperatura dia 1: Temperatura dia 2: Temperatura dia 3: Temperatura dia 4: Temperatura dia 5: Mitjana: 1.1\nMés alta: 4.5\nDies gelats: 2',
+          sortidaMostrada: `Temperatura dia 1: 4.5
+Temperatura dia 2: 0.0
+Temperatura dia 3: -2.0
+Temperatura dia 4: 3.5
+Temperatura dia 5: -0.5
+Mitjana: 1.1
 Més alta: 4.5
 Dies gelats: 2`,
           perque: 'No hi ha una única solució bona: el valor de l\'exercici està en la comparació. En general la IA escriurà un codi més curt i polit, i tu detectaràs millor els límits (dies gelats amb 0, mitjana amb enters, etc.) perquè tu has decidit les regles.'

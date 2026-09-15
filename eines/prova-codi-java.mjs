@@ -24,6 +24,21 @@
 
    Els programes que lliguen dades pel teclat (Scanner) porten l'entrada dins
    el camp `entrada` del bloc de codi, i s'envien per l'entrada estàndard.
+
+   ELS PASSOS GUIATS
+     Els passos de la programació guiada mostren el fitxer a trossos: el que es
+     veu a la pàgina és només el troç nou. Per poder comprovar-los, eixos blocs
+     poden portar dos camps que NO es mostren mai a la pàgina:
+
+       · `fitxers: [{ titol, text }]`  → classes auxiliars del costat
+                                         (Jugador.java, Joc.java…)
+       · `previ: '…'`                  → el que ja hi havia al fitxer (mètodes
+                                         dels passos anteriors)
+       · `prova: '…'`                  → un main que crida el troç nou i produïx
+                                         l'eixida que l'alumne ha de vore
+
+     Així el troç es compila i s'executa de veritat, sense canviar ni una línia
+     del que es mostra a l'alumne.
    ========================================================================== */
 import fs from 'node:fs';
 import os from 'node:os';
@@ -93,7 +108,12 @@ function afigCodi(bloc, context) {
        classe Jugador que s'ha explicat uns paràgrafs abans). Van al fitxer
        de contingut com a  fitxers: [{ titol, text }]  i NO es mostren a la
        pàgina: només servixen perquè la comprovació siga completa. */
-    fitxers: bloc.fitxers || []
+    fitxers: bloc.fitxers || [],
+    /* Resta del fitxer (passos anteriors de la guiada) i el main de prova.
+       Igual que `fitxers`, no es mostren mai a la pàgina: servixen només
+       perquè un troç de codi es puga compilar i executar. */
+    previ: bloc.previ,
+    prova: bloc.prova
   });
 }
 
@@ -132,27 +152,34 @@ function nomDeClasse(codi) {
  *   · si és un fragment d'instruccions → dins d'un main.
  * Els `import` sempre van damunt de tot (si no, no compila).
  */
-function programaComplet(codi) {
+function programaComplet(codi, previ = '', prova = '') {
   if (nomDeClasse(codi)) return { codi, classe: nomDeClasse(codi) };
 
   const linies = codi.split('\n');
   const imports = linies.filter((l) => /^\s*import\s/.test(l));
   const cos = linies.filter((l) => !/^\s*import\s/.test(l)).join('\n').trim();
+  /* Si el troç usa Scanner, l'import ha d'anar damunt de tot (encara que a la
+     pàgina no es complica la lectura afegint-lo). */
+  if (/\bScanner\b/.test(cos) && !imports.some((l) => /java\.util\b/.test(l))) {
+    imports.push('import java.util.Scanner;');
+  }
   const cap = imports.length ? imports.join('\n') + '\n\n' : '';
 
+  const cosPrevi = previ ? previ.trim() + '\n\n' : '';
+  const cosProva = prova ? '\n\n' + prova.trim() : '';
   const declaraMetode = /^\s*(public|private|protected|static|final|abstract)[\w\s<>\[\]]*\([^)]*\)\s*\{/m.test(cos);
   if (declaraMetode) {
     const dins = cos.split('\n').map((l) => '    ' + l).join('\n');
-    return { codi: `${cap}public class Prova {\n${dins}\n}`, classe: 'Prova' };
+    return { codi: `${cap}public class Prova {\n${cosPrevi}${dins}${cosProva}\n}`, classe: 'Prova' };
   }
   const dins = cos.split('\n').map((l) => '        ' + l).join('\n');
-  return { codi: `${cap}public class Prova {\n    public static void main(String[] args) {\n${dins}\n    }\n}`, classe: 'Prova' };
+  return { codi: `${cap}public class Prova {\n${cosPrevi}    public static void main(String[] args) {\n${dins}\n    }${cosProva}\n}`, classe: 'Prova' };
 }
 
 function compilaIExecuta(bloc) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'java-'));
   try {
-    const { codi, classe } = programaComplet(bloc.text);
+    const { codi, classe } = programaComplet(bloc.text, bloc.previ, bloc.prova);
     fs.writeFileSync(path.join(dir, classe + '.java'), codi);
 
     /* Classes auxiliars (Jugador.java, etc.) */
