@@ -12,6 +12,9 @@
    ÚS
      node eines/prova-codi-java.mjs                 → comprova tots els temes
      node eines/prova-codi-java.mjs 1 2             → només els temes 1 i 2
+     node eines/prova-codi-java.mjs --anotacions    → a més, marca els errors
+        damunt del fitxer font (servix per a GitHub Actions, que els mostra
+        com anotacions en la pàgina del canvi)
 
    PER A QUÈ NECESSITA
      · Un JDK (comanda `javac`) o, si no n'hi ha, un compilador d'Eclipse (ecj):
@@ -168,7 +171,18 @@ const normalitza = (t) => String(t)
   .replace(/\n+$/, '');
 
 /* ------------------------------------------------------------ Execució */
+const ANOTACIONS = process.argv.includes('--anotacions');
 const volguts = process.argv.slice(2).map(Number);
+
+/* Escapa un missatge per a l'orde ::error:: de GitHub Actions */
+const perGitHub = (text) => String(text)
+  .replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
+
+const anota = (bloc, missatge) => {
+  if (!ANOTACIONS) return;
+  const fitxer = bloc.context && bloc.context.fitxer ? bloc.context.fitxer : '';
+  console.log(`::error file=${fitxer}::${perGitHub(missatge).slice(0, 900)}`);
+};
 const fitxers = fs.readdirSync(DIR_CONTINGUT)
   .filter((f) => /^tema\d+\.js$/.test(f))
   .filter((f) => !volguts.length || volguts.includes(Number(f.match(/\d+/)[0])))
@@ -180,7 +194,7 @@ let fallades = 0;
 fitxers.forEach((f) => {
   const t = carregaTema(path.join(DIR_CONTINGUT, f));
   blocs.length = 0;
-  recorre(t, { tema: t.n });
+  recorre(t, { tema: t.n, fitxer: 'eines/contingut/' + f });
   if (!blocs.length) return;
 
   console.log(`\n► Tema ${t.n} · ${t.titol} — ${blocs.length} blocs amb eixida`);
@@ -191,6 +205,7 @@ fitxers.forEach((f) => {
     if (resultat.error) {
       fallades++;
       console.log(color(false, `  ✖ ${bloc.titol} → ${resultat.error}`));
+      anota(bloc, `Tema ${bloc.context.tema} · ${bloc.titol} → ${resultat.error}`);
       return;
     }
     const esperat = normalitza(bloc.sortida);
@@ -202,11 +217,16 @@ fitxers.forEach((f) => {
       console.log(color(false, `  ✖ ${bloc.titol}`));
       console.log('      esperat: ' + JSON.stringify(esperat));
       console.log('      obtingut: ' + JSON.stringify(obtingut));
+      anota(bloc, `Tema ${bloc.context.tema} · ${bloc.titol} → esperat: ${JSON.stringify(esperat)} · obtingut: ${JSON.stringify(obtingut)}`);
     }
   });
 });
 
-console.log('\n' + (fallades === 0
+const resum = fallades === 0
   ? `✔ TOTS ELS EXEMPLES SÓN CORRECTES (${total} blocs compilats i executats)`
-  : `✖ ${fallades} de ${total} blocs no coincidixen amb l'eixida escrita`));
+  : `✖ ${fallades} de ${total} blocs no coincidixen amb l'eixida escrita`;
+console.log('\n' + resum);
+if (ANOTACIONS && fallades > 0) {
+  console.log(`::error::${perGitHub(resum)}`);
+}
 process.exit(fallades === 0 ? 0 : 1);
