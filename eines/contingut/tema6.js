@@ -90,6 +90,7 @@ int punts2 = 150;
       { p: 'Pensa-ho així: el motlle de fer galletes no és una galleta. Amb un motlle pots fer-ne trenta, i cadascuna tindrà la seua forma de xocolate.' },
       { codi: {
         titol: 'Motlle.java',
+        noExecuta: true,   // no és codi executable: diagrama
         etiqueta: 'COM ES VEURIA',
         text: `    CLASSE (el motlle)              OBJECTES (coses fetes amb el motlle)
    +---------------------+         +-------------------------------+
@@ -337,6 +338,7 @@ Carla (20 punts)`
       { p: 'Hem fet els atributs públics perquè siga senzill: qualsevol part del programa pot escriure `ana.vida = 10000;`. Un programa de veritat no ho permet: amaga les dades i obliga a passar pel mètode, que és qui coneix les regles.' },
       { codi: {
         titol: 'MésEndavant.java',
+        noExecuta: true,   // no és codi executable: pseudocodi
         etiqueta: 'PER A MÉS ENDAVANT',
         text: `private int vida;      // ningú no pot tocar la vida des de fora
 

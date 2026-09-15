@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 7 · Construir un programa complet | Introducció a la Programació amb Java</title>
+<meta name="description" content="De la idea al programa que funciona: pensem, dividim, programem i provem">
+<meta name="author" content="Agustín Gil · IES La Vereda 2026">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/tema.css">
+<link rel="stylesheet" href="../assets/css/print.css">
+<!-- PÀGINA GENERADA amb eines/genera-temes.mjs — edita eines/contingut/tema7.js i torna a generar-la -->
+</head>
+
+<body data-tema="7">
+
+<!-- ============================ PORTADA D'IMPRESSIÓ ============================ -->
+<div class="portada-impressio només-impressio" id="portada-impressio">
+  <p class="portada-impressio__curs" data-camp="assignatura">Optativa SMX · Introducció a la Programació</p>
+  <h1 data-camp="tema">Tema 7 · Construir un programa complet</h1>
+  <p class="portada-impressio__resum" data-camp="subtitol">De la idea al programa que funciona: pensem, dividim, programem i provem</p>
+  <div class="portada-impressio__meta">
+    <p data-camp="autor">Material creat per Agustín Gil - IES La Vereda 2026</p>
+    <p>Llicència <span data-camp="llicencia">CC BY-NC 4.0</span> · <a data-camp="enllac" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">creativecommons.org/licenses/by-nc/4.0</a></p>
+    <p>Data d'impressió: <span data-camp="data"></span></p>
+    <p class="text-suau">Manual d'estudi: introducció, objectius, teoria, exemples explicats, programació guiada, errors habituals i resum. Les tres primeres preguntes d'autoavaluació inclouen la solució; els exercicis i els reptes es treballen en la versió web.</p>
+  </div>
+</div>
+
+<!-- ================================== CAPÇALERA ================================== -->
+<header class="capcalera">
+  <div class="contenidor capcalera__interior" style="max-width:1400px">
+    <a class="capcalera__marca" href="../index.html">
+      <span class="capcalera__logo" aria-hidden="true">{}</span>
+      <span class="capcalera__text">
+        <span class="capcalera__curs">Optativa SMX · Programació amb Java</span>
+        <span class="capcalera__tema">Tema 7 · Construir un programa complet</span>
+      </span>
+    </a>
+    <div class="capcalera__accions">
+      <button class="boto boto--ciano boto--petit" type="button" data-imprimir>🖨 <span class="text-llarg">Imprimir</span> PDF</button>
+      <button class="boto boto--taronja boto--petit" type="button" data-pptx>📊 <span class="text-llarg">Crear</span> PowerPoint</button>
+      <a class="boto boto--fantasma boto--petit" href="../index.html">Índex del curs</a>
+      <button class="boto-icona" type="button" data-menu-toggle aria-expanded="false" aria-label="Obrir el menú del tema">☰</button>
+    </div>
+  </div>
+  <div class="contenidor capcalera__meta" style="max-width:1400px">
+    <span>✍ Material creat per Agustín Gil - IES La Vereda 2026</span>
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-NC 4.0</a>
+    <span class="text-suau">Tema 7 de 10 · 3 hores de classe</span>
+  </div>
+  <div class="barra-progres" aria-hidden="true"><span></span></div>
+</header>
+
+<div class="overlay-menu" aria-hidden="true"></div>
+
+<div class="disposicio">
+
+  <!-- ============================== MENÚ LATERAL ============================== -->
+  <aside class="menu-lateral" id="menu-lateral" aria-label="Navegació del tema">
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">En este tema</p>
+      <nav class="indice-intern" id="indice-intern" aria-label="Índex del tema"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc" id="progres-exercicis" hidden>
+      <p class="menu-lateral__titol">El teu progrés</p>
+      <div class="barra-avaluacio"><span style="width:0"></span></div>
+      <p class="text-suau" id="progres-exercicis-text" style="font-size:.82rem;margin:0"></p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Temes del curs</p>
+      <nav class="llista-temes-mini" id="llista-temes-mini" aria-label="Temes del curs"></nav>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Accions</p>
+      <div class="pila" style="gap:.5rem">
+        <button class="boto boto--primari boto--ampla boto--petit" type="button" data-imprimir>🖨 Imprimir PDF</button>
+        <button class="boto boto--taronja boto--ampla boto--petit" type="button" data-pptx>📊 Crear PowerPoint</button>
+      </div>
+      <p class="text-suau" style="font-size:.78rem;margin:.6rem 0 0">
+        El PDF inclou la teoria i el resum. La presentació és per explicar a classe.
+      </p>
+    </div>
+
+    <div class="menu-lateral__bloc">
+      <p class="menu-lateral__titol">Autoria</p>
+      <p class="text-suau" style="font-size:.8rem;margin:0">
+        <strong>Agustín Gil</strong><br>IES La Vereda · 2026<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+      </p>
+    </div>
+  </aside>
+
+  <!-- ================================= CONTINGUT ================================= -->
+  <main class="contingut">
+
+    <div class="hero-tema">
+      <span class="hero-tema__etiqueta">Tema 7 · Sessió de 3 hores</span>
+      <h1>Construir un programa complet</h1>
+      <p class="hero-tema__entradeta">Ja tenim totes les peces: variables, decisions, bucles, arrays, mètodes i objectes. El que falta és el més important: saber ajuntar-les per construir un programa de veritat, de principi a fi, i que funcione.</p>
+      <div class="hero-tema__meta">
+        <span class="pastilla">⏱ 3 hores</span>
+        <span class="pastilla">🏗 Fase 2 · Estructurar el programa</span>
+        <span class="pastilla">🧩 Necessites: Temes 0 a 6</span>
+        <span class="pastilla">❓ La pregunta clau: com se dividix este problema?</span>
+      </div>
+    </div>
+
+    <!-- ============================ 01 · INTRODUCCIÓ ============================ -->
+    <section class="seccio" id="introduccio" data-nav="01 · Introducció" style="padding-top:0">
+      <h2>Una situació per començar</h2>
+      <div class="situacio revela">
+        <span class="situacio__emoji" aria-hidden="true">🏆</span>
+        <div>
+<p>Volem fer un <strong>gestor de puntuacions d'un torneig de videojocs</strong>: volem guardar els jugadors amb els seus punts, vore qui va primer i poder afegir punts quan acaba una partida.</p>
+          <p>Un company s'ha posat a escriure-ho tot de colp dins del <code>main</code> i li ha eixit això:</p>
+          <pre class="codi" data-titol="Torneig.java" data-etiqueta="TOT DE COLP"><code>public class Torneig {
+              public static void main(String[] args) {
+                  String jugador1 = "Ana";   int punts1 = 120;
+                  String jugador2 = "Bruno"; int punts2 = 95;
+                  String jugador3 = "Carla"; int punts3 = 180;
+
+                  System.out.println(jugador1 + " - " + punts1);
+                  System.out.println(jugador2 + " - " + punts2);
+                  System.out.println(jugador3 + " - " + punts3);
+
+                  int total = punts1 + punts2 + punts3;                        // i si foren 40 jugadors?
+                  int millor = Math.max(punts1, Math.max(punts2, punts3));     // i amb 40?
+                  System.out.println("Total: " + total);
+                  System.out.println("Millor: " + millor);
+
+                  // encara falten: afegir punts, buscar un jugador, ordenar...
+              }
+          }</code></pre>
+          <p>El programa funciona… però no creix. Si un dia volem <strong>40 jugadors</strong>, caldria reescriure'l tot. I quan falla alguna cosa, no sabem <strong>per on començar a buscar</strong>.</p>
+          <p>La setmana passada vam aprendre a fer peces (mètodes i objectes). Hui aprenem el que de veritat fa un programador: <strong>dividir el problema, construir el programa per etapes i provar cada etapa</strong>.</p>
+          <p>No hi ha codi nou que aprendre hui. El que hi ha és una manera de treballar: si l'apliques, podràs fer programes tan grans com vullgues.</p>
+        </div>
+      </div>
+
+      <div class="plan-sessio revela" style="margin-top:var(--esp-5)">
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">30-40 min</span>
+            <span class="plan-sessio__nom">Explicació i demos</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Programació guiada</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">60-75 min</span>
+            <span class="plan-sessio__nom">Exercicis</span>
+          </div>
+          <div class="plan-sessio__bloc">
+            <span class="plan-sessio__temps">15-30 min</span>
+            <span class="plan-sessio__nom">Repàs i repte</span>
+          </div>
+      </div>
+
+      <div class="prerequisits">
+        <strong>Abans de començar has de poder fer això:</strong>
+        <ul>
+          <li>Variables i operadors (Tema 1).</li>
+          <li>Condicions i <code>switch</code> (Tema 2).</li>
+          <li>Bucles <code>while</code> i <code>for</code> (Tema 3).</li>
+          <li>Arrays i <code>String</code> (Tema 4).</li>
+          <li>Mètodes amb paràmetres i <code>return</code> (Tema 5).</li>
+          <li>Classes i objectes (Tema 6).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ 02 · QUÈ APRENDREM ============================ -->
+    <section class="seccio" id="objectius" data-nav="02 · Què aprendrem?">
+      <h2>Què aprendrem en este tema?</h2>
+      <p class="entradeta">En acabar esta sessió has de saber fer estes coses:</p>
+      <ul class="llista-objectius revela">
+        <li><span class="num">1</span><span>Llegir un problema i <strong>traure'n la llista de parts</strong> que necessita el programa.</span></li>
+        <li><span class="num">2</span><span>Decidir quines <strong>dades</strong> faràs servir (variables, arrays o objectes) abans d'escriure codi.</span></li>
+        <li><span class="num">3</span><span>Escriure <strong>l'esquelet</strong> del programa i fer-lo funcionar buit.</span></li>
+        <li><span class="num">4</span><span>Omplir <strong>una part cada vegada</strong> i provar-la abans de passar a la següent.</span></li>
+        <li><span class="num">5</span><span>Fer un programa amb <strong>menú i bucle</strong> que no s'acabe fins que l'usuari vullga.</span></li>
+        <li><span class="num">6</span><span>Detectar errors i <strong>millorar</strong> un programa que ja funcione.</span></li>
+      </ul>
+    </section>
+
+    <!-- =============================== 03 · TEORIA =============================== -->
+    <section class="seccio" id="teoria" data-nav="03 · Teoria">
+      <h2>Teoria, poc a poc</h2>
+      <p class="entradeta">Hui no aprenem sintaxi nova: aprenem un mètode de treball. Una idea → un exemple.</p>
+<h3>1. El mètode de treball</h3>
+        <p>Els programes grans no s'escriuen de colp: <strong>es construïxen per etapes</strong>. Estes sis etapes són sempre les mateixes, tant per a un exercici de classe com per a un joc de veritat:</p>
+        <div class="graella graella--4">
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">1️⃣</span> Entendre</h3>
+                      <p>Què ha de fer exactament el programa? Preguntar-ho i apuntar-ho.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">2️⃣</span> Dividir</h3>
+                      <p>Traure la llista de parts (afegir, mostrar, calcular, buscar…).</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">3️⃣</span> Dades</h3>
+                      <p>Amb què treballem: quina variable, quin array, quina classe.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">4️⃣</span> Esquelet</h3>
+                      <p>Escriure les parts buides i el main. Ha de compilar.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">5️⃣</span> Omplir i provar</h3>
+                      <p>Fer una part, executar-la, comprovar, i passar a la següent.</p>
+                    </article>
+                    <article class="targeta">
+                      <h3><span aria-hidden="true">6️⃣</span> Millorar</h3>
+                      <p>Quan tot funciona: casos estranys, detalls i netejar el codi.</p>
+                    </article>
+                  </div>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>L'etapa que més es descuida és la <strong>4</strong>. Escriure l'esquelet primer et dona la sensació de tindre el programa «situat»: després només cal omplir forats, un a un.</p></div>
+                  </div>
+        <h3>2. Del problema a la llista de parts</h3>
+        <p>Fixem-nos en el problema del torneig i apuntem què ha de saber fer el programa. Cada cosa que sap fer serà un <strong>mètode</strong>.</p>
+        <pre class="codi" data-titol="PlaDelTorneig.txt" data-etiqueta="PLA (SENSE CODI ENCARA)"><code>GESTOR DE PUNTUACIONS
+        ------------------------------
+        1. Llegir els jugadors       →  llegirJugadors()
+        2. Mostrar la classificació  →  mostrarTots()
+        3. Sumar els punts de tots   →  totalPunts()
+        4. Dir qui va primer         →  millorJugador()
+        5. Afegir punts a un jugador →  afegirPunts(nom, punts)
+        6. Buscar un jugador         →  buscar(nom)
+        7. Menú per triar què fer    →  main()</code></pre>
+        <p>Esta llista és el <strong>mapa del programa</strong>. Quan et bloques escrivint codi, tornes a la llista: <em>quina part estic fent ara? què li entra i què ha de tornar?</em></p>
+        <div class="pregunta-classe"><p>Quines parts d'esta llista tornen un valor i quines no? Per què?</p></div>
+        <h3>3. Decidir les dades (abans d'escriure codi)</h3>
+        <p>Un jugador té <strong>nom i punts</strong>: això és un objecte. I hi haurà molts jugadors: això és un <strong>array</strong>. Una frase ho resumix tot:</p>
+        <pre class="codi" data-titol="Decisio.java" data-etiqueta="LA DECISIÓ"><code>Jugador[] jugadors = new Jugador[4];   // molts elements, cadascun amb dades distintes
+        int total = 0;                          // un sol número que va sumant
+        String nomBuscat = "Ana";               // un text per buscar</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Decisió presa: array d'objectes, un acumulador i un text.</pre>
+                  </div>
+        <p>Si t'equivoques de dades t'equivoques de programa: si guardes els punts en 40 variables, els bucles i els mètodes no es podran escriure. <strong>Primer les dades, després el codi.</strong></p>
+        <h3>4. L'esquelet: escriure el programa buit</h3>
+        <p>S'escriuen les capçaleres dels mètodes amb el seu tipus de retorn i, dins, una resposta provisional. El programa <strong>ha de compilar i executar-se</strong> encara que no faça res de profit.</p>
+        <pre class="codi" data-titol="Torneig.java" data-etiqueta="ESQUELET"><code>public class Torneig {
+
+            public static void mostrarTots(Jugador[] jugadors) {
+                System.out.println("(encara no ho he escrit)");
+            }
+
+            public static int totalPunts(Jugador[] jugadors) {
+                return 0;      // provisional: ja el canviarem
+            }
+
+            public static void main(String[] args) {
+                System.out.println("El programa arranca bé: estructura preparada.");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>El programa arranca bé: estructura preparada.</pre>
+                  </div>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>Un <code>return 0;</code> provisional no és trampa: és una manera de dir «ací encara no hi ha res». El programa compila, s'executa i podem seguir construint sense que res s'esbuse.</p></div>
+                  </div>
+        <h3>5. Una part, una prova</h3>
+        <p>Ara s'ompli <strong>una sola part</strong> i s'executa. Com que sabem quin resultat esperem, comprovar és immediat.</p>
+        <pre class="codi" data-titol="Torneig.java" data-etiqueta="PRIMERA PART ACABADA"><code>public class Torneig {
+
+            public static int totalPunts(int[] punts) {
+                int total = 0;
+                for (int i = 0; i &lt; punts.length; i++) {
+                    total = total + punts[i];
+                }
+                return total;
+            }
+
+            public static void main(String[] args) {
+                int[] proves = {120, 95, 180};          // dades xicotetes per provar
+                System.out.println(totalPunts(proves)); // ha de dir 395
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>395</pre>
+                  </div>
+        <p>Demanar a un mètode que treballe <strong>sempre amb dades del mètode <code>main</code></strong> fa que siga fàcil de provar: canvies el <code>main</code> i proven mil coses sense tocar el mètode.</p>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Provar amb dades menudes que <strong>ja saps sumar de cap</strong> (120 + 95 + 180 = 395) és la manera més ràpida de saber si la part està bé.</p></div>
+                  </div>
+        <h3>6. El menú: el programa no s'acaba</h3>
+        <p>Un programa de veritat no es tanca després de fer una cosa: mostra un menú i espera. Això ja el sabem fer amb un <code>while</code> i un <code>switch</code>.</p>
+        <pre class="codi" data-titol="Menu.java" data-etiqueta="BUCLE PRINCIPAL"><code>import java.util.Scanner;
+
+        public class Menu {
+            public static void main(String[] args) {
+                Scanner teclat = new Scanner(System.in);
+                boolean eixir = false;
+
+                while (!eixir) {
+                    System.out.println("1. Mostrar   2. Sumar   3. Buscar   0. Eixir");
+                    int opcio = teclat.nextInt();
+
+                    switch (opcio) {
+                        case 1:
+                            System.out.println("Mostre la classificació");
+                            break;
+                        case 2:
+                            System.out.println("Total: 395");
+                            break;
+                        case 3:
+                            System.out.println("Buscant...");
+                            break;
+                        case 0:
+                            eixir = true;
+                            System.out.println("Fins aviat!");
+                            break;
+                        default:
+                            System.out.println("Opció incorrecta");
+                    }
+                }
+            }
+        }</code></pre>
+                  <div class="consola consola--entrada">
+                    <span class="consola__titol">Què ha de passar</span>
+                    <pre>1. Mostrar   2. Sumar   3. Buscar   0. Eixir
+        Mostre la classificació
+        1. Mostrar   2. Sumar   3. Buscar   0. Eixir
+        Total: 395
+        1. Mostrar   2. Sumar   3. Buscar   0. Eixir
+        Buscant...
+        1. Mostrar   2. Sumar   3. Buscar   0. Eixir
+        Fins aviat!</pre>
+                  </div>
+        <div class="nota nota--important">
+                    <span class="nota__icona" aria-hidden="true">⛔</span>
+                    <div><p>El <strong><code>main</code> ha de ser curt i llegir-se com un resum</strong>: demanar dades, cridar el mètode que toque. Si el <code>main</code> té més de 30 línies, segurament hi ha parts que haurien de ser mètodes.</p></div>
+                  </div>
+        <h3>7. Quan alguna cosa falla: busca la part</h3>
+        <p>Amb el programa dividit, trobar un error és molt més fàcil. Estes quatre preguntes resolen quasi tots els problemes:</p>
+        <ul class="llista-punts">
+                    <li><strong>Quina part és la culpable?</strong> (llegir, calcular o mostrar).</li>
+                    <li><strong>Li arriben bé les dades?</strong> Comprova-ho amb un <code>println</code> provisional.</li>
+                    <li><strong>Què torna?</strong> També es pot imprimir el valor de retorn.</li>
+                    <li><strong>Amb quines dades falla?</strong> Prova amb un cas xicotet, no amb les 40 dades reals.</li>
+                  </ul>
+        <div class="nota nota--avis">
+                    <span class="nota__icona" aria-hidden="true">⚠️</span>
+                    <div><p>No canvies cinc coses alhora quan no funciona. Canvia'n una, prova, i si no s'arregla, torna arrere. Si canvies tot, no saps què ho ha arreglat (ni què ho ha trencat).</p></div>
+                  </div>
+        <h3>8. Quan tot funciona: millorar</h3>
+        <p>Un programa que funciona no està acabat. Estos quatre retocs li donen la qualitat que es nota:</p>
+        <ul class="llista-punts">
+                    <li><strong>Casos estranys:</strong> llista buida, jugador que no existix, empat, valor 0.</li>
+                    <li><strong>Missatges clars:</strong> «No hi ha cap jugador amb eixe nom» és millor que «Error».</li>
+                    <li><strong>Noms i ordre:</strong> els mètodes al fitxer, sempre el mateix orde, i el <code>main</code> a dalt.</li>
+                    <li><strong>Traure el que sobra:</strong> codi repetit, variables que no serveixen, comentaris inútils.</li>
+                  </ul>
+        <div class="pregunta-classe"><p>Quin cas estrany provaries tu en un gestor de notes? I en un carret de la compra?</p></div>
+    </section>
+
+    <!-- =========================== 04 · EXEMPLES EXPLICATS =========================== -->
+    <section class="seccio seccio--suau" id="exemples" data-nav="04 · Exemples">
+      <h2>Exemples explicats pas a pas</h2>
+      <p class="entradeta">Tres programes complets, del més xicotet al més complet. Fixa't sempre en el mateix: quin és el pla i quines dades es fan servir.</p>
+<h3>Exemple 1 · Gestor de notes, de zero a programa</h3>
+        <p><strong>El pla:</strong> llegir les notes, mostrar-les, calcular la mitjana, comptar els aprovats i dir la nota més alta. Cinc parts i quatre mètodes.</p>
+        <pre class="codi" data-titol="NotesClasse.java" data-etiqueta="EXEMPLE COMPLET"><code>public class NotesClasse {
+
+            public static void mostrarNotes(double[] notes) {
+                for (int i = 0; i &lt; notes.length; i++) {
+                    System.out.println("Nota " + (i + 1) + ": " + notes[i]);
+                }
+            }
+
+            public static double mitjana(double[] notes) {
+                double suma = 0;
+                for (int i = 0; i &lt; notes.length; i++) {
+                    suma = suma + notes[i];
+                }
+                return suma / notes.length;
+            }
+
+            public static int aprovats(double[] notes) {
+                int comptador = 0;
+                for (int i = 0; i &lt; notes.length; i++) {
+                    if (notes[i] &gt;= 5) {
+                        comptador++;
+                    }
+                }
+                return comptador;
+            }
+
+            public static double maxima(double[] notes) {
+                double mesAlta = notes[0];
+                for (int i = 1; i &lt; notes.length; i++) {
+                    if (notes[i] &gt; mesAlta) {
+                        mesAlta = notes[i];
+                    }
+                }
+                return mesAlta;
+            }
+
+            public static void main(String[] args) {
+                double[] notes = {6.5, 4.0, 8.25, 7.0, 3.5};
+
+                mostrarNotes(notes);
+                System.out.println("Mitjana: " + mitjana(notes));
+                System.out.println("Aprovats: " + aprovats(notes));
+                System.out.println("La més alta: " + maxima(notes));
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Nota 1: 6.5
+        Nota 2: 4.0
+        Nota 3: 8.25
+        Nota 4: 7.0
+        Nota 5: 3.5
+        Mitjana: 5.85
+        Aprovats: 3
+        La més alta: 8.25</pre>
+                  </div>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>Fixa't que el <code>main</code> <strong>es llig com un resum del programa</strong>: mostrar, mitjana, aprovats, màxima. Si algú llig el <code>main</code> i entén què fa el programa, les parts estan ben triades.</p></div>
+                  </div>
+        <h3>Exemple 2 · El mateix pla, ara amb objectes</h3>
+        <p>Si a més de la nota volem el nom, cada nota passa a ser un objecte. El pla del programa <strong>no canvia</strong>: només canvia la dada.</p>
+        <pre class="codi" data-titol="NotesAmbNom.java" data-etiqueta="OBJECTES + MÈTODES"><code>class Alumne {
+            String nom;
+            double nota;
+
+            public boolean estaAprovat() {
+                return nota &gt;= 5;
+            }
+
+            public String text() {
+                return nom + " (" + nota + ")" + (estaAprovat() ? " APROVAT" : " suspès");
+            }
+        }
+
+        public class NotesAmbNom {
+            public static void main(String[] args) {
+                Alumne[] classe = new Alumne[3];
+
+                classe[0] = new Alumne();
+                classe[0].nom = "Ana";
+                classe[0].nota = 7.5;
+
+                classe[1] = new Alumne();
+                classe[1].nom = "Bruno";
+                classe[1].nota = 4.25;
+
+                classe[2] = new Alumne();
+                classe[2].nom = "Carla";
+                classe[2].nota = 9.0;
+
+                for (int i = 0; i &lt; classe.length; i++) {
+                    System.out.println(classe[i].text());
+                }
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Ana (7.5) APROVAT
+        Bruno (4.25) suspès
+        Carla (9.0) APROVAT</pre>
+                  </div>
+        <div class="nota nota--info">
+                    <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                    <div><p>L'operador <code>? :</code> de la línia del <code>return</code> es llig «si es complix això, posa això; si no, posa allò altre». És un <code>if</code> que torna un valor. <strong>De moment no cal dominar-lo</strong>: si et resulta més clar, escriu el <code>if</code> amb <code>return</code> dins de cada branca.</p></div>
+                  </div>
+        <h3>Exemple 3 · Un inventari que creix</h3>
+        <p><strong>El pla:</strong> mostrar els productes, sumar el valor de l'inventari, dir el més car i buscar un producte pel nom. El «no el trobe» és tan important com el «el trobe».</p>
+        <pre class="codi" data-titol="Inventari.java" data-etiqueta="EXEMPLE COMPLET"><code>class Producte {
+            String nom;
+            double preu;
+            int unitats;
+        }
+
+        public class Inventari {
+
+            public static void mostrar(Producte[] productes) {
+                for (int i = 0; i &lt; productes.length; i++) {
+                    System.out.println(productes[i].nom + " x" + productes[i].unitats
+                            + " = " + (productes[i].preu * productes[i].unitats) + " €");
+                }
+            }
+
+            public static double valorTotal(Producte[] productes) {
+                double total = 0;
+                for (int i = 0; i &lt; productes.length; i++) {
+                    total = total + productes[i].preu * productes[i].unitats;
+                }
+                return total;
+            }
+
+            public static void buscar(Producte[] productes, String nom) {
+                boolean trobat = false;
+                for (int i = 0; i &lt; productes.length; i++) {
+                    if (productes[i].nom.equals(nom)) {
+                        System.out.println("Trobat: " + productes[i].nom + " a " + productes[i].preu + " €");
+                        trobat = true;
+                    }
+                }
+                if (!trobat) {
+                    System.out.println("No hi ha cap producte que es diga " + nom);
+                }
+            }
+
+            public static void main(String[] args) {
+                Producte[] estoc = new Producte[3];
+
+                estoc[0] = new Producte();
+                estoc[0].nom = "Ratolí";
+                estoc[0].preu = 12.5;
+                estoc[0].unitats = 8;
+
+                estoc[1] = new Producte();
+                estoc[1].nom = "Teclat";
+                estoc[1].preu = 24.0;
+                estoc[1].unitats = 5;
+
+                estoc[2] = new Producte();
+                estoc[2].nom = "Monitor";
+                estoc[2].preu = 119.9;
+                estoc[2].unitats = 2;
+
+                mostrar(estoc);
+                System.out.println("Valor de l'estoc: " + valorTotal(estoc) + " €");
+                buscar(estoc, "Teclat");
+                buscar(estoc, "Impressora");
+            }
+        }</code></pre>
+                  <div class="consola">
+                    <span class="consola__titol">Eixida per pantalla</span>
+                    <pre>Ratolí x8 = 100.0 €
+        Teclat x5 = 120.0 €
+        Monitor x2 = 239.8 €
+        Valor de l'estoc: 459.8 €
+        Trobat: Teclat a 24.0 €
+        No hi ha cap producte que es diga Impressora</pre>
+                  </div>
+        <div class="nota nota--tip">
+                    <span class="nota__icona" aria-hidden="true">💡</span>
+                    <div><p>La variable <code>trobat</code> és la manera clàssica de resoldre «buscar»: comença en <code>false</code>, es posa en <code>true</code> si el troba, i al final decidix què dir. Sense ella no sabríem si no hi ha cap coincidència.</p></div>
+                  </div>
+        <div class="prediccio">
+                    <h3>Quina serà l'eixida?</h3>
+                    <pre class="codi" data-titol="Prediccio.java" data-etiqueta="PENSA PRIMER"><code>public class Prediccio {
+            public static int dobla(int x) {
+                return x * 2;
+            }
+
+            public static void main(String[] args) {
+                int a = 5;
+                a = dobla(a);
+                System.out.println(a);
+                System.out.println(dobla(a));
+            }
+        }</code></pre>
+                    <button class="boto boto--solucio" type="button" data-solucio="pred-exemple7" data-text-mostrar="Mostrar què apareix" data-text-ocultar="Amagar">Mostrar què apareix</button>
+                    <div class="solucio" id="pred-exemple7" hidden>
+                      <span class="solucio__etiqueta">Resposta</span>
+                      <div class="consola"><span class="consola__titol">Eixida real</span><pre>10
+        20</pre></div>
+                      <p class="solucio__perque"><strong>Per què:</strong> El mètode <strong>no canvia</strong> la variable <code>a</code> per si mateix: torna un valor que es guarda (primera línia) o es mostra directament (segona). Entendre això és mitat de la feina amb mètodes.</p>
+                    </div>
+                  </div>
+    </section>
+
+    <!-- =========================== 05 · PROGRAMACIÓ GUIADA =========================== -->
+    <section class="seccio" id="guiada" data-nav="05 · Programació guiada">
+      <h2>Programació guiada: el gestor del torneig</h2>
+      <p class="entradeta">Construïm entre tots el programa del principi de la sessió, però <strong>ben fet</strong>: per etapes, provant cada etapa. No escrigues res definitiu fins que hàgem decidit el pla.</p>
+      <div class="pas revela">
+        <span class="pas__num">1</span>
+        <div class="pas__cos">
+          <h3>Pas 1 · Què ha de fer el programa?</h3>
+<p>Abans de tocar el teclat, escrivim el pla entre tots. La llista de parts <strong>és</strong> el programa.</p>
+          <pre class="codi" data-titol="PlaDelTorneig.txt" data-etiqueta="EL PLA"><code>1. Guardar 4 jugadors amb nom i punts
+          2. Mostrar la classificació
+          3. Sumar tots els punts
+          4. Dir qui va primer
+          5. Afegir punts a un jugador (pel nom)
+          6. Menú per triar què fer, amb opció d'eixir</code></pre>
+          <div class="pregunta-classe"><p>Quantes parts tornen un valor i quantes només mostren coses? Com ho sabem?</p></div>
+          <div class="nota nota--tip">
+                      <span class="nota__icona" aria-hidden="true">💡</span>
+                      <div><p>Si una part mostra per pantalla, serà <code>void</code>. Si calcula alguna cosa que després farem servir, tornarà un valor. La paraula «després» és la pista.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">2</span>
+        <div class="pas__cos">
+          <h3>Pas 2 · Les dades</h3>
+<p>Un jugador: nom i punts. Molts jugadors: un array. Decidit abans d'escriure res més.</p>
+          <pre class="codi" data-titol="Jugador.java" data-etiqueta="LA CLASSE"><code>public class Jugador {
+              String nom;
+              int punts;
+
+              public String text() {
+                  return nom + ": " + punts + " punts";
+              }
+          }</code></pre>
+          <p>I al programa principal: <code>Jugador[] jugadors = new Jugador[4];</code>. Pregunta a classe: <strong>per què <code>new Jugador[4]</code> no crea encara cap jugador?</strong></p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">3</span>
+        <div class="pas__cos">
+          <h3>Pas 3 · L'esquelet que compila</h3>
+<p>Escrivim el <code>main</code> i les capçaleres de tots els mètodes amb un retorn provisional. Executem: <strong>ha de funcionar i no fer res de profit</strong>. Això vol dir que l'estructura està bé.</p>
+          <pre class="codi" data-titol="Torneig.java" data-etiqueta="PAS 3 · ESQUELET"><code>public class Torneig {
+
+              public static void mostrarTots(Jugador[] jugadors) {
+                  System.out.println("(pendent)");
+              }
+
+              public static int totalPunts(Jugador[] jugadors) {
+                  return 0;
+              }
+
+              public static int buscar(Jugador[] jugadors, String nom) {
+                  return -1;          // -1 vol dir "no el trobe"
+              }
+
+              public static void main(String[] args) {
+                  System.out.println("Esquelet preparat.");
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Esquelet preparat.</pre>
+                    </div>
+          <div class="nota nota--info">
+                      <span class="nota__icona" aria-hidden="true">ℹ️</span>
+                      <div><p><code>buscar</code> torna un <strong>número de casella</strong> i no el jugador: així qui crida al mètode pot decidir què fer (mostrar-lo, afegir-li punts…). Tornar <code>-1</code> quan no es troba res és un costum molt estés en programació.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">4</span>
+        <div class="pas__cos">
+          <h3>Pas 4 · Omplim mostrarTots i provem</h3>
+<p>Primera part de veritat. Al <code>main</code> li posem dades de prova i comprovem que l'eixida és la que esperem.</p>
+          <pre class="codi" data-titol="Torneig.java" data-etiqueta="PAS 4 · PRIMERA PART"><code>public class Torneig {
+
+              public static void mostrarTots(Jugador[] jugadors) {
+                  for (int i = 0; i &lt; jugadors.length; i++) {
+                      if (jugadors[i] != null) {
+                          System.out.println("  " + jugadors[i].text());
+                      }
+                  }
+              }
+
+              public static Jugador crea(String nom, int punts) {
+                  Jugador j = new Jugador();
+                  j.nom = nom;
+                  j.punts = punts;
+                  return j;
+              }
+
+              public static void main(String[] args) {
+                  Jugador[] jugadors = new Jugador[4];
+                  jugadors[0] = crea("Ana", 120);
+                  jugadors[1] = crea("Bruno", 95);
+
+                  mostrarTots(jugadors);
+              }
+          }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>  Ana: 120 punts
+            Bruno: 95 punts</pre>
+                    </div>
+          <div class="pregunta-classe"><p>Què passa si no comprovem <code>jugadors[i] != null</code> i encara no hem omplit les altres caselles?</p></div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">5</span>
+        <div class="pas__cos">
+          <h3>Pas 5 · Sumar i dir qui va primer</h3>
+<p>Dos mètodes que calculen. Cap dels dos escriu per pantalla: tornen el resultat i el <code>main</code> decidix què fer amb ell.</p>
+          <pre class="codi" data-titol="Torneig.java" data-etiqueta="PAS 5 · CÀLCULS"><code>    public static int totalPunts(Jugador[] jugadors) {
+                  int total = 0;
+                  for (int i = 0; i &lt; jugadors.length; i++) {
+                      if (jugadors[i] != null) {
+                          total = total + jugadors[i].punts;
+                      }
+                  }
+                  return total;
+              }
+
+              public static String millorJugador(Jugador[] jugadors) {
+                  Jugador millor = null;
+                  for (int i = 0; i &lt; jugadors.length; i++) {
+                      if (jugadors[i] != null &amp;&amp; (millor == null || jugadors[i].punts &gt; millor.punts)) {
+                          millor = jugadors[i];
+                      }
+                  }
+                  if (millor == null) {
+                      return "No hi ha jugadors";
+                  }
+                  return millor.nom + " amb " + millor.punts + " punts";
+              }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Amb Ana (120) i Bruno (95): total 215 i millor &quot;Ana amb 120 punts&quot;.</pre>
+                    </div>
+          <div class="nota nota--tip">
+                      <span class="nota__icona" aria-hidden="true">💡</span>
+                      <div><p>Fixem-nos en la condició del <code>if</code>: primer comprovem que la casella no és buida i <strong>després</strong> mirem els punts. L'orde no és casualitat: si la casella és <code>null</code> i mirem els punts abans, el programa s'atura.</p></div>
+                    </div>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">6</span>
+        <div class="pas__cos">
+          <h3>Pas 6 · Afegir punts i buscar pel nom</h3>
+<p>Ara les parts que <strong>modifiquen</strong> dades. Buscar i afegir punts demana un mètode que trobe la casella i un altre (o el mateix) que la fa servir.</p>
+          <pre class="codi" data-titol="Torneig.java" data-etiqueta="PAS 6 · BUSCAR I AFEGIR"><code>    public static int buscar(Jugador[] jugadors, String nom) {
+                  for (int i = 0; i &lt; jugadors.length; i++) {
+                      if (jugadors[i] != null &amp;&amp; jugadors[i].nom.equals(nom)) {
+                          return i;              // casella on està
+                      }
+                  }
+                  return -1;                     // no el trobe
+              }
+
+              public static void afegirPunts(Jugador[] jugadors, String nom, int punts) {
+                  int posicio = buscar(jugadors, nom);
+                  if (posicio == -1) {
+                      System.out.println("No hi ha cap jugador que es diga " + nom);
+                  } else {
+                      jugadors[posicio].punts = jugadors[posicio].punts + punts;
+                      System.out.println(nom + " ara té " + jugadors[posicio].punts + " punts");
+                  }
+              }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Ana ara té 145 punts
+          No hi ha cap jugador que es diga Zeus</pre>
+                    </div>
+          <p><code>afegirPunts</code> <strong>reutilitza</strong> <code>buscar</code>. No hem tornat a escriure el bucle: les peces del programa es recolzen unes en altres.</p>
+        </div>
+      </div>
+      <div class="pas revela">
+        <span class="pas__num">7</span>
+        <div class="pas__cos">
+          <h3>Pas 7 · El menú i la prova final</h3>
+<p>Ajuntem tot dins d'un bucle que no acaba fins que l'usuari vol. I provem els casos estranys abans de donar-lo per acabat.</p>
+          <pre class="codi" data-titol="Torneig.java" data-etiqueta="PAS 7 · MENÚ"><code>    public static void main(String[] args) {
+                  Scanner teclat = new Scanner(System.in);
+                  Jugador[] jugadors = new Jugador[4];
+                  jugadors[0] = crea("Ana", 120);
+                  jugadors[1] = crea("Bruno", 95);
+                  jugadors[2] = crea("Carla", 180);
+
+                  boolean eixir = false;
+                  while (!eixir) {
+                      System.out.println("1. Classificació  2. Total  3. Millor  4. Afegir punts  0. Eixir");
+                      int opcio = teclat.nextInt();
+
+                      if (opcio == 1) {
+                          mostrarTots(jugadors);
+                      } else if (opcio == 2) {
+                          System.out.println("Total: " + totalPunts(jugadors));
+                      } else if (opcio == 3) {
+                          System.out.println("Va primer: " + millorJugador(jugadors));
+                      } else if (opcio == 4) {
+                          System.out.println("Nom del jugador:");
+                          String nom = teclat.next();
+                          System.out.println("Punts a afegir:");
+                          afegirPunts(jugadors, nom, teclat.nextInt());
+                      } else if (opcio == 0) {
+                          eixir = true;
+                          System.out.println("Fins aviat!");
+                      } else {
+                          System.out.println("Opció incorrecta");
+                      }
+                  }
+              }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>El programa funciona i no s'acaba fins que triem l'opció 0.</pre>
+                    </div>
+          <ul class="llista-punts">
+                      <li><strong>Prova 1:</strong> afegir punts a un jugador que existix (Ana).</li>
+                      <li><strong>Prova 2:</strong> afegir punts a un jugador que no existix (Zeus).</li>
+                      <li><strong>Prova 3:</strong> vore la classificació quan encara no s'ha omplit tot l'array.</li>
+                      <li><strong>Prova 4:</strong> triar una opció que no existix (per exemple 9).</li>
+                      <li><strong>Prova 5:</strong> eixir amb l'opció 0.</li>
+                    </ul>
+          <div class="nota nota--exit">
+                      <span class="nota__icona" aria-hidden="true">✅</span>
+                      <div><p>Hem construït <strong>un programa de debò</strong> amb tot el que sabíem: variables, condicions, bucles, arrays, mètodes i objectes. I l'hem fet sense cap concepte nou. <strong>Este és el tema 7.</strong></p></div>
+                    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 06 · MINI EXERCICIS ============================= -->
+    <section class="seccio seccio--suau" id="mini-exercicis" data-nav="06 · Mini exercicis">
+      <h2>Mini exercicis</h2>
+      <p class="entradeta">Activitats molt curtes per agafar el costum de pensar en parts. Dos o tres minuts cada una.</p>
+      <div class="llista-mini">
+        <article class="exercici exercici--mini" id="mini7-1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">La llista de parts</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat"><strong>Sense escriure codi:</strong> apunta les parts que necessitaria un programa que demana la temperatura de cada dia d'una setmana i després diu la mitjana i el dia més calorós. Escriu-les com a noms de mètode.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini7-1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini7-1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini7-1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini7-1" hidden><p><strong>Pista:</strong> Pregunta't: quines dades necessite guardar i quantes coses distintes ha de fer el programa?</p></div>
+          <div class="solucio" id="sol-mini7-1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Pla.txt" data-etiqueta="SOLUCIÓ"><code>llegirTemperatures()    → torna double[] o void
+mostrarTemperatures()  → void
+mitjana()              → double
+diaMesCalorós()        → String (o int, el número de dia)
+main()                 → el menú o l'orde de les crides</code></pre>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Qualsevol llista raonable val: el que importa és <strong>separar llegir de calcular i de mostrar</strong>. Eixes tres coses sempre són mètodes distints.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini7-2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">Quines dades?</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">2 min</span>
+          </div>
+          <div class="exercici__enunciat">Per a un programa que guarda els resultats d'una lliga de videojocs (equip local, equip visitant, gols local, gols visitant), digues quines dades faries servir i de quin tipus.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini7-2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini7-2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini7-2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini7-2" hidden><p><strong>Pista:</strong> Quantes dades té un partit? Aleshores, quina estructura les ajunta?</p></div>
+          <div class="solucio" id="sol-mini7-2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Partit.java" data-etiqueta="SOLUCIÓ"><code>class Partit {
+    String local;
+    String visitant;
+    int golsLocal;
+    int golsVisitant;
+}
+
+Partit[] jornada = new Partit[6];   // tots els partits de la jornada</code></pre>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Totes les dades d'un partit van juntes: per això una <strong>classe</strong>. I com que hi ha molts partits, un <strong>array</strong> d'eixa classe.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini7-3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">Completa l'esquelet</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">4 min</span>
+          </div>
+          <div class="exercici__enunciat">Escriu l'esquelet (capçaleres i <code>main</code>) d'un programa que guarda les notes de 5 alumnes i mostra la nota més alta. Ha de <strong>compilar i executar-se</strong> encara que els mètodes no facen res.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini7-3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini7-3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini7-3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini7-3" hidden><p><strong>Pista:</strong> Els mètodes poden tornar un valor provisional (<code>return 0;</code>) perquè el programa arranque.</p></div>
+          <div class="solucio" id="sol-mini7-3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Esquelet.java" data-etiqueta="SOLUCIÓ"><code>public class Esquelet {
+
+    public static double mesAlta(double[] notes) {
+        return 0;      // pendent
+    }
+
+    public static void mostrar(double[] notes) {
+        System.out.println("(pendent)");
+    }
+
+    public static void main(String[] args) {
+        double[] notes = {6.5, 4.0, 8.25, 7.0, 3.5};
+        mostrar(notes);
+        System.out.println("La més alta: " + mesAlta(notes));
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>(pendent)
+La més alta: 0.0</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> L'esquelet compila i s'executa: això vol dir que l'estructura està bé. Ara ja només queda omplir una part cada vegada.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini7-4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">Troba l'error</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Este mètode hauria de tornar la suma dels elements. Què fa mal?</div>
+          <pre class="codi" data-titol="Suma.java" data-etiqueta="CODI"><code>public static int suma(int[] valors) {
+    int total = 0;
+    for (int i = 0; i &lt;= valors.length; i++) {
+        total = total + valors[i];
+    }
+    return total;
+}</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini7-4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini7-4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini7-4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini7-4" hidden><p><strong>Pista:</strong> Compta les voltes del bucle amb un array de 3 caselles.</p></div>
+          <div class="solucio" id="sol-mini7-4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="SumaBe.java" data-etiqueta="SOLUCIÓ"><code>public static int suma(int[] valors) {
+    int total = 0;
+    for (int i = 0; i &lt; valors.length; i++) {   // &lt; en compte de &lt;=
+        total = total + valors[i];
+    }
+    return total;
+}</code></pre>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Amb <code>&lt;=</code> l'última volta busca la casella <code>valors.length</code>, que no existix: <strong>ArrayIndexOutOfBoundsException</strong>. Error clàssic del Tema 4 que seguix apareixent.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini7-5">
+          <div class="exercici__cap">
+            <span class="exercici__num">5</span>
+            <h3 class="exercici__titol">Predix l'eixida</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">3 min</span>
+          </div>
+          <div class="exercici__enunciat">Què mostrarà este programa per pantalla? Pensa-ho abans d'executar-lo.</div>
+          <pre class="codi" data-titol="Prediccio.java" data-etiqueta="CODI"><code>public class Prediccio {
+    public static void canvia(int x) {
+        x = x + 100;
+    }
+
+    public static void main(String[] args) {
+        int a = 5;
+        canvia(a);
+        System.out.println(a);
+    }
+}</code></pre>
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini7-5">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini7-5">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini7-5"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini7-5" hidden><p><strong>Pista:</strong> Què li arriba al mètode: la variable o una còpia del seu valor?</p></div>
+          <div class="solucio" id="sol-mini7-5" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Prediccio.java" data-etiqueta="SOLUCIÓ"><code>System.out.println(a);   // mostra 5</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>5</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Dins del mètode, <code>x</code> és <strong>una còpia</strong> del valor: canviar-la no canvia <code>a</code>. Si volem que el canvi isca fora, el mètode ha de <strong>tornar</strong> el valor: <code>a = canvia(a);</code>.</p>
+          </div>
+        </article>
+        <article class="exercici exercici--mini" id="mini7-6">
+          <div class="exercici__cap">
+            <span class="exercici__num">6</span>
+            <h3 class="exercici__titol">Menú mínim</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">5 min</span>
+          </div>
+          <div class="exercici__enunciat">Escriu només el bucle del menú d'un programa amb dos opcions: 1 mostrar un missatge i 2 eixir. Ha de repetir-se fins que es trie eixir.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-mini7-6">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-mini7-6">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="mini7-6"> Fet</label>
+          </div>
+          <div class="pista" id="pista-mini7-6" hidden><p><strong>Pista:</strong> Necessites una variable <code>boolean</code> que canvie dins del bucle.</p></div>
+          <div class="solucio" id="sol-mini7-6" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Menu.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+public class Menu {
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+        boolean eixir = false;
+
+        while (!eixir) {
+            System.out.println("1. Missatge   2. Eixir");
+            int opcio = teclat.nextInt();
+
+            if (opcio == 1) {
+                System.out.println("Hola!");
+            } else if (opcio == 2) {
+                eixir = true;
+            } else {
+                System.out.println("Opció incorrecta");
+            }
+        }
+        System.out.println("Fi del programa");
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>1. Missatge   2. Eixir
+Hola!
+1. Missatge   2. Eixir
+Fi del programa</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> La condició del bucle és <code>!eixir</code>: mentres no hàgem triat eixir, tornem a mostrar el menú. La variable s'ha de crear <strong>abans</strong> del bucle i canviar-se <strong>dins</strong>.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 07 · FES EL PROGRAMA ========================= -->
+    <section class="seccio" id="fes-el-programa" data-nav="07 · Fes el programa">
+      <h2>Fes el programa</h2>
+      <p class="entradeta">Quatre programes complets, de menys a més dificultat. En tots el mateix orde: <strong>pla, dades, esquelet, parts i proves</strong>. Escriu-los tu abans de mirar la solució.</p>
+      <article class="exercici" id="ex7-1">
+          <div class="exercici__cap">
+            <span class="exercici__num">1</span>
+            <h3 class="exercici__titol">Gestor de notes de la classe</h3>
+            <span class="pastilla pastilla--verd">Fàcil</span>
+            <span class="pastilla">20 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes un programa que guarde 6 notes en un array i mostre: totes les notes, la mitjana arredonida a dos decimals (pots usar <code>Math.round(mitjana * 100) / 100.0</code>), la nota més alta, la més baixa i quants han aprovat.
+
+<strong>Pla:</strong> ha de tindre com a mínim quatre mètodes, un per càlcul, i el <code>main</code> ha de ser un resum.</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Notes: {6.5, 4.0, 8.25, 7.0, 3.5, 5.0}</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Mitjana: 5.71
+Més alta: 8.25
+Més baixa: 3.5
+Aprovats: 4</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex7-1">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex7-1">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex7-1"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex7-1" hidden><p><strong>Pista:</strong> Comença per la mitjana amb un acumulador i una prova xicoteta (2, 4, 6 → mitjana 4).</p></div>
+          <div class="solucio" id="sol-ex7-1" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="GestorNotes.java" data-etiqueta="SOLUCIÓ"><code>public class GestorNotes {
+
+    public static void mostrar(double[] notes) {
+        for (int i = 0; i &lt; notes.length; i++) {
+            System.out.println("Alumne " + (i + 1) + ": " + notes[i]);
+        }
+    }
+
+    public static double mitjana(double[] notes) {
+        double suma = 0;
+        for (int i = 0; i &lt; notes.length; i++) {
+            suma = suma + notes[i];
+        }
+        return suma / notes.length;
+    }
+
+    public static double maxima(double[] notes) {
+        double mesAlta = notes[0];
+        for (int i = 1; i &lt; notes.length; i++) {
+            if (notes[i] &gt; mesAlta) {
+                mesAlta = notes[i];
+            }
+        }
+        return mesAlta;
+    }
+
+    public static double minima(double[] notes) {
+        double mesBaixa = notes[0];
+        for (int i = 1; i &lt; notes.length; i++) {
+            if (notes[i] &lt; mesBaixa) {
+                mesBaixa = notes[i];
+            }
+        }
+        return mesBaixa;
+    }
+
+    public static int aprovats(double[] notes) {
+        int comptador = 0;
+        for (int i = 0; i &lt; notes.length; i++) {
+            if (notes[i] &gt;= 5) {
+                comptador++;
+            }
+        }
+        return comptador;
+    }
+
+    public static void main(String[] args) {
+        double[] notes = {6.5, 4.0, 8.25, 7.0, 3.5, 5.0};
+
+        mostrar(notes);
+        System.out.println("Mitjana: " + Math.round(mitjana(notes) * 100) / 100.0);
+        System.out.println("Més alta: " + maxima(notes));
+        System.out.println("Més baixa: " + minima(notes));
+        System.out.println("Aprovats: " + aprovats(notes));
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Alumne 1: 6.5
+Alumne 2: 4.0
+Alumne 3: 8.25
+Alumne 4: 7.0
+Alumne 5: 3.5
+Alumne 6: 5.0
+Mitjana: 5.71
+Més alta: 8.25
+Més baixa: 3.5
+Aprovats: 4</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Quatre mètodes que <strong>reben el mateix array</strong> i cadascun fa una cosa. Fixa't que cap d'ells no escriu per pantalla: tornen el número i el <code>main</code> decidix com mostrar-lo. Això els fa reutilitzables.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex7-2">
+          <div class="exercici__cap">
+            <span class="exercici__num">2</span>
+            <h3 class="exercici__titol">La botiga de mòbils</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">30 min</span>
+          </div>
+          <div class="exercici__enunciat">Crea la classe <code>Mobil</code> amb <code>model</code> (String), <code>preu</code> (double) i <code>unitats</code> (int). Després fes un programa amb un array de 4 mòbils que mostre el valor de l'estoc, diga quin és el mòbil més car i permeta buscar per model (dient clarament si no el troba).</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>Models: Pixel 8 (499 €, 3), Galaxy A55 (349 €, 5), iPhone 15 (909 €, 2), Nothing Phone (429 €, 4)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Valor de l'estoc: 6089.0 €
+El més car: iPhone 15 (909.0 €)
+Trobat: Galaxy A55 a 349.0 €
+No hi ha cap mòbil que es diga Nokia</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex7-2">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex7-2">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex7-2"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex7-2" hidden><p><strong>Pista:</strong> Fes primer la classe, després els quatre mètodes i finalment el <code>main</code>. El de buscar pot acabar amb <code>return</code> dins del bucle.</p></div>
+          <div class="solucio" id="sol-ex7-2" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Botiga.java" data-etiqueta="SOLUCIÓ"><code>class Mobil {
+    String model;
+    double preu;
+    int unitats;
+}
+
+public class Botiga {
+
+    public static void mostrar(Mobil[] estoc) {
+        for (int i = 0; i &lt; estoc.length; i++) {
+            System.out.println(estoc[i].model + " · " + estoc[i].preu + " € · "
+                    + estoc[i].unitats + " unitats");
+        }
+    }
+
+    public static double valorEstoc(Mobil[] estoc) {
+        double total = 0;
+        for (int i = 0; i &lt; estoc.length; i++) {
+            total = total + estoc[i].preu * estoc[i].unitats;
+        }
+        return total;
+    }
+
+    public static String mesCar(Mobil[] estoc) {
+        Mobil millor = estoc[0];
+        for (int i = 1; i &lt; estoc.length; i++) {
+            if (estoc[i].preu &gt; millor.preu) {
+                millor = estoc[i];
+            }
+        }
+        return millor.model + " (" + millor.preu + " €)";
+    }
+
+    public static void buscar(Mobil[] estoc, String model) {
+        for (int i = 0; i &lt; estoc.length; i++) {
+            if (estoc[i].model.equals(model)) {
+                System.out.println("Trobat: " + estoc[i].model + " a " + estoc[i].preu + " €");
+                return;                 // ja el tenim: podem eixir del mètode
+            }
+        }
+        System.out.println("No hi ha cap mòbil que es diga " + model);
+    }
+
+    public static Mobil crea(String model, double preu, int unitats) {
+        Mobil m = new Mobil();
+        m.model = model;
+        m.preu = preu;
+        m.unitats = unitats;
+        return m;
+    }
+
+    public static void main(String[] args) {
+        Mobil[] estoc = new Mobil[4];
+        estoc[0] = crea("Pixel 8", 499.0, 3);
+        estoc[1] = crea("Galaxy A55", 349.0, 5);
+        estoc[2] = crea("iPhone 15", 909.0, 2);
+        estoc[3] = crea("Nothing Phone", 429.0, 4);
+
+        mostrar(estoc);
+        System.out.println("Valor de l'estoc: " + valorEstoc(estoc) + " €");
+        System.out.println("El més car: " + mesCar(estoc));
+        buscar(estoc, "Galaxy A55");
+        buscar(estoc, "Nokia");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Pixel 8 · 499.0 € · 3 unitats
+Galaxy A55 · 349.0 € · 5 unitats
+iPhone 15 · 909.0 € · 2 unitats
+Nothing Phone · 429.0 € · 4 unitats
+Valor de l'estoc: 6089.0 €
+El més car: iPhone 15 (909.0 €)
+Trobat: Galaxy A55 a 349.0 €
+No hi ha cap mòbil que es diga Nokia</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Dos detalls que es poden millorar: el mètode de buscar usa <code>return;</code> per eixir quan el troba (més curt que una variable <code>trobat</code>), i el valor de l'estoc es multiplica <code>preu * unitats</code> en cada volta. Eixa multiplicació és la «quantitat total» de cada producte.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex7-3">
+          <div class="exercici__cap">
+            <span class="exercici__num">3</span>
+            <h3 class="exercici__titol">El videojoc textual</h3>
+            <span class="pastilla pastilla--blau">Intermèdia</span>
+            <span class="pastilla">35 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes un petit joc de text amb un <code>Jugador</code> (nom, vida, punts) i un menú de tres accions: <strong>atacar</strong> (l'enemic lleva 15 de vida i tu guanyes 10 punts), <strong>curar-se</strong> (+20 de vida, màxim 100) i <strong>eixir</strong>. Si la vida arriba a 0, el joc s'acaba amb un missatge.
+
+Ampliació: mostra una barra de vida feta amb <code>#</code> (per exemple, 100 de vida = 10 <code>#</code>).</div>
+
+          <p><strong>Com ha de funcionar:</strong></p>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Exemple d'ús</span>
+            <pre>1 (atacar) · 2 (curar) · 1 (atacar) · 0 (eixir)</pre>
+          </div>
+          <div class="consola">
+            <span class="consola__titol">Què ha d'aparéixer</span>
+            <pre>Vida: 85 · Punts: 10
+Vida: 100 · Punts: 10
+Vida: 85 · Punts: 20
+Fi de la partida. Punts finals: 20</pre>
+          </div>
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex7-3">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex7-3">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex7-3"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex7-3" hidden><p><strong>Pista:</strong> Els límits de vida posa'ls dins dels mètodes (<code>curar</code>, <code>atacar</code>): el programa de fora no ha de saber les regles.</p></div>
+          <div class="solucio" id="sol-ex7-3" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="JocText.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+class Heroi {
+    String nom;
+    int vida;
+    int punts;
+
+    public void atacar() {
+        vida = vida - 15;
+        if (vida &lt; 0) {
+            vida = 0;
+        }
+        punts = punts + 10;
+    }
+
+    public void curar() {
+        vida = vida + 20;
+        if (vida &gt; 100) {
+            vida = 100;
+        }
+    }
+
+    public boolean viu() {
+        return vida &gt; 0;
+    }
+
+    public String barra() {
+        String text = "";
+        for (int i = 0; i &lt; vida / 10; i++) {
+            text = text + "#";
+        }
+        return text;
+    }
+}
+
+public class JocText {
+
+    public static void mostrar(Heroi h) {
+        System.out.println(h.nom + " | " + h.vida + "/100 " + h.barra() + " | " + h.punts + " punts");
+    }
+
+    public static void main(String[] args) {
+        Scanner teclat = new Scanner(System.in);
+        Heroi h = new Heroi();
+        h.nom = "Ana";
+        h.vida = 100;
+        h.punts = 0;
+
+        boolean eixir = false;
+        while (!eixir &amp;&amp; h.viu()) {
+            System.out.println("1. Atacar   2. Curar-se   0. Eixir");
+            int opcio = teclat.nextInt();
+
+            if (opcio == 1) {
+                h.atacar();
+                mostrar(h);
+            } else if (opcio == 2) {
+                h.curar();
+                mostrar(h);
+            } else if (opcio == 0) {
+                eixir = true;
+            } else {
+                System.out.println("Opció incorrecta");
+            }
+        }
+
+        if (!h.viu()) {
+            System.out.println("Has caigut!");
+        }
+        System.out.println("Fi de la partida. Punts finals: " + h.punts);
+    }
+}</code></pre>
+          <div class="consola consola--entrada">
+            <span class="consola__titol">Què ha de passar</span>
+            <pre>1. Atacar   2. Curar-se   0. Eixir
+Ana | 85/100 ######## | 10 punts
+1. Atacar   2. Curar-se   0. Eixir
+Ana | 100/100 ########## | 10 punts
+1. Atacar   2. Curar-se   0. Eixir
+Ana | 85/100 ######## | 20 punts
+1. Atacar   2. Curar-se   0. Eixir
+Fi de la partida. Punts finals: 20</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> El <code>while</code> té <strong>dos</strong> motius per acabar: que l'usuari isca o que el jugador es quede sense vida. Els límits (vida entre 0 i 100) es controlen <strong>dins dels mètodes del Heroi</strong>: així cap part del programa pot deixar la vida en -40.</p>
+          </div>
+        </article>
+      <article class="exercici" id="ex7-4">
+          <div class="exercici__cap">
+            <span class="exercici__num">4</span>
+            <h3 class="exercici__titol">Agenda de contactes</h3>
+            <span class="pastilla pastilla--taronja">Cal pensar</span>
+            <span class="pastilla">40 min</span>
+          </div>
+          <div class="exercici__enunciat">Fes una agenda amb un array de 10 contactes (classe <code>Contacte</code> amb <code>nom</code> i <code>telefon</code>) que permeta: <strong>afegir</strong> un contacte a la primera casella buida, <strong>llistar</strong> els que hi ha (sense mostrar les buides), <strong>buscar</strong> pel nom i <strong>comptar</strong> quants n'hi ha.
+
+Compte: l'agenda pot estar mig buida. Un contacte «buit» és una casella que val <code>null</code>.</div>
+
+
+          <div class="exercici__accions">
+            <button class="boto boto--solucio" type="button" data-solucio="sol-ex7-4">Mostrar solució</button>
+            <button class="boto boto--fantasma boto--petit" type="button" data-pista="pista-ex7-4">Vore una pista</button>
+            <label class="marca-fet"><input type="checkbox" data-fet="ex7-4"> Fet</label>
+          </div>
+          <div class="pista" id="pista-ex7-4" hidden><p><strong>Pista:</strong> Fes el mètode <code>comptar</code> primer: si saps comptar els que hi ha, ja saps com recórrer l'agenda amb seguretat.</p></div>
+          <div class="solucio" id="sol-ex7-4" hidden>
+            <span class="solucio__etiqueta">Solució proposada</span>
+            <pre class="codi" data-titol="Agenda.java" data-etiqueta="SOLUCIÓ"><code>import java.util.Scanner;
+
+class Contacte {
+    String nom;
+    String telefon;
+
+    public String text() {
+        return nom + " → " + telefon;
+    }
+}
+
+public class Agenda {
+
+    public static int comptar(Contacte[] agenda) {
+        int quants = 0;
+        for (int i = 0; i &lt; agenda.length; i++) {
+            if (agenda[i] != null) {
+                quants++;
+            }
+        }
+        return quants;
+    }
+
+    public static void llistar(Contacte[] agenda) {
+        if (comptar(agenda) == 0) {
+            System.out.println("L'agenda està buida.");
+            return;
+        }
+        for (int i = 0; i &lt; agenda.length; i++) {
+            if (agenda[i] != null) {
+                System.out.println((i + 1) + ". " + agenda[i].text());
+            }
+        }
+    }
+
+    public static boolean afegir(Contacte[] agenda, Contacte c) {
+        for (int i = 0; i &lt; agenda.length; i++) {
+            if (agenda[i] == null) {
+                agenda[i] = c;
+                return true;               // s'ha pogut afegir
+            }
+        }
+        return false;                      // no hi ha lloc
+    }
+
+    public static void buscar(Contacte[] agenda, String nom) {
+        for (int i = 0; i &lt; agenda.length; i++) {
+            if (agenda[i] != null &amp;&amp; agenda[i].nom.equalsIgnoreCase(nom)) {
+                System.out.println("Trobat: " + agenda[i].text());
+                return;
+            }
+        }
+        System.out.println("No tinc cap contacte que es diga " + nom);
+    }
+
+    public static Contacte crea(String nom, String telefon) {
+        Contacte c = new Contacte();
+        c.nom = nom;
+        c.telefon = telefon;
+        return c;
+    }
+
+    public static void main(String[] args) {
+        Contacte[] agenda = new Contacte[10];
+
+        System.out.println("Contactes: " + comptar(agenda));
+        llistar(agenda);
+
+        afegir(agenda, crea("Ana", "600111222"));
+        afegir(agenda, crea("Bruno", "611333444"));
+        afegir(agenda, crea("Carla", "622555666"));
+
+        System.out.println("Contactes: " + comptar(agenda));
+        llistar(agenda);
+        buscar(agenda, "carla");
+        buscar(agenda, "Zeus");
+    }
+}</code></pre>
+          <div class="consola">
+            <span class="consola__titol">Eixida per pantalla</span>
+            <pre>Contactes: 0
+L'agenda està buida.
+Contactes: 3
+1. Ana → 600111222
+2. Bruno → 611333444
+3. Carla → 622555666
+Trobat: Carla → 622555666
+No tinc cap contacte que es diga Zeus</pre>
+          </div>
+            <p class="solucio__perque"><strong>Per què es fa aixina:</strong> Ací el protagonista és <strong><code>null</code></strong>: les caselles buides. Cada mètode comprova <code>agenda[i] != null</code> abans de tocar res, i <code>afegir</code> aprofita la primera casella lliure. També hem usat <code>equalsIgnoreCase</code> perquè buscar «carla» trobe «Carla».</p>
+          </div>
+        </article>
+    </section>
+
+    <!-- ================================ 08 · REPTES ================================ -->
+    <section class="seccio seccio--suau" id="reptes" data-nav="08 · Reptes">
+      <h2>Reptes (sense solució)</h2>
+      <div class="nota nota--avis">
+        <span class="nota__icona" aria-hidden="true">🧠</span>
+        <div><p>Els reptes <strong>no tenen botó de solució</strong>, a propòsit. L'objectiu és pensar, provar, equivocar-se i tornar-ho a intentar. Es poden resoldre de moltes maneres diferents: totes les solucions que funcionen són bones.</p></div>
+      </div>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 1</span>
+          <h3 class="repte__titol">El teu programa, de veritat</h3>
+        </div>
+<p>Tria <strong>un</strong> d'estos problemes i construeix-lo aplicant les sis etapes del tema. No val començar a escriure codi: primer el pla i les dades, en paper.</p>
+        <ul class="llista-punts">
+                    <li><strong>Control de gastos:</strong> demana els gastos del mes i digues el total, la mitjana, el més gran i quant has gastat de més si superes els 100 €.</li>
+                    <li><strong>Càlcul de notes de SMX:</strong> guarda les notes de cada mòdul i calcula la nota mitjana, quants mòduls aproves i si passes de curs.</li>
+                    <li><strong>Lliga de videojocs:</strong> partits amb dos equips i resultat; calcula els punts de cada equip (3 si guanya, 1 si empata) i mostra la classificació.</li>
+                    <li><strong>La teua playlist:</strong> cançons amb títol i duració en segons; mostra la duració total en minuts i segons i la cançó més llarga.</li>
+                    <li><strong>Simulador de temperatura:</strong> temperatures de la setmana; mitjana, màxima, mínima i quants dies ha gelat (per davall de 0).</li>
+                  </ul>
+        <p>Requisits mínims del projecte: <strong>almenys quatre mètodes</strong> amb un bon nom, un <code>main</code> que es llija com un resum, un menú amb bucle i un cas estrany comprovat (llista buida, valor 0 o element que no existix).</p>
+        <p><strong>Entrega:</strong> el codi, el pla inicial (les parts que vas decidir) i dos línies explicant què provaria un company per buidar-te la llista.</p>
+        <p><strong>Per anar més enllà:</strong></p>
+        <ul class="llista-punts">
+          <li>Guarda les dades en un array d'objectes en compte de variables soltes.</li>
+          <li>Afig una opció més al menú sense tocar els mètodes que ja funcionen.</li>
+          <li>Fes que el programa complica sol la llista per vore si aguanta amb 20 elements.</li>
+        </ul>
+      </article>
+      <article class="repte revela">
+        <div class="repte__cap">
+          <span class="repte__num">REPTE 2</span>
+          <h3 class="repte__titol">Detectiu de codi</h3>
+        </div>
+<p>Este programa funciona «de vegades». Troba-li els <strong>tres problemes</strong>: un de dades, un de mètodes i un de límits. Escriu-los i arregla'ls.</p>
+        <pre class="codi" data-titol="Detectiu.java" data-etiqueta="TROBA'LS"><code>public class Detectiu {
+
+            public static double mitjana(int[] valors) {
+                double suma = 0;
+                for (int i = 0; i &lt; valors.length; i++) {
+                    suma = suma + valors[i];
+                }
+                return suma / valors.length;
+            }
+
+            public static int maxim(int[] valors) {
+                int mesAlt = 0;
+                for (int i = 0; i &lt; valors.length; i++) {
+                    if (valors[i] &gt; mesAlt) {
+                        mesAlt = valors[i];
+                    }
+                }
+                return mesAlt;
+            }
+
+            public static void main(String[] args) {
+                int[] proves = {-4, -9, -2};
+                System.out.println("Mitjana: " + mitjana(proves));
+                System.out.println("Màxim: " + maxim(proves));
+            }
+        }</code></pre>
+        <p>Pistes del detectiu: quin és el màxim d'un conjunt de números negatius? Què passa si l'array està buit? I quin número divideix realment la mitjana?</p>
+        <p><strong>Bonus:</strong> fes que el programa no esclate mai amb un array buit.</p>
+
+      </article>
+    </section>
+
+    <!-- ============================ 09 · ERRORS HABITUALS ============================ -->
+    <section class="seccio" id="errors" data-nav="09 · Errors habituals">
+      <h2>Errors habituals</h2>
+      <p class="entradeta">Els errors d'este tema no són de sintaxi: són d'organització. Són els que fan que un programa siga fàcil o impossible de millorar.</p>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 1</span>
+            <h3 class="exercici__titol" style="margin:0">Escriure-ho tot dins del main</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="TotAlMain.java" data-etiqueta="CODI"><code>public static void main(String[] args) {
+    int[] notes = {6.5, 4.0, 8.25};
+    double suma = 0;
+    for (int i = 0; i &lt; notes.length; i++) {
+        suma = suma + notes[i];
+    }
+    System.out.println("Mitjana: " + suma / notes.length);
+    for (int i = 0; i &lt; notes.length; i++) {
+        if (notes[i] &gt;= 5) {
+            System.out.println("Aprovat: " + notes[i]);
+        }
+    }
+    // i encara falta el màxim, el mínim, la qualificació...
+}</code></pre>
+          <p class="missatge-error">Compila i funciona… però no es pot provar per parts ni reutilitzar.</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El programa funciona, però tot està barrejat en un bloc llarg.</dd>
+                <dt>Per què</dt><dd>Quan una part falla, no saps quina és. I per a provar només la mitjana, has d'executar-ho tot.</dd>
+                <dt>Com detectar-ho</dt><dd>Mira el <code>main</code>: si té més de 20-30 línies o més d'un <code>for</code>, segurament hi ha parts que haurien de ser mètodes.</dd>
+                <dt>Com corregir-ho</dt><dd>Cada cosa que el programa sap fer, un mètode. El <code>main</code> només crida mètodes.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="AmbMetodes.java" data-etiqueta="CODI"><code>public static void main(String[] args) {
+    int[] notes = {6.5, 4.0, 8.25};
+    mostrarMitjana(notes);
+    mostrarAprovats(notes);
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 2</span>
+            <h3 class="exercici__titol" style="margin:0">Barrejar mostrar amb calcular</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="MitjanaQueImprimix.java" data-etiqueta="CODI"><code>public static void mitjana(double[] notes) {
+    double suma = 0;
+    for (int i = 0; i &lt; notes.length; i++) {
+        suma = suma + notes[i];
+    }
+    System.out.println("Mitjana: " + suma / notes.length);   // no torna res!
+}</code></pre>
+          <p class="missatge-error">El mètode es diu mitjana, però no torna cap número: no el podem usar en cap càlcul.</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>El mètode mostra la mitjana per pantalla i no la torna.</dd>
+                <dt>Per què</dt><dd>Un mètode que mostra no servix per a calcular: si demà volem comparar la mitjana amb 5, no podem.</dd>
+                <dt>Com detectar-ho</dt><dd>Pregunta: <strong>algú més necessitarà este resultat?</strong> Si la resposta és sí, ha de tornar un valor.</dd>
+                <dt>Com corregir-ho</dt><dd>El càlcul torna el número (<code>return</code>), i la impressió es fa al <code>main</code> o en un altre mètode.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Mitjana.java" data-etiqueta="CODI"><code>public static double mitjana(double[] notes) {
+    double suma = 0;
+    for (int i = 0; i &lt; notes.length; i++) {
+        suma = suma + notes[i];
+    }
+    return suma / notes.length;
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 3</span>
+            <h3 class="exercici__titol" style="margin:0">Provar amb dades massa grans</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Prova40.java" data-etiqueta="CODI"><code>int[] punts = {120, 95, 180, 210, 45, 88, 132, 99, 175, 61,
+                // ... i 30 més
+};
+System.out.println(totalPunts(punts));   // esperes 4185, però ix 4100</code></pre>
+          <p class="missatge-error">Esperat: 4185 · Obtingut: 4100  (i no saps on està el problema)</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>Es prova el mètode amb 40 dades i el resultat no quadra.</dd>
+                <dt>Per què</dt><dd>Amb tantes dades no pots saber quin element falla ni recórrer-ho a mà.</dd>
+                <dt>Com detectar-ho</dt><dd>Si no pots calcular el resultat esperat <strong>mentalment</strong>, la prova és massa gran.</dd>
+                <dt>Com corregir-ho</dt><dd>Prova primer amb 2 o 3 dades (1, 2, 3 → 6). Si ix bé, passa a dades grans.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="ProvaXicoteta.java" data-etiqueta="CODI"><code>int[] proves = {1, 2, 3};
+System.out.println(totalPunts(proves));   // ha de dir 6</code></pre>
+            </div>
+          </div>
+        </article>
+      <article class="error-habitual">
+          <div class="error-habitual__cap">
+            <span class="error-habitual__etiqueta">Error 4</span>
+            <h3 class="exercici__titol" style="margin:0">Canviar moltes coses quan no funciona</h3>
+          </div>
+          <div class="error-habitual__cos">
+            <div>
+              <span class="etiqueta-error">Codi que falla</span>
+              <pre class="codi" data-titol="Desesperacio.java" data-etiqueta="CODI"><code>// El programa diu que el màxim és 0 i no sabem per què.
+// Canviem el bucle a while, traiem el mètode, fem l'array de 5...
+// ...i ara falla en tres llocs distints i no sabem com tornar arrere.</code></pre>
+          <p class="missatge-error">error: cannot find symbol · variable mesAlt (i no saps quina versió funciona)</p>
+            </div>
+            <div>
+              <dl>
+                <dt>Què ha passat</dt><dd>S'han canviat diverses coses alhora buscant la solució.</dd>
+                <dt>Per què</dt><dd>Quan canvia tot alhora, no se sap què ha arreglat ni què ha trencat el programa.</dd>
+                <dt>Com detectar-ho</dt><dd>Si has fet tres canvis i encara no has executat el programa, ja t'has passat.</dd>
+                <dt>Com corregir-ho</dt><dd>Un canvi → una prova. Si millora, guarda la versió; si empitjora, torna arrere i pensa.</dd>
+              </dl>
+              <span class="etiqueta-correcte">Codi correcte</span>
+              <pre class="codi" data-titol="Metode.java" data-etiqueta="CODI"><code>// 1) Comprove que al mètode li arriben les dades:
+//    System.out.println("rep " + valors.length + " valors");
+// 2) Només quan estiga clar, corregisc una sola línia i torne a provar.</code></pre>
+            </div>
+          </div>
+        </article>
+    </section>
+
+    <!-- ============================= 10 · RESUM VISUAL ============================= -->
+    <section class="seccio seccio--suau" id="resum" data-nav="10 · Resum visual">
+      <h2>Resum visual</h2>
+      <p class="entradeta">Un programa gran és un conjunt de parts menudes que funcionen. Estes són les idees que has de recordar.</p>
+      <div class="resum-visual revela">
+        <div class="resum-visual__item"><p>Els programes es construïxen <strong>per etapes</strong>, no d'un colp: entendre, dividir, decidir dades, esquelet, omplir i provar.</p></div>
+        <div class="resum-visual__item"><p>La <strong>llista de parts</strong> és el mapa: cada part serà un mètode.</p></div>
+        <div class="resum-visual__item"><p>Les <strong>dades es decideixen abans</strong> d'escriure codi: variable, array o objecte.</p></div>
+        <div class="resum-visual__item"><p>L'<strong>esquelet</strong> ha de compilar i executar-se encara que no faça res de profit.</p></div>
+        <div class="resum-visual__item"><p>Una part, una prova: mai no faces dos canvis sense executar.</p></div>
+        <div class="resum-visual__item"><p>Si un mètode mostra per pantalla, no pot tornar el resultat: <strong>calcular i mostrar són coses distintes</strong>.</p></div>
+        <div class="resum-visual__item"><p>El <code>main</code> ha de ser curt i llegir-se com un resum del programa.</p></div>
+        <div class="resum-visual__item"><p>El menú amb <code>while</code> i <code>switch</code> fa que el programa servixca per a treballar de veritat.</p></div>
+        <div class="resum-visual__item"><p>Els casos estranys (llista buida, <code>null</code>, valor 0, no trobat) formen part del programa.</p></div>
+        <div class="resum-visual__item"><p>Quan no funciona: busca <strong>quina part</strong> és la culpable, no tot el programa.</p></div>
+      </div>
+    </section>
+
+    <!-- ============================ 11 · AUTOAVALUACIÓ ============================ -->
+    <section class="seccio" id="autoavaluacio" data-nav="11 · Autoavaluació">
+      <h2>Autoavaluació</h2>
+      <p class="entradeta">Nou preguntes per comprovar si saps construir un programa, no només escriure codi. Contesta-les totes abans de vore les solucions.</p>
+      <ol class="llista-autoavaluacio">
+        <li>
+          <p class="enunciat">Quin és l'orde correcte de les etapes per a construir un programa?</p>
+
+          <ul class="opcions"><li>a) Escriure el codi, provar, pensar el problema i millorar.</li><li>b) Entendre el problema i dividir-lo, decidir les dades, fer l'esquelet, omplir part a part i millorar.</li><li>c) Fer el menú, escriure els mètodes i canviar-ho tot fins que compile.</li></ul>
+          <button class="boto boto--solucio" type="button" data-solucio="av1">Mostrar solució</button>
+          <div class="solucio" id="av1" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>b) Entendre i dividir → dades → esquelet → omplir i provar → millorar.</strong></p>
+            <p class="solucio__perque">És l'orde que permet treballar sense bloquejar-se: sempre saps en quina part estàs i com comprovar-la.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Per a què servix escriure l'esquelet amb els mètodes buits abans d'omplir-los?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av2">Mostrar solució</button>
+          <div class="solucio" id="av2" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Per <strong>assegurar l'estructura</strong>: si el programa buit compila i s'executa, ja sabem que està ben muntat. Després només cal omplir els forats un a un.</strong></p>
+            <p class="solucio__perque">Així els errors de sintaxi de l'esquelet es troben quan hi ha poc codi, no al final amb tot escrit.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Este programa, què mostrarà per pantalla?</p>
+          <pre class="codi" data-titol="Pregunta.java" data-etiqueta="ANALITZA"><code>public static void main(String[] args) {
+    int[] punts = {10, 20, 30};
+    int total = 0;
+    for (int i = 0; i &lt; punts.length; i++) {
+        total = total + punts[i];
+    }
+    System.out.println(total / punts.length);
+}</code></pre>
+
+          <button class="boto boto--solucio" type="button" data-solucio="av3">Mostrar solució</button>
+          <div class="solucio" id="av3" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>20</strong></p>
+            <p class="solucio__perque">La suma val 60 i hi ha 3 elements: 60 / 3 = 20. Com que <code>total</code> i <code>punts.length</code> són <code>int</code>, la divisió dona un <code>int</code> exacte.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Per què un mètode que calcula la mitjana no hauria d'imprimir per pantalla? Expliqueu-ho amb un exemple.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av4">Mostrar solució</button>
+          <div class="solucio" id="av4" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè llavors no podem <strong>reutilitzar</strong> el resultat: si mostra la mitjana i no la torna, no podem comprovar si l'alumne aprova, ni comparar mitjanes, ni guardar-la.</strong></p>
+            <p class="solucio__perque">Calcular i mostrar són responsabilitats distintes. El càlcul torna un valor; qui el necessita decidix com mostrar-lo.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Quina diferència hi ha entre un mètode <code>void</code> i un que torna un valor, a l'hora de construir un programa gran?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av5">Mostrar solució</button>
+          <div class="solucio" id="av5" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>El <code>void</code> fa una faena i no deixa resultat (mostrar, dibuixar); el que torna un valor produïx una dada que el programa pot seguir usant.</strong></p>
+            <p class="solucio__perque">Quan planifiques les parts, saber quines tornen valor és el que et permet encadenar-les: una part usa el resultat de l'altra.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Tenim un array de 10 caselles i només n'hem omplit 3. Per què cal comprovar <code>array[i] != null</code> quan el recorrem?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av6">Mostrar solució</button>
+          <div class="solucio" id="av6" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè les caselles no omplides d'un array d'objectes <strong>valen <code>null</code></strong>, i si demanem les dades d'una casella buida el programa s'atura amb un <code>NullPointerException</code>.</strong></p>
+            <p class="solucio__perque">Un array no sap quants elements «de veritat» hi ha: eixa informació l'has de controlar tu.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Un company diu: «el meu programa falla, canviat la condició del bucle, trauré el mètode i faré l'array més gran a la vegada». Què li recomanaries?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av7">Mostrar solució</button>
+          <div class="solucio" id="av7" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Que faça <strong>un canvi i una prova</strong> cada vegada. Si canvia tres coses alhora no sabrà quina arregla el problema i quina el trenca.</strong></p>
+            <p class="solucio__perque">És el mètode professional de depuració: canvis xicotets, comprovar sempre, guardar la versió que funciona.</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Escriu (en pseudocodi o en valencià) el pla d'un programa que guarda les notes de 5 alumnes i diu quants aproven i quina és la nota mitjana dels aprovats.</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av8">Mostrar solució</button>
+          <div class="solucio" id="av8" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Parts: <code>mitjana(double[])</code> → double; <code>aprovats(double[])</code> → int; <code>mitjanaAprovats(double[])</code> → double; <code>mostrar(...)</code> → void; <code>main</code> que crida tot.</strong></p>
+            <p class="solucio__perque">El detall important és <strong>separar «comptar aprovats» de «calcular la mitjana dels aprovats»</strong>: la segona ha de tornar 0 o un missatge especial si no hi ha cap aprovat (no es pot dividir per zero).</p>
+          </div>
+        </li>
+        <li>
+          <p class="enunciat">Per què l'últim pas és «millorar» i no «acabar»? Què sol millorar-se en un programa que ja funciona?</p>
+
+
+          <button class="boto boto--solucio" type="button" data-solucio="av9">Mostrar solució</button>
+          <div class="solucio" id="av9" hidden>
+            <span class="solucio__etiqueta">Solució</span>
+            <p>Resposta: <strong>Perquè un programa que funciona encara pot fallar amb casos estranys, tindre missatges poc clars o codi repetit. Es milloren els <strong>casos límits</strong>, els missatges a l'usuari i la netedat del codi.</strong></p>
+            <p class="solucio__perque">La diferència entre un programa d'exercici i un programa útil està quasi sempre en eixa última volta.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <nav class="navegacio-temes no-imprimible" id="navegacio-temes" aria-label="Navegació entre temes"></nav>
+
+  </main>
+</div>
+
+<!-- ====================================== PEU ====================================== -->
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__graella">
+      <div>
+        <h4>Introducció a la Programació amb Java</h4>
+        <p>Optativa SMX · Sistemes Microinformàtics i Xarxes</p>
+        <p><strong>Material creat per Agustín Gil - IES La Vereda 2026</strong></p>
+      </div>
+      <div>
+        <h4>En este tema</h4>
+        <ul class="llista-netejada">
+          <li><a href="#teoria">Teoria</a></li>
+          <li><a href="#exemples">Exemples explicats</a></li>
+          <li><a href="#guiada">Programació guiada</a></li>
+          <li><a href="#resum">Resum visual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Llicència</h4>
+        <p>Material lliure per a ús educatiu.<br>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a></p>
+      </div>
+    </div>
+    <div class="peu__base">
+      <span>© 2026 Agustín Gil · IES La Vereda</span>
+      <a class="llicencia" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">
+        <span class="llicencia__icones" aria-hidden="true"><span>CC</span><span>BY</span><span>NC</span></span>
+        Creative Commons Reconeixement-NoComercial 4.0 Internacional
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Peu fix que apareix en cada pàgina del PDF -->
+<div class="peu-impressio" aria-hidden="true">
+  <span>Introducció a la Programació amb Java · Optativa SMX · Material creat per Agustín Gil - IES La Vereda 2026 · CC BY-NC 4.0</span>
+  <span class="peu-impressio__dreta">Tema 7</span>
+</div>
+
+<button class="boto boto--primari tornar-dalt no-imprimible" id="tornar-dalt" type="button" aria-label="Tornar a dalt">↑</button>
+
+<script src="../assets/js/resaltat.js"></script>
+<script src="../assets/js/dades-curs.js"></script>
+<script src="../assets/js/diapositives/tema7.js"></script>
+<script src="../assets/js/plantilla-tema.js"></script>
+<script src="../assets/js/pptx.js"></script>
+</body>
+</html>

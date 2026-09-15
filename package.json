@@ -7,9 +7,11 @@
     "genera": "node eines/genera-temes.mjs",
     "prova:pagines": "node eines/prova-pagines.mjs",
     "prova:java": "node eines/prova-codi-java.mjs",
+    "prova:sintaxi": "node eines/prova-sintaxi-java.mjs",
     "prova:pptx": "node eines/prova-pptx.mjs"
   },
   "devDependencies": {
+    "java-parser": "^3.0.1",
     "jsdom": "^30.0.1"
   }
 }

@@ -596,6 +596,7 @@ System.out.println("Nivell 2 + 1");`
         pregunta: 'Per què el compilador diu «unclosed string literal»?',
         codi: {
           titol: 'Trencat.java',
+          mal: true,   // codi trencat a propòsit: li falta la cometa que tanca el text
           text: `System.out.println("Adéu);`
         },
         resposta: 'Perquè falta la cometa que tanca el text.',

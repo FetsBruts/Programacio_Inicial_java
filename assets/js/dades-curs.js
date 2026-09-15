@@ -131,7 +131,7 @@ window.CURS = {
     },
     {
       n: 7,
-      fitxer: null,
+      fitxer: 'temes/tema7.html',
       titol: 'Construir un programa complet',
       subtitol: 'Ho ajuntem tot i ho fem funcionar',
       emoji: '🏗️',
@@ -140,7 +140,7 @@ window.CURS = {
       desc: 'Un projecte que creix pas a pas: entendre el problema, dividir-lo, programar cada part, provar-la i millorar-la.',
       continguts: ['Analitzar el problema', 'Dividir en parts', 'Programar', 'Provar', 'Millorar'],
       prereq: 'Tot el curs fins ací: variables, decisions, bucles, arrays, mètodes i objectes.',
-      estat: 'en-preparacio'
+      estat: 'publicat'
     },
     {
       n: 8,
