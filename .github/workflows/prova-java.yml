@@ -1,0 +1,57 @@
+name: Comprovacions del material
+
+# ==========================================================================
+# Nota per al professorat: este fitxer és un flux de treball de GitHub
+# Actions. Quan es puja un canvi al repositori, GitHub arranca una màquina
+# amb un JDK de veritat i comprova, en orde:
+#
+#   1. Que TOTS els blocs de codi dels temes tenen sintaxi Java correcta
+#      (java-parser, sense necessitat de JDK).
+#   2. Que les 11 seccions, els botons de solució i la impressió de cada
+#      pàgina estan bé (jsdom).
+#   3. Que TOTS els exemples amb eixida declarada COMPILEN, S'EXECUTEN i
+#      donen exactament l'eixida que hi ha escrita al material
+#      (prova-codi-java.mjs amb JDK 21).
+#
+# Si alguna cosa falla, GitHub ho marca en roig i mostra quina línia no
+# coincidix. Així no es publica mai un exemple amb una eixida equivocada.
+# ==========================================================================
+
+on:
+  push:
+    branches:
+      - main
+      - 'arena/**'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  java:
+    name: Java i pàgines
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descarrega el repositori
+        uses: actions/checkout@v4
+
+      - name: Prepara el JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Prepara Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Ferramentes de comprovació
+        run: npm install --no-audit --no-fund
+
+      - name: Sintaxi de tots els blocs Java
+        run: npm run prova:sintaxi
+
+      - name: Pàgines dels temes i diapositives
+        run: npm run prova:pagines
+
+      - name: Compila, executa i compara les eixides
+        run: node eines/prova-codi-java.mjs

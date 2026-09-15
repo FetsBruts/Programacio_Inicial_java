@@ -19,6 +19,8 @@
      continguts → 4-6 etiquetes amb els conceptes principals
      prereq     → què ha de saber l'alumnat abans de començar
      estat      → 'publicat' | 'en-preparacio'
+     recursos   → què està llest de cada tema: web, solucions,
+                  autoavaluacio i powerpoint (true/false)
    ========================================================================== */
 window.CURS = {
   titol: 'Introducció a la Programació amb Java',
@@ -49,6 +51,12 @@ window.CURS = {
       desc: 'Què significa programar, què és un programa i per què aprenem Java. Escriurem i executarem el nostre primer programa.',
       continguts: ['Què és programar', 'Llenguatge de programació', 'Codi font i execució', 'Entorn de treball', 'Hola món!'],
       prereq: 'Cap. Només ganes de provar coses.',
+      recursos: {
+        web: true,
+        solucions: true,
+        autoavaluacio: true,
+        powerpoint: true
+      },
       estat: 'publicat'
     },
     {
@@ -62,6 +70,12 @@ window.CURS = {
       desc: 'Guardar, canviar i mostrar informació: tipus bàsics, operadors aritmètics i les primeres entrades per teclat.',
       continguts: ['int, double, boolean, char, String', 'Declarar i assignar', 'Operadors + − * / %', 'Scanner', 'Concatenació'],
       prereq: 'Tema 0: saber crear un fitxer i executar-lo.',
+      recursos: {
+        web: true,
+        solucions: true,
+        autoavaluacio: true,
+        powerpoint: true
+      },
       estat: 'publicat'
     },
     {
@@ -75,6 +89,12 @@ window.CURS = {
       desc: 'Comparacions, operadors lògics, if / else if / else i una primera ullada a switch. La pregunta clau: quina condició ha de complir-se?',
       continguts: ['Comparacions', '&& || !', 'if / else', 'else if', 'switch'],
       prereq: 'Tema 1: variables i tipus bàsics.',
+      recursos: {
+        web: true,
+        solucions: true,
+        autoavaluacio: true,
+        powerpoint: true
+      },
       estat: 'publicat'
     },
     {
@@ -88,6 +108,12 @@ window.CURS = {
       desc: 'while i for, comptadors, acumuladors, condicions d\'eixida i com evitar el temut bucle infinit.',
       continguts: ['while', 'for', 'Comptadors', 'Acumuladors', 'Bucles infinits'],
       prereq: 'Temes 1 i 2: variables i condicions.',
+      recursos: {
+        web: true,
+        solucions: true,
+        autoavaluacio: true,
+        powerpoint: true
+      },
       estat: 'publicat'
     },
     {
@@ -101,6 +127,12 @@ window.CURS = {
       desc: 'Arrays, índexs, recórrer dades amb bucles, buscar, comptar, sumar i traure màxims i mínims.',
       continguts: ['Crear arrays', 'Índexs', 'Recórrer amb for', 'Sumar i comptar', 'Màxim i mínim'],
       prereq: 'Tema 3: bucles.',
+      recursos: {
+        web: true,
+        solucions: true,
+        autoavaluacio: true,
+        powerpoint: true
+      },
       estat: 'publicat'
     },
     {
@@ -114,6 +146,12 @@ window.CURS = {
       desc: 'Crear mètodes, passar paràmetres, retornar valors i descompondre un problema gran en funcions xicotetes.',
       continguts: ['Què és un mètode', 'Paràmetres', 'return', 'void', 'Reutilització'],
       prereq: 'Temes 1 a 4. És el pas previ obligatori abans dels objectes.',
+      recursos: {
+        web: true,
+        solucions: true,
+        autoavaluacio: true,
+        powerpoint: true
+      },
       estat: 'publicat'
     },
     {
@@ -127,6 +165,12 @@ window.CURS = {
       desc: 'Què és una classe i què és un objecte, atributs, mètodes, constructors i diversos objectes de la mateixa classe.',
       continguts: ['Classe i objecte', 'Atributs', 'Mètodes de la classe', 'Constructors', 'Diversos objectes'],
       prereq: 'Temes 1 a 5, especialment mètodes. No s\'introduïx abans.',
+      recursos: {
+        web: true,
+        solucions: true,
+        autoavaluacio: true,
+        powerpoint: true
+      },
       estat: 'publicat'
     },
     {
@@ -140,6 +184,12 @@ window.CURS = {
       desc: 'Un projecte que creix pas a pas: entendre el problema, dividir-lo, programar cada part, provar-la i millorar-la.',
       continguts: ['Analitzar el problema', 'Dividir en parts', 'Programar', 'Provar', 'Millorar'],
       prereq: 'Tot el curs fins ací: variables, decisions, bucles, arrays, mètodes i objectes.',
+      recursos: {
+        web: true,
+        solucions: true,
+        autoavaluacio: true,
+        powerpoint: true
+      },
       estat: 'publicat'
     },
     {
@@ -153,6 +203,12 @@ window.CURS = {
       desc: 'Utilitzar la IA per generar, explicar, depurar i millorar codi… sabent sempre què fa el programa i per què.',
       continguts: ['Prompts útils', 'Explicar errors', 'Generar tests', 'Refactoritzar', 'Detectar errors de la IA'],
       prereq: 'Temes 1 a 7: cal entendre el codi per poder revisar-lo.',
+      recursos: {
+        web: true,
+        solucions: true,
+        autoavaluacio: true,
+        powerpoint: true
+      },
       estat: 'publicat'
     },
     {
@@ -166,6 +222,12 @@ window.CURS = {
       desc: 'IA, aplicacions web i mòbils, APIs, IoT, robòtica, ciberseguretat, videojocs, núvol i agents d\'IA… sense perdre els fonaments.',
       continguts: ['IA i agents', 'Web i mòbil', 'APIs i IoT', 'Ciberseguretat', 'Núvol i dades'],
       prereq: 'Tot el curs. És la sessió que obri portes.',
+      recursos: {
+        web: true,
+        solucions: true,
+        autoavaluacio: true,
+        powerpoint: true
+      },
       estat: 'publicat'
     }
   ]

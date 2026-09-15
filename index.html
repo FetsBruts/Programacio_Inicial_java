@@ -220,12 +220,13 @@
         <!-- Les targetes dels temes es generen automàticament des de assets/js/dades-curs.js -->
       </div>
 
-      <div class="nota nota--avis">
-        <span class="nota__icona" aria-hidden="true">⚠️</span>
+      <div class="nota nota--exit">
+        <span class="nota__icona" aria-hidden="true">✅</span>
         <div>
-          <p><strong>Els temes es publiquen d'un en un.</strong> Cada tema s'afegirà a este mapa
-          quan el seu material complet estiga llest (pàgina web, exercicis, solucions, autoavaluació
-          i presentació de classe). Les targetes que posen «En preparació» encara no tenen pàgina.</p>
+          <p><strong>El curs està complet.</strong> Els deu temes estan publicats amb el material
+          sencer cada un: pàgina web per estudiar, exercicis amb solució, reptes oberts,
+          autoavaluació de nou preguntes, manual per a imprimir en PDF i presentació per a classe.
+          Si en el futur s'afig un tema nou, apareixerà automàticament en este mapa.</p>
         </div>
       </div>
     </div>
@@ -546,7 +547,7 @@ java HolaMon         // executa el programa a la màquina virtual</code></pre>
       <h2>Estat del material del curs</h2>
       <p class="entradeta">
         Cada tema es publica complet (pàgina web, exercicis amb solució, autoavaluació,
-        PDF i PowerPoint). Ací pots vore què està llest i què falta.
+        PDF i PowerPoint). Ací tens el resum de què inclou cada un.
       </p>
 
       <div class="taula-embolcall">
@@ -571,8 +572,9 @@ java HolaMon         // executa el programa a la màquina virtual</code></pre>
         <div>
           <p>Llevant de l'estructura, este repositori conté el <strong>motor comú</strong>:
           full d'estil, plantilla de tema, generador de PowerPoint, manual imprimible i la
-          guia didàctica per al professorat. Els temes s'afegixen damunt d'esta base,
-          un a un, per orde.</p>
+          guia didàctica per al professorat. Cada tema s'escriu una sola volta com a dades
+          (<code>eines/contingut/temaN.js</code>) i el generador en produïx la pàgina i les
+          diapositives, de manera que tots els temes compartixen la mateixa estructura.</p>
         </div>
       </div>
     </div>

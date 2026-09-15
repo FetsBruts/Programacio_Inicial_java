@@ -58,9 +58,17 @@
   }
 
   /* -------------------------------------- 2. TAULA D'ESTAT DEL MATERIAL */
+  /* Cada tema declara què té llest en  recursos: { web, solucions,
+     autoavaluacio, powerpoint } . Si no ho declara, s'assumix que tot el
+     que va amb la pàgina està llest quan el tema està publicat. */
   function construeixEstat() {
     const cos = $('#taula-estat tbody');
     if (!cos) return;
+    const llest = function (tema, clau) {
+      const r = tema.recursos;
+      if (r && typeof r[clau] === 'boolean') return r[clau];
+      return !!tema.fitxer;
+    };
     DADES.temes.forEach(function (tema) {
       const fila = document.createElement('tr');
       const marca = function (si) {
@@ -71,10 +79,10 @@
       fila.innerHTML =
         '<td><strong>Tema ' + tema.n + '</strong><br><span class="text-suau" style="font-size:.85rem">' +
         tema.titol + '</span></td>' +
-        '<td>' + marca(!!tema.fitxer) + '</td>' +
-        '<td>' + marca(false) + '</td>' +
-        '<td>' + marca(false) + '</td>' +
-        '<td>' + marca(false) + '</td>';
+        '<td>' + marca(llest(tema, 'web') && !!tema.fitxer) + '</td>' +
+        '<td>' + marca(llest(tema, 'solucions')) + '</td>' +
+        '<td>' + marca(llest(tema, 'autoavaluacio')) + '</td>' +
+        '<td>' + marca(llest(tema, 'powerpoint')) + '</td>';
       cos.appendChild(fila);
     });
   }

@@ -76,6 +76,18 @@ async function provaIndex() {
   ok(temes === 10, 'dades-curs.js definix 10 temes (' + temes + ')');
   ok(d.querySelectorAll('#mapa-temes .targeta-tema').length === 10, 'mapa del curs: 10 targetes');
   ok(d.querySelectorAll('#taula-estat tbody tr').length === 10, 'taula d\'estat: 10 files');
+  const pendents = [...d.querySelectorAll('#taula-estat tbody tr')].filter((fila) => {
+    const tema = d.querySelectorAll('#taula-estat tbody tr').length
+      ? Number((fila.textContent.match(/Tema (\d)/) || [])[1])
+      : -1;
+    const dades = (dom.window.CURS.temes || []).find((t) => t.n === tema) || {};
+    if (!dades.recursos) return false;
+    const r = dades.recursos;
+    const esperats = [!!dades.fitxer, r.solucions, r.autoavaluacio, r.powerpoint];
+    const marques = [...fila.querySelectorAll('td')].slice(1).map((td) => td.textContent.trim() === 'Sí');
+    return esperats.some((esperat, i) => esperat !== marques[i]);
+  }).length;
+  ok(pendents === 0, 'taula d\'estat coherent amb les dades del curs');
   ok(d.querySelectorAll('pre.codi code[data-resaltat]').length > 0, 'blocs de codi processats');
   ok([...d.querySelectorAll('.panel-pestanya')].filter((p) => !p.hidden).length === 1, 'pestanyes: només 1 panell obert');
   const text = d.body.textContent;
