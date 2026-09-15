@@ -4,6 +4,22 @@
    · sortida = eixida real (es comprova amb  node eines/prova-codi-java.mjs 7 )
    · entrada = dades que s'envien per teclat als programes amb Scanner
    ========================================================================== */
+/* La classe Jugador del tema: els blocs que la necessiten la declaren com a
+   fitxer acompanyant («fitxers») perquè la comprovació automàtica puga
+   compilar-los i executar-los. No es mostra a la pàgina: en la pàgina la
+   classe s'explica pas a pas a la programació guiada. */
+const JUGADOR = {
+  titol: 'Jugador.java',
+  text: `public class Jugador {
+    String nom;
+    int punts;
+
+    public String text() {
+        return nom + ": " + punts + " punts";
+    }
+}`
+};
+
 globalThis.TEMA = {
   n: 7,
   titol: 'Construir un programa complet',
@@ -30,7 +46,6 @@ globalThis.TEMA = {
       { codi: {
         titol: 'Torneig.java',
         etiqueta: 'TOT DE COLP',
-        noExecuta: true,
         text: `public class Torneig {
     public static void main(String[] args) {
         String jugador1 = "Ana";   int punts1 = 120;
@@ -48,7 +63,12 @@ globalThis.TEMA = {
 
         // encara falten: afegir punts, buscar un jugador, ordenar...
     }
-}`
+}`,
+        sortida: `Ana - 120
+Bruno - 95
+Carla - 180
+Total: 395
+Millor: 180`
       } },
       { p: 'El programa funciona… però no creix. Si un dia volem **40 jugadors**, caldria reescriure\'l tot. I quan falla alguna cosa, no sabem **per on començar a buscar**.' },
       { p: 'La setmana passada vam aprendre a fer peces (mètodes i objectes). Hui aprenem el que de veritat fa un programador: **dividir el problema, construir el programa per etapes i provar cada etapa**.' },
@@ -122,11 +142,12 @@ globalThis.TEMA = {
       { codi: {
         titol: 'Decisio.java',
         etiqueta: 'LA DECISIÓ',
+        noExecuta: true,
         text: `Jugador[] jugadors = new Jugador[4];   // molts elements, cadascun amb dades distintes
 int total = 0;                          // un sol número que va sumant
-String nomBuscat = "Ana";               // un text per buscar`,
-        sortida: 'Decisió presa: array d\'objectes, un acumulador i un text.'
+String nomBuscat = "Ana";               // un text per buscar`
       } },
+      { p: '**Decisió presa abans d\'escriure codi:** un array d\'objectes per als jugadors, un número que acumula i un text per buscar. Estes tres línies no són un programa encara: són la **llista de les dades** que farà servir.' },
       { p: 'Si t\'equivoques de dades t\'equivoques de programa: si guardes els punts en 40 variables, els bucles i els mètodes no es podran escriure. **Primer les dades, després el codi.**' },
 
       { h3: '4. L\'esquelet: escriure el programa buit' },
@@ -134,6 +155,7 @@ String nomBuscat = "Ana";               // un text per buscar`,
       { codi: {
         titol: 'Torneig.java',
         etiqueta: 'ESQUELET',
+        fitxers: [JUGADOR],
         text: `public class Torneig {
 
     public static void mostrarTots(Jugador[] jugadors) {
@@ -182,7 +204,7 @@ String nomBuscat = "Ana";               // un text per buscar`,
       { codi: {
         titol: 'Menu.java',
         etiqueta: 'BUCLE PRINCIPAL',
-        entrada: '2\n3\n0\n',
+        entrada: '1\n2\n3\n0\n',
         text: `import java.util.Scanner;
 
 public class Menu {
@@ -503,6 +525,7 @@ No hi ha cap producte que es diga Impressora`
           { codi: {
             titol: 'Torneig.java',
             etiqueta: 'PAS 3 · ESQUELET',
+            fitxers: [JUGADOR],
             text: `public class Torneig {
 
     public static void mostrarTots(Jugador[] jugadors) {
@@ -533,6 +556,7 @@ No hi ha cap producte que es diga Impressora`
           { codi: {
             titol: 'Torneig.java',
             etiqueta: 'PAS 4 · PRIMERA PART',
+            fitxers: [JUGADOR],
             text: `public class Torneig {
 
     public static void mostrarTots(Jugador[] jugadors) {
@@ -571,6 +595,7 @@ No hi ha cap producte que es diga Impressora`
           { codi: {
             titol: 'Torneig.java',
             etiqueta: 'PAS 5 · CÀLCULS',
+            fitxers: [JUGADOR],
             text: `    public static int totalPunts(Jugador[] jugadors) {
         int total = 0;
         for (int i = 0; i < jugadors.length; i++) {
@@ -605,6 +630,7 @@ No hi ha cap producte que es diga Impressora`
           { codi: {
             titol: 'Torneig.java',
             etiqueta: 'PAS 6 · BUSCAR I AFEGIR',
+            fitxers: [JUGADOR],
             text: `    public static int buscar(Jugador[] jugadors, String nom) {
         for (int i = 0; i < jugadors.length; i++) {
             if (jugadors[i] != null && jugadors[i].nom.equals(nom)) {
@@ -636,6 +662,7 @@ No hi ha cap jugador que es diga Zeus`
           { codi: {
             titol: 'Torneig.java',
             etiqueta: 'PAS 7 · MENÚ',
+            fitxers: [JUGADOR],
             text: `    public static void main(String[] args) {
         Scanner teclat = new Scanner(System.in);
         Jugador[] jugadors = new Jugador[4];
@@ -789,7 +816,18 @@ La més alta: 0.0`,
         },
         solucio: {
           titol: 'Prediccio.java',
-          text: `System.out.println(a);   // mostra 5`,
+          text: `public class Prediccio {
+
+    public static void canvia(int x) {
+        x = x + 100;          // canvia la CÒPIA, no la variable original
+    }
+
+    public static void main(String[] args) {
+        int a = 5;
+        canvia(a);
+        System.out.println(a);   // mostra 5
+    }
+}`,
           sortida: '5',
           perque: 'Dins del mètode, `x` és **una còpia** del valor: canviar-la no canvia `a`. Si volem que el canvi isca fora, el mètode ha de **tornar** el valor: `a = canvia(a);`.'
         },
@@ -924,7 +962,7 @@ Aprovats: 4`,
         enunciat: 'Crea la classe `Mobil` amb `model` (String), `preu` (double) i `unitats` (int). Després fes un programa amb un array de 4 mòbils que mostre el valor de l\'estoc, diga quin és el mòbil més car i permeta buscar per model (dient clarament si no el troba).',
         exemple: {
           entrada: `Models: Pixel 8 (499 €, 3), Galaxy A55 (349 €, 5), iPhone 15 (909 €, 2), Nothing Phone (429 €, 4)`,
-          sortida: `Valor de l'estoc: 6089.0 €
+          sortida: `Valor de l'estoc: 6776.0 €
 El més car: iPhone 15 (909.0 €)
 Trobat: Galaxy A55 a 349.0 €
 No hi ha cap mòbil que es diga Nokia`
@@ -1000,7 +1038,7 @@ public class Botiga {
 Galaxy A55 · 349.0 € · 5 unitats
 iPhone 15 · 909.0 € · 2 unitats
 Nothing Phone · 429.0 € · 4 unitats
-Valor de l'estoc: 6089.0 €
+Valor de l'estoc: 6776.0 €
 El més car: iPhone 15 (909.0 €)
 Trobat: Galaxy A55 a 349.0 €
 No hi ha cap mòbil que es diga Nokia`,

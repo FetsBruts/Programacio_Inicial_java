@@ -53,5 +53,51 @@ jobs:
       - name: Pàgines dels temes i diapositives
         run: npm run prova:pagines
 
-      - name: Compila, executa i compara les eixides
-        run: node eines/prova-codi-java.mjs --anotacions
+      # Es comprova tema a tema: així cada tema té el seu espai d'anotacions
+      # i es veu d'un colp en quin tema està el problema.
+      - name: Compila, executa i compara (tema 0)
+        continue-on-error: true
+        run: node eines/prova-codi-java.mjs 0 --anotacions
+
+      - name: Compila, executa i compara (tema 1)
+        continue-on-error: true
+        run: node eines/prova-codi-java.mjs 1 --anotacions
+
+      - name: Compila, executa i compara (tema 2)
+        continue-on-error: true
+        run: node eines/prova-codi-java.mjs 2 --anotacions
+
+      - name: Compila, executa i compara (tema 3)
+        continue-on-error: true
+        run: node eines/prova-codi-java.mjs 3 --anotacions
+
+      - name: Compila, executa i compara (tema 4)
+        continue-on-error: true
+        run: node eines/prova-codi-java.mjs 4 --anotacions
+
+      - name: Compila, executa i compara (tema 5)
+        continue-on-error: true
+        run: node eines/prova-codi-java.mjs 5 --anotacions
+
+      - name: Compila, executa i compara (tema 6)
+        continue-on-error: true
+        run: node eines/prova-codi-java.mjs 6 --anotacions
+
+      - name: Compila, executa i compara (tema 7)
+        continue-on-error: true
+        run: node eines/prova-codi-java.mjs 7 --anotacions
+
+      - name: Compila, executa i compara (tema 8)
+        continue-on-error: true
+        run: node eines/prova-codi-java.mjs 8 --anotacions
+
+      - name: Compila, executa i compara (tema 9)
+        continue-on-error: true
+        run: node eines/prova-codi-java.mjs 9 --anotacions
+
+      - name: Tots els temes amb l'eixida correcta?
+        run: |
+          if [ "${{ job.status }}" != "success" ]; then
+            echo "::error::Hi ha temes amb eixides que no coincidixen. Mira les anotacions de cada pas (columna «Annotations»)."
+            exit 1
+          fi

@@ -88,7 +88,12 @@ function afigCodi(bloc, context) {
     titol: bloc.titol || 'Codi',
     text: bloc.text,
     sortida: bloc.sortida,
-    entrada: bloc.entrada
+    entrada: bloc.entrada,
+    /* Classes auxiliars que el bloc necessita per compilar (per exemple la
+       classe Jugador que s'ha explicat uns paràgrafs abans). Van al fitxer
+       de contingut com a  fitxers: [{ titol, text }]  i NO es mostren a la
+       pàgina: només servixen perquè la comprovació siga completa. */
+    fitxers: bloc.fitxers || []
   });
 }
 
@@ -120,11 +125,28 @@ function nomDeClasse(codi) {
   return m ? m[1] : null;
 }
 
-/** Si el bloc és un fragment, l'embolcallem per poder executar-lo. */
+/**
+ * Prepara un bloc perquè es puga compilar:
+ *   · si ja és una classe completa → tal qual;
+ *   · si és un fragment amb mètodes → dins del cos d'una classe;
+ *   · si és un fragment d'instruccions → dins d'un main.
+ * Els `import` sempre van damunt de tot (si no, no compila).
+ */
 function programaComplet(codi) {
   if (nomDeClasse(codi)) return { codi, classe: nomDeClasse(codi) };
-  const cos = codi.split('\n').map((l) => '        ' + l).join('\n');
-  return { codi: `public class Prova {\n    public static void main(String[] args) {\n${cos}\n    }\n}`, classe: 'Prova' };
+
+  const linies = codi.split('\n');
+  const imports = linies.filter((l) => /^\s*import\s/.test(l));
+  const cos = linies.filter((l) => !/^\s*import\s/.test(l)).join('\n').trim();
+  const cap = imports.length ? imports.join('\n') + '\n\n' : '';
+
+  const declaraMetode = /^\s*(public|private|protected|static|final|abstract)[\w\s<>\[\]]*\([^)]*\)\s*\{/m.test(cos);
+  if (declaraMetode) {
+    const dins = cos.split('\n').map((l) => '    ' + l).join('\n');
+    return { codi: `${cap}public class Prova {\n${dins}\n}`, classe: 'Prova' };
+  }
+  const dins = cos.split('\n').map((l) => '        ' + l).join('\n');
+  return { codi: `${cap}public class Prova {\n    public static void main(String[] args) {\n${dins}\n    }\n}`, classe: 'Prova' };
 }
 
 function compilaIExecuta(bloc) {
@@ -133,12 +155,21 @@ function compilaIExecuta(bloc) {
     const { codi, classe } = programaComplet(bloc.text);
     fs.writeFileSync(path.join(dir, classe + '.java'), codi);
 
+    /* Classes auxiliars (Jugador.java, etc.) */
+    (bloc.fitxers || []).forEach((aux) => {
+      if (aux && aux.text) {
+        const nom = (aux.titol || 'Auxiliar.java').replace(/\.java$/i, '') + '.java';
+        fs.writeFileSync(path.join(dir, nom), aux.text);
+      }
+    });
+
     /* Compilació */
+    const fonts = fs.readdirSync(dir).filter((f) => f.endsWith('.java')).map((f) => path.join(dir, f));
     if (JAVAC) {
-      const r = spawnSync(JAVAC, ['-encoding', 'UTF-8', '-d', dir, path.join(dir, classe + '.java')], { encoding: 'utf8' });
+      const r = spawnSync(JAVAC, ['-encoding', 'UTF-8', '-d', dir, ...fonts], { encoding: 'utf8' });
       if (r.status !== 0) return { error: 'compilació: ' + (r.stderr || r.stdout || '').split('\n').slice(0, 4).join(' ') };
     } else {
-      const r = spawnSync(JAVA, ['-cp', ECJ, 'org.eclipse.jdt.internal.compiler.batch.Main', '-encoding', 'UTF-8', '-source', '21', '-d', dir, path.join(dir, classe + '.java')], { encoding: 'utf8' });
+      const r = spawnSync(JAVA, ['-cp', ECJ, 'org.eclipse.jdt.internal.compiler.batch.Main', '-encoding', 'UTF-8', '-source', '21', '-d', dir, ...fonts], { encoding: 'utf8' });
       if (r.status !== 0) return { error: 'compilació: ' + (r.stderr || r.stdout || '').split('\n').slice(0, 4).join(' ') };
     }
 

@@ -136,6 +136,14 @@
                   // encara falten: afegir punts, buscar un jugador, ordenar...
               }
           }</code></pre>
+                    <div class="consola">
+                      <span class="consola__titol">Eixida per pantalla</span>
+                      <pre>Ana - 120
+          Bruno - 95
+          Carla - 180
+          Total: 395
+          Millor: 180</pre>
+                    </div>
           <p>El programa funciona… però no creix. Si un dia volem <strong>40 jugadors</strong>, caldria reescriure'l tot. I quan falla alguna cosa, no sabem <strong>per on començar a buscar</strong>.</p>
           <p>La setmana passada vam aprendre a fer peces (mètodes i objectes). Hui aprenem el que de veritat fa un programador: <strong>dividir el problema, construir el programa per etapes i provar cada etapa</strong>.</p>
           <p>No hi ha codi nou que aprendre hui. El que hi ha és una manera de treballar: si l'apliques, podràs fer programes tan grans com vullgues.</p>
@@ -242,10 +250,7 @@
         <pre class="codi" data-titol="Decisio.java" data-etiqueta="LA DECISIÓ"><code>Jugador[] jugadors = new Jugador[4];   // molts elements, cadascun amb dades distintes
         int total = 0;                          // un sol número que va sumant
         String nomBuscat = "Ana";               // un text per buscar</code></pre>
-                  <div class="consola">
-                    <span class="consola__titol">Eixida per pantalla</span>
-                    <pre>Decisió presa: array d'objectes, un acumulador i un text.</pre>
-                  </div>
+        <p><strong>Decisió presa abans d'escriure codi:</strong> un array d'objectes per als jugadors, un número que acumula i un text per buscar. Estes tres línies no són un programa encara: són la <strong>llista de les dades</strong> que farà servir.</p>
         <p>Si t'equivoques de dades t'equivoques de programa: si guardes els punts en 40 variables, els bucles i els mètodes no es podran escriure. <strong>Primer les dades, després el codi.</strong></p>
         <h3>4. L'esquelet: escriure el programa buit</h3>
         <p>S'escriuen les capçaleres dels mètodes amb el seu tipus de retorn i, dins, una resposta provisional. El programa <strong>ha de compilar i executar-se</strong> encara que no faça res de profit.</p>
@@ -975,7 +980,18 @@ La més alta: 0.0</pre>
           <div class="pista" id="pista-mini7-5" hidden><p><strong>Pista:</strong> Què li arriba al mètode: la variable o una còpia del seu valor?</p></div>
           <div class="solucio" id="sol-mini7-5" hidden>
             <span class="solucio__etiqueta">Solució proposada</span>
-            <pre class="codi" data-titol="Prediccio.java" data-etiqueta="SOLUCIÓ"><code>System.out.println(a);   // mostra 5</code></pre>
+            <pre class="codi" data-titol="Prediccio.java" data-etiqueta="SOLUCIÓ"><code>public class Prediccio {
+
+    public static void canvia(int x) {
+        x = x + 100;          // canvia la CÒPIA, no la variable original
+    }
+
+    public static void main(String[] args) {
+        int a = 5;
+        canvia(a);
+        System.out.println(a);   // mostra 5
+    }
+}</code></pre>
           <div class="consola">
             <span class="consola__titol">Eixida per pantalla</span>
             <pre>5</pre>
@@ -1159,7 +1175,7 @@ Aprovats: 4</pre>
           </div>
           <div class="consola">
             <span class="consola__titol">Què ha d'aparéixer</span>
-            <pre>Valor de l'estoc: 6089.0 €
+            <pre>Valor de l'estoc: 6776.0 €
 El més car: iPhone 15 (909.0 €)
 Trobat: Galaxy A55 a 349.0 €
 No hi ha cap mòbil que es diga Nokia</pre>
@@ -1243,7 +1259,7 @@ public class Botiga {
 Galaxy A55 · 349.0 € · 5 unitats
 iPhone 15 · 909.0 € · 2 unitats
 Nothing Phone · 429.0 € · 4 unitats
-Valor de l'estoc: 6089.0 €
+Valor de l'estoc: 6776.0 €
 El més car: iPhone 15 (909.0 €)
 Trobat: Galaxy A55 a 349.0 €
 No hi ha cap mòbil que es diga Nokia</pre>
